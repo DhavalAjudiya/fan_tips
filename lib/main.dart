@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: SplashScreen.routeName,
-            page: () => SplashScreen(),
+            page: () => const SplashScreen(),
             transition: Transition.rightToLeft),
       ],
     );
