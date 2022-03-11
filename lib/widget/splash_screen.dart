@@ -20,11 +20,11 @@ class SplashScreen extends StatelessWidget {
 
   Widget _splashScreenImage() {
     return AppContainer(
-      height: 23.h,
-      image: DecorationImage(
-        image: AssetImage(
-          ImagesAsset.splashScreen,
-        ),
+      height: 100.h,
+      width: double.infinity,
+      image: const DecorationImage(
+        image: AssetImage("assets/image/splash_screen.png"),
+        fit: BoxFit.cover,
       ),
     );
   }
