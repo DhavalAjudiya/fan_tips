@@ -7,7 +7,12 @@ class Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [],
+        children: [
+          Text(
+            "hello",
+            style: TextStyle(color: Colors.red),
+          )
+        ],
       ),
     );
   }
