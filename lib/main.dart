@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'widget/pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -29,6 +30,11 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: SplashScreen.routeName,
               page: () => SplashScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: PageViewScreen.routeName,
+              page: () => PageViewScreen(),
               transition: Transition.rightToLeft,
             ),
           ],
