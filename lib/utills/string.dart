@@ -1,4 +1,5 @@
 class AppString {
+  /// home screen text
   static const fanTips = "FanTips";
   static const logIn = "Login";
   static const matchesForYou = "Matches for you";
@@ -6,6 +7,27 @@ class AppString {
   static const featuredExperts = "Featured Experts";
   static const topStories = "Top Stories";
   static const viewAll = "View All";
+  static const t20Predictions = "T20 Predictions";
+  static const predictions = "Predictions";
+  static const subscriber = "50.9K subscribers";
+  static const averageScore = "Average Score";
+  static const wins = "Wins";
+
+  ///
+  static const String predictionExpert = "Prediction Expert";
+  static const String sortByAvgScore = "Sort by : Avg Score";
+  static const String login = "Login";
+
+  /// current matchs
+  static const title = "Current Matches";
+  static const upcoming = "UpComing";
+  static const live = "Live";
+  static const completed = "Completed";
+  static const tomorrow = "Tomorrow, 15 May";
+  static const yesterday = "yesterday, 13 May";
+  static const letsconnect = "LET'S CONNECT";
+  static const imageNotFound =
+      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 
   /// splash screen
   static const String solution = "One Stop Solution";
@@ -18,10 +40,8 @@ class AppString {
   static const String name = "name";
 
   ///Prediction Expert
-  static const String wins = "Wins";
+
   static const String predictionExperts = "Prediction Experts";
-  static const String sortByAvgScore = "Sort by : Avg Score";
   static const String sortBy = "Sort By";
-  static const String averageScore = "Average-Score";
-  static const String predictions = "Predictions";
+
 }

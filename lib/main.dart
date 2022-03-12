@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'bottomBar/bottomNaviBar.dart';
+import 'homeScreen/screen/homePage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/homePage.dart';
 import 'pageView/page_view.dart';
@@ -53,8 +54,13 @@ class MyApp extends StatelessWidget {
               transition: Transition.rightToLeft,
             ),
             GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
               name: ExpertScreen.routeName,
-              page: () => ExpertScreen(),
+              page: () => const ExpertScreen(),
               transition: Transition.rightToLeft,
             ),
           ],
@@ -66,5 +72,9 @@ class MyApp extends StatelessWidget {
 
 class AppBiding implements Bindings {
   @override
-  void dependencies() {}
+  void dependencies() {
+    Get.put(
+      SplashController(),
+    );
+  }
 }
