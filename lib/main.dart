@@ -3,6 +3,7 @@ import 'package:fantips/homeScreen/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'expert/screen.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -44,6 +45,8 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: HomeScreen.routeName,
               page: () => HomeScreen(),
+              name: ExpertScreen.routeName,
+              page: () => const ExpertScreen(),
               transition: Transition.rightToLeft,
             ),
           ],

@@ -6,4 +6,6 @@ class AppString {
   static const featuredExperts = "Featured Experts";
   static const topStories = "Top Stories";
   static const viewAll = "View All";
+  static const String predictionExpert = "Prediction Expert";
+  static const String sortByAvgScore = "Sort by : Avg Score";
 }
