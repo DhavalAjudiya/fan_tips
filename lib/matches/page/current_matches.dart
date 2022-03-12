@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../utills/string.dart';
 import 'matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
@@ -22,10 +23,10 @@ class MatchesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Text(
-              //   AppString.title,
-              //   style: AppStyle.current,
-              // ),
+              Text(
+                AppString.title,
+                // style: AppStyle.current,
+              ),
               SizedBox(height: 2.h),
               TabBar(
                 unselectedLabelColor: Colors.white,
@@ -37,20 +38,20 @@ class MatchesScreen extends StatelessWidget {
                 controller: _homecontroller.tabController,
                 tabs: [
                   Tab(
-                      // child: Text(
-                      //   AppString.upcoming,
-                      // ),
-                      ),
+                    child: Text(
+                      AppString.upcoming,
+                    ),
+                  ),
                   Tab(
-                      // child: Text(
-                      //   AppString.live,
-                      // ),
-                      ),
+                    child: Text(
+                      AppString.live,
+                    ),
+                  ),
                   Tab(
-                      // child: Text(
-                      //   AppString.completed,
-                      // ),
-                      ),
+                    child: Text(
+                      AppString.completed,
+                    ),
+                  ),
                 ],
               ),
               Expanded(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../utills/string.dart';
 import '../page/matchs_controller.dart';
 
 class UpComing extends StatelessWidget {
@@ -15,10 +16,10 @@ class UpComing extends StatelessWidget {
         SizedBox(
           height: 2.h,
         ),
-        // Text(
-        //   AppString.tomorrow,
-        //   style: AppStyle.tomorrow,
-        // ),
+        Text(
+          AppString.tomorrow,
+          // style: AppStyle.tomorrow,
+        ),
         SizedBox(
           height: 1.h,
         ),
