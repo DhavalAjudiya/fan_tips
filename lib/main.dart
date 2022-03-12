@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'expert/screen.dart';
 import 'homeScreen/homePage.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: SplashScreen.routeName,
+          initialRoute: T20Prediction.routeName,
           getPages: [
             GetPage(
               name: SplashScreen.routeName,
@@ -55,6 +56,11 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: ExpertScreen.routeName,
               page: () => const ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: T20Prediction.routeName,
+              page: () => T20Prediction(),
               transition: Transition.rightToLeft,
             ),
           ],

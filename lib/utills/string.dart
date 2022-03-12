@@ -18,4 +18,20 @@ class AppString {
   static const String mindset = "Mindset";
   static const String image = "image";
   static const String name = "name";
+
+  /// T20 Prediction
+  static const String t20 = "T20 Predictions";
+  static const String info = "Info";
+  static const String matches = "Matches";
+  static const String t = "T20";
+  static const String youTub = "YouTube";
+  static const String viewChannel = "View Channel";
+  static const String predictionNum = "120";
+  static const String prediction = "Predictions";
+  static const String avgNum = "429";
+  static const String avgScore = "Avg.Score";
+  static const String winNum = "429";
+  static const String wins = "Wins";
+  static const String subscribersNum = "50.8K";
+  static const String subscribers = "Subscribers";
 }

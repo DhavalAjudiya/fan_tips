@@ -1,4 +1,4 @@
-import 'package:fantips/widget/customContainer/custom_container.dart';
+import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -18,15 +18,18 @@ class SplashScreen extends StatelessWidget {
             child: AppContainer(
               height: 100.h,
               width: double.infinity,
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage(AppImage.splashScreen),
                 fit: BoxFit.fill,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  _splashController.spinkit,
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    _splashController.spinkit,
+                  ],
+                ),
               ),
             ),
           ),

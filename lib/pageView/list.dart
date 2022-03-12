@@ -1,8 +1,7 @@
 import 'package:fantips/utills/asset.dart';
 import 'package:fantips/utills/string.dart';
-import 'package:flutter/cupertino.dart';
 
-class Foodie {
+class PageScroll {
   List<Map> categori = [
     {
       "image": AppImage.solution,
@@ -15,7 +14,6 @@ class Foodie {
     {
       "image": AppImage.mindset,
       "name": AppString.mindset,
-      "next": AppString.next,
     },
   ];
 }

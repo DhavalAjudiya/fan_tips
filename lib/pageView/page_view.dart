@@ -1,6 +1,5 @@
 import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/customContainer/custom_container.dart';
-import 'package:fantips/widget/customText/custom_text.dart';
+import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -8,6 +7,7 @@ import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
 import '../bottomBar/bottomNaviBar.dart';
+import '../commanWidget/commanText.dart';
 import 'list.dart';
 
 class PageViewScreen extends StatefulWidget {
@@ -18,9 +18,10 @@ class PageViewScreen extends StatefulWidget {
 }
 
 class _PageViewScreenState extends State<PageViewScreen> {
-  Foodie foodie = Foodie();
-  final _pageController = PageController(initialPage: 3);
-  final _currentPageNotifier = ValueNotifier(3);
+  PageScroll foodie = PageScroll();
+  final _pageController = PageController(initialPage: 1);
+  final _currentPageNotifier = ValueNotifier(0);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +40,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   height: 7.h,
                   width: double.infinity,
                   color: AppColor.green,
-                  child: Center(
-                    child: AppText(
-                      data: AppString.next,
+                  child: const Center(
+                    child: CustomeText(
+                      title: AppString.next,
                       color: AppColor.white,
                     ),
                   ),
@@ -62,61 +63,59 @@ class _PageViewScreenState extends State<PageViewScreen> {
   Widget _buildPageView() {
     return Expanded(
       child: PageView.builder(
-        itemCount: 3,
+        itemCount: foodie.categori.length,
         controller: _pageController,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
-            child: Container(
-              child: Column(
-                children: [
-                  AppContainer(
-                    gradient: LinearGradient(
-                      end: Alignment(0.7, 0.9),
-                      colors: <Color>[AppColor.white, AppColor.lightGreen],
+            child: Column(
+              children: [
+                AppContainer(
+                  gradient: const LinearGradient(
+                    end: Alignment(0.7, 0.9),
+                    colors: <Color>[AppColor.white, AppColor.lightGreen],
+                  ),
+                  height: 30.h,
+                  width: 60.w,
+                  borderRadius: BorderRadius.circular(80),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: SvgPicture.asset(
+                        "${foodie.categori[index][AppString.image]}"),
+                  ),
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                CustomeText(
+                  title: "${foodie.categori[index][AppString.name]}",
+                  fontSize: 3.5.h,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Column(
+                  children: [
+                    CustomeText(
+                      title: AppString.reading,
+                      fontSize: 2.h,
+                      color: AppColor.grey,
+                      fontWeight: FontWeight.bold,
                     ),
-                    height: 30.h,
-                    width: 60.w,
-                    borderRadius: BorderRadius.circular(80),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: SvgPicture.asset(
-                          "${foodie.categori[index][AppString.image]}"),
+                    CustomeText(
+                      title: AppString.fantasy,
+                      fontSize: 2.h,
+                      color: AppColor.grey,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  AppText(
-                    data: "${foodie.categori[index][AppString.name]}",
-                    fontSize: 3.5.h,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Column(
-                    children: [
-                      AppText(
-                        data: AppString.reading,
-                        fontSize: 2.h,
-                        color: AppColor.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      AppText(
-                        data: AppString.fantasy,
-                        fontSize: 2.h,
-                        color: AppColor.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           );
         },
-        onPageChanged: (int index) {
+        onPageChanged: (index) {
           _currentPageNotifier.value = index;
         },
       ),
@@ -132,9 +131,10 @@ class _PageViewScreenState extends State<PageViewScreen> {
       dotColor: AppColor.grey,
       currentPageNotifier: _currentPageNotifier,
       size: 1.h,
-      onPageSelected: (int index) {
-        if (_currentPageNotifier.value > index)
-          _pageController.jumpToPage(index);
+      onPageSelected: (index) {
+        if (_currentPageNotifier.value > index) {
+          _pageController.keepPage;
+        }
       },
     );
   }
