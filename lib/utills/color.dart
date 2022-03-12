@@ -16,5 +16,4 @@ class AppColor {
 
   static const backgroundColorBlack = Colors.black;
   static const containerBackgroundColor = Color(0XFF1B1B1B);
-
 }

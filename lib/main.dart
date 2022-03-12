@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'bottomBar/bottomNaviBar.dart';
 import 'expert/screen.dart';
+import 'homeScreen/homePage.dart';
+import 'pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
 void main() {

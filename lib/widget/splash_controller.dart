@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
-import 'pageView/page_view.dart';
+import '../pageView/page_view.dart';
 
 class SplashController extends GetxController
     with GetSingleTickerProviderStateMixin {
