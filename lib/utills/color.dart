@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static const whiteColor = Color(0XFFFFFFFF);
   static const blackColor = Color(0XFF1B1B1B);
   static const greenColor = Color(0XFF25C06D);
   static const transparent = Colors.transparent;
@@ -14,4 +14,6 @@ class AppColor {
   static const green = Colors.green;
   static const lightGreen = Colors.lightGreen;
   static const grey = Colors.grey;
+  static const whiteColor = Color(0XFFFFFFFF);
+  static const subTitleColor = Colors.grey;
 }
