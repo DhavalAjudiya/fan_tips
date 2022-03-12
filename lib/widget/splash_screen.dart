@@ -1,4 +1,3 @@
-import 'package:fantips/utills/asset.dart';
 import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';

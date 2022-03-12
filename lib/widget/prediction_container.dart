@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 class PredictionContainer extends StatelessWidget {
   final ImageProvider? backgroundImage;
-  String haeaderText;
-  final String youtubetext;
+  String headerText;
+  final String youtubeText;
   final String predictionCount;
   final String averageCount;
   final String winsCount;
 
   PredictionContainer({
+    Key? key,
     this.backgroundImage,
-    this.haeaderText = '',
-    required this.youtubetext,
+    this.headerText = '',
+    required this.youtubeText,
     required this.predictionCount,
     required this.averageCount,
     required this.winsCount,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 14, right: 13, top: 11),
+      padding: const EdgeInsets.only(top: 10),
       child: Container(
         height: 20.h,
         decoration: BoxDecoration(
@@ -59,8 +61,8 @@ class PredictionContainer extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                haeaderText,
-                                style: TextStyle(
+                                headerText,
+                                style: const TextStyle(
                                     fontFamily: 'circular',
                                     color: Colors.white),
                               ),
@@ -68,15 +70,12 @@ class PredictionContainer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Image.asset(
-                                    "assets/font/image/youtube.png",
-                                    height: 1.h,
-                                  ),
+                                  SvgPicture.asset("assets/image/youtube.svg"),
                                   SizedBox(
                                     width: 1.w,
                                   ),
                                   Text(
-                                    youtubetext,
+                                    youtubeText,
                                     style: const TextStyle(
                                       fontFamily: 'circular',
                                       fontWeight: FontWeight.w500,
@@ -89,7 +88,7 @@ class PredictionContainer extends StatelessWidget {
                             ],
                           ),
                           SizedBox(
-                            width: 34.w,
+                            width: 52.w,
                           ),
                           IconButton(
                             splashColor: Colors.transparent,
@@ -128,12 +127,11 @@ class PredictionContainer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const VerticalDivider(color: Color(0XFF4E4E4E)),
-                  // Container(
-                  //   height: 40,
-                  //   width: 0.2.w,
-                  //   color: const Color(0XFF4E4E4E),
-                  // ),
+                  Container(
+                    height: 40,
+                    width: 0.2.w,
+                    color: const Color(0XFF4E4E4E),
+                  ),
                   Column(
                     children: [
                       Text(

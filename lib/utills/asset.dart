@@ -5,5 +5,6 @@ class AppImage {
 }
 
 class IconAsset {
-  static const String icons = 'asset/icon/';
+  static const String icons = 'assets/icons/';
+  static const String searchIcon = "$icons/search.svg";
 }
