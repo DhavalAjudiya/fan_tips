@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'widget/splash_screen.dart';
+import 'homeScreen/homePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,13 +22,20 @@ class MyApp extends StatelessWidget {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
           ),
+          darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: SplashScreen.routeName,
+          initialRoute: HomeScreen.routeName,
           getPages: [
+            // GetPage(
+            //   name: SplashScreen.routeName,
+            //   page: () => SplashScreen(),
+            //   transition: Transition.rightToLeft,
+            // ),
             GetPage(
-              name: SplashScreen.routeName,
-              page: () => SplashScreen(),
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
               transition: Transition.rightToLeft,
             ),
           ],
