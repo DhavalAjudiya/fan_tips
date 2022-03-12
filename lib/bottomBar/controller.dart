@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../expert/page/screen.dart';
 import '../homeScreen/homePage.dart';
 
 class BottomController extends GetxController {
@@ -8,7 +9,7 @@ class BottomController extends GetxController {
   final page = [
     HomeScreen(),
     // FixtureScreen(),
-    // NewsScreen(),
+    ExpertScreen(),
     // const MoreScreen(),
   ];
 }

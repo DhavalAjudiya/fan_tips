@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             children: [
                               CustomeText(
-                                title: AppString.zimbabevsAfghhanistan,
+                                title: AppString.zimbabweVsAfghanistan,
                                 color: AppColor.whiteColor,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 10.sp,

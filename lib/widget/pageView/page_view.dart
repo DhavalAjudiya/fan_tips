@@ -47,9 +47,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
             child: Column(
               children: [
                 AppContainer(
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
+                    colors: <Color>[AppColor.white, AppColor.greenColor],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -119,7 +119,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 AppContainer(
                   gradient: const LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
+                    colors: <Color>[AppColor.white, AppColor.greenColor],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -189,7 +189,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 AppContainer(
                   gradient: const LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
+                    colors: <Color>[AppColor.white, AppColor.greenColor],
                   ),
                   height: 30.h,
                   width: 60.w,
