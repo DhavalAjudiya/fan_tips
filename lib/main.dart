@@ -1,5 +1,6 @@
 import 'package:fantips/bottomBar/bottomNaviBar.dart';
 import 'package:fantips/homeScreen/homePage.dart';
+import 'package:fantips/widget/pageView/page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -29,22 +30,29 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: BottomNavigatorController.routeName,
+          initialRoute: SplashScreen.routeName,
           getPages: [
-            // GetPage(
-            //   name: SplashScreen.routeName,
-            //   page: () => SplashScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: SplashScreen.routeName,
+              page: () => SplashScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: PageViewScreen.routeName,
+              page: () => PageViewScreen(),
+              transition: Transition.rightToLeft,
+            ),
             GetPage(
               name: BottomNavigatorController.routeName,
               page: () => BottomNavigatorController(),
               transition: Transition.rightToLeft,
             ),
-
             GetPage(
               name: HomeScreen.routeName,
               page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
               name: ExpertScreen.routeName,
               page: () => const ExpertScreen(),
               transition: Transition.rightToLeft,

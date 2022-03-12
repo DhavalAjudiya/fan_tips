@@ -1,9 +1,13 @@
+import 'dart:developer';
+
+import 'package:fantips/bottomBar/bottomNaviBar.dart';
 import 'package:fantips/utills/asset.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:fantips/widget/customText/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
 
@@ -21,15 +25,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        children: [
-          Column(
-            children: [
-              _onePage(),
-              _twoPage(),
-              _threePage(),
-            ],
-          )
-        ],
+        children: [_onePage(), _twoPage(), _threePage()],
       ),
     );
 
@@ -47,9 +43,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
             child: Column(
               children: [
                 AppContainer(
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
+                    colors: <Color>[AppColor.whiteColor, AppColor.greenColor],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -95,11 +91,11 @@ class _PageViewScreenState extends State<PageViewScreen> {
           SizedBox(height: 14.h),
           AppContainer(
             height: 7.5.h,
-            color: AppColor.green,
-            child: const Center(
+            color: AppColor.greenColor,
+            child: Center(
               child: AppText(
                 data: AppString.next,
-                color: AppColor.white,
+                color: AppColor.whiteColor,
               ),
             ),
           ),
@@ -117,9 +113,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
             child: Column(
               children: [
                 AppContainer(
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
+                    colors: <Color>[AppColor.whiteColor, AppColor.greenColor],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -165,11 +161,11 @@ class _PageViewScreenState extends State<PageViewScreen> {
           SizedBox(height: 14.h),
           AppContainer(
             height: 7.5.h,
-            color: AppColor.green,
-            child: const Center(
+            color: AppColor.greenColor,
+            child: Center(
               child: AppText(
                 data: AppString.next,
-                color: AppColor.white,
+                color: AppColor.whiteColor,
               ),
             ),
           ),
@@ -187,9 +183,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
             child: Column(
               children: [
                 AppContainer(
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
+                    colors: <Color>[AppColor.whiteColor, AppColor.greenColor],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -234,12 +230,16 @@ class _PageViewScreenState extends State<PageViewScreen> {
           ),
           SizedBox(height: 14.h),
           AppContainer(
+            onTap: () {
+              log("hiii");
+              Get.toNamed(BottomNavigatorController.routeName);
+            },
             height: 7.5.h,
             color: AppColor.green,
-            child: const Center(
+            child: Center(
               child: AppText(
                 data: AppString.next,
-                color: AppColor.white,
+                color: AppColor.whiteColor,
               ),
             ),
           ),
