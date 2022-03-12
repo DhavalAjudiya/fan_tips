@@ -1,7 +1,7 @@
 class AppImage {
-  static const splashImage = "assets/image/splash_screen.png";
-  // static const String image = 'asset/images';
-  // static const String splashScreen = "$image/splash_screen.png";
+  static const String image = 'assets/image';
+  static const String splashScreen = "$image/splash_screen.png";
+  static const String solution = "$image/solution.svg";
 }
 
 class IconAsset {
