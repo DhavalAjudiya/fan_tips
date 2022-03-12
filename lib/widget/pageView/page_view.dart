@@ -1,11 +1,13 @@
-import 'package:fantips/utills/asset.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:fantips/widget/customText/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
+import 'list.dart';
 
 class PageViewScreen extends StatefulWidget {
   static const routeName = "/PageViewScreen";
@@ -15,251 +17,124 @@ class PageViewScreen extends StatefulWidget {
 }
 
 class _PageViewScreenState extends State<PageViewScreen> {
-  final _pageController = PageController();
-  final _currentPageNotifier = ValueNotifier(0);
+  Foodie foodie = Foodie();
+  final _pageController = PageController(initialPage: 3);
+  final _currentPageNotifier = ValueNotifier(3);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
+      body: Stack(
         children: [
           Column(
             children: [
-              _onePage(),
-              _twoPage(),
-              _threePage(),
+              _buildPageView(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: AppContainer(
+                  /// navigator page
+                  onTap: () {
+                    Get.toNamed()
+                  },
+                  height: 7.h,
+                  width: double.infinity,
+                  color: AppColor.green,
+                  child: Center(
+                    child: AppText(
+                      data: AppString.next,
+                      color: AppColor.white,
+                    ),
+                  ),
+                ),
+              ),
             ],
-          )
+          ),
+          Positioned(
+            bottom: 100,
+            left: 150,
+            child: _buildStepIndicator(),
+          ),
         ],
       ),
     );
-
-    // onPageChanged: (int index) {
-    //   _currentPageNotifier.value = index;
-    // },
   }
 
-  Widget _onePage() {
-    return Container(
-      child: Column(
-        children: [
-          Padding(
+  Widget _buildPageView() {
+    return Expanded(
+      child: PageView.builder(
+        itemCount: 3,
+        controller: _pageController,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
             padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
-            child: Column(
-              children: [
-                AppContainer(
-                  gradient: const LinearGradient(
-                    end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
-                  ),
-                  height: 30.h,
-                  width: 60.w,
-                  borderRadius: BorderRadius.circular(80),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(
-                      AppImage.solution,
-                      //AppImage.solution,
+            child: Container(
+              child: Column(
+                children: [
+                  AppContainer(
+                    gradient: LinearGradient(
+                      end: Alignment(0.7, 0.9),
+                      colors: <Color>[AppColor.white, AppColor.lightGreen],
+                    ),
+                    height: 30.h,
+                    width: 60.w,
+                    borderRadius: BorderRadius.circular(80),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: SvgPicture.asset(
+                          "${foodie.categori[index][AppString.image]}"),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                AppText(
-                  data: AppString.solution,
-                  fontSize: 3.5.h,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Column(
-                  children: [
-                    AppText(
-                      data: AppString.reading,
-                      fontSize: 2.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    AppText(
-                      data: AppString.fantasy,
-                      fontSize: 2.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 14.h),
-          AppContainer(
-            height: 7.5.h,
-            color: AppColor.green,
-            child: const Center(
-              child: AppText(
-                data: AppString.next,
-                color: AppColor.white,
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  AppText(
+                    data: "${foodie.categori[index][AppString.name]}",
+                    fontSize: 3.5.h,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Column(
+                    children: [
+                      AppText(
+                        data: AppString.reading,
+                        fontSize: 2.h,
+                        color: AppColor.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      AppText(
+                        data: AppString.fantasy,
+                        fontSize: 2.h,
+                        color: AppColor.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+          );
+        },
+        onPageChanged: (int index) {
+          _currentPageNotifier.value = index;
+        },
       ),
     );
   }
 
-  Widget _twoPage() {
-    return Container(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
-            child: Column(
-              children: [
-                AppContainer(
-                  gradient: const LinearGradient(
-                    end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
-                  ),
-                  height: 30.h,
-                  width: 60.w,
-                  borderRadius: BorderRadius.circular(80),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(
-                      "",
-                      //AppImage.solution,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                AppText(
-                  data: AppString.working,
-                  fontSize: 3.5.h,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Column(
-                  children: [
-                    AppText(
-                      data: AppString.reading,
-                      fontSize: 2.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    AppText(
-                      data: AppString.fantasy,
-                      fontSize: 2.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 14.h),
-          AppContainer(
-            height: 7.5.h,
-            color: AppColor.green,
-            child: const Center(
-              child: AppText(
-                data: AppString.next,
-                color: AppColor.white,
-              ),
-            ),
-          ),
-        ],
-      ),
+  Widget _buildStepIndicator() {
+    return CirclePageIndicator(
+      itemCount: 3,
+      dotSpacing: 3.w,
+      selectedSize: 2.5.w,
+      selectedDotColor: AppColor.green,
+      dotColor: AppColor.grey,
+      currentPageNotifier: _currentPageNotifier,
+      size: 1.h,
+      onPageSelected: (int index) {
+        if (_currentPageNotifier.value > index)
+          _pageController.jumpToPage(index);
+      },
     );
   }
-
-  Widget _threePage() {
-    return Container(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
-            child: Column(
-              children: [
-                AppContainer(
-                  gradient: const LinearGradient(
-                    end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.popti],
-                  ),
-                  height: 30.h,
-                  width: 60.w,
-                  borderRadius: BorderRadius.circular(80),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(
-                      AppImage.mindset,
-                      //AppImage.solution,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                AppText(
-                  data: AppString.mindset,
-                  fontSize: 3.5.h,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: 2.h,
-                ),
-                Column(
-                  children: [
-                    AppText(
-                      data: AppString.reading,
-                      fontSize: 2.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    AppText(
-                      data: AppString.fantasy,
-                      fontSize: 2.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 14.h),
-          AppContainer(
-            height: 7.5.h,
-            color: AppColor.green,
-            child: const Center(
-              child: AppText(
-                data: AppString.next,
-                color: AppColor.white,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Widget _buildStepIndicator() {
-  //   return Container(
-  //     color: Colors.black,
-  //     child: StepPageIndicator(
-  //       itemCount: 3,
-  //       currentPageNotifier: _currentPageNotifier,
-  //       size: 16,
-  //       onPageSelected: (int index) {
-  //         if (_currentPageNotifier.value > index)
-  //           _pageController.jumpToPage(index);
-  //       },
-  //     ),
-  //   );
-  // }
 }

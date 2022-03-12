@@ -2,7 +2,7 @@ import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
+import '../utills/asset.dart';
 import 'splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
             child: AppContainer(
               height: 100.h,
               width: double.infinity,
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: AssetImage(AppImage.splashScreen),
                 fit: BoxFit.fill,
               ),
