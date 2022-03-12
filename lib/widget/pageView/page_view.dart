@@ -1,9 +1,9 @@
+import 'package:fantips/utills/asset.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:fantips/widget/customText/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:page_view_indicators/step_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
 
@@ -57,7 +57,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: SvgPicture.asset(
-                      "assets/image/solution.svg",
+                      AppImage.solution,
                       //AppImage.solution,
                     ),
                   ),
@@ -127,7 +127,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: SvgPicture.asset(
-                      "assets/image/working.svg",
+                      "",
                       //AppImage.solution,
                     ),
                   ),
@@ -197,7 +197,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: SvgPicture.asset(
-                      "assets/image/mindset.svg",
+                      AppImage.mindset,
                       //AppImage.solution,
                     ),
                   ),
