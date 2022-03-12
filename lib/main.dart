@@ -1,9 +1,10 @@
+import 'package:fantips/homeScreen/screen/newsDetailedPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'expert/screen.dart';
-import 'homeScreen/homePage.dart';
+import 'homeScreen/screen/homePage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
@@ -50,6 +51,11 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: HomeScreen.routeName,
               page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

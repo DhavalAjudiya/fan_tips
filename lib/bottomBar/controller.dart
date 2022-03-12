@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../homeScreen/homePage.dart';
+import '../homeScreen/screen/homePage.dart';
 
 class BottomController extends GetxController {
   RxInt currentIndex = 0.obs;

@@ -1,4 +1,5 @@
 class AppString {
+  /// home screen text
   static const fanTips = "FanTips";
   static const logIn = "Login";
   static const matchesForYou = "Matches for you";
@@ -6,6 +7,13 @@ class AppString {
   static const featuredExperts = "Featured Experts";
   static const topStories = "Top Stories";
   static const viewAll = "View All";
+  static const t20Predictions = "T20 Predictions";
+  static const predictions = "Predictions";
+  static const subscriber = "50.9K subscribers";
+  static const averageScore = "Average Score";
+  static const wins = "Wins";
+
+  ///
   static const String predictionExpert = "Prediction Expert";
   static const String sortByAvgScore = "Sort by : Avg Score";
 

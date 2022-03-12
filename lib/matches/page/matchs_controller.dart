@@ -12,22 +12,22 @@ class HomeScreenContrroler extends GetxController
   void onInit() {
     super.onInit();
     tabController = TabController(length: 3, vsync: this);
-    getData();
+    // getData();
   }
 
-  void getData() async {
-    try {
-      var data = await ApiService.fetchCurrentMatchesData();
-
-      if (data != null) {
-        currentMatch.value = data;
-        print(
-            "get--------${currentMatch.value.matches!.notstarted![0].matchName}");
-      }
-    } catch (e) {
-      print("get======== $e");
-    }
-  }
+  // void getData() async {
+  //   try {
+  //     // var data = await ApiService.fetchCurrentMatchesData();
+  //
+  //     if (data != null) {
+  //       currentMatch.value = data;
+  //       print(
+  //           "get--------${currentMatch.value.matches!.notstarted![0].matchName}");
+  //     }
+  //   } catch (e) {
+  //     print("get======== $e");
+  //   }
+  // }
 
   // String timeAgo(DateTime date) {
   //   final diff = DateTime.now().difference(date);
