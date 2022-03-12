@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
-import '../utills/asset.dart';
 import '../utills/color.dart';
 import '../utills/string.dart';
 import '../widget/prediction_container.dart';
