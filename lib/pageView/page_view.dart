@@ -39,7 +39,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   height: 7.h,
                   width: double.infinity,
                   color: AppColor.green,
-                  child: Center(
+                  child: const Center(
                     child: AppText(
                       data: AppString.next,
                       color: AppColor.white,
@@ -67,52 +67,50 @@ class _PageViewScreenState extends State<PageViewScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
-            child: Container(
-              child: Column(
-                children: [
-                  AppContainer(
-                    gradient: LinearGradient(
-                      end: Alignment(0.7, 0.9),
-                      colors: <Color>[AppColor.white, AppColor.lightGreen],
+            child: Column(
+              children: [
+                AppContainer(
+                  gradient: const LinearGradient(
+                    end: Alignment(0.7, 0.9),
+                    colors: <Color>[AppColor.white, AppColor.lightGreen],
+                  ),
+                  height: 30.h,
+                  width: 60.w,
+                  borderRadius: BorderRadius.circular(80),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: SvgPicture.asset(
+                        "${foodie.categori[index][AppString.image]}"),
+                  ),
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                AppText(
+                  data: "${foodie.categori[index][AppString.name]}",
+                  fontSize: 3.5.h,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Column(
+                  children: [
+                    AppText(
+                      data: AppString.reading,
+                      fontSize: 2.h,
+                      color: AppColor.grey,
+                      fontWeight: FontWeight.bold,
                     ),
-                    height: 30.h,
-                    width: 60.w,
-                    borderRadius: BorderRadius.circular(80),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: SvgPicture.asset(
-                          "${foodie.categori[index][AppString.image]}"),
+                    AppText(
+                      data: AppString.fantasy,
+                      fontSize: 2.h,
+                      color: AppColor.grey,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  AppText(
-                    data: "${foodie.categori[index][AppString.name]}",
-                    fontSize: 3.5.h,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Column(
-                    children: [
-                      AppText(
-                        data: AppString.reading,
-                        fontSize: 2.h,
-                        color: AppColor.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      AppText(
-                        data: AppString.fantasy,
-                        fontSize: 2.h,
-                        color: AppColor.grey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           );
         },

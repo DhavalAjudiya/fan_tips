@@ -1,8 +1,10 @@
+import 'package:fantips/commanWidget/commanText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/string.dart';
-import 'matchs_controller.dart';
+import '../../widget/header_row.dart';
+import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
 import '../widget/upcoming.dart';
@@ -23,9 +25,8 @@ class MatchesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                AppString.title,
-                // style: AppStyle.current,
+              const HeaderRow(
+                title: AppString.title,
               ),
               SizedBox(height: 2.h),
               TabBar(
@@ -38,18 +39,24 @@ class MatchesScreen extends StatelessWidget {
                 controller: _homecontroller.tabController,
                 tabs: [
                   Tab(
-                    child: Text(
-                      AppString.upcoming,
+                    child: CustomeText(
+                      title: AppString.upcoming,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   Tab(
-                    child: Text(
-                      AppString.live,
+                    child: CustomeText(
+                      title: AppString.live,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   Tab(
-                    child: Text(
-                      AppString.completed,
+                    child: CustomeText(
+                      title: AppString.completed,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],

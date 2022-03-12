@@ -8,6 +8,7 @@ class AppString {
   static const viewAll = "View All";
   static const String predictionExpert = "Prediction Expert";
   static const String sortByAvgScore = "Sort by : Avg Score";
+  static const String login = "Login";
 
   /// current matchs
   static const title = "Current Matches";
@@ -16,6 +17,9 @@ class AppString {
   static const completed = "Completed";
   static const tomorrow = "Tomorrow, 15 May";
   static const yesterday = "yesterday, 13 May";
+  static const letsconnect = "LET'S CONNECT";
+  static const imageNotFound =
+      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 
   /// splash screen
   static const String solution = "One Stop Solution";
