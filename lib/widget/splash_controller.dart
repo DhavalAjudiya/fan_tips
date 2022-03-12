@@ -1,17 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'pageView/page_view.dart';
 
 class SplashController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  final spinkit = const SpinKitThreeBounce(
-    color: Colors.white,
-  );
+  // final spinkit = const SpinKitThreeBounce(
+  //   color: Colors.white,
+  // );
 
   @override
   void onInit() {
+    log("message");
     splashScreen();
     AnimationController(
       vsync: this,
@@ -24,6 +27,7 @@ class SplashController extends GetxController
     await Future.delayed(
       Duration(seconds: 3),
     );
+
     Get.offNamed(PageViewScreen.routeName);
   }
 }

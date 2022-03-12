@@ -12,8 +12,9 @@ class AppContainer extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final BoxBorder? border;
   final Gradient? gradient;
+  final GestureTapCallback? onTap;
 
-  const AppContainer({
+  AppContainer({
     Key? key,
     this.margin,
     this.width,
@@ -25,22 +26,26 @@ class AppContainer extends StatelessWidget {
     this.boxShadow,
     this.border,
     this.gradient,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      height: height,
-      width: width,
-      child: child,
-      decoration: BoxDecoration(
-        image: image,
-        color: color,
-        borderRadius: borderRadius,
-        boxShadow: boxShadow,
-        border: border,
-        gradient: gradient,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: margin,
+        height: height,
+        width: width,
+        child: child,
+        decoration: BoxDecoration(
+          image: image,
+          color: color,
+          borderRadius: borderRadius,
+          boxShadow: boxShadow,
+          border: border,
+          gradient: gradient,
+        ),
       ),
     );
   }
