@@ -1,3 +1,5 @@
+import 'package:fantips/bottomBar/bottomNaviBar.dart';
+import 'package:fantips/homeScreen/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -22,13 +24,26 @@ class MyApp extends StatelessWidget {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
           ),
+          themeMode: ThemeMode.dark,
+          darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: SplashScreen.routeName,
+          initialRoute: BottomNavigatorController.routeName,
           getPages: [
+            // GetPage(
+            //   name: SplashScreen.routeName,
+            //   page: () => SplashScreen(),
+            //   transition: Transition.rightToLeft,
+            // ),
             GetPage(
-              name: SplashScreen.routeName,
-              page: () => SplashScreen(),
+              name: BottomNavigatorController.routeName,
+              page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
               transition: Transition.rightToLeft,
             ),
           ],
