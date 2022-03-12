@@ -33,7 +33,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 child: AppContainer(
                   /// navigator page
                   onTap: () {
-                    Get.toNamed()
+                    //Get.toNamed()
                   },
                   height: 7.h,
                   width: double.infinity,
