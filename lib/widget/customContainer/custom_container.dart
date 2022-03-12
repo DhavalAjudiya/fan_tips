@@ -14,7 +14,7 @@ class AppContainer extends StatelessWidget {
   final Gradient? gradient;
   final GestureTapCallback? onTap;
 
-  const AppContainer({
+  AppContainer({
     Key? key,
     this.margin,
     this.width,
@@ -31,7 +31,7 @@ class AppContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Container(
         margin: margin,

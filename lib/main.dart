@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'widget/pageView/page_view.dart';
+import 'expert/screen.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
           ),
+          themeMode: ThemeMode.dark,
+          darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
           initialRoute: SplashScreen.routeName,
@@ -37,11 +39,21 @@ class MyApp extends StatelessWidget {
               page: () => PageViewScreen(),
               transition: Transition.rightToLeft,
             ),
-            // GetPage(
-            //   name: ExpertScreen.routeName,
-            //   page: () => const ExpertScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: BottomNavigatorController.routeName,
+              page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: ExpertScreen.routeName,
+              page: () => const ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
           ],
         );
       },
