@@ -1,3 +1,4 @@
+import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +15,7 @@ class PredictionContainer extends StatelessWidget {
   PredictionContainer({
     Key? key,
     this.backgroundImage,
-    this.headerText = '',
+    this.headerText = 'T20 Prediction',
     required this.youtubeText,
     required this.predictionCount,
     required this.averageCount,
@@ -26,7 +27,7 @@ class PredictionContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Container(
-        height: 20.h,
+        height: 16.h,
         decoration: BoxDecoration(
           color: const Color(0XFF1B1B1B),
           borderRadius: BorderRadius.circular(8),
@@ -34,7 +35,7 @@ class PredictionContainer extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(
             right: 8,
-            top: 15,
+            top: 12,
             bottom: 8,
             left: 8,
           ),
@@ -46,7 +47,8 @@ class PredictionContainer extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundImage: backgroundImage,
-                    radius: 22,
+                    backgroundColor: AppColor.whiteColor,
+                    radius: 25,
                   ),
                   SizedBox(
                     width: 2.w,
@@ -66,11 +68,15 @@ class PredictionContainer extends StatelessWidget {
                                     fontFamily: 'circular',
                                     color: Colors.white),
                               ),
+                              SizedBox(
+                                height: 0.3.h,
+                              ),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  SvgPicture.asset("assets/image/youtube.svg"),
+                                  SvgPicture.asset("assets/image/youtube.svg",
+                                      height: 1.2.h),
                                   SizedBox(
                                     width: 1.w,
                                   ),
@@ -79,8 +85,8 @@ class PredictionContainer extends StatelessWidget {
                                     style: const TextStyle(
                                       fontFamily: 'circular',
                                       fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                      fontSize: 8,
+                                      color: AppColor.subTitleColor,
+                                      fontSize: 9,
                                     ),
                                   ),
                                 ],
@@ -88,11 +94,12 @@ class PredictionContainer extends StatelessWidget {
                             ],
                           ),
                           SizedBox(
-                            width: 52.w,
+                            width: 31.5.w,
                           ),
                           IconButton(
                             splashColor: Colors.transparent,
-                            icon: const Icon(Icons.favorite, color: Colors.red),
+                            icon: const Icon(Icons.favorite_border,
+                                color: AppColor.green),
                             onPressed: () {},
                           ),
                         ],
@@ -102,7 +109,7 @@ class PredictionContainer extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 3.5.h,
+                height: 1.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,7 +119,7 @@ class PredictionContainer extends StatelessWidget {
                       Text(
                         predictionCount,
                         style: GoogleFonts.oswald(
-                          color: Colors.white,
+                          color: AppColor.subTitleColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
@@ -120,7 +127,8 @@ class PredictionContainer extends StatelessWidget {
                       const Text(
                         "Prediction",
                         style: TextStyle(
-                          color: Colors.white,
+                          fontSize: 13,
+                          color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'circular',
                         ),
@@ -130,14 +138,14 @@ class PredictionContainer extends StatelessWidget {
                   Container(
                     height: 40,
                     width: 0.2.w,
-                    color: const Color(0XFF4E4E4E),
+                    color: AppColor.verticalDividerColor,
                   ),
                   Column(
                     children: [
                       Text(
                         averageCount,
                         style: GoogleFonts.oswald(
-                          color: Colors.white,
+                          color: AppColor.subTitleColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
@@ -145,7 +153,8 @@ class PredictionContainer extends StatelessWidget {
                       const Text(
                         "Average Score",
                         style: TextStyle(
-                          color: Colors.white,
+                          fontSize: 13,
+                          color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'circular',
                         ),
@@ -155,14 +164,14 @@ class PredictionContainer extends StatelessWidget {
                   Container(
                     height: 40,
                     width: 0.2.w,
-                    color: const Color(0XFF4E4E4E),
+                    color: AppColor.verticalDividerColor,
                   ),
                   Column(
                     children: [
                       Text(
                         winsCount,
                         style: GoogleFonts.oswald(
-                          color: Colors.white,
+                          color: AppColor.subTitleColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                         ),
@@ -170,11 +179,13 @@ class PredictionContainer extends StatelessWidget {
                       const Text(
                         "Wins",
                         style: TextStyle(
-                          color: Colors.white,
+                          fontSize: 13,
+                          color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'circular',
                         ),
                       ),
+                      SizedBox(width: 25.w),
                     ],
                   ),
                 ],

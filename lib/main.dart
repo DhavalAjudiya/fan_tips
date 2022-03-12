@@ -1,4 +1,3 @@
-import 'package:fantips/homeScreen/screen/newsDetailedPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -72,5 +71,9 @@ class MyApp extends StatelessWidget {
 
 class AppBiding implements Bindings {
   @override
-  void dependencies() {}
+  void dependencies() {
+    Get.put(
+      SplashController(),
+    );
+  }
 }
