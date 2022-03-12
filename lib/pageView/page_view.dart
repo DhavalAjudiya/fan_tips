@@ -1,5 +1,6 @@
 import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/custom_container.dart';
+import 'package:fantips/widget/customContainer/custom_container.dart';
+import 'package:fantips/widget/customText/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,6 @@ import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
 import '../bottomBar/bottomNaviBar.dart';
-import '../commanWidget/commanText.dart';
 import 'list.dart';
 
 class PageViewScreen extends StatefulWidget {
@@ -115,7 +115,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
             ),
           );
         },
-        onPageChanged: (index) {
+        onPageChanged: (int index) {
           _currentPageNotifier.value = index;
         },
       ),
