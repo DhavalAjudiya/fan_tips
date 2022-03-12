@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
-import '../utills/asset.dart';
 import '../utills/color.dart';
 import '../utills/string.dart';
 import '../widget/prediction_container.dart';
@@ -38,75 +35,204 @@ class ExpertScreen extends StatelessWidget {
               SizedBox(
                 height: 1.5.h,
               ),
-              Container(
-                height: 7.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColor.containerBackgroundColor,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 65),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 0.2.h,
-                            width: 6.w,
-                            decoration: BoxDecoration(
-                              color: const Color(0XFF25C06D),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 0.3.h,
-                          ),
-                          Container(
-                            height: 0.2.h,
-                            width: 4.5.w,
-                            decoration: BoxDecoration(
-                              color: const Color(0XFF25C06D),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 0.3.h,
-                          ),
-                          Container(
-                            height: 0.2.h,
-                            width: 2.5.w,
-                            decoration: BoxDecoration(
-                              color: const Color(0XFF25C06D),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                        ],
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: AppColor.containerBackgroundColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
                       ),
                     ),
-                    SizedBox(
-                      width: 2.w,
-                    ),
-                    Text(
-                      AppString.sortByAvgScore,
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontFamily: 'circular',
-                        color: const Color(
-                          0XFF25C06D,
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: 28.h,
+                        decoration: BoxDecoration(
+                          color: AppColor.containerBackgroundColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12),
+                          ),
                         ),
-                        fontWeight: FontWeight.w500,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 5.w,
+                                        decoration: BoxDecoration(
+                                          color: AppColor.whiteColor,
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 0.3.h,
+                                      ),
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 3.5.w,
+                                        decoration: BoxDecoration(
+                                          color: AppColor.whiteColor,
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 0.3.h,
+                                      ),
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 2.5.w,
+                                        decoration: BoxDecoration(
+                                          color: AppColor.whiteColor,
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 1.w,
+                                  ),
+                                  Text(
+                                    AppString.sortBy,
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontFamily: 'circular',
+                                      color: AppColor.whiteColor,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 1.h),
+                              Divider(
+                                  color: AppColor.verticalDividerColor,
+                                  thickness: 0),
+                              SizedBox(height: 1.h),
+                              Text(
+                                AppString.predictions,
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'circular',
+                                  color: AppColor.whiteColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Divider(
+                                  color: AppColor.verticalDividerColor,
+                                  thickness: 0),
+                              SizedBox(height: 1.h),
+                              Text(
+                                AppString.average_score,
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'circular',
+                                  color: AppColor.whiteColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Divider(
+                                  color: AppColor.verticalDividerColor,
+                                  thickness: 0),
+                              SizedBox(height: 1.h),
+                              Text(
+                                AppString.wins,
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: 'circular',
+                                  color: AppColor.whiteColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Container(
+                  height: 7.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: AppColor.containerBackgroundColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 65),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 0.2.h,
+                              width: 6.w,
+                              decoration: BoxDecoration(
+                                color: AppColor.green,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 0.3.h,
+                            ),
+                            Container(
+                              height: 0.2.h,
+                              width: 4.5.w,
+                              decoration: BoxDecoration(
+                                color: AppColor.green,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 0.3.h,
+                            ),
+                            Container(
+                              height: 0.2.h,
+                              width: 2.5.w,
+                              decoration: BoxDecoration(
+                                color: AppColor.green,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Color(
-                        0XFF25C06D,
+                      SizedBox(
+                        width: 2.w,
                       ),
-                    ),
-                  ],
+                      Text(
+                        AppString.sortByAvgScore,
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: 'circular',
+                          color: AppColor.green,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: AppColor.green,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Flexible(
