@@ -2,7 +2,7 @@ class AppImage {
   static const String image = 'assets/image';
   static const String splashScreen = "$image/splash_screen.png";
   static const String solution = "$image/solution.svg";
-  static const splashImage = "assets/image/splash_screen.png";
+  static const String splashImage = "assets/image/splash_screen.png";
   static const String image = 'assets/images';
   static const String splashScreen = "$image/splash_screen.png";
 }
