@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../data/datasources/api_service.dart';
@@ -69,4 +66,3 @@ class HomeScreenContrroler extends GetxController
     return DateTime.fromMillisecondsSinceEpoch(value);
   }
 }
->>>>>>> origin/master

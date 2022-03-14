@@ -1,3 +1,4 @@
+import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -42,8 +43,8 @@ class BottomNavigatorController extends StatelessWidget {
                   height: 4.h,
                   width: 5.w,
                   color: _neviController.currentIndex.value == 0
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "Home",
               ),
@@ -53,8 +54,8 @@ class BottomNavigatorController extends StatelessWidget {
                   height: 4.h,
                   width: 5.w,
                   color: _neviController.currentIndex.value == 1
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "Matches",
               ),
@@ -62,8 +63,8 @@ class BottomNavigatorController extends StatelessWidget {
                 icon: Icon(
                   Icons.person,
                   color: _neviController.currentIndex.value == 2
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "Expert",
               ),
@@ -71,8 +72,8 @@ class BottomNavigatorController extends StatelessWidget {
                 icon: Icon(
                   Icons.more_horiz_outlined,
                   color: _neviController.currentIndex.value == 3
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "More",
               ),

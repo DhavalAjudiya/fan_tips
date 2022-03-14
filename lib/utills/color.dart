@@ -7,8 +7,11 @@ class AppColor {
   static const blackColor = Color(0XFF1B1B1B);
   static const greenColor = Color(0XFF25C06D);
 
-  ///
+  ///upcoming match
+  static const textColor = Color(0XFFA7A7A7);
+  static const offBlack = Color(0XFF333333);
 
+  ///
   static const transparent = Colors.transparent;
   static const backgroundColorBlack = Colors.black;
   static const containerBackgroundColor = Color(0XFF1B1B1B);
@@ -21,4 +24,5 @@ class AppColor {
   static const grey = Colors.grey;
 
   static const verticalDividerColor = Color(0XFF4E4E4E);
+  static const subTitleColor = Colors.grey;
 }

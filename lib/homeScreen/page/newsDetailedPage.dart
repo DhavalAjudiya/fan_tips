@@ -16,6 +16,7 @@ class NewsDetailedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = Get.arguments;
     return Scaffold(
+      backgroundColor: AppColor.blackColor,
       body: SafeArea(
         child: Stack(
           children: [

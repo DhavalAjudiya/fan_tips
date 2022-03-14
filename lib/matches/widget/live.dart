@@ -1,10 +1,10 @@
-import 'package:fantips/matches/page/matchs_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
+import '../controler/matchs_controller.dart';
 
 class Live extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());

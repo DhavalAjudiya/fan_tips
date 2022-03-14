@@ -8,7 +8,8 @@ import 'newsModel.dart';
 class ApiService {
   Future<NewsDataModel?> newsPostData() async {
     http.Response response = await http.post(
-      Uri.parse("https://api.freefantasy.in/tips/getNewsList?offset=0&limit=4"),
+      Uri.parse(
+          "https://api.freefantasy.in/tips/getNewsList?offset=0&limit=20"),
     );
     log("message========>${jsonDecode(response.body)}");
     NewsDataModel? newsDataModel;
