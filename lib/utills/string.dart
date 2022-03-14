@@ -53,7 +53,7 @@ class AppString {
   static const String avgNum = "429";
   static const String avgScore = "Avg.Score";
   static const String winNum = "429";
-  static const String wins = "Wins";
+  static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
   static const String subscribers = "Subscribers";
 }

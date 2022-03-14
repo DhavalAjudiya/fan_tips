@@ -82,10 +82,10 @@ class PredictionContainer extends StatelessWidget {
                                   ),
                                   Text(
                                     youtubeText,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'circular',
                                       fontWeight: FontWeight.w500,
-                                      color: AppColor.subTitleColor,
+                                      // color: AppColor.subTitleColor,
                                       fontSize: 9,
                                     ),
                                   ),
@@ -119,7 +119,7 @@ class PredictionContainer extends StatelessWidget {
                       Text(
                         predictionCount,
                         style: GoogleFonts.oswald(
-                          color: AppColor.subTitleColor,
+                          //color: AppColor.subTitleColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
@@ -128,7 +128,7 @@ class PredictionContainer extends StatelessWidget {
                         "Prediction",
                         style: TextStyle(
                           fontSize: 13,
-                          color: AppColor.subTitleColor,
+                          //color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'circular',
                         ),
@@ -145,7 +145,7 @@ class PredictionContainer extends StatelessWidget {
                       Text(
                         averageCount,
                         style: GoogleFonts.oswald(
-                          color: AppColor.subTitleColor,
+                          // color: AppColor.subTitleColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
@@ -154,7 +154,7 @@ class PredictionContainer extends StatelessWidget {
                         "Average Score",
                         style: TextStyle(
                           fontSize: 13,
-                          color: AppColor.subTitleColor,
+                          //color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'circular',
                         ),
@@ -171,7 +171,7 @@ class PredictionContainer extends StatelessWidget {
                       Text(
                         winsCount,
                         style: GoogleFonts.oswald(
-                          color: AppColor.subTitleColor,
+                          //color: AppColor.subTitleColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                         ),
@@ -180,7 +180,7 @@ class PredictionContainer extends StatelessWidget {
                         "Wins",
                         style: TextStyle(
                           fontSize: 13,
-                          color: AppColor.subTitleColor,
+                          //color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'circular',
                         ),

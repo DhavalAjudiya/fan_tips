@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                                         children: [
                                           CircleAvatar(
                                             radius: 9.sp,
-                                            backgroundImage: AssetImage(
+                                            backgroundImage: const AssetImage(
                                                 "assets/image/Zim.png"),
                                           ),
                                           SizedBox(
@@ -210,7 +210,7 @@ class HomeScreen extends StatelessWidget {
                   width: 2.w,
                   margin: const EdgeInsets.symmetric(horizontal: 2),
                   decoration: BoxDecoration(
-                      color: homeController.bannerSelect == index
+                      color: homeController.featureSelect == index
                           ? Colors.black.withOpacity(0.5)
                           : Colors.grey,
                       shape: BoxShape.circle),

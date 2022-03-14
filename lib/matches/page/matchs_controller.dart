@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../homeScreen/apiService.dart';
 import '../data/datasources/api_service.dart';
 import '../data/datasources/current_match_modal.dart';
 
@@ -17,10 +18,10 @@ class HomeScreenContrroler extends GetxController
 
   void getData() async {
     try {
-      var data = await ApiService.fetchCurrentMatchesData();
+      var data = await ApiService().newsPostData();
 
       if (data != null) {
-        currentMatch.value = data;
+        // currentMatch.value = data;
         print(
             "get--------${currentMatch.value.matches!.notstarted![0].matchName}");
       }

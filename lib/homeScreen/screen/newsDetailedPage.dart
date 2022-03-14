@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../commanWidget/commanText.dart';
 import '../../utills/color.dart';
-import '../../widget/customContainer/custom_container.dart';
+import '../../widget/custom_container.dart';
 
 class NewsDetailedScreen extends StatelessWidget {
   static const routeName = "/NewsDetailedScreen";

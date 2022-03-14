@@ -23,13 +23,13 @@ class T20Prediction extends StatelessWidget {
         child: Column(
           children: [
             _backButton(),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Obx(
-                    () => TabBar(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Obx(
+                  () => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: TabBar(
                       indicatorSize: TabBarIndicatorSize.label,
                       isScrollable: true,
                       indicatorColor: AppColor.green,
@@ -64,9 +64,9 @@ class T20Prediction extends StatelessWidget {
                       ],
                     ),
                   ),
-                  _tabBar(),
-                ],
-              ),
+                ),
+                _tabBar(),
+              ],
             ),
           ],
         ),
@@ -97,6 +97,7 @@ class T20Prediction extends StatelessWidget {
         children: [
           Column(
             children: [
+              /// Shear Button
               Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: Row(
@@ -128,6 +129,8 @@ class T20Prediction extends StatelessWidget {
                 fontWeight: FontWeight.w100,
               ),
               SizedBox(height: 1.5.h),
+
+              /// you tube
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -144,6 +147,8 @@ class T20Prediction extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 1.5.h),
+
+              /// view channel
               AppContainer(
                 onTap: () {},
                 height: 3.3.h,
@@ -250,6 +255,20 @@ class T20Prediction extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              Spacer(),
+
+              /// ads
+              AppContainer(
+                onTap: () {},
+                height: 6.5.h,
+                color: AppColor.grey,
+                child: const Center(
+                  child: CustomeText(
+                    title: AppString.ads,
+                    color: AppColor.background,
+                  ),
+                ),
               ),
             ],
           ),

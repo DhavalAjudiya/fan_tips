@@ -5,7 +5,9 @@ import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'expert/screen.dart';
 import 'homeScreen/screen/homePage.dart';
+import 'homeScreen/screen/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
+import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
