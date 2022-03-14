@@ -6,7 +6,7 @@ import '../../commanWidget/commanText.dart';
 import '../../utills/asset.dart';
 import '../../utills/color.dart';
 import '../../utills/string.dart';
-import '../../widget/customContainer/custom_container.dart';
+import '../../widget/custom_container.dart';
 import '../../widget/header_row.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';

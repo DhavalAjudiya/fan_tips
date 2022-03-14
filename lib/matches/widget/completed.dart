@@ -28,13 +28,13 @@ class Completed extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
                   headertext: current?.matchName ?? "",
                   ontap: () {
-                    if (current?.selected.value == false) {
-                      current?.selected.value = true;
+                    if (current?.isSelect.value == false) {
+                      current?.isSelect.value = true;
                     } else {
-                      current?.selected.value = false;
+                      current?.isSelect.value = false;
                     }
                   },
-                  icon: current?.selected.value == false
+                  icon: current?.isSelect.value == false
                       ? const Icon(Icons.notifications)
                       : const Icon(Icons.notifications_none),
                   backgroundImage: NetworkImage(

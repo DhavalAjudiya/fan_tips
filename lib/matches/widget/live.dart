@@ -4,6 +4,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
+import '../controler/matchs_controller.dart';
 
 class Live extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());
@@ -27,13 +28,13 @@ class Live extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
                   headertext: current?.matchName ?? "",
                   ontap: () {
-                    if (current?.selected.value == false) {
-                      current?.selected.value = true;
+                    if (current?.isSelected.value == false) {
+                      current?.isSelected.value = true;
                     } else {
-                      current?.selected.value = false;
+                      current?.isSelected.value = false;
                     }
                   },
-                  icon: current?.selected.value == false
+                  icon: current?.isSelected.value == false
                       ? const Icon(Icons.notifications)
                       : const Icon(Icons.notifications_none),
                   backgroundImage: NetworkImage(

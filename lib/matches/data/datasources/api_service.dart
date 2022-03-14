@@ -18,9 +18,8 @@ class ApiService {
 
       http.StreamedResponse response = await request.send();
       final data = await response.stream.bytesToString();
-
+      print("response=====>>>>>>>${data}");
       if (response.statusCode == 200) {
-        print("response=====>>>>>>>${data}");
         return CurrentMatch.fromJson(jsonDecode(data));
       } else {
         return null;

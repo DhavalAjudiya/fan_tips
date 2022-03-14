@@ -1,10 +1,8 @@
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/customContainer/custom_container.dart';
-import 'package:fantips/widget/customText/custom_text.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:page_view_indicators/step_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
 import '../custom_container.dart';

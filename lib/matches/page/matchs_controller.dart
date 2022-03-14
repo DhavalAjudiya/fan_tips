@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../homeScreen/apiService.dart';
 import '../data/datasources/api_service.dart';
 import '../data/datasources/current_match_modal.dart';
 
@@ -18,7 +17,7 @@ class HomeScreenContrroler extends GetxController
 
   void getData() async {
     try {
-      var data = await ApiService().newsPostData();
+      var data = await ApiService.fetchCurrentMatchesData();
 
       if (data != null) {
         // currentMatch.value = data;

@@ -82,8 +82,12 @@ class Notstarted {
     this.header,
     this.status,
     required this.selected,
+    required this.isSelected,
+    required this.isSelect,
   });
   RxBool selected = false.obs;
+  RxBool isSelected = false.obs;
+  RxBool isSelect = false.obs;
   bool? quizavailable;
   int? team2Id;
   bool? tispterWinnderDeclared;
@@ -141,6 +145,8 @@ class Notstarted {
         header: json["header"],
         status: json["status"],
         selected: false.obs,
+        isSelect: false.obs,
+        isSelected: false.obs,
       );
 
   Map<String, dynamic> toJson() => {
