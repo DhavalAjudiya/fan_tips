@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 Expert expertFromJson(String str) => Expert.fromJson(json.decode(str));

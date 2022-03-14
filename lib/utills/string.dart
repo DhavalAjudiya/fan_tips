@@ -15,7 +15,7 @@ class AppString {
 
   ///
   static const String predictionExpert = "Prediction Expert";
-  static const String sortByAvgScore = "Sort by : Avg Score";
+  static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
 
   /// current matchs
@@ -60,5 +60,9 @@ class AppString {
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
   static const String subscribers = "Subscribers";
+
+  /// header Row
+  static const String googleSign = "Sing In With Google";
+  static const String fbLogin = "Sing In With Facebook";
   static const String youTubeUrl = "https://www.youtube.com";
 }

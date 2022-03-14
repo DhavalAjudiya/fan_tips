@@ -8,5 +8,10 @@ import '../more/page/more_screen.dart';
 class BottomController extends GetxController {
   RxInt currentIndex = 0.obs;
 
-  final page = [HomeScreen(), MatchesScreen(), ExpertScreen(), MoreScreen()];
+  final page = [
+    HomeScreen(),
+    MatchesScreen(),
+    ExpertScreen(),
+    MoreScreen(),
+  ];
 }

@@ -1,12 +1,19 @@
-import 'package:fantips/pageView/page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:fantips/pageView/page_view.dart';
+import 'package:fantips/widget/splash_controller.dart';
+import 'package:fantips/widget/splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
+import 'homeScreen/screen/homePage.dart';
+import 'homeScreen/screen/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
+import 'homeScreen/homePage.dart';
+import 'homeScreen/page/newsDetailedPage.dart';
+import 'pageView/page_view.dart';
 import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
 
@@ -33,38 +40,38 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: T20Prediction.routeName,
+          initialRoute: SplashScreen.routeName,
           getPages: [
-            // GetPage(
-            //   name: SplashScreen.routeName,
-            //   page: () => SplashScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: PageViewScreen.routeName,
-            //   page: () => PageViewScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: BottomNavigatorController.routeName,
-            //   page: () => BottomNavigatorController(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: HomeScreen.routeName,
-            //   page: () => HomeScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: NewsDetailedScreen.routeName,
-            //   page: () => NewsDetailedScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: ExpertScreen.routeName,
-            //   page: () => ExpertScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: SplashScreen.routeName,
+              page: () => SplashScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: PageViewScreen.routeName,
+              page: () => PageViewScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: BottomNavigatorController.routeName,
+              page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: ExpertScreen.routeName,
+              page: () => ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
             GetPage(
               name: T20Prediction.routeName,
               page: () => T20Prediction(),

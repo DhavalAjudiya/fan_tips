@@ -14,27 +14,26 @@ class Completed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 75.6.h,
+        Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount:
-                _homecontroller.currentMatch.value.matches?.notstarted?.length,
+            itemCount: _homecontroller
+                .completedMatches.value.matches?.completed?.length,
             itemBuilder: (context, index) {
               final current = _homecontroller
-                  .currentMatch.value.matches?.notstarted?[index];
+                  .completedMatches.value.matches?.completed?[index];
               return Obx(
                 () => CustomLCContainer(
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
                   headertext: current?.matchName ?? "",
                   ontap: () {
-                    if (current?.selected.value == false) {
-                      current?.selected.value = true;
+                    if (current?.isSelect.value == false) {
+                      current?.isSelect.value = true;
                     } else {
-                      current?.selected.value = false;
+                      current?.isSelect.value = false;
                     }
                   },
-                  icon: current?.selected.value == false
+                  icon: current?.isSelect.value == false
                       ? const Icon(Icons.notifications)
                       : const Icon(Icons.notifications_none),
                   backgroundImage: NetworkImage(
@@ -45,12 +44,12 @@ class Completed extends StatelessWidget {
                     current?.t2Flag ?? AppString.imageNotFound,
                   ),
                   subText: current?.team2Name ?? "",
-                  t1run: "${current?.t1Run}",
-                  t1wk: "${current?.t1Wk}",
-                  t1over: "${current?.t1Over}",
-                  t2run: "${current?.t2Run}",
-                  t2wk: "${current?.t2Wk}",
-                  t2over: "${current?.t2Over}",
+                  t1run: "${current?.t1Run ?? ""}",
+                  t1wk: "${current?.t1Wk ?? ""}",
+                  t1over: current?.t1Over ?? "",
+                  t2run: "${current?.t2Run ?? ""}",
+                  t2wk: "${current?.t2Wk ?? ""}",
+                  t2over: current?.t2Over ?? "",
                   predictionText: "${current?.totalprediction ?? ""}",
                   prediction: "Prediction",
                   lastText: _homecontroller.timeAgo(current?.startTime ?? 0),

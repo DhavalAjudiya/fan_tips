@@ -36,6 +36,7 @@ class HeaderRow extends StatelessWidget {
               ),
               context: context,
               builder: (context) => SizedBox(
+                height: 500,
                 child: Column(
                   children: [
                     Row(
@@ -81,14 +82,41 @@ class HeaderRow extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: 2.h,
                     ),
-                    Flexible(
-                      child: AppContainer(
-                        onTap: () {},
-                        child: Row(
-                          children: [],
-                        ),
+                    AppContainer(
+                      height: 6.h,
+                      width: 60.w,
+                      color: AppColor.containerBackground,
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset(AppImage.google, height: 8.w),
+                          const CustomeText(
+                            title: AppString.googleSign,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    AppContainer(
+                      height: 6.h,
+                      width: 60.w,
+                      color: AppColor.containerBackground,
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset(AppImage.fb, height: 8.w),
+                          const CustomeText(
+                            title: AppString.fbLogin,
+                          ),
+                        ],
                       ),
                     ),
                   ],
