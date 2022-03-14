@@ -271,6 +271,7 @@ class ExpertScreen extends StatelessWidget {
                               ),
                               Expanded(
                                 child: SizedBox(
+                                  height: 80.h,
                                   child: ListView.separated(
                                     separatorBuilder: (context, index) =>
                                         const Divider(
@@ -325,7 +326,6 @@ class ExpertScreen extends StatelessWidget {
                                       );
                                     },
                                   ),
-                                  height: 80.h,
                                 ),
                               ),
                             ],
