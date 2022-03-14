@@ -6,9 +6,8 @@ import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:share_plus/share_plus.dart';
+
 import 'package:sizer/sizer.dart';
 
 class MoreScreen extends StatelessWidget {
@@ -65,11 +64,17 @@ class MoreScreen extends StatelessWidget {
                         child: Container(
                           height: 5.5.h,
                           width: 12.w,
-                          decoration: BoxDecoration(color: Colors.indigo.shade900, borderRadius: BorderRadius.circular(13)),
+                          decoration: BoxDecoration(
+                              color: Colors.indigo.shade900,
+                              borderRadius: BorderRadius.circular(13)),
                           child: Center(
                             child: Text(
                               'FT',
-                              style: TextStyle(fontFamily: 'WorkSan', fontSize: 16.sp, color: AppColor.greenColor, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontFamily: 'WorkSan',
+                                  fontSize: 16.sp,
+                                  color: AppColor.greenColor,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -79,7 +84,10 @@ class MoreScreen extends StatelessWidget {
                       ),
                       Text(
                         'Enjoying FanTips',
-                        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600, fontFamily: 'WorkSon'),
+                        style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'WorkSon'),
                       ),
                       SizedBox(
                         height: 1.h,
@@ -87,29 +95,33 @@ class MoreScreen extends StatelessWidget {
                       RichText(
                         text: TextSpan(
                           spellOut: false,
-                          style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 9.sp),
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.7),
+                              fontSize: 9.sp),
                           children: [
                             const TextSpan(
                               text: 'Tap a star to rate it on the App Store\n',
                             ),
-                            TextSpan(text: '                    App Store', style: TextStyle(fontSize: 10.sp)),
+                            TextSpan(
+                                text: '                    App Store',
+                                style: TextStyle(fontSize: 10.sp)),
                           ],
                         ),
                       ),
                       SizedBox(
                         height: 1.h,
                       ),
-                      RatingBarIndicator(
-                        itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-                        rating: 5,
-                        itemBuilder: (context, index) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        itemCount: 5,
-                        itemSize: 25,
-                        direction: Axis.horizontal,
-                      ),
+                      // RatingBarIndicator(
+                      //   itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+                      //   rating: 5,
+                      //   itemBuilder: (context, index) => const Icon(
+                      //     Icons.star,
+                      //     color: Colors.amber,
+                      //   ),
+                      //   itemCount: 5,
+                      //   itemSize: 25,
+                      //   direction: Axis.horizontal,
+                      // ),
                       SizedBox(
                         height: 1.h,
                       ),
@@ -145,12 +157,13 @@ class MoreScreen extends StatelessWidget {
             SizedBox(
               height: 0.2.h,
             ),
-            CustomCard(
-              onTap: () {
-                Share.share("https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
-              },
-              text: AppString.share,
-            ),
+            // CustomCard(
+            //   onTap: () {
+            //     Share.share(
+            //         "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
+            //   },
+            //   text: AppString.share,
+            // ),
             SizedBox(
               height: 0.2.h,
             ),

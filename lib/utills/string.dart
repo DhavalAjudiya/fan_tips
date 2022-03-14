@@ -67,7 +67,6 @@ class AppString {
   static const String youTubeUrl = "https://www.youtube.com";
 
   static const experts = 'Favourite Experts';
-  static const login = 'Login';
   static const more = 'More';
   static const rateUs = 'Rate us';
   static const share = 'Share';
@@ -86,11 +85,9 @@ class AppString {
   static const enterDescription = 'Enter Description';
   static const contactBranding = 'Contact us for branding';
 
-
   // IPL String
   static const currentMatches = 'Current Matches';
   static const squads = 'Squads';
-  static const matches = 'Matches';
   static const pointTable = 'Point Table';
   static const teams = 'Teams';
   static const m = 'M';
@@ -99,4 +96,3 @@ class AppString {
   static const points = 'Points';
   static const nrr = 'NRR';
 }
-

@@ -1,5 +1,14 @@
+import 'package:fantips/pageView/page_view.dart';
+import 'package:fantips/widget/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
+import 'T20Predictions/prediction.dart';
+import 'bottomBar/bottomNaviBar.dart';
+import 'expert/page/screen.dart';
+import 'homeScreen/homePage.dart';
+import 'homeScreen/page/newsDetailedPage.dart';
+import 'matches/page/current_matches.dart';
 import 'widget/splash_screen.dart';
 
 void main() {

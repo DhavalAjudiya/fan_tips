@@ -25,6 +25,4 @@ class AppColor {
   static const subTitleColor = Colors.grey;
   static const greyBackGround = Color(0xFF1B1B1B);
   static const backGround = Colors.black;
-
 }
-

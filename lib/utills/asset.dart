@@ -12,12 +12,11 @@ class AppImage {
 }
 
 class IconAsset {
+  static const assets = 'assets/';
   static const String icons = 'assets/icons';
   static const String searchIcon = '$icons/search.svg';
   static const String share = '$icons/shear.svg';
-}
-class IconAsset {
-  static const assets = 'assets/';
+
   static const icSearch = '${assets}ic_search.png';
   static const icArrow = '${assets}ic_arrow.svg';
   static const logoDC = '${assets}ipl_dc.png';
