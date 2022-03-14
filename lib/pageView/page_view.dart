@@ -80,14 +80,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: SvgPicture.asset(
-                        "${foodie.categori[index][AppString.image]}"),
+                        "${foodie.category[index][AppString.image]}"),
                   ),
                 ),
                 SizedBox(
                   height: 15.h,
                 ),
                 AppText(
-                  data: "${foodie.categori[index][AppString.name]}",
+                  data: "${foodie.category[index][AppString.name]}",
                   fontSize: 3.5.h,
                   fontWeight: FontWeight.bold,
                 ),

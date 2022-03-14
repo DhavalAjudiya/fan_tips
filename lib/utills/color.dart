@@ -9,7 +9,6 @@ class AppColor {
 
   ///
 
-
   static const transparent = Colors.transparent;
   static const backgroundColorBlack = Colors.black;
   static const containerBackgroundColor = Color(0XFF1B1B1B);
@@ -21,10 +20,7 @@ class AppColor {
   static const lightGreen = Colors.lightGreen;
   static const grey = Colors.grey;
 
-
-
   static const verticalDividerColor = Color(0XFF4E4E4E);
-
 
   static const subTitleColor = Colors.grey;
 }

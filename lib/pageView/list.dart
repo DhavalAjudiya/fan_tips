@@ -3,7 +3,7 @@ import 'package:fantips/utills/string.dart';
 import 'package:flutter/cupertino.dart';
 
 class Foodie {
-  List<Map> categori = [
+  List<Map> category = [
     {
       "image": AppImage.solution,
       "name": AppString.solution,

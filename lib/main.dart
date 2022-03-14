@@ -1,3 +1,4 @@
+import 'package:fantips/widget/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -48,19 +49,19 @@ class MyApp extends StatelessWidget {
               page: () => BottomNavigatorController(),
               transition: Transition.rightToLeft,
             ),
-            GetPage(
-              name: HomeScreen.routeName,
-              page: () => HomeScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: NewsDetailedScreen.routeName,
-              page: () => NewsDetailedScreen(),
-              transition: Transition.rightToLeft,
-            ),
+            // GetPage(
+            //   name: HomeScreen.routeName,
+            //   page: () => HomeScreen(),
+            //   transition: Transition.rightToLeft,
+            // ),
+            // GetPage(
+            //   name: NewsDetailedScreen.routeName,
+            //   page: () => NewsDetailedScreen(),
+            //   transition: Transition.rightToLeft,
+            // ),
             GetPage(
               name: ExpertScreen.routeName,
-              page: () => const ExpertScreen(),
+              page: () => ExpertScreen(),
               transition: Transition.rightToLeft,
             ),
           ],

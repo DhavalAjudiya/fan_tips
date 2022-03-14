@@ -43,5 +43,4 @@ class AppString {
 
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
-
 }

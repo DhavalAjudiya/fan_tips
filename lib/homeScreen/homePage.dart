@@ -79,12 +79,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              CustomeText(
-                                title: AppString.zimbabevsAfghhanistan,
-                                color: AppColor.whiteColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 10.sp,
-                              ),
+                              // CustomeText(
+                              //   title: AppString.zimbabevsAfghhanistan,
+                              //   color: AppColor.whiteColor,
+                              //   fontWeight: FontWeight.w500,
+                              //   fontSize: 10.sp,
+                              // ),
                               const Spacer(),
                               SvgPicture.asset(
                                 "assets/image/Vector.svg",
@@ -201,22 +201,22 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 1.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                3,
-                (index) => Container(
-                  height: 2.h,
-                  width: 2.w,
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
-                  decoration: BoxDecoration(
-                      color: homeController.bannerSelect == index
-                          ? Colors.black.withOpacity(0.5)
-                          : Colors.grey,
-                      shape: BoxShape.circle),
-                ),
-              ),
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: List.generate(
+            //     3,
+            //     (index) => Container(
+            //       height: 2.h,
+            //       width: 2.w,
+            //       margin: const EdgeInsets.symmetric(horizontal: 2),
+            //       decoration: BoxDecoration(
+            //           color: homeController.bannerSelect == index
+            //               ? Colors.black.withOpacity(0.5)
+            //               : Colors.grey,
+            //           shape: BoxShape.circle),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
