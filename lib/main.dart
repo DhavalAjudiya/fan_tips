@@ -1,6 +1,7 @@
+import 'package:fantips/screen/more_screen/more_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:sizer/sizer.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -10,24 +11,30 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-      ),
-      debugShowCheckedModeBanner: false,
-      initialBinding: AppBiding(),
-      initialRoute: SplashScreen.routeName,
-      getPages: [
-        GetPage(
-            name: SplashScreen.routeName,
-            page: () => SplashScreen(),
-            transition: Transition.rightToLeft),
-      ],
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        return GetMaterialApp(
+          theme: ThemeData(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+          ),
+          debugShowCheckedModeBanner: false,
+          initialBinding: AppBiding(),
+          initialRoute: SplashScreen.routeName,
+          getPages: [
+            GetPage(
+              name: SplashScreen.routeName,
+              //    page: () => SplashScreen(),
+              page: () => const MoreScreen(),
+             // page: () => IplScreen(),
+              transition: Transition.rightToLeft,
+            ),
+          ],
+        );
+      },
     );
   }
 }
