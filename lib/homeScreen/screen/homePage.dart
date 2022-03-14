@@ -1,13 +1,12 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../widget/custom_container.dart';
 import '../page/newsDetailedPage.dart';
 
 class HomeScreen extends StatelessWidget {
