@@ -1,5 +1,5 @@
 class AppString {
-  /// home screen text
+  /// home page text
   static const fanTips = "FanTips";
   static const logIn = "Login";
   static const matchesForYou = "Matches for you";
@@ -29,7 +29,7 @@ class AppString {
   static const imageNotFound =
       "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 
-  /// splash screen
+  /// splash page
   static const String solution = "One Stop Solution";
   static const String reading = "No need to spend hours of viewing and reading";
   static const String fantasy = "fantasy videos and blogs.";
@@ -43,5 +43,4 @@ class AppString {
 
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
-
 }

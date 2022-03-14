@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppColor {
-  /// home screen
+  /// home page
   static const whiteColor = Color(0XFFFFFFFF);
   static const blackColor = Color(0XFF1B1B1B);
   static const greenColor = Color(0XFF25C06D);
 
   ///
-
 
   static const transparent = Colors.transparent;
   static const backgroundColorBlack = Colors.black;
@@ -21,10 +20,7 @@ class AppColor {
   static const lightGreen = Colors.lightGreen;
   static const grey = Colors.grey;
 
-
-
   static const verticalDividerColor = Color(0XFF4E4E4E);
-
 
   static const subTitleColor = Colors.grey;
 }

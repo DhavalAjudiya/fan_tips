@@ -4,7 +4,8 @@ import 'package:sizer/sizer.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'homeScreen/screen/homePage.dart';
 import 'expert/page/screen.dart';
-import 'homeScreen/homePage.dart';
+import 'homeScreen/page/homePage.dart';
+import 'homeScreen/screen/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
@@ -60,7 +61,7 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: ExpertScreen.routeName,
-              page: () => const ExpertScreen(),
+              page: () => ExpertScreen(),
               transition: Transition.rightToLeft,
             ),
           ],
