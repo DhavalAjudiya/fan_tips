@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../utills/color.dart';
-import '../utills/string.dart';
-import '../widget/prediction_container.dart';
+import '../../utills/color.dart';
+import '../../utills/string.dart';
+import 'prediction_container.dart';
+import '../data/controller.dart';
 
 class ExpertScreen extends StatelessWidget {
-  const ExpertScreen({Key? key}) : super(key: key);
   static const routeName = "/ExpertScreen";
+  IplController iplController = Get.put(IplController());
+
+  ExpertScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +26,31 @@ class ExpertScreen extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    AppString.predictionExpert,
+                    AppString.predictionExperts,
                     style: TextStyle(
                       fontFamily: 'circular',
                       color: AppColor.whiteColor,
-                      fontSize: 18.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      AppString.logIn,
+                      style: TextStyle(
+                        fontFamily: 'circular',
+                        color: AppColor.green,
+                        fontSize: 13.2.sp,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 4.w),
+                  SvgPicture.asset(
+                    "assets/icons/search.svg",
+                    height: 2.3.h,
+                  ),
                 ],
               ),
               SizedBox(
@@ -39,7 +60,7 @@ class ExpertScreen extends StatelessWidget {
                 onTap: () {
                   showModalBottomSheet(
                     backgroundColor: AppColor.containerBackgroundColor,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12),
                         topRight: Radius.circular(12),
@@ -49,7 +70,7 @@ class ExpertScreen extends StatelessWidget {
                     builder: (context) {
                       return Container(
                         height: 28.h,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: AppColor.containerBackgroundColor,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(12),
@@ -119,7 +140,7 @@ class ExpertScreen extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(height: 1.h),
-                              Divider(
+                              const Divider(
                                   color: AppColor.verticalDividerColor,
                                   thickness: 0),
                               SizedBox(height: 1.h),
@@ -133,12 +154,12 @@ class ExpertScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 1.h),
-                              Divider(
+                              const Divider(
                                   color: AppColor.verticalDividerColor,
                                   thickness: 0),
                               SizedBox(height: 1.h),
                               Text(
-                                AppString.average_score,
+                                AppString.averageScore,
                                 style: TextStyle(
                                   fontSize: 12.sp,
                                   fontFamily: 'circular',
@@ -147,7 +168,7 @@ class ExpertScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 1.h),
-                              Divider(
+                              const Divider(
                                   color: AppColor.verticalDividerColor,
                                   thickness: 0),
                               SizedBox(height: 1.h),
@@ -168,7 +189,7 @@ class ExpertScreen extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  height: 7.h,
+                  height: 5.8.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: AppColor.containerBackgroundColor,
@@ -221,7 +242,7 @@ class ExpertScreen extends StatelessWidget {
                       Text(
                         AppString.sortByAvgScore,
                         style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 12.5.sp,
                           fontFamily: 'circular',
                           color: AppColor.green,
                           fontWeight: FontWeight.w500,
@@ -235,20 +256,46 @@ class ExpertScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Flexible(
-                child: SizedBox(
-                  height: 79.h,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return PredictionContainer(
-                        predictionCount: '10',
-                        winsCount: '10',
-                        youtubeText: '10',
-                        averageCount: '10',
-                      );
-                    },
+              SizedBox(
+                height: 1.h,
+              ),
+              Obx(
+                () => Flexible(
+                  child: SizedBox(
+                    height: 79.h,
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemCount:
+                          iplController.expert.value.tipsters?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        var postData =
+                            iplController.expert.value.tipsters![index];
+                        return Obx(
+                          () => PredictionContainer(
+                            predictionCount: "${postData.totalPredictions}",
+                            onPressed: () {
+                              if (postData.wishlist.value == false) {
+                                postData.wishlist.value = true;
+                              } else {
+                                postData.wishlist.value = false;
+                              }
+                            },
+                            icon: postData.wishlist.value == false
+                                ? const Icon(Icons.favorite_border,
+                                    color: AppColor.green)
+                                : const Icon(Icons.favorite,
+                                    color: AppColor.green),
+                            winsCount: "${postData.top3}",
+                            youtubeText: "${postData.subscriberCount}",
+                            averageCount: "${postData.avgScore}",
+                            headerText:
+                                '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                            backgroundImage: NetworkImage(postData.profileUrl ??
+                                "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),

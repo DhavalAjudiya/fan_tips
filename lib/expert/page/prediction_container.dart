@@ -5,21 +5,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 class PredictionContainer extends StatelessWidget {
-  final ImageProvider? backgroundImage;
-  String headerText;
+  final ImageProvider backgroundImage;
+  final String headerText;
   final String youtubeText;
   final String predictionCount;
   final String averageCount;
   final String winsCount;
+  final Widget icon;
+  final VoidCallback? onPressed;
 
   PredictionContainer({
     Key? key,
-    this.backgroundImage,
-    this.headerText = 'T20 Prediction',
+    required this.backgroundImage,
+    required this.headerText,
     required this.youtubeText,
     required this.predictionCount,
     required this.averageCount,
     required this.winsCount,
+    this.onPressed,
+    required this.icon,
   }) : super(key: key);
 
   @override
@@ -65,6 +69,7 @@ class PredictionContainer extends StatelessWidget {
                               Text(
                                 headerText,
                                 style: const TextStyle(
+                                    fontSize: 16,
                                     fontFamily: 'circular',
                                     color: Colors.white),
                               ),
@@ -75,8 +80,10 @@ class PredictionContainer extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  SvgPicture.asset("assets/image/youtube.svg",
-                                      height: 1.2.h),
+                                  SvgPicture.asset(
+                                    "assets/image/youtube.svg",
+                                    height: 1.2.h,
+                                  ),
                                   SizedBox(
                                     width: 1.w,
                                   ),
@@ -86,25 +93,22 @@ class PredictionContainer extends StatelessWidget {
                                       fontFamily: 'circular',
                                       fontWeight: FontWeight.w500,
                                       color: AppColor.subTitleColor,
-                                      fontSize: 9,
+                                      fontSize: 10,
                                     ),
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          SizedBox(
-                            width: 31.5.w,
-                          ),
-                          IconButton(
-                            splashColor: Colors.transparent,
-                            icon: const Icon(Icons.favorite_border,
-                                color: AppColor.green),
-                            onPressed: () {},
-                          ),
                         ],
                       ),
                     ],
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    splashColor: Colors.transparent,
+                    icon: icon,
+                    onPressed: onPressed,
                   ),
                 ],
               ),

@@ -14,7 +14,7 @@ class MatchesScreen extends StatelessWidget {
   static const routeName = "/home_screen";
 
   MatchesScreen({Key? key}) : super(key: key);
-  final _homecontroller = Get.put(HomeScreenContrroler());
+  final _homecontroller = Get.put(MatchsScreenControoler());
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,3 @@
-import 'package:fantips/homeScreen/controller/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -6,6 +5,7 @@ import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
 import '../../utills/color.dart';
 import '../../widget/customContainer/custom_container.dart';
+import '../data/homepageController.dart';
 
 class NewsDetailedScreen extends StatelessWidget {
   static const routeName = "/NewsDetailedScreen";
