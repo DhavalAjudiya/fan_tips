@@ -6,16 +6,13 @@ import '../../commanWidget/commanText.dart';
 import '../../utills/asset.dart';
 import '../../utills/color.dart';
 import '../../utills/string.dart';
-import '../../widget/customContainer/custom_container.dart';
-import '../../widget/header_row.dart';
+import '../../widget/custom_container.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';
 
 class ExpertScreen extends StatelessWidget {
   static const routeName = "/ExpertScreen";
   IplController iplController = Get.put(IplController());
-
-  ExpertScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

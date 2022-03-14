@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../homeScreen/apiService.dart';
-import '../data/datasources/api_service.dart';
 import '../data/datasources/current_match_modal.dart';
 
 class MatchsScreenControoler extends GetxController

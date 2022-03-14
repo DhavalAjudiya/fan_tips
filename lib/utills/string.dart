@@ -60,4 +60,5 @@ class AppString {
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
   static const String subscribers = "Subscribers";
+  static const String youTubeUrl = "https://www.youtube.com";
 }
