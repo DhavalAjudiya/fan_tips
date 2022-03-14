@@ -12,6 +12,8 @@ import '../controler/matchs_controller.dart';
 class UpComing extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());
 
+  UpComing({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(

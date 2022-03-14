@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../matches/widget/style.dart';
@@ -232,143 +231,149 @@ class CustomLCContainer extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 16.h,
-      margin: margin,
-      decoration: BoxDecoration(
-        color: AppColor.containerBackground,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(7.sp),
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 1.5.w, horizontal: 4.w),
-        child: Column(
-          children: [
-            Row(
+        child: Card(
+          color: AppColor.containerBackground,
+          // height: 16.h,
+          // decoration: BoxDecoration(
+          //   color: AppColor.containerBackground,
+          //   borderRadius: BorderRadius.circular(7.sp),
+          // ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 1.5.w, horizontal: 4.w),
+            child: Column(
               children: [
-                Text(
-                  headertext,
-                  style: AppStyle.title,
-                ),
-                const Spacer(),
-                InkWell(
-                  onTap: ontap,
-                  child: icon,
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 4.w,
-                          backgroundImage: backgroundImage,
-                        ),
-                        SizedBox(
-                          width: 2.w,
-                        ),
-                        Text(
-                          text,
-                          style: AppStyle.cuntryname,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 4.w,
-                          backgroundImage: secondbackgroundImage,
-                        ),
-                        SizedBox(
-                          width: 2.w,
-                        ),
-                        Text(
-                          subText,
-                          style: AppStyle.cuntryname,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "$t1run/",
-                          style: AppStyle.cuntryname,
-                        ),
-                        Text(
-                          t1wk,
-                          style: AppStyle.cuntryname,
-                        ),
-                        Text(
-                          "($t1over)",
-                          style: AppStyle.over,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "$t2run/",
-                          style: AppStyle.cuntryname,
-                        ),
-                        Text(
-                          t2wk,
-                          style: AppStyle.cuntryname,
-                        ),
-                        Text(
-                          "($t2over)",
-                          style: AppStyle.over,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(width: 3.w),
-                Container(
-                  width: 0.3.w,
-                  height: 7.h,
-                  color: const Color(0xff4E4E4E),
-                ),
-                SizedBox(width: 3.w),
-                Column(
+                Row(
                   children: [
                     Text(
-                      predictionText,
-                      style: AppStyle.preadiction,
+                      headertext,
+                      style: AppStyle.title,
                     ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: ontap,
+                      child: icon,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 4.w,
+                              backgroundImage: backgroundImage,
+                            ),
+                            SizedBox(
+                              width: 2.w,
+                            ),
+                            Text(
+                              text,
+                              style: AppStyle.cuntryname,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 4.w,
+                              backgroundImage: secondbackgroundImage,
+                            ),
+                            SizedBox(
+                              width: 2.w,
+                            ),
+                            Text(
+                              subText,
+                              style: AppStyle.cuntryname,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "$t1run/",
+                              style: AppStyle.cuntryname,
+                            ),
+                            Text(
+                              t1wk,
+                              style: AppStyle.cuntryname,
+                            ),
+                            Text(
+                              "($t1over)",
+                              style: AppStyle.over,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "$t2run/",
+                              style: AppStyle.cuntryname,
+                            ),
+                            Text(
+                              t2wk,
+                              style: AppStyle.cuntryname,
+                            ),
+                            Text(
+                              "($t2over)",
+                              style: AppStyle.over,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 3.w),
+                    Container(
+                      width: 0.3.w,
+                      height: 7.h,
+                      color: const Color(0xff4E4E4E),
+                    ),
+                    SizedBox(width: 3.w),
+                    Column(
+                      children: [
+                        Text(
+                          predictionText,
+                          style: AppStyle.preadiction,
+                        ),
+                        Text(
+                          prediction,
+                          style: AppStyle.predication,
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.2.h,
+                ),
+                Row(
+                  children: [
                     Text(
-                      prediction,
-                      style: AppStyle.predication,
-                    )
+                      lastText,
+                      style: AppStyle.title,
+                    ),
                   ],
                 ),
               ],
             ),
-            SizedBox(
-              height: 1.2.h,
-            ),
-            Row(
-              children: [
-                Text(
-                  lastText,
-                  style: AppStyle.title,
-                ),
-              ],
-            ),
-          ],
+          ),
         ),
       ),
     );

@@ -10,7 +10,6 @@ import '../../widget/custom_container.dart';
 class NewsDetailedScreen extends StatelessWidget {
   static const routeName = "/NewsDetailedScreen";
   final HomeController homeController = Get.find();
-  NewsDetailedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

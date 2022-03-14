@@ -64,4 +64,5 @@ class AppString {
   /// header Row
   static const String googleSign = "Sing In With Google";
   static const String fbLogin = "Sing In With Facebook";
+  static const String youTubeUrl = "https://www.youtube.com";
 }
