@@ -7,6 +7,8 @@ import 'package:sizer/sizer.dart';
 import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'expert/page/screen.dart';
+import 'homeScreen/page/homePage.dart';
+import 'homeScreen/page/newsDetailedPage.dart';
 import 'homeScreen/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'pageView/page_view.dart';

@@ -14,8 +14,7 @@ class Completed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 75.6.h,
+        Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount: _homecontroller
