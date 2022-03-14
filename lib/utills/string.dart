@@ -15,7 +15,7 @@ class AppString {
 
   ///
   static const String predictionExpert = "Prediction Expert";
-  static const String sortByAvgScore = "Sort by : Avg Score";
+  static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
 
   /// current matchs

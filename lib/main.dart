@@ -1,14 +1,11 @@
+import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
+import 'package:fantips/widget/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'bottomBar/bottomNaviBar.dart';
-import 'homeScreen/screen/homePage.dart';
 import 'expert/page/screen.dart';
-import 'homeScreen/page/homePage.dart';
-import 'homeScreen/screen/newsDetailedPage.dart';
-import 'pageView/page_view.dart';
-import 'widget/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
