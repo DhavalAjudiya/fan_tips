@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../widget/custom_container.dart';
+import '../data/homepageController.dart';
 import '../page/newsDetailedPage.dart';
 
 class HomeScreen extends StatelessWidget {

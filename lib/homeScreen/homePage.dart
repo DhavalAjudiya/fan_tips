@@ -1,5 +1,4 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/homeScreen/homepageController.dart';
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/custom_container.dart';
@@ -7,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import 'data/homepageController.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/HomeScreen";
