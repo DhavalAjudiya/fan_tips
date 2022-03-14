@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fantips/pageView/page_view.dart';
+import 'package:fantips/widget/splash_controller.dart';
+import 'package:fantips/widget/splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
-import 'homeScreen/page/homePage.dart';
 import 'expert/page/screen.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
