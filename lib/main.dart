@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fantips/pageView/page_view.dart';
-import 'package:fantips/widget/splash_controller.dart';
-import 'package:fantips/widget/splash_screen.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
-import 'T20Predictions/prediction.dart';
-import 'bottomBar/bottomNaviBar.dart';
-import 'homeScreen/screen/homePage.dart';
-import 'expert/page/screen.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
-import 'matches/page/current_matches.dart';
-import 'matches/page/matchs_controller.dart';
-import 'pageView/page_view.dart';
-import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
