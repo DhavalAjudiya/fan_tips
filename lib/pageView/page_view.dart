@@ -8,6 +8,8 @@ import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
 import '../bottomBar/bottomNaviBar.dart';
+import '../commanWidget/commanText.dart';
+import '../widget/custom_container.dart';
 import 'list.dart';
 
 class PageViewScreen extends StatefulWidget {
@@ -18,9 +20,10 @@ class PageViewScreen extends StatefulWidget {
 }
 
 class _PageViewScreenState extends State<PageViewScreen> {
-  Foodie foodie = Foodie();
-  final _pageController = PageController(initialPage: 3);
-  final _currentPageNotifier = ValueNotifier(3);
+  PageScroll foodie = PageScroll();
+  final _pageController = PageController(initialPage: 1);
+  final _currentPageNotifier = ValueNotifier(0);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +43,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   width: double.infinity,
                   color: AppColor.green,
                   child: const Center(
-                    child: AppText(
-                      data: AppString.next,
+                    child: CustomeText(
+                      title: AppString.next,
                       color: AppColor.white,
                     ),
                   ),
@@ -62,7 +65,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
   Widget _buildPageView() {
     return Expanded(
       child: PageView.builder(
-        itemCount: 3,
+        itemCount: foodie.categori.length,
         controller: _pageController,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
@@ -86,8 +89,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                AppText(
-                  data: "${foodie.categori[index][AppString.name]}",
+                CustomeText(
+                  title: "${foodie.categori[index][AppString.name]}",
                   fontSize: 3.5.h,
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,14 +99,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 ),
                 Column(
                   children: [
-                    AppText(
-                      data: AppString.reading,
+                    CustomeText(
+                      title: AppString.reading,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
-                    AppText(
-                      data: AppString.fantasy,
+                    CustomeText(
+                      title: AppString.fantasy,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
@@ -130,9 +133,10 @@ class _PageViewScreenState extends State<PageViewScreen> {
       dotColor: AppColor.grey,
       currentPageNotifier: _currentPageNotifier,
       size: 1.h,
-      onPageSelected: (int index) {
-        if (_currentPageNotifier.value > index)
-          _pageController.jumpToPage(index);
+      onPageSelected: (index) {
+        if (_currentPageNotifier.value > index) {
+          _pageController.keepPage;
+        }
       },
     );
   }

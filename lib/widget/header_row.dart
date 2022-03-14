@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../commanWidget/commanText.dart';
-import 'customContainer/custom_container.dart';
+import 'custom_container.dart';
 
 class HeaderRow extends StatelessWidget {
   final String title;

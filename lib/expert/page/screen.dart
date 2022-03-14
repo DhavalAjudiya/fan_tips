@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../commanWidget/commanText.dart';
+import '../../utills/asset.dart';
 import '../../utills/color.dart';
 import '../../utills/string.dart';
+import '../../widget/customContainer/custom_container.dart';
+import '../../widget/header_row.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';
 
@@ -36,7 +40,77 @@ class ExpertScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(6.w),
+                            topLeft: Radius.circular(6.w),
+                          ),
+                        ),
+                        context: context,
+                        builder: (context) => SizedBox(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    icon: Icon(
+                                      Icons.clear,
+                                      size: 9.w,
+                                    ),
+                                    splashColor: AppColor.transparent,
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                ],
+                              ),
+                              Image.asset(AppImage.logo, height: 40.w),
+                              Padding(
+                                padding: EdgeInsets.all(5.w),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 0.2.h,
+                                      width: 27.w,
+                                      color: AppColor.grey,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    const CustomeText(
+                                        title: AppString.letsconnect),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Container(
+                                      height: 0.2.h,
+                                      width: 27.w,
+                                      color: AppColor.grey,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Flexible(
+                                child: AppContainer(
+                                  onTap: () {},
+                                  child: Row(
+                                    children: const [],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                     child: Text(
                       AppString.logIn,
                       style: TextStyle(
@@ -242,7 +316,7 @@ class ExpertScreen extends StatelessWidget {
                       Text(
                         AppString.sortByAvgScore,
                         style: TextStyle(
-                          fontSize: 12.5.sp,
+                          fontSize: 13.5.sp,
                           fontFamily: 'circular',
                           color: AppColor.green,
                           fontWeight: FontWeight.w500,

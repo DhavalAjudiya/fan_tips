@@ -1,8 +1,8 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/homeScreen/data/homepageController.dart';
+import 'package:fantips/homeScreen/homepageController.dart';
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/customContainer/custom_container.dart';
+import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -79,12 +79,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              // CustomeText(
-                              //   title: AppString.zimbabevsAfghhanistan,
-                              //   color: AppColor.whiteColor,
-                              //   fontWeight: FontWeight.w500,
-                              //   fontSize: 10.sp,
-                              // ),
+                              CustomeText(
+                                title: AppString.zimbabevsAfghhanistan,
+                                color: AppColor.whiteColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 10.sp,
+                              ),
                               const Spacer(),
                               SvgPicture.asset(
                                 "assets/image/Vector.svg",
@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                                         children: [
                                           CircleAvatar(
                                             radius: 9.sp,
-                                            backgroundImage: AssetImage(
+                                            backgroundImage: const AssetImage(
                                                 "assets/image/Zim.png"),
                                           ),
                                           SizedBox(
@@ -201,22 +201,22 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 1.h,
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: List.generate(
-            //     3,
-            //     (index) => Container(
-            //       height: 2.h,
-            //       width: 2.w,
-            //       margin: const EdgeInsets.symmetric(horizontal: 2),
-            //       decoration: BoxDecoration(
-            //           color: homeController.bannerSelect == index
-            //               ? Colors.black.withOpacity(0.5)
-            //               : Colors.grey,
-            //           shape: BoxShape.circle),
-            //     ),
-            //   ),
-            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                3,
+                (index) => Container(
+                  height: 2.h,
+                  width: 2.w,
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  decoration: BoxDecoration(
+                      color: homeController.featureSelect == index
+                          ? Colors.black.withOpacity(0.5)
+                          : Colors.grey,
+                      shape: BoxShape.circle),
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../homeScreen/apiService.dart';
 import '../data/datasources/api_service.dart';
 import '../data/datasources/current_match_modal.dart';
 
@@ -12,22 +13,22 @@ class MatchsScreenControoler extends GetxController
   void onInit() {
     super.onInit();
     tabController = TabController(length: 3, vsync: this);
-    getData();
+    //getData();
   }
 
-  void getData() async {
-    try {
-      var data = await ApiService.fetchCurrentMatchesData();
-
-      if (data != null) {
-        currentMatch.value = data;
-        print(
-            "get--------${currentMatch.value.matches!.notstarted![0].matchName}");
-      }
-    } catch (e) {
-      print("get======== $e");
-    }
-  }
+  // void getData() async {
+  //   try {
+  //     var data = await ApiService.fetchCurrentMatchesData();
+  //
+  //     if (data != null) {
+  //       currentMatch.value = data;
+  //       print(
+  //           "get--------${currentMatch.value.matches!.notstarted![0].matchName}");
+  //     }
+  //   } catch (e) {
+  //     print("get======== $e");
+  //   }
+  // }
 
   String timeAgo(int milliSecond) {
     DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);

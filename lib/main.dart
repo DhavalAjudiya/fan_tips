@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
+import 'homeScreen/screen/homePage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
+import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -60,7 +63,12 @@ class MyApp extends StatelessWidget {
             ),
             GetPage(
               name: ExpertScreen.routeName,
-              page: () => ExpertScreen(),
+              page: () => const ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: T20Prediction.routeName,
+              page: () => T20Prediction(),
               transition: Transition.rightToLeft,
             ),
           ],
