@@ -49,16 +49,16 @@ class MyApp extends StatelessWidget {
               page: () => BottomNavigatorController(),
               transition: Transition.rightToLeft,
             ),
-            GetPage(
-              name: HomeScreen.routeName,
-              page: () => HomeScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: NewsDetailedScreen.routeName,
-              page: () => NewsDetailedScreen(),
-              transition: Transition.rightToLeft,
-            ),
+            // GetPage(
+            //   name: HomeScreen.routeName,
+            //   page: () => HomeScreen(),
+            //   transition: Transition.rightToLeft,
+            // ),
+            // GetPage(
+            //   name: NewsDetailedScreen.routeName,
+            //   page: () => NewsDetailedScreen(),
+            //   transition: Transition.rightToLeft,
+            // ),
             GetPage(
               name: ExpertScreen.routeName,
               page: () => ExpertScreen(),

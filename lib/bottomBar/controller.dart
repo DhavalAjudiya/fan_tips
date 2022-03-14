@@ -14,4 +14,5 @@ class BottomController extends GetxController {
     ExpertScreen(),
     MoreScreen(),
   ];
+
 }
