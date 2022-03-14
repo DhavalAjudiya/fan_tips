@@ -22,7 +22,7 @@ class CustomContainer extends StatelessWidget {
   final VoidCallback? ontap;
   final Widget icon;
 
-  CustomContainer({
+  const CustomContainer({
     this.headertext = "",
     this.text = "",
     this.backgroundImage,
@@ -200,9 +200,11 @@ class CustomLCContainer extends StatelessWidget {
   final String lastText;
   final String t1run;
   final String t1wk;
+  final String t1owk;
   final String t1over;
   final String t2run;
   final String t2wk;
+  final String t2owk;
   final String t2over;
   final ImageProvider? backgroundImage;
   final ImageProvider? secondbackgroundImage;
@@ -228,6 +230,8 @@ class CustomLCContainer extends StatelessWidget {
     this.t2over = "",
     this.ontap,
     required this.icon,
+    this.t1owk = "",
+    this.t2owk = "",
   });
   @override
   Widget build(BuildContext context) {
@@ -313,8 +317,12 @@ class CustomLCContainer extends StatelessWidget {
                               style: AppStyle.cuntryname,
                             ),
                             Text(
-                              "($t1over)",
-                              style: AppStyle.over,
+                              " & $t1over/",
+                              style: AppStyle.cuntryname,
+                            ),
+                            Text(
+                              "$t1owk",
+                              style: AppStyle.cuntryname,
                             ),
                           ],
                         ),
@@ -332,8 +340,12 @@ class CustomLCContainer extends StatelessWidget {
                               style: AppStyle.cuntryname,
                             ),
                             Text(
-                              "($t2over)",
-                              style: AppStyle.over,
+                              " & $t2over/",
+                              style: AppStyle.cuntryname,
+                            ),
+                            Text(
+                              "$t2owk",
+                              style: AppStyle.cuntryname,
                             ),
                           ],
                         ),

@@ -22,38 +22,44 @@ class Completed extends StatelessWidget {
             itemBuilder: (context, index) {
               final current = _homecontroller
                   .completedMatches.value.matches?.completed?[index];
-              return Obx(
-                () => CustomLCContainer(
-                  margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
-                  ontap: () {
-                    if (current?.isSelect.value == false) {
-                      current?.isSelect.value = true;
-                    } else {
-                      current?.isSelect.value = false;
-                    }
-                  },
-                  icon: current?.isSelect.value == false
-                      ? const Icon(Icons.notifications)
-                      : const Icon(Icons.notifications_none),
-                  backgroundImage: NetworkImage(
-                    current?.t1Flag ?? AppString.imageNotFound,
-                  ),
-                  text: current?.team1Name ?? "",
-                  secondbackgroundImage: NetworkImage(
-                    current?.t2Flag ?? AppString.imageNotFound,
-                  ),
-                  subText: current?.team2Name ?? "",
-                  t1run: "${current?.t1Run ?? ""}",
-                  t1wk: "${current?.t1Wk ?? ""}",
-                  t1over: current?.t1Over ?? "",
-                  t2run: "${current?.t2Run ?? ""}",
-                  t2wk: "${current?.t2Wk ?? ""}",
-                  t2over: current?.t2Over ?? "",
-                  predictionText: "${current?.totalprediction ?? ""}",
-                  prediction: "Prediction",lastText: current?.infoMsg ?? "",
-                ),
-              );
+              return Obx(() {
+                if (_homecontroller.loading.value) {
+                  return const Center(child: CircularProgressIndicator());
+                } else {
+                  return CustomLCContainer(
+                    margin:
+                        EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
+                    headertext: current?.matchName ?? "",
+                    ontap: () {
+                      if (current?.isSelect.value == false) {
+                        current?.isSelect.value = true;
+                      } else {
+                        current?.isSelect.value = false;
+                      }
+                    },
+                    icon: current?.isSelect.value == false
+                        ? const Icon(Icons.notifications)
+                        : const Icon(Icons.notifications_none),
+                    backgroundImage: NetworkImage(
+                      current?.t1Flag ?? AppString.imageNotFound,
+                    ),
+                    text: current?.team1Name ?? "",
+                    secondbackgroundImage: NetworkImage(
+                      current?.t2Flag ?? AppString.imageNotFound,
+                    ),
+                    subText: current?.team2Name ?? "",
+                    t1run: "${current?.t1Run ?? ""}",
+                    t1wk: "${current?.t1Wk ?? ""}",
+                    t1over: current?.t1Over ?? "",
+                    t2run: "${current?.t2Run ?? ""}",
+                    t2wk: "${current?.t2Wk ?? ""}",
+                    t2over: current?.t2Over ?? "",
+                    predictionText: "${current?.totalprediction ?? ""}",
+                    prediction: "Prediction",
+                    lastText: current?.infoMsg ?? "",
+                  );
+                }
+              });
             },
           ),
         ),

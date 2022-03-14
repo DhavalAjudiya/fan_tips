@@ -7,12 +7,10 @@ import 'package:sizer/sizer.dart';
 import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'homeScreen/screen/homePage.dart';
-import 'homeScreen/screen/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
-import 'homeScreen/page/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
-import 'homeScreen/homePage.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
+import 'matches/page/current_matches.dart';
+import 'matches/page/matchs_controller.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
@@ -50,6 +48,11 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: PageViewScreen.routeName,
               page: () => PageViewScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

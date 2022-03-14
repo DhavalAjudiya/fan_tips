@@ -16,7 +16,7 @@ class AppStyle {
       fontWeight: FontWeight.w900);
 
   static final title = TextStyle(
-      color: Colors.white,
+      color: Colors.white54,
       fontFamily: "circular",
       fontSize: 11.sp,
       fontWeight: FontWeight.w400);
