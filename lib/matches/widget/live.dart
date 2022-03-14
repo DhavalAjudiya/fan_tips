@@ -18,10 +18,10 @@ class Live extends StatelessWidget {
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount:
-                _homecontroller.currentMatch.value.matches?.notstarted?.length,
+                _homecontroller.liveMatches.value.matches?.started?.length,
             itemBuilder: (context, index) {
-              final current = _homecontroller
-                  .currentMatch.value.matches?.notstarted?[index];
+              final current =
+                  _homecontroller.liveMatches.value.matches?.started?[index];
 
               return Obx(
                 () => CustomLCContainer(
@@ -45,12 +45,12 @@ class Live extends StatelessWidget {
                     current?.t2Flag ?? AppString.imageNotFound,
                   ),
                   subText: current?.team2Name ?? "",
-                  t1run: "${current?.t1Run}",
-                  t1wk: "${current?.t1Wk}",
-                  t1over: "${current?.t1Over}",
-                  t2run: "${current?.t2Run}",
-                  t2wk: "${current?.t2Wk}",
-                  t2over: "${current?.t2Over}",
+                  t1run: "${current?.t1Run ?? ""}",
+                  t1wk: "${current?.t1Wk ?? ""}",
+                  t1over: current?.t1Over ?? "",
+                  t2run: "${current?.t2Run ?? ""}",
+                  t2wk: "${current?.t2Wk ?? ""}",
+                  t2over: current?.t2Over ?? "",
                   predictionText: "${current?.totalprediction ?? ""}",
                   prediction: "Prediction",
                   lastText: _homecontroller.timeAgo(

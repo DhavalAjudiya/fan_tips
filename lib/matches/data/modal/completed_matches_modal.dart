@@ -1,18 +1,19 @@
 // To parse this JSON data, do
 //
-//     final currentMatch = currentMatchFromJson(jsonString);
+//     final completedMatches = completedMatchesFromJson(jsonString);
 
 import 'dart:convert';
 
 import 'package:get/get.dart';
 
-CurrentMatch currentMatchFromJson(String str) =>
-    CurrentMatch.fromJson(json.decode(str));
+CompletedMatches completedMatchesFromJson(String str) =>
+    CompletedMatches.fromJson(json.decode(str));
 
-String currentMatchToJson(CurrentMatch data) => json.encode(data.toJson());
+String completedMatchesToJson(CompletedMatches data) =>
+    json.encode(data.toJson());
 
-class CurrentMatch {
-  CurrentMatch({
+class CompletedMatches {
+  CompletedMatches({
     this.result,
     this.matches,
     this.status,
@@ -22,7 +23,8 @@ class CurrentMatch {
   Matches? matches;
   bool? status;
 
-  factory CurrentMatch.fromJson(Map<String, dynamic> json) => CurrentMatch(
+  factory CompletedMatches.fromJson(Map<String, dynamic> json) =>
+      CompletedMatches(
         result: json["result"],
         matches: Matches.fromJson(json["matches"]),
         status: json["status"],
@@ -37,23 +39,32 @@ class CurrentMatch {
 
 class Matches {
   Matches({
+    this.completed,
     this.notstarted,
+    this.started,
   });
 
-  List<Notstarted>? notstarted;
+  List<Ted>? completed;
+  List<Ted>? notstarted;
+  List<Ted>? started;
 
   factory Matches.fromJson(Map<String, dynamic> json) => Matches(
-        notstarted: List<Notstarted>.from(
-            json["NOTSTARTED"].map((x) => Notstarted.fromJson(x))),
+        completed:
+            List<Ted>.from(json["COMPLETED"].map((x) => Ted.fromJson(x))),
+        notstarted:
+            List<Ted>.from(json["NOTSTARTED"].map((x) => Ted.fromJson(x))),
+        started: List<Ted>.from(json["STARTED"].map((x) => Ted.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
+        "COMPLETED": List<dynamic>.from(completed!.map((x) => x.toJson())),
         "NOTSTARTED": List<dynamic>.from(notstarted!.map((x) => x.toJson())),
+        "STARTED": List<dynamic>.from(started!.map((x) => x.toJson())),
       };
 }
 
-class Notstarted {
-  Notstarted({
+class Ted {
+  Ted({
     this.quizavailable,
     this.team2Id,
     this.tispterWinnderDeclared,
@@ -81,12 +92,8 @@ class Notstarted {
     this.t2Run,
     this.header,
     this.status,
-    required this.selected,
-    required this.isSelected,
     required this.isSelect,
   });
-  RxBool selected = false.obs;
-  RxBool isSelected = false.obs;
   RxBool isSelect = false.obs;
   bool? quizavailable;
   int? team2Id;
@@ -116,7 +123,7 @@ class Notstarted {
   String? header;
   int? status;
 
-  factory Notstarted.fromJson(Map<String, dynamic> json) => Notstarted(
+  factory Ted.fromJson(Map<String, dynamic> json) => Ted(
         quizavailable: json["quizavailable"],
         team2Id: json["team2Id"],
         tispterWinnderDeclared: json["tispterWinnderDeclared"],
@@ -143,10 +150,7 @@ class Notstarted {
         t2Over: json["t2over"],
         t2Run: json["t2run"],
         header: json["header"],
-        status: json["status"],
-        selected: false.obs,
-        isSelect: false.obs,
-        isSelected: false.obs,
+        status: json["status"], isSelect: false.obs,
       );
 
   Map<String, dynamic> toJson() => {

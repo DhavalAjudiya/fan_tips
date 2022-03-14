@@ -1,18 +1,28 @@
+import 'dart:developer';
+
+import 'package:fantips/matches/data/datasources/completed_match_data.dart';
+import 'package:fantips/matches/data/datasources/live_matches.dart';
+import 'package:fantips/matches/data/modal/live_matches.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../data/datasources/api_service.dart';
-import '../data/datasources/current_match_modal.dart';
+import '../data/modal/completed_matches_modal.dart';
+import '../data/modal/current_match_modal.dart';
 
 class MatchsScreenControoler extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? tabController;
   Rx<CurrentMatch> currentMatch = CurrentMatch().obs;
+  Rx<CompletedMatches> completedMatches = CompletedMatches().obs;
+  Rx<LiveMatches> liveMatches = LiveMatches().obs;
 
   @override
   void onInit() {
     super.onInit();
     tabController = TabController(length: 3, vsync: this);
     getData();
+    liveMatchesData();
+    completedMatchesData();
   }
 
   void getData() async {
@@ -21,8 +31,30 @@ class MatchsScreenControoler extends GetxController
 
       if (data != null) {
         currentMatch.value = data;
-        print(
-            "get--------${currentMatch.value.matches!.notstarted![0].matchName}");
+      }
+    } catch (e) {
+      print("get======== $e");
+    }
+  }
+
+  void completedMatchesData() async {
+    try {
+      var completedData = await CompletedMatchApi.fetchCompletedMatchesData();
+
+      if (completedData != null) {
+        completedMatches.value = completedData;
+      }
+    } catch (e) {
+      print("get======== $e");
+    }
+  }
+
+  void liveMatchesData() async {
+    try {
+      var liveData = await LiveMatchesApi.fetchLiveMatchesData();
+
+      if (liveData != null) {
+        liveMatches.value = liveData;
       }
     } catch (e) {
       print("get======== $e");
