@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'bottomBar/bottomNaviBar.dart';
-import 'homeScreen/screen/homePage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
-import 'homeScreen/screen/newsDetailedPage.dart';
+import 'homeScreen/page/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
