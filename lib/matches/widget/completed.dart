@@ -51,8 +51,7 @@ class Completed extends StatelessWidget {
                   t2wk: "${current?.t2Wk ?? ""}",
                   t2over: current?.t2Over ?? "",
                   predictionText: "${current?.totalprediction ?? ""}",
-                  prediction: "Prediction",
-                  lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
+                  prediction: "Prediction",lastText: current?.infoMsg ?? "",
                 ),
               );
             },

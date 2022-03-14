@@ -61,7 +61,7 @@ class UpComing extends StatelessWidget {
                   predictionText: "${current?.totalprediction ?? ""}",
                   prediction: "Prediction",
                   // lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
-                  lastText: Utils.timeDurationAgo(
+                  lastText: _homecontroller.timeAgo(
                     current?.startTime ?? 0,
                   ),
                 ),
