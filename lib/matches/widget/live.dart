@@ -4,10 +4,9 @@ import 'package:sizer/sizer.dart';
 
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
-import '../controler/matchs_controller.dart';
 
 class Live extends StatelessWidget {
-  final _homecontroller = Get.put(HomeScreenContrroler());
+  final _homecontroller = Get.put(MatchsScreenControoler());
 
   @override
   Widget build(BuildContext context) {

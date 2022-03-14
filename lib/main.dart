@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
-import 'expert/screen.dart';
 import 'homeScreen/screen/homePage.dart';
+import 'homeScreen/screen/newsDetailedPage.dart';
+import 'expert/page/screen.dart';
+import 'homeScreen/page/homePage.dart';
 import 'homeScreen/screen/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_controller.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: T20Prediction.routeName,
+          initialRoute: SplashScreen.routeName,
           getPages: [
             GetPage(
               name: SplashScreen.routeName,

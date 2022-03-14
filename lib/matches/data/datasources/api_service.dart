@@ -1,21 +1,33 @@
-// import 'dart:convert';
-//
-// import 'package:fantips/homeScreen/newsModel.dart';
-// import 'package:http/http.dart' as http;
-//
-// class ApiService {
-//   Future<NewsDataModel?> newsPostData() async {
-//     http.Response response = await http.post(
-//       Uri.parse("https://api.freefantasy.in/tips/getNewsList?offset=0&limit=4"),
-//     );
-//     //log("message========>${jsonDecode(response.body)}");
-//     NewsDataModel? newsDataModel;
-//     if (jsonDecode(response.body)["status"] == true) {
-//       return newsDataModel = NewsDataModel.fromJson(jsonDecode(response.body));
-//     } else {
-//       print("=====");
-//     }
-//
-//     return newsDataModel;
-//   }
-// }
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
+import 'current_match_modal.dart';
+
+class ApiService {
+  static var url = "https://api.freefantasy.in/tips/getMatches";
+
+  static Map<String, String> header = {
+    "Content-Type": 'text/plain',
+  };
+
+  static Future<CurrentMatch?> fetchCurrentMatchesData() async {
+    try {
+      var request = http.MultipartRequest('POST', Uri.parse(url));
+      request.fields.addAll({'matchStatus': '2', 'offset': '0', 'limit': '20'});
+
+      http.StreamedResponse response = await request.send();
+      final data = await response.stream.bytesToString();
+
+      if (response.statusCode == 200) {
+        print("response=====>>>>>>>${data}");
+        return CurrentMatch.fromJson(jsonDecode(data));
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print("service==>>>$e");
+    }
+    return null;
+  }
+}

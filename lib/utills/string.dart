@@ -38,6 +38,10 @@ class AppString {
   static const String mindset = "Mindset";
   static const String image = "image";
   static const String name = "name";
+
+  ///Prediction Expert
+
+  static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
   static const String average_score = "Average-Score";
 

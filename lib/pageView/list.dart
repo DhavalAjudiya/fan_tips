@@ -1,5 +1,6 @@
 import 'package:fantips/utills/asset.dart';
 import 'package:fantips/utills/string.dart';
+import 'package:flutter/cupertino.dart';
 
 class PageScroll {
   List<Map> categori = [
@@ -14,6 +15,7 @@ class PageScroll {
     {
       "image": AppImage.mindset,
       "name": AppString.mindset,
+      "next": AppString.next,
     },
   ];
 }

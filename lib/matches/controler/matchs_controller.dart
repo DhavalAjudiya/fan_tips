@@ -4,7 +4,7 @@ import '../../homeScreen/apiService.dart';
 import '../data/datasources/api_service.dart';
 import '../data/datasources/current_match_modal.dart';
 
-class HomeScreenContrroler extends GetxController
+class MatchsScreenControoler extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? tabController;
   Rx<CurrentMatch> currentMatch = CurrentMatch().obs;

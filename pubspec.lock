@@ -195,13 +195,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_lints:
-    dependency: "direct dev"
-    description:
-      name: flutter_lints
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
   flutter_spinkit:
     dependency: "direct main"
     description:
@@ -257,6 +250,7 @@ packages:
     source: hosted
     version: "2.1.0"
   http:
+    dependency: "direct main"
     dependency: "direct main"
     description:
       name: http
@@ -494,6 +488,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  pull_to_refresh:
+    dependency: "direct main"
+    description:
+      name: pull_to_refresh
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   sizer:
     dependency: "direct main"
     description:
