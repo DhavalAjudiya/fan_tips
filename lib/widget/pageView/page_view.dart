@@ -1,11 +1,10 @@
+import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/customContainer/custom_container.dart';
-import 'package:fantips/widget/customText/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:page_view_indicators/step_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/color.dart';
+import '../custom_container.dart';
 
 class PageViewScreen extends StatefulWidget {
   static const routeName = "/PageViewScreen";
@@ -47,9 +46,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
             child: Column(
               children: [
                 AppContainer(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.greenColor],
+                    colors: <Color>[AppColor.white, AppColor.lightGreen],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -65,8 +64,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                AppText(
-                  data: AppString.solution,
+                CustomeText(
+                  title: AppString.solution,
                   fontSize: 3.5.h,
                   fontWeight: FontWeight.bold,
                 ),
@@ -75,14 +74,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 ),
                 Column(
                   children: [
-                    AppText(
-                      data: AppString.reading,
+                    CustomeText(
+                      title: AppString.reading,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
-                    AppText(
-                      data: AppString.fantasy,
+                    CustomeText(
+                      title: AppString.fantasy,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
@@ -97,8 +96,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
             height: 7.5.h,
             color: AppColor.green,
             child: const Center(
-              child: AppText(
-                data: AppString.next,
+              child: CustomeText(
+                title: AppString.next,
                 color: AppColor.white,
               ),
             ),
@@ -119,7 +118,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 AppContainer(
                   gradient: LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.greenColor],
+                    colors: <Color>[AppColor.white, AppColor.lightGreen],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -135,8 +134,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                AppText(
-                  data: AppString.working,
+                CustomeText(
+                  title: AppString.working,
                   fontSize: 3.5.h,
                   fontWeight: FontWeight.bold,
                 ),
@@ -145,14 +144,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 ),
                 Column(
                   children: [
-                    AppText(
-                      data: AppString.reading,
+                    CustomeText(
+                      title: AppString.reading,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
-                    AppText(
-                      data: AppString.fantasy,
+                    CustomeText(
+                      title: AppString.fantasy,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
@@ -167,8 +166,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
             height: 7.5.h,
             color: AppColor.green,
             child: const Center(
-              child: AppText(
-                data: AppString.next,
+              child: CustomeText(
+                title: AppString.next,
                 color: AppColor.white,
               ),
             ),
@@ -189,7 +188,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 AppContainer(
                   gradient: LinearGradient(
                     end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.greenColor],
+                    colors: <Color>[AppColor.white, AppColor.lightGreen],
                   ),
                   height: 30.h,
                   width: 60.w,
@@ -205,8 +204,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                AppText(
-                  data: AppString.mindset,
+                CustomeText(
+                  title: AppString.mindset,
                   fontSize: 3.5.h,
                   fontWeight: FontWeight.bold,
                 ),
@@ -215,14 +214,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 ),
                 Column(
                   children: [
-                    AppText(
-                      data: AppString.reading,
+                    CustomeText(
+                      title: AppString.reading,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
-                    AppText(
-                      data: AppString.fantasy,
+                    CustomeText(
+                      title: AppString.fantasy,
                       fontSize: 2.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
@@ -237,8 +236,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
             height: 7.5.h,
             color: AppColor.green,
             child: const Center(
-              child: AppText(
-                data: AppString.next,
+              child: CustomeText(
+                title: AppString.next,
                 color: AppColor.white,
               ),
             ),

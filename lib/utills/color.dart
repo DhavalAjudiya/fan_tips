@@ -25,4 +25,6 @@ class AppColor {
 
   static const verticalDividerColor = Color(0XFF4E4E4E);
   static const subTitleColor = Colors.grey;
+  static const greyBackGround = Color(0xFF1B1B1B);
+  static const backGround = Colors.black;
 }

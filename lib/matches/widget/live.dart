@@ -13,28 +13,27 @@ class Live extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 75.6.h,
+        Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount:
-                _homecontroller.currentMatch.value.matches?.notstarted?.length,
+                _homecontroller.liveMatches.value.matches?.started?.length,
             itemBuilder: (context, index) {
-              final current = _homecontroller
-                  .currentMatch.value.matches?.notstarted?[index];
+              final current =
+                  _homecontroller.liveMatches.value.matches?.started?[index];
 
               return Obx(
                 () => CustomLCContainer(
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
                   headertext: current?.matchName ?? "",
                   ontap: () {
-                    if (current?.selected.value == false) {
-                      current?.selected.value = true;
+                    if (current?.isSelected.value == false) {
+                      current?.isSelected.value = true;
                     } else {
-                      current?.selected.value = false;
+                      current?.isSelected.value = false;
                     }
                   },
-                  icon: current?.selected.value == false
+                  icon: current?.isSelected.value == false
                       ? const Icon(Icons.notifications)
                       : const Icon(Icons.notifications_none),
                   backgroundImage: NetworkImage(
@@ -45,17 +44,17 @@ class Live extends StatelessWidget {
                     current?.t2Flag ?? AppString.imageNotFound,
                   ),
                   subText: current?.team2Name ?? "",
-                  t1run: "${current?.t1Run}",
-                  t1wk: "${current?.t1Wk}",
-                  t1over: "${current?.t1Over}",
-                  t2run: "${current?.t2Run}",
-                  t2wk: "${current?.t2Wk}",
-                  t2over: "${current?.t2Over}",
+                  t1run: "${current?.i2Details?.run ?? ""}",
+                  t1wk: "${current?.i2Details?.wk ?? ""}",
+                  t1over: "${current?.i4Details?.run ?? ""}",
+                  t1owk: "${current?.i4Details?.wk ?? ""}",
+                  t2run: "${current?.i1Details?.run ?? ""}",
+                  t2wk: "${current?.i1Details?.wk ?? ""}",
+                  t2over: "${current?.i3Details?.run ?? ""}",
+                  t2owk: "${current?.i3Details?.wk ?? ""}",
                   predictionText: "${current?.totalprediction ?? ""}",
                   prediction: "Prediction",
-                  lastText: _homecontroller.timeAgo(
-                    current?.startTime ?? 0,
-                  ),
+                  lastText: AppString.live,
                 ),
               );
             },

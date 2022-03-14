@@ -11,7 +11,7 @@ class ApiService {
       Uri.parse(
           "https://api.freefantasy.in/tips/getNewsList?offset=0&limit=20"),
     );
-    log("message========>${jsonDecode(response.body)}");
+    log("NewsDataModel========>${jsonDecode(response.body)}");
     NewsDataModel? newsDataModel;
     if (jsonDecode(response.body)["status"] == true) {
       return newsDataModel = NewsDataModel.fromJson(jsonDecode(response.body));
