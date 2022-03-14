@@ -39,7 +39,5 @@ class AppString {
   static const String image = "image";
   static const String name = "name";
   static const String sortBy = "Sort By";
-  static const String predictions = "Predictions";
   static const String average_score = "Average-Score";
-  static const String wins = "Wins";
 }

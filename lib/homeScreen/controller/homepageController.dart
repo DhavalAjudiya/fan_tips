@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'apiService.dart';
-import 'newsModel.dart';
+import '../service/apiService.dart';
+import '../newsModel.dart';
 
 class HomeController extends GetxController {
   RxInt matchSelect = 0.obs;
@@ -38,7 +38,7 @@ class HomeController extends GetxController {
   }
 
   callMethod() async {
-    final result = await ApiService().newsPostData();
+    final result = await Api().newsPostData();
     newsModel.value = result!;
     return newsModel;
   }

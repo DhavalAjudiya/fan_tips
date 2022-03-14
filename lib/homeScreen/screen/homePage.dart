@@ -1,5 +1,5 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/homeScreen/homepageController.dart';
+import 'package:fantips/homeScreen/controller/homepageController.dart';
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/customContainer/custom_container.dart';

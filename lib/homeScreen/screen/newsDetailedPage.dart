@@ -1,4 +1,4 @@
-import 'package:fantips/homeScreen/homepageController.dart';
+import 'package:fantips/homeScreen/controller/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';

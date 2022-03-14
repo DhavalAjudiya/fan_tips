@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
-import '../controler/matchs_controller.dart';
+import '../page/matchs_controller.dart';
 
 class Completed extends StatelessWidget {
   final _homecontroller = Get.put(HomeScreenContrroler());
@@ -53,7 +53,7 @@ class Completed extends StatelessWidget {
                   t2over: "${current?.t2Over}",
                   predictionText: "${current?.totalprediction ?? ""}",
                   prediction: "Prediction",
-                  lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
+                  //  lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
                 ),
               );
             },

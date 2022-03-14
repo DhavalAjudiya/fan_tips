@@ -82,7 +82,7 @@ class PredictionContainer extends StatelessWidget {
                                   ),
                                   Text(
                                     youtubeText,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'circular',
                                       fontWeight: FontWeight.w500,
                                       color: AppColor.subTitleColor,

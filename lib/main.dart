@@ -1,9 +1,11 @@
+import 'package:fantips/widget/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'expert/screen.dart';
 import 'homeScreen/screen/homePage.dart';
+import 'homeScreen/screen/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
