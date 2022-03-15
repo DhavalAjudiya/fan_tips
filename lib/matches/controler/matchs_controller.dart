@@ -10,6 +10,7 @@ import '../data/modal/live_matches.dart';
 class MatchsScreenControoler extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? tabController;
+  RxBool loading = true.obs;
   Rx<CurrentMatch> currentMatch = CurrentMatch().obs;
   Rx<CompletedMatches> completedMatches = CompletedMatches().obs;
   Rx<LiveMatches> liveMatches = LiveMatches().obs;
@@ -25,25 +26,28 @@ class MatchsScreenControoler extends GetxController
 
   void getData() async {
     try {
+      loading(true);
       var data = await ApiService.fetchCurrentMatchesData();
 
       if (data != null) {
         currentMatch.value = data;
       }
-    } catch (e) {
-      print("get======== $e");
+      loading = false.obs;
+    } finally {
+      loading(false);
     }
   }
 
   void completedMatchesData() async {
     try {
+      loading(true);
       var completedData = await CompletedMatchApi.fetchCompletedMatchesData();
 
       if (completedData != null) {
         completedMatches.value = completedData;
       }
-    } catch (e) {
-      print("get======== $e");
+    } finally {
+      loading(false);
     }
   }
 

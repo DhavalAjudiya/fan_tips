@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:fantips/T20Predictions/PredictionsApi/predictions_modal.dart';
 import 'package:http/http.dart' as http;
+
+import 'predictions_modal.dart';
 
 class PredictionsApiService {
   static var url = "https://api.freefantasy.in/tips/getMatches";

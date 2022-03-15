@@ -20,39 +20,64 @@ class Completed extends StatelessWidget {
             itemBuilder: (context, index) {
               final current = _homecontroller
                   .completedMatches.value.matches?.completed?[index];
-              return Obx(
-                () => CustomLCContainer(
-                  margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
-                  ontap: () {
-                    if (current?.isSelect.value == false) {
-                      current?.isSelect.value = true;
-                    } else {
-                      current?.isSelect.value = false;
-                    }
-                  },
-                  icon: current?.isSelect.value == false
-                      ? const Icon(Icons.notifications)
-                      : const Icon(Icons.notifications_none),
-                  backgroundImage: NetworkImage(
-                    current?.t1Flag ?? AppString.imageNotFound,
-                  ),
-                  text: current?.team1Name ?? "",
-                  secondbackgroundImage: NetworkImage(
-                    current?.t2Flag ?? AppString.imageNotFound,
-                  ),
-                  subText: current?.team2Name ?? "",
-                  t1run: "${current?.t1Run ?? ""}",
-                  t1wk: "${current?.t1Wk ?? ""}",
-                  t1over: current?.t1Over ?? "",
-                  t2run: "${current?.t2Run ?? ""}",
-                  t2wk: "${current?.t2Wk ?? ""}",
-                  t2over: current?.t2Over ?? "",
-                  predictionText: "${current?.totalprediction ?? ""}",
-                  prediction: "Prediction",
-                  lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
-                ),
-              );
+              return Obx(() {
+                if (_homecontroller.loading.value) {
+                  return const Center(child: CircularProgressIndicator());
+                } else {
+                  return Column(
+                    children: [
+                      Text(
+                        _homecontroller.timeAgo(current?.startTime ?? 0),
+                        style: const TextStyle(
+                          color: Colors.white54,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      CustomLCContainer(
+                        margin: EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 2.w),
+                        headertext: current?.header ?? "",
+                        ontap: () {
+                          if (current?.isSelect.value == false) {
+                            current?.isSelect.value = true;
+                          } else {
+                            current?.isSelect.value = false;
+                          }
+                        },
+                        icon: current?.isSelect.value == false
+                            ? const Icon(Icons.notifications)
+                            : const Icon(Icons.notifications_none),
+                        backgroundImage: NetworkImage(
+                          current?.t1Flag ?? AppString.imageNotFound,
+                        ),
+                        text: current?.team1Name ?? "",
+                        secondbackgroundImage: NetworkImage(
+                          current?.t2Flag ?? AppString.imageNotFound,
+                        ),
+                        subText: current?.team2Name ?? "",
+                        t1run: "${current?.i2Details?.run ?? ""}",
+                        t1wk: "${current?.i2Details?.wk ?? ""}",
+                        t1over: "${current?.i4Details?.run ?? ""}",
+                        t1owk: "${current?.i4Details?.wk ?? ""}",
+                        t2run: "${current?.i1Details?.run ?? ""}",
+                        t2wk: "${current?.i1Details?.wk ?? ""}",
+                        t2over: "${current?.i3Details?.run ?? ""}",
+                        t2owk: "${current?.i3Details?.wk ?? ""}",
+                        // t1run: "${current?.t1Run ?? ""}",
+                        // t1wk: "${current?.t1Wk ?? ""}",
+                        // t1over: current?.t1Over ?? "",
+                        // t2run: "${current?.t2Run ?? ""}",
+                        // t2wk: "${current?.t2Wk ?? ""}",
+                        // t2over: current?.t2Over ?? "",
+                        predictionText: "${current?.totalprediction ?? ""}",
+                        prediction: "Prediction",
+                        lastText: current?.infoMsg ?? "",
+                      ),
+                    ],
+                  );
+                }
+              });
             },
           ),
         ),

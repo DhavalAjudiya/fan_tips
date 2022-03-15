@@ -1,27 +1,52 @@
 class AppString {
-  /// home screen text
-  static const fanTips = "FanTips";
-  static const logIn = "Login";
-  static const matchesForYou = "Matches for you";
-  static const zimbabevsAfghhanistan = "Zimbabe vs Afghhanistan";
-  static const featuredExperts = "Featured Experts";
-  static const topStories = "Top Stories";
-  static const viewAll = "View All";
-  static const t20Predictions = "T20 Predictions";
-  static const predictions = "Predictions";
-  static const subscriber = "50.9K subscribers";
-  static const averageScore = "Average Score";
-  static const wins = "Wins";
+  /// home page text
+  static const String fanTips = "FanTips";
+  static const String logIn = "Login";
+  static const String matchesForYou = "Matches for you";
+  static const String zimbabweVsAfghanistan = "Zimbabwe vs Afghanistan";
+  static const String featuredExperts = "Featured Experts";
+  static const String topStories = "Top Stories";
+  static const String viewAll = "View All";
+  static const String t20Predictions = "T20 Predictions";
+  static const String predictions = "Predictions";
+  static const String subscriber = "50.9K subscribers";
+  static const String averageScore = "Average Score";
+  static const String wins = "Wins";
+  static const String news = "News";
 
   ///
   static const String predictionExpert = "Prediction Expert";
-  static const String sortByAvgScore = "Sort by : ";
+  static const String sortByAvgScore = "Sort by : Avg Score";
   static const String login = "Login";
+
+  /// upcoming page text
+  static const String fantasyTab = "Fantasy";
+  static const String bestPicksTab = "Best Picks";
+  static const String myTeamTab = "My Teams";
+  static const String quizTab = "Quiz";
+  static const String avgScore = "Avg Score";
+  static const String favourites = "Favourites";
+  static const String teams = "2 Teams";
+  static const String createTeams = "CREATE TEAMS";
+  static const String wk = "Wk";
+  static const String wicketKeeper = "Wicket Keeper";
+  static const String bat = "BAT";
+  static const String batsman = "Batsman";
+  static const String ar = "AR";
+  static const String allRounder = "All Rounder";
+  static const String bowl = "BOWL";
+  static const String bowler = "Bowler";
+  static const String cap = "CAP";
+  static const String captain = "Captain";
+  static const String vc = "VC";
+  static const String viceCaptain = "Vice Captain";
+  static const String playerName = "Player Name";
+  static const String selectedBy = "Selected By";
 
   /// current matchs
   static const title = "Current Matches";
   static const upcoming = "UpComing";
-  static const live = "Live";
+  static const live = "LIVE";
   static const completed = "Completed";
   static const tomorrow = "Tomorrow, 15 May";
   static const yesterday = "yesterday, 13 May";
@@ -55,7 +80,7 @@ class AppString {
   static const String predictionNum = "120";
   static const String prediction = "Predictions";
   static const String avgNum = "429";
-  static const String avgScore = "Avg.Score";
+
   static const String winNum = "429";
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
@@ -66,4 +91,34 @@ class AppString {
   static const String googleSign = "Sing In With Google";
   static const String fbLogin = "Sing In With Facebook";
   static const String youTubeUrl = "https://www.youtube.com";
+
+  static const experts = 'Favourite Experts';
+  static const more = 'More';
+  static const rateUs = 'Rate us';
+  static const share = 'Share';
+  static const feedBack = 'Feedback';
+  static const playGames = 'PlayGames';
+  static const privacyPolicy = 'Privacy Policy';
+  static const copyRight = 'Copyright';
+  static const termsUSe = 'Terms of use';
+  static const howQuiz = 'How to play quiz?';
+  static const applyExpert = 'Apply As Expert';
+  static const contactFor = 'Contact us for branding';
+  static const experience = 'Experience';
+  static const enterFeedback = 'Enter Feedback';
+  static const sendFeedback = 'SEND FEEDBACK';
+  static const description = 'Description';
+  static const enterDescription = 'Enter Description';
+  static const contactBranding = 'Contact us for branding';
+
+  // IPL String
+  static const currentMatches = 'Current Matches';
+  static const squads = 'Squads';
+  static const pointTable = 'Point Table';
+
+  static const m = 'M';
+  static const w = 'W';
+  static const l = 'L';
+  static const points = 'Points';
+  static const nrr = 'NRR';
 }

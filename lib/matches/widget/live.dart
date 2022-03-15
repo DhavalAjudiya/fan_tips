@@ -7,7 +7,6 @@ import '../controler/matchs_controller.dart';
 
 class Live extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +23,7 @@ class Live extends StatelessWidget {
               return Obx(
                 () => CustomLCContainer(
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
+                  headertext: current?.header ?? "",
                   ontap: () {
                     if (current?.isSelected.value == false) {
                       current?.isSelected.value = true;
@@ -43,17 +42,17 @@ class Live extends StatelessWidget {
                     current?.t2Flag ?? AppString.imageNotFound,
                   ),
                   subText: current?.team2Name ?? "",
-                  t1run: "${current?.t1Run ?? ""}",
-                  t1wk: "${current?.t1Wk ?? ""}",
-                  t1over: current?.t1Over ?? "",
-                  t2run: "${current?.t2Run ?? ""}",
-                  t2wk: "${current?.t2Wk ?? ""}",
-                  t2over: current?.t2Over ?? "",
+                  t1run: "${current?.i2Details?.run ?? ""}",
+                  t1wk: "${current?.i2Details?.wk ?? ""}",
+                  t1over: "${current?.i4Details?.run ?? ""}",
+                  t1owk: "${current?.i4Details?.wk ?? ""}",
+                  t2run: "${current?.i1Details?.run ?? ""}",
+                  t2wk: "${current?.i1Details?.wk ?? ""}",
+                  t2over: "${current?.i3Details?.run ?? ""}",
+                  t2owk: "${current?.i3Details?.wk ?? ""}",
                   predictionText: "${current?.totalprediction ?? ""}",
                   prediction: "Prediction",
-                  lastText: _homecontroller.timeAgo(
-                    current?.startTime ?? 0,
-                  ),
+                  lastText: AppString.live,
                 ),
               );
             },

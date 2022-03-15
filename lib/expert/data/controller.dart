@@ -4,7 +4,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'api_service.dart';
 import 'model.dart';
 
-class IplController extends GetxController {
+class ExpertController extends GetxController {
   Rx<Expert> expert = Expert().obs;
   RefreshController refreshController =
       RefreshController(initialRefresh: false);
