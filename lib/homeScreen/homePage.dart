@@ -80,12 +80,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              CustomeText(
-                                title: AppString.zimbabevsAfghhanistan,
-                                color: AppColor.whiteColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 10.sp,
-                              ),
+                              // CustomeText(
+                              //   title: AppString.zimbabevsAfghhanistan,
+                              //   color: AppColor.whiteColor,
+                              //   fontWeight: FontWeight.w500,
+                              //   fontSize: 10.sp,
+                              // ),
                               const Spacer(),
                               SvgPicture.asset(
                                 "assets/image/Vector.svg",

@@ -1,10 +1,11 @@
-import 'package:fantips/matches/controler/utils_time.dart';
 import 'package:fantips/utills/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../commanWidget/commanText.dart';
+import '../../screen/ipl_screen/widget/upcoming_matches.dart';
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
@@ -33,13 +34,14 @@ class UpComing extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount:
-                _homecontroller.currentMatch.value.matches?.notstarted?.length,
+            itemCount: _homecontroller.currentMatch.value.matches?.notstarted?.length,
             itemBuilder: (context, index) {
-              final current = _homecontroller
-                  .currentMatch.value.matches?.notstarted?[index];
+              final current = _homecontroller.currentMatch.value.matches?.notstarted?[index];
               return Obx(
                 () => CustomContainer(
+                  onTap: () {
+                    Get.to(() => UpcomingIplScreen());
+                  },
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
                   headertext: current?.matchName ?? "",
                   ontap: () {
@@ -49,9 +51,7 @@ class UpComing extends StatelessWidget {
                       current?.selected.value = false;
                     }
                   },
-                  icon: current?.selected.value == false
-                      ? const Icon(Icons.notifications)
-                      : const Icon(Icons.notifications_none),
+                  icon: current?.selected.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none),
                   backgroundImage: NetworkImage(
                     current?.t1Flag ?? AppString.imageNotFound,
                   ),

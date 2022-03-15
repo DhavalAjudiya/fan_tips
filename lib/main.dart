@@ -1,5 +1,5 @@
 import 'package:fantips/homeScreen/page/newsScreen.dart';
-import 'package:fantips/screen/ipl_screen/ipl_screen.dart';
+import 'package:fantips/screen/ipl_screen/page/ipl_screen.dart';
 import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
