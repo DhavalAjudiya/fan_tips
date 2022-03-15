@@ -1,12 +1,12 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/utills/color.dart';
-import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../T20Predictions/page/utills/color.dart';
+import '../T20Predictions/page/utills/string.dart';
 import 'data/homepageController.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             children: [
                               CustomeText(
-                                title: AppString.zimbabevsAfghhanistan,
+                                title: AppString.zimbabweVsAfghanistan,
                                 color: AppColor.whiteColor,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 10.sp,
