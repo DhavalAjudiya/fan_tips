@@ -1,13 +1,13 @@
 import 'dart:developer';
 
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
-import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../utills/string.dart';
+import '../../T20Predictions/page/utills/string.dart';
 import '../../widget/custom_container.dart';
 
 class UpcomingMatchScreen extends StatelessWidget {
