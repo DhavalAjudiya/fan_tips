@@ -25,7 +25,7 @@ class T20Prediction extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _backButton(),
+            _backButton(predictionData),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,7 +77,7 @@ class T20Prediction extends StatelessWidget {
     );
   }
 
-  Widget _backButton() {
+  Widget _backButton(predictionData) {
     return Row(
       children: [
         const CustomBackButton(
@@ -85,7 +85,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: AppString.t20,
+          title: "${predictionData["title"]}",
           fontSize: 3.h,
         ),
       ],

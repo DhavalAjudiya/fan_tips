@@ -1,3 +1,4 @@
+import 'package:fantips/matches/controler/utils_time.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,10 +30,10 @@ class Completed extends StatelessWidget {
                   return Column(
                     children: [
                       Text(
-                        _homecontroller.timeAgo(current?.startTime ?? 0),
+                        Utils.timeDurationAgo(current?.startTime ?? 0),
                         style: const TextStyle(
                           color: Colors.white54,
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
