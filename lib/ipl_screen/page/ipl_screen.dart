@@ -1,14 +1,15 @@
-import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/screen/ipl_screen/data/data_ipl.dart';
-import 'package:fantips/screen/ipl_screen/widget/custom_scoretile.dart';
-import 'package:fantips/screen/ipl_screen/widget/squads_details.dart';
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/color.dart';
-import 'package:fantips/utills/string.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../T20Predictions/page/utills/asset.dart';
+import '../../T20Predictions/page/utills/color.dart';
+import '../../T20Predictions/page/utills/string.dart';
+import '../controller/ipl_controller.dart';
+import '../data/data_ipl.dart';
+import '../widget/custom_scoretile.dart';
+import '../widget/squads_details.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class IplScreen extends StatelessWidget {
       backgroundColor: AppColor.backGround,
       appBar: AppBar(
         backgroundColor: AppColor.backGround,
-        title: const Text(AppString.currentMatches),
+        title: Text(AppString.currentMatches),
         centerTitle: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(35),
@@ -34,8 +35,10 @@ class IplScreen extends StatelessWidget {
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
               labelColor: AppColor.greenColor,
-              labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
-              unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
+              labelStyle:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
+              unselectedLabelStyle:
+                  const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
               unselectedLabelColor: Colors.white,
             ),
           ),
@@ -52,7 +55,8 @@ class IplScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 2.h),
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 0.5.h),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 3.w, vertical: 0.5.h),
                   child: InkWell(
                     onTap: () {
                       Get.to(
@@ -109,7 +113,9 @@ class IplScreen extends StatelessWidget {
                           iplController.isOn.value = false;
                         }
                       },
-                      icon: iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+                      icon: iplController.isOn.value == false
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_none_rounded),
                       width: 88.w,
                       titleMatches: 'RR vc RCB IPL,2021',
                       image1: IconAsset.logoCSK,
@@ -155,7 +161,10 @@ class IplScreen extends StatelessWidget {
                                   iplController.isOn.value = false;
                                 }
                               },
-                              icon: iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+                              icon: iplController.isOn.value == false
+                                  ? const Icon(Icons.notifications)
+                                  : const Icon(
+                                      Icons.notifications_none_rounded),
                               titleMatches: 'RCB vc DC IPL,2021',
                               image1: IconAsset.logoRCB,
                               textTeam1: 'RCB',
@@ -198,7 +207,10 @@ class IplScreen extends StatelessWidget {
                                   iplController.isOn.value = false;
                                 }
                               },
-                              icon: iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+                              icon: iplController.isOn.value == false
+                                  ? const Icon(Icons.notifications)
+                                  : const Icon(
+                                      Icons.notifications_none_rounded),
                               width: 88.w,
                               titleMatches: 'PNJ vc KKR IPL,2021',
                               image1: IconAsset.logoPNJ,

@@ -1,5 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:fantips/homeScreen/page/newsScreen.dart';
 import 'package:fantips/screen/ipl_screen/page/ipl_screen.dart';
 import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
@@ -8,12 +6,14 @@ import 'package:fantips/widget/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'T20Predictions/page/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
+import 'ipl_screen/page/ipl_screen.dart';
 import 'matches/page/current_matches.dart';
+import 'matches/widget/upcoming_matches/page/upcoming_match_page.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_screen.dart';
 
@@ -99,11 +99,11 @@ class MyApp extends StatelessWidget {
               page: () => ExpertScreen(),
               transition: Transition.rightToLeft,
             ),
-            // GetPage(
-            //   name: T20Prediction.routeName,
-            //   page: () => T20Prediction(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: T20Prediction.routeName,
+              page: () => T20Prediction(),
+              transition: Transition.rightToLeft,
+            ),
           ],
         );
       },

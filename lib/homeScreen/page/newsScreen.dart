@@ -1,11 +1,12 @@
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
-import 'package:fantips/utills/color.dart';
-import 'package:fantips/utills/string.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../T20Predictions/page/utills/color.dart';
+import '../../T20Predictions/page/utills/string.dart';
 import '../../widget/custom_container.dart';
 
 class NewsScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class NewsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.blackColor,
       appBar: AppBar(
-        title: const CustomeText(
+        title: CustomeText(
           title: AppString.news,
         ),
         backgroundColor: AppColor.blackColor,

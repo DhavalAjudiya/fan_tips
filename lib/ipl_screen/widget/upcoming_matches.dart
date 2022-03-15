@@ -1,11 +1,12 @@
-import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../T20Predictions/page/utills/asset.dart';
+import '../../../T20Predictions/page/utills/color.dart';
+import '../controller/ipl_controller.dart';
 
 class UpcomingIplScreen extends StatelessWidget {
   UpcomingIplScreen({Key? key}) : super(key: key);
@@ -53,8 +54,10 @@ class UpcomingIplScreen extends StatelessWidget {
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
               labelColor: AppColor.greenColor,
-              labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
-              unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
+              labelStyle:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
+              unselectedLabelStyle:
+                  const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
               unselectedLabelColor: Colors.white,
             ),
           ),

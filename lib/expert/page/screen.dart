@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
-import 'package:fantips/expert/page/search_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,9 +10,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
 import '../../widget/custom_container.dart';
-import '../../utills/string.dart';
-import '../../widget/custom_container.dart';
-import '../../widget/header_row.dart';
 import '../T20Predictions/prediction.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';
@@ -86,19 +82,105 @@ class ExpertScreen extends StatelessWidget {
                 top: 9.sp, left: 13.5.sp, right: 12.5.sp, bottom: 4.sp),
             child: Column(
               children: [
-                HeaderRow(
-                  title: AppString.predictionExpert,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Search(),
+                Row(
+                  children: [
+                    Text(
+                      AppString.predictionExperts,
+                      style: TextStyle(
+                        fontFamily: 'circular',
+                        color: AppColor.whiteColor,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {
+                        showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(6.w),
+                              topLeft: Radius.circular(6.w),
+                            ),
+                          ),
+                          context: context,
+                          builder: (context) => SizedBox(
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Get.back();
+                                      },
+                                      icon: Icon(
+                                        Icons.clear,
+                                        size: 9.w,
+                                      ),
+                                      splashColor: AppColor.transparent,
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                  ],
+                                ),
+                                Image.asset(AppImage.logo, height: 40.w),
+                                Padding(
+                                  padding: EdgeInsets.all(5.w),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 27.w,
+                                        color: AppColor.grey,
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      const CustomeText(
+                                          title: AppString.letsconnect),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 27.w,
+                                        color: AppColor.grey,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
+                                Flexible(
+                                  child: AppContainer(
+                                    onTap: () {},
+                                    child: Row(
+                                      children: const [],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        AppString.logIn,
+                        style: TextStyle(
+                          fontFamily: 'circular',
+                          color: AppColor.green,
+                          fontSize: 13.2.sp,
                         ),
-                      );
-                    },
-                    child: SvgPicture.asset(IconAsset.searchIcon),
-                  ),
+                      ),
+                    ),
+                    SizedBox(width: 4.w),
+                    SvgPicture.asset(
+                      "assets/icons/search.svg",
+                      height: 2.3.h,
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 1.5.h,

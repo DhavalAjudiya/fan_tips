@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../T20Predictions/page/utills/color.dart';
+import '../T20Predictions/page/utills/string.dart';
 import 'data/homepageController.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -78,12 +80,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              // CustomeText(
-                              //   title: AppString.zimbabevsAfghhanistan,
-                              //   color: AppColor.whiteColor,
-                              //   fontWeight: FontWeight.w500,
-                              //   fontSize: 10.sp,
-                              // ),
+                              CustomeText(
+                                title: AppString.zimbabweVsAfghanistan,
+                                color: AppColor.whiteColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 10.sp,
+                              ),
                               const Spacer(),
                               SvgPicture.asset(
                                 "assets/image/Vector.svg",
