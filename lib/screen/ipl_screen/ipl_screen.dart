@@ -11,7 +11,7 @@ import 'package:sizer/sizer.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);
-
+  static const routeName = "/ipl_screen";
   final IplController iplController = Get.put(IplController());
 
   @override
@@ -33,8 +33,10 @@ class IplScreen extends StatelessWidget {
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
               labelColor: AppColor.greenColor,
-              labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
-              unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
+              labelStyle:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
+              unselectedLabelStyle:
+                  const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
               unselectedLabelColor: Colors.white,
             ),
           ),
@@ -283,7 +285,6 @@ class IplScreen extends StatelessWidget {
                   SizedBox(
                     height: 1.h,
                   ),
-
                   SizedBox(
                     width: 91.w,
                     height: 45.h,
@@ -292,14 +293,14 @@ class IplScreen extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding:EdgeInsets.only(bottom: 1.5.h),
+                          padding: EdgeInsets.only(bottom: 1.5.h),
                           child: SizedBox(
                             height: 5.h,
                             child: Column(
                               children: [
                                 Divider(
                                   height: 1.h,
-                              //    color: Colors.grey.withOpacity(0.4),
+                                  //    color: Colors.grey.withOpacity(0.4),
                                   color: Colors.grey,
                                 ),
                                 Padding(

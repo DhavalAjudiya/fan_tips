@@ -86,11 +86,12 @@ class AppString {
   static const String predictionNum = "120";
   static const String prediction = "Predictions";
   static const String avgNum = "429";
-  // static const String avgScore = "Avg.Score";
+  static const String avgScore = "Avg.Score";
   static const String winNum = "429";
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
   static const String subscribers = "Subscribers";
+  static const String team = "3 Teams";
 
   /// header Row
   static const String googleSign = "Sing In With Google";
@@ -120,12 +121,12 @@ class AppString {
   static const currentMatches = 'Current Matches';
   static const squads = 'Squads';
   static const pointTable = 'Point Table';
-  // static const teams = 'Teams';
+  static const teams = 'Teams';
   static const m = 'M';
   static const w = 'W';
   static const l = 'L';
   static const points = 'Points';
   static const nrr = 'NRR';
 
-  // static const String average_score = "Average-Score";
+  static const String average_score = "Average-Score";
 }

@@ -1,4 +1,4 @@
-import 'package:fantips/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,11 @@ class MoreTextField extends StatelessWidget {
     return TextFormField(
       cursorWidth: 3,
       maxLines: maxLines,
-      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontFamily: 'WorkSon', fontSize: 13.sp),
+      style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'WorkSon',
+          fontSize: 13.sp),
       validator: validator,
       cursorColor: AppColor.backGround,
       decoration: InputDecoration(
@@ -34,7 +38,7 @@ class MoreTextField extends StatelessWidget {
           fontSize: 14.sp,
         ),
         labelText: labelText,
-        labelStyle:  Appstyle.moreStyle,
+        labelStyle: Appstyle.moreStyle,
         focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
         ),

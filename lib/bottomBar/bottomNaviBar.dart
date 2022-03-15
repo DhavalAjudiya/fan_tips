@@ -58,9 +58,20 @@ class BottomNavigatorController extends StatelessWidget {
                 label: "Matches",
               ),
               BottomNavigationBarItem(
+                icon: Image.network(
+                  "https://i0.wp.com/villagecricket.co/wp-content/uploads/2020/06/cultures.png?fit=512%2C512&ssl=1",
+                  height: 4.h,
+                  width: 5.w,
+                  color: _neviController.currentIndex.value == 2
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
+                ),
+                label: "IPL",
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: _neviController.currentIndex.value == 2
+                  color: _neviController.currentIndex.value == 3
                       ? AppColor.whiteColor
                       : AppColor.whiteColor.withOpacity(0.5),
                 ),
@@ -69,7 +80,7 @@ class BottomNavigatorController extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.more_horiz_outlined,
-                  color: _neviController.currentIndex.value == 3
+                  color: _neviController.currentIndex.value == 4
                       ? AppColor.whiteColor
                       : AppColor.whiteColor.withOpacity(0.5),
                 ),

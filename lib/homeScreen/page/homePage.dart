@@ -1,5 +1,5 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/homeScreen/page/newsScreen.dart';
+import 'package
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:flutter/material.dart';

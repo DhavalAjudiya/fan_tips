@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// ignore: deprecated_member_use
 class IplController extends GetxController with SingleGetTickerProviderMixin {
   RxBool isOn = false.obs;
   final List<Tab> myTabs = [
@@ -16,8 +15,7 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
     )
   ];
 
-
-  late TabController tabController;
+  TabController? tabController;
 
   @override
   void onInit() {
@@ -25,9 +23,9 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
     tabController = TabController(length: myTabs.length, vsync: this);
   }
 
-  @override
-  void onClose() {
-    tabController.dispose();
-    super.onClose();
-  }
+  // @override
+  // void onClose() {
+  //   tabController!.dispose();
+  //   super.onClose();
+  // }
 }

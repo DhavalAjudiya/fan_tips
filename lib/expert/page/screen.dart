@@ -1,4 +1,7 @@
 import 'dart:io';
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,17 +9,19 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
+import '../../widget/custom_container.dart';
 import '../../utills/asset.dart';
 import '../../utills/color.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../../widget/header_row.dart';
+import '../T20Predictions/prediction.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';
 
 class ExpertScreen extends StatelessWidget {
   static const routeName = "/ExpertScreen";
-  IplController iplController = Get.put(IplController());
+  ExpertController iplController = Get.put(ExpertController());
 
   ExpertScreen({Key? key}) : super(key: key);
   Future<void> _refresh() async {
@@ -436,28 +441,46 @@ class ExpertScreen extends StatelessWidget {
                             var postData =
                                 iplController.expert.value.tipsters![index];
                             return Obx(
-                              () => PredictionContainer(
-                                predictionCount: "${postData.totalPredictions}",
-                                onPressed: () {
-                                  if (postData.wishlist.value == false) {
-                                    postData.wishlist.value = true;
-                                  } else {
-                                    postData.wishlist.value = false;
-                                  }
+                              () => InkWell(
+                                onTap: () {
+                                  Get.toNamed(T20Prediction.routeName,
+                                      arguments: {
+                                        "image": postData.profileUrl ??
+                                            "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                        "title":
+                                            '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                        "prediction":
+                                            "${postData.totalPredictions}",
+                                        "averageScore": "${postData.avgScore}",
+                                        "win": "${postData.top3}",
+                                        "subscribers":
+                                            "${postData.subscriberCount?.substring(0, 4)}",
+                                      });
                                 },
-                                icon: postData.wishlist.value == false
-                                    ? const Icon(Icons.favorite_border,
-                                        color: AppColor.green)
-                                    : const Icon(Icons.favorite,
-                                        color: AppColor.green),
-                                winsCount: "${postData.top3}",
-                                youtubeText: "${postData.subscriberCount}",
-                                averageCount: "${postData.avgScore}",
-                                headerText:
-                                    '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                backgroundImage: NetworkImage(postData
-                                        .profileUrl ??
-                                    "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
+                                child: PredictionContainer(
+                                  predictionCount:
+                                      "${postData.totalPredictions}",
+                                  onPressed: () {
+                                    if (postData.wishlist.value == false) {
+                                      postData.wishlist.value = true;
+                                    } else {
+                                      postData.wishlist.value = false;
+                                    }
+                                  },
+                                  icon: postData.wishlist.value == false
+                                      ? const Icon(Icons.favorite_border,
+                                          color: AppColor.green)
+                                      : const Icon(Icons.favorite,
+                                          color: AppColor.green),
+                                  winsCount: "${postData.top3}",
+                                  youtubeText: "${postData.subscriberCount}",
+                                  averageCount: "${postData.avgScore}",
+                                  headerText:
+                                      '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                  backgroundImage: NetworkImage(postData
+                                          .profileUrl ??
+                                      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
+                                ),
                               ),
                             );
                           },

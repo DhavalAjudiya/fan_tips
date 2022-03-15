@@ -33,7 +33,7 @@ class FeedBackScreen extends StatelessWidget {
               MoreTextField(
                 labelText: 'Email',
                 validator: (value) {
-                  if(value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return 'Email should not be blank';
                   }
                   return null;
@@ -42,16 +42,16 @@ class FeedBackScreen extends StatelessWidget {
               SizedBox(
                 height: 8.w,
               ),
-              Text(
-                AppString.experience,
-                  style: Appstyle.moreStyle
-              ),
+              Text(AppString.experience, style: Appstyle.moreStyle),
               SizedBox(
                 height: 6.w,
               ),
               ReviewSlider(
                 options: const ['Terrible', 'Bad', 'Okay', 'Good', 'Great'],
-                optionStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontFamily: 'WorkSon'),
+                optionStyle: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'WorkSon'),
                 onChange: moreController.onChange1,
               ),
               // Text(
@@ -62,7 +62,11 @@ class FeedBackScreen extends StatelessWidget {
               ),
               Text(
                 AppString.feedBack,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontFamily: 'WorkSon', fontSize: 14.sp),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'WorkSon',
+                    fontSize: 14.sp),
               ),
               SizedBox(
                 height: 0.5.h,
@@ -70,7 +74,7 @@ class FeedBackScreen extends StatelessWidget {
               MoreTextField(
                 hint: AppString.enterFeedback,
                 validator: (value) {
-                  if(value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return 'Feedback should not be blank';
                   }
                   return null;
@@ -79,7 +83,7 @@ class FeedBackScreen extends StatelessWidget {
               const Spacer(),
               MoreButtonScreen(
                 onTap: () {
-                  if(formKey.currentState!.validate()) {}
+                  if (formKey.currentState!.validate()) {}
                 },
                 text: AppString.sendFeedback,
               ),

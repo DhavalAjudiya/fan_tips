@@ -33,23 +33,32 @@ class PredictionModal {
 
 class Matches {
   Matches({
+    this.completed,
     this.notstarted,
+    this.started,
   });
 
-  List<Notstarted>? notstarted;
+  List<Ted>? completed;
+  List<Ted>? notstarted;
+  List<Ted>? started;
 
   factory Matches.fromJson(Map<String, dynamic> json) => Matches(
-        notstarted: List<Notstarted>.from(
-            json["NOTSTARTED"].map((x) => Notstarted.fromJson(x))),
+        completed:
+            List<Ted>.from(json["COMPLETED"].map((x) => Ted.fromJson(x))),
+        notstarted:
+            List<Ted>.from(json["NOTSTARTED"].map((x) => Ted.fromJson(x))),
+        started: List<Ted>.from(json["STARTED"].map((x) => Ted.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
+        "COMPLETED": List<dynamic>.from(completed!.map((x) => x.toJson())),
         "NOTSTARTED": List<dynamic>.from(notstarted!.map((x) => x.toJson())),
+        "STARTED": List<dynamic>.from(started!.map((x) => x.toJson())),
       };
 }
 
-class Notstarted {
-  Notstarted({
+class Ted {
+  Ted({
     this.quizavailable,
     this.team2Id,
     this.tispterWinnderDeclared,
@@ -107,7 +116,7 @@ class Notstarted {
   String? header;
   int? status;
 
-  factory Notstarted.fromJson(Map<String, dynamic> json) => Notstarted(
+  factory Ted.fromJson(Map<String, dynamic> json) => Ted(
         quizavailable: json["quizavailable"],
         team2Id: json["team2Id"],
         tispterWinnderDeclared: json["tispterWinnderDeclared"],
