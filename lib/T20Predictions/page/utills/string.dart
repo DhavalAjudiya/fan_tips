@@ -86,7 +86,6 @@ class AppString {
   static const String predictionNum = "120";
   static const String prediction = "Predictions";
   static const String avgNum = "429";
-  static const String avgScore = "Avg.Score";
   static const String winNum = "429";
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
@@ -117,16 +116,23 @@ class AppString {
   static const enterDescription = 'Enter Description';
   static const contactBranding = 'Contact us for branding';
 
-  // IPL String
+  /// IPL String
   static const currentMatches = 'Current Matches';
   static const squads = 'Squads';
   static const pointTable = 'Point Table';
-  static const teams = 'Teams';
+
   static const m = 'M';
   static const w = 'W';
   static const l = 'L';
   static const points = 'Points';
   static const nrr = 'NRR';
 
-  static const String average_score = "Average-Score";
+  /// fantacy screen
+  static const String search = "Search";
+  static const String export = "Export";
+  static const String num = "460";
+  static const String score = "481";
+  static const String avregescor = "Average Score";
+  static const String win = "52";
+  static const String noMatch = "No Experts Founds..";
 }

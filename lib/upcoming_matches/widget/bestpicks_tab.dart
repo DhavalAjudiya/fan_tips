@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../T20Predictions/page/utills/color.dart';
+import '../../T20Predictions/page/utills/string.dart';
 import '../../commanWidget/commanText.dart';
-import '../../utills/color.dart';
-import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 
