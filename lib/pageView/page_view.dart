@@ -1,11 +1,10 @@
-import 'package:fantips/utills/string.dart';
-
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
-import '../../utills/color.dart';
 import '../bottomBar/bottomNaviBar.dart';
 import '../commanWidget/commanText.dart';
 import '../widget/custom_container.dart';
@@ -20,7 +19,7 @@ class PageViewScreen extends StatefulWidget {
 
 class _PageViewScreenState extends State<PageViewScreen> {
   PageScroll foodie = PageScroll();
-  final _pageController = PageController(initialPage: 1);
+  final _pageController = PageController(initialPage: 0);
   final _currentPageNotifier = ValueNotifier(0);
 
   @override
@@ -134,7 +133,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
       size: 1.h,
       onPageSelected: (index) {
         if (_currentPageNotifier.value > index) {
-          _pageController.keepPage;
+          _pageController.initialPage;
         }
       },
     );

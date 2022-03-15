@@ -60,6 +60,7 @@ class AppString {
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
   static const String subscribers = "Subscribers";
+  static const String team = "3 Teams";
 
   /// header Row
   static const String googleSign = "Sing In With Google";

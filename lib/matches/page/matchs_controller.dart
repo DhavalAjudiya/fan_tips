@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../data/datasources/api_service.dart';
-import '../data/datasources/current_match_modal.dart';
+import '../data/modal/current_match_modal.dart';
 
 class HomeScreenContrroler extends GetxController
     with GetSingleTickerProviderStateMixin {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import '../T20Predictions/page/utills/color.dart';
 import '../matches/widget/style.dart';
-import '../utills/color.dart';
 
 class CustomContainer extends StatelessWidget {
   final String headertext;
@@ -209,7 +209,9 @@ class CustomLCContainer extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final VoidCallback? ontap;
   final Widget icon;
-
+  final String teams;
+  final double? size;
+  final IconData? person;
   CustomLCContainer({
     this.headertext = "",
     this.text = "",
@@ -228,6 +230,9 @@ class CustomLCContainer extends StatelessWidget {
     this.t2over = "",
     this.ontap,
     required this.icon,
+    this.teams = "",
+    this.person,
+    this.size,
   });
   @override
   Widget build(BuildContext context) {
@@ -367,6 +372,13 @@ class CustomLCContainer extends StatelessWidget {
                   children: [
                     Text(
                       lastText,
+                      style: AppStyle.title,
+                    ),
+                    Spacer(),
+                    Icon(person, size: size),
+                    SizedBox(width: 1.w),
+                    Text(
+                      teams,
                       style: AppStyle.title,
                     ),
                   ],

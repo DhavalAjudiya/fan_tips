@@ -1,4 +1,4 @@
-import 'package:fantips/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';

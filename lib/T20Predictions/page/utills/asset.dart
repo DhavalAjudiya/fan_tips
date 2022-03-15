@@ -15,4 +15,6 @@ class IconAsset {
   static const String icons = 'assets/icons';
   static const String searchIcon = '$icons/search.svg';
   static const String share = '$icons/shear.svg';
+  static const String warning = '$icons/worning.svg';
+  static const String person = "$icons/person.svg";
 }

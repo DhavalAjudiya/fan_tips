@@ -1,6 +1,5 @@
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/string.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 
 class PageScroll {
   List<Map> categori = [
