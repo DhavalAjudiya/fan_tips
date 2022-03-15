@@ -41,7 +41,7 @@ class UpComing extends StatelessWidget {
               return Obx(
                 () => CustomContainer(
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
+                  headertext: current?.header ?? "",
                   ontap: () {
                     if (current?.selected.value == false) {
                       current?.selected.value = true;
@@ -60,8 +60,9 @@ class UpComing extends StatelessWidget {
                     current?.t2Flag ?? AppString.imageNotFound,
                   ),
                   subText: current?.team2Name ?? "",
-                  predictionText: "${current?.totalprediction ?? ""}",
-                  prediction: "Prediction",
+                  prediction: _homecontroller.timeAgo(
+                    current?.startTime ?? 0,
+                  ),
                   // lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
                   lastText: _homecontroller.timeAgo(
                     current?.startTime ?? 0,

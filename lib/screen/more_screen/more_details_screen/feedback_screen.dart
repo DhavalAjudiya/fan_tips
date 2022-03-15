@@ -5,6 +5,7 @@ import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:reviews_slider/reviews_slider.dart';
 import 'package:sizer/sizer.dart';
 
 import 'custom_appbar.dart';
@@ -45,11 +46,14 @@ class FeedBackScreen extends StatelessWidget {
               SizedBox(
                 height: 6.w,
               ),
-              // ReviewSlider(
-              //   options: const ['Terrible', 'Bad', 'Okay', 'Good', 'Great'],
-              //   optionStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontFamily: 'WorkSon'),
-              //   onChange: moreController.onChange1,
-              // ),
+              ReviewSlider(
+                options: const ['Terrible', 'Bad', 'Okay', 'Good', 'Great'],
+                optionStyle: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'WorkSon'),
+                onChange: moreController.onChange1,
+              ),
               // Text(
               //   moreController.selectedValue1.toString(),
               // ),

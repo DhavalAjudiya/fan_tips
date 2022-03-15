@@ -23,7 +23,7 @@ class PredictionController extends GetxController
       var data = await PredictionsApiService.matchesData();
       log("111");
       if (data != null) {
-        currentMatch.value = data;
+        currentMatch.value = data as PredictionModal;
         log("222");
         print(
             "get--------${currentMatch.value.matches!.notstarted![0].matchName}");

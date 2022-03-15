@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../utills/asset.dart';
-import '../widget/current_match_container.dart';
-import '../widget/custom_container.dart';
+import '../../utills/asset.dart';
+import '../../widget/current_match_container.dart';
+import '../../widget/custom_container.dart';
 import 'prediction_controller.dart';
 
 class T20Prediction extends StatelessWidget {
@@ -19,6 +19,7 @@ class T20Prediction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final predictionData = Get.arguments;
     return Scaffold(
       backgroundColor: AppColor.background,
       body: SafeArea(
@@ -67,7 +68,7 @@ class T20Prediction extends StatelessWidget {
                     ),
                   ),
                 ),
-                _tabBar(),
+                _tabBar(predictionData),
               ],
             ),
           ],
@@ -91,7 +92,7 @@ class T20Prediction extends StatelessWidget {
     );
   }
 
-  Widget _tabBar() {
+  Widget _tabBar(predictionData) {
     return SizedBox(
       height: 82.h,
       child: TabBarView(
@@ -116,17 +117,17 @@ class T20Prediction extends StatelessWidget {
                 ),
               ),
               CircleAvatar(
+                backgroundImage: NetworkImage(predictionData["image"]),
                 radius: 9.h,
                 backgroundColor: AppColor.grey,
                 child: CustomeText(
-                  title: AppString.t,
                   color: AppColor.containerBackground,
                   fontSize: 6.h,
                 ),
               ),
               SizedBox(height: 3.h),
               CustomeText(
-                title: AppString.t20,
+                title: "${predictionData["title"]}",
                 fontSize: 3.h,
                 fontWeight: FontWeight.w100,
               ),
@@ -180,7 +181,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.5.h,
-                                title: AppString.predictionNum,
+                                title: "${predictionData["prediction"]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               SizedBox(height: 1.5.h),
@@ -195,7 +196,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.h,
-                                title: AppString.avgNum,
+                                title: "${predictionData["averageScore"]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               SizedBox(height: 1.5.h),
@@ -224,7 +225,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.h,
-                                title: AppString.winNum,
+                                title: "${predictionData["win"]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomeText(
@@ -238,7 +239,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 3.5.h,
-                                title: AppString.subscribersNum,
+                                title: "${predictionData["subscribers"]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomeText(
