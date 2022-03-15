@@ -13,8 +13,8 @@ environment:
 
 
 dependencies:
-#  build_runner:
-#  intl: ^0.17.0
+  build_runner:
+  intl: ^0.17.0
   flutter:
     sdk: flutter
 

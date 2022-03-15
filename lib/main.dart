@@ -1,4 +1,5 @@
 import 'package:fantips/homeScreen/page/newsScreen.dart';
+import 'package:fantips/screen/ipl_screen/ipl_screen.dart';
 import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
@@ -12,9 +13,6 @@ import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'matches/page/current_matches.dart';
 import 'pageView/page_view.dart';
-import 'homeScreen/homePage.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
-import 'matches/page/current_matches.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -65,6 +63,11 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: HomeScreen.routeName,
               page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: IplScreen.routeName,
+              page: () => IplScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

@@ -16,7 +16,7 @@ import '../data/controller.dart';
 
 class ExpertScreen extends StatelessWidget {
   static const routeName = "/ExpertScreen";
-  IplController iplController = Get.put(IplController());
+  ExpertController iplController = Get.put(ExpertController());
 
   ExpertScreen({Key? key}) : super(key: key);
   Future<void> _refresh() async {
