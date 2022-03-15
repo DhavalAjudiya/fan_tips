@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../widget/customContainer/custom_container.dart';
+import '../../widget/custom_container.dart';
 
 class NewsScreen extends StatelessWidget {
   static const routeName = "/NewsScreen";
