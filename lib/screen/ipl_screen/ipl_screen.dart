@@ -1,8 +1,8 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/screen/ipl_screen/custom_scoretile.dart';
 import 'package:fantips/screen/ipl_screen/ipl_controller.dart';
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/color.dart';
-import 'package:fantips/utills/string.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/data_ipl.dart';
 import 'package:flutter/material.dart';

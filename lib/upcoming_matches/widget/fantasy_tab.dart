@@ -1,3 +1,5 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +8,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../commanWidget/commanText.dart';
-import '../../utills/color.dart';
-import '../../utills/string.dart';
+
 import '../../widget/custom_container.dart';
 
 class FantasyTab extends StatelessWidget {
@@ -215,7 +216,7 @@ class FantasyTab extends StatelessWidget {
                                 width: 1.w,
                               ),
                               CustomeText(
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 color: upcomingController.select.value == 0
                                     ? AppColor.greenColor
                                     : AppColor.textColor,

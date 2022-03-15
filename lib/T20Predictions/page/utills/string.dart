@@ -24,7 +24,7 @@ class AppString {
   static const String bestPicksTab = "Best Picks";
   static const String myTeamTab = "My Teams";
   static const String quizTab = "Quiz";
-  static const String avgScore = "Avg Score";
+  static const String avgScore1 = "Avg Score";
   static const String favourites = "Favourites";
   static const String teams = "2 Teams";
   static const String createTeams = "CREATE TEAMS";
@@ -48,6 +48,8 @@ class AppString {
   static const String question = "Question 4";
   static const String totalQuestion = "/10";
   static const String submit = "Submit";
+  static const String wicketKeeper1 = "WICKET - KEEPER";
+  static const String allRounders = "ALL-ROUNDERS";
 
   /// current matchs
   static const title = "Current Matches";
@@ -86,7 +88,7 @@ class AppString {
   static const String predictionNum = "120";
   static const String prediction = "Predictions";
   static const String avgNum = "429";
-  static const String avgScore = "Avg.Score";
+  // static const String avgScore = "Avg.Score";
   static const String winNum = "429";
   static const String ads = "ADS";
   static const String subscribersNum = "50.8K";
@@ -121,12 +123,12 @@ class AppString {
   static const currentMatches = 'Current Matches';
   static const squads = 'Squads';
   static const pointTable = 'Point Table';
-  static const teams = 'Teams';
+  // static const teams = 'Teams';
   static const m = 'M';
   static const w = 'W';
   static const l = 'L';
   static const points = 'Points';
   static const nrr = 'NRR';
 
-  static const String average_score = "Average-Score";
+  // static const String average_score = "Average-Score";
 }
