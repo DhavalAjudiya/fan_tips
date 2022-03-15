@@ -27,4 +27,6 @@ class IconAsset {
   static const logoPNJ = '${assets}ipl_pnj.png';
   static const logoRR = '${assets}ipl_rr.png';
   static const logoRCB = '${assets}ipl_rcb.png';
+  static const String warning = '$icons/worning.svg';
+  static const String person = "$icons/person.svg";
 }

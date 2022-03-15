@@ -1,14 +1,12 @@
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
 
 class Live extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +23,7 @@ class Live extends StatelessWidget {
               return Obx(
                 () => CustomLCContainer(
                   margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
+                  headertext: current?.header ?? "",
                   ontap: () {
                     if (current?.isSelected.value == false) {
                       current?.isSelected.value = true;

@@ -1,9 +1,6 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-
 import '../modal/completed_matches_modal.dart';
-import '../modal/current_match_modal.dart';
 
 class CompletedMatchApi {
   static var url = "https://api.freefantasy.in/tips/getMatches";
