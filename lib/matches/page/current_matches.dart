@@ -25,7 +25,7 @@ class MatchesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HeaderRow(
+              HeaderRow(
                 title: AppString.title,
               ),
               SizedBox(height: 2.h),

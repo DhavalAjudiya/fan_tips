@@ -13,10 +13,13 @@ class AppString {
   static const averageScore = "Average Score";
   static const wins = "Wins";
 
-  ///
+  /// expert screen
   static const String predictionExpert = "Prediction Expert";
   static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
+  static const String profile = "Profile";
+  static const String logout = "Logout";
+  static const String submit = "SUBMIT";
 
   /// current matchs
   static const title = "Current Matches";

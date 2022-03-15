@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
@@ -9,13 +10,13 @@ import 'bottomBar/bottomNaviBar.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
-import 'homeScreen/homePage.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
 import 'pageView/page_view.dart';
 import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
