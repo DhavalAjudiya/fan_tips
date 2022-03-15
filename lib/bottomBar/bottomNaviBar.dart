@@ -1,3 +1,4 @@
+import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -7,8 +8,6 @@ import 'controller.dart';
 class BottomNavigatorController extends StatelessWidget {
   static const routeName = "/BottomNavigatorController";
   final BottomController _neviController = Get.put(BottomController());
-
-  BottomNavigatorController({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +41,8 @@ class BottomNavigatorController extends StatelessWidget {
                   height: 4.h,
                   width: 5.w,
                   color: _neviController.currentIndex.value == 0
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "Home",
               ),
@@ -53,26 +52,37 @@ class BottomNavigatorController extends StatelessWidget {
                   height: 4.h,
                   width: 5.w,
                   color: _neviController.currentIndex.value == 1
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "Matches",
               ),
               BottomNavigationBarItem(
+                icon: Image.network(
+                  "https://i0.wp.com/villagecricket.co/wp-content/uploads/2020/06/cultures.png?fit=512%2C512&ssl=1",
+                  height: 4.h,
+                  width: 5.w,
+                  color: _neviController.currentIndex.value == 2
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
+                ),
+                label: "IPL",
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: _neviController.currentIndex.value == 2
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                  color: _neviController.currentIndex.value == 3
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "Expert",
               ),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.more_horiz_outlined,
-                  color: _neviController.currentIndex.value == 3
-                      ? const Color(0XFFF3620B)
-                      : Colors.white.withOpacity(0.5),
+                  color: _neviController.currentIndex.value == 4
+                      ? AppColor.whiteColor
+                      : AppColor.whiteColor.withOpacity(0.5),
                 ),
                 label: "More",
               ),

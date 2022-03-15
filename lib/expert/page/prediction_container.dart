@@ -1,4 +1,4 @@
-import 'package:fantips/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,7 +89,7 @@ class PredictionContainer extends StatelessWidget {
                                   ),
                                   Text(
                                     youtubeText,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'circular',
                                       fontWeight: FontWeight.w500,
                                       color: AppColor.subTitleColor,

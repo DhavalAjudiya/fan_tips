@@ -1,17 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fantips/homeScreen/page/newsScreen.dart';
+import 'package:fantips/screen/ipl_screen/page/ipl_screen.dart';
+import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
-import 'package:fantips/widget/splash_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
+import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
+import 'matches/page/current_matches.dart';
 import 'pageView/page_view.dart';
-import 'widget/splash_controller.dart';
 import 'widget/splash_screen.dart';
 
 Future<void> main() async {
@@ -52,6 +55,11 @@ class MyApp extends StatelessWidget {
               transition: Transition.rightToLeft,
             ),
             GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
               name: BottomNavigatorController.routeName,
               page: () => BottomNavigatorController(),
               transition: Transition.rightToLeft,
@@ -62,8 +70,28 @@ class MyApp extends StatelessWidget {
               transition: Transition.rightToLeft,
             ),
             GetPage(
+              name: IplScreen.routeName,
+              page: () => IplScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
               name: NewsDetailedScreen.routeName,
               page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsScreen.routeName,
+              page: () => NewsScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: UpcomingMatchScreen.routeName,
+              page: () => UpcomingMatchScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(
@@ -71,11 +99,11 @@ class MyApp extends StatelessWidget {
               page: () => ExpertScreen(),
               transition: Transition.rightToLeft,
             ),
-            GetPage(
-              name: T20Prediction.routeName,
-              page: () => T20Prediction(),
-              transition: Transition.rightToLeft,
-            ),
+            // GetPage(
+            //   name: T20Prediction.routeName,
+            //   page: () => T20Prediction(),
+            //   transition: Transition.rightToLeft,
+            // ),
           ],
         );
       },

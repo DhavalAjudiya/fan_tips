@@ -1,8 +1,8 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../utills/asset.dart';
 import 'splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {

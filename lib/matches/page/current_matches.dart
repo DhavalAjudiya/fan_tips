@@ -1,8 +1,8 @@
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../utills/string.dart';
 import '../../widget/header_row.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';

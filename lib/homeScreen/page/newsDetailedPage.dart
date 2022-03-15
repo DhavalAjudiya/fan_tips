@@ -1,16 +1,15 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../commanWidget/commanText.dart';
-import '../../utills/color.dart';
 import '../../widget/custom_container.dart';
 
 class NewsDetailedScreen extends StatelessWidget {
   static const routeName = "/NewsDetailedScreen";
   final HomeController homeController = Get.find();
-  NewsDetailedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

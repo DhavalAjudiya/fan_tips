@@ -1,4 +1,5 @@
 import 'package:fantips/commanWidget/commanText.dart';
+import 'package
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:flutter/material.dart';
@@ -80,12 +81,12 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                // CustomeText(
-                                //   title: AppString.zimbabevsAfghhanistan,
-                                //   color: AppColor.whiteColor,
-                                //   fontWeight: FontWeight.w500,
-                                //   fontSize: 10.sp,
-                                // ),
+                                CustomeText(
+                                  title: AppString.zimbabweVsAfghanistan,
+                                  color: AppColor.whiteColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 10.sp,
+                                ),
                                 const Spacer(),
                                 SvgPicture.asset(
                                   "assets/image/Vector.svg",
@@ -107,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                                             CircleAvatar(
                                               radius: 9.sp,
                                               backgroundImage: const AssetImage(
-                                                  "assets/image/Zim.png"),
+                                                  "assets/image/zim.png"),
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -147,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                                             CircleAvatar(
                                               radius: 9.sp,
                                               child: SvgPicture.asset(
-                                                  "assets/image/AFG LOGO.svg"),
+                                                  "assets/image/afglogo.svg"),
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -190,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                                   AppContainer(
                                     height: 8.h,
                                     width: 0.1.w,
-                                    color: AppColor.grey.withOpacity(0.5),
+                                    color: AppColor.verticalDivider,
                                   ),
                                   SizedBox(
                                     width: 2.w,
@@ -291,7 +292,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 18.sp,
-                                  child: Image.asset("assets/image/T20.png"),
+                                  child: Image.asset("assets/image/t20.png"),
                                 ),
                                 SizedBox(
                                   width: 2.w,
@@ -366,7 +367,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     height: 6.h,
                                     width: 0.2.w,
-                                    color: const Color(0XFF4E4E4E),
+                                    color: AppColor.verticalDivider,
                                   ),
                                   Column(
                                     children: [
@@ -384,7 +385,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     height: 6.h,
                                     width: 0.2.w,
-                                    color: const Color(0XFF4E4E4E),
+                                    color: AppColor.verticalDivider,
                                   ),
                                   Column(
                                     children: [
@@ -442,14 +443,23 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 12.sp,
                     ),
                     const Spacer(),
-                    CustomeText(
-                      title: AppString.viewAll,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 10.sp,
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 10.sp,
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(NewsScreen.routeName);
+                      },
+                      child: Row(
+                        children: [
+                          CustomeText(
+                            title: AppString.viewAll,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10.sp,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 10.sp,
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
@@ -470,21 +480,26 @@ class HomeScreen extends StatelessWidget {
                             onTap: () {
                               Get.toNamed(NewsDetailedScreen.routeName,
                                   arguments: {
-                                    "image":
-                                        "https://thumbs.dreamstime.com/b/soccer-stadium-green-grass-illumination-87619937.jpg",
-                                    "title":
-                                        "BCCI Secretary Arun Dhumal loss to the tune to thge matches... ",
-                                    "subtitle":
-                                        "India have registered their second successive Test series win in Australia, after beating...",
-                                    "time": "time",
+                                    "image": homeController
+                                        .newsModel.value.news?[index].image,
+                                    "title": homeController
+                                        .newsModel.value.news?[index].title,
+                                    "subtitle": homeController
+                                        .newsModel.value.news?[index].smallDesc,
+                                    "time": homeController.timeAgo(
+                                        homeController.data(homeController
+                                            .newsModel
+                                            .value
+                                            .news?[index]
+                                            .time)),
                                   });
                             },
                             height: 20.h,
                             borderRadius: BorderRadius.circular(10.sp),
-                            image: const DecorationImage(
+                            image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                  "https://thumbs.dreamstime.com/b/soccer-stadium-green-grass-illumination-87619937.jpg"),
+                                  "${homeController.newsModel.value.news?[index].image}"),
                             ),
                           ),
                           SizedBox(
@@ -492,7 +507,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           CustomeText(
                             title:
-                                "BCCI Secretary Arun Dhumal loss to the tune to thge matches... ",
+                                "${homeController.newsModel.value.news?[index].title}",
                             fontSize: 13.sp,
                             fontWeight: FontWeight.w500,
                           ),
@@ -501,7 +516,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           CustomeText(
                             title:
-                                "India have registered their second successive Test series win in Australia, after beating...",
+                                "${homeController.newsModel.value.news?[index].smallDesc}",
                             fontSize: 10.sp,
                             color: AppColor.whiteColor.withOpacity(0.5),
                           ),
@@ -509,7 +524,8 @@ class HomeScreen extends StatelessWidget {
                             height: 0.5.h,
                           ),
                           CustomeText(
-                            title: "source",
+                            title:
+                                "${homeController.newsModel.value.news?[index].newsSource}",
                             fontSize: 8.sp,
                             color: AppColor.whiteColor.withOpacity(0.5),
                           ),
@@ -517,7 +533,9 @@ class HomeScreen extends StatelessWidget {
                             height: 0.5.h,
                           ),
                           CustomeText(
-                            title: "time",
+                            title: homeController.timeAgo(homeController.data(
+                                homeController
+                                    .newsModel.value.news?[index].time)),
                             fontSize: 8.sp,
                             color: AppColor.whiteColor.withOpacity(0.5),
                           ),
