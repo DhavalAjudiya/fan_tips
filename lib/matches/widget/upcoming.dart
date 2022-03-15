@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../commanWidget/commanText.dart';
-import '../../screen/ipl_screen/widget/upcoming_matches.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
 
