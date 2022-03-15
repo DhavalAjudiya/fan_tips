@@ -12,9 +12,6 @@ import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'matches/page/current_matches.dart';
 import 'pageView/page_view.dart';
-import 'homeScreen/homePage.dart';
-import 'homeScreen/page/newsDetailedPage.dart';
-import 'matches/page/current_matches.dart';
 import 'widget/splash_screen.dart';
 
 void main() {
@@ -85,16 +82,6 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: MatchesScreen.routeName,
               page: () => MatchesScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: HomeScreen.routeName,
-              page: () => HomeScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: NewsDetailedScreen.routeName,
-              page: () => NewsDetailedScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

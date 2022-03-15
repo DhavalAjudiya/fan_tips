@@ -8,7 +8,6 @@ import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
 import '../widget/upcoming.dart';
-import 'matchs_controller.dart';
 
 class MatchesScreen extends StatelessWidget {
   static const routeName = "/home_screen";

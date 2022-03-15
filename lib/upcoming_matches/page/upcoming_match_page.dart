@@ -1,14 +1,14 @@
-import 'dart:developer';
-
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
 import 'package:fantips/utills/color.dart';
-import 'package:fantips/widget/customContainer/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/string.dart';
+import '../../widget/custom_container.dart';
+import '../widget/bestpicks_tab.dart';
+import '../widget/fantasy_tab.dart';
 
 class UpcomingMatchScreen extends StatelessWidget {
   static const routeName = "/UpcomingMatchScreen";
@@ -115,1033 +115,10 @@ class UpcomingMatchScreen extends StatelessWidget {
           controller: upcomingController.tabController,
           children: [
             ///fantasy tab
-            Padding(
-              padding: EdgeInsets.only(left: 10.sp, right: 10.sp, top: 10.sp),
-              child: Stack(
-                children: [
-                  Column(
-                    children: [
-                      AppContainer(
-                        height: 12.h,
-                        color: AppColor.blackColor,
-                        borderRadius: BorderRadius.circular(10.sp),
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 20.sp, right: 20.sp),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CircleAvatar(
-                                radius: 18.sp,
-                              ),
-                              const CustomeText(
-                                title: "MI",
-                                fontWeight: FontWeight.w700,
-                                color: AppColor.textColor,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CustomeText(
-                                    title: "Match Starts In",
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 9.sp,
-                                  ),
-                                  CustomeText(
-                                    title: "5h 30m",
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 12.sp,
-                                  ),
-                                ],
-                              ),
-                              const CustomeText(
-                                title: "RCB",
-                                fontWeight: FontWeight.w700,
-                                color: AppColor.textColor,
-                              ),
-                              CircleAvatar(
-                                radius: 18.sp,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Obx(
-                        () => Row(
-                          children: [
-                            Expanded(
-                              child: InkWell(
-                                onTap: () {
-                                  if (upcomingController.isSelect = true) {
-                                    upcomingController.select.value = 0;
-                                  } else {
-                                    upcomingController.isSelect = false;
-                                  }
-                                },
-                                child: AppContainer(
-                                  height: 5.h,
-                                  borderRadius: BorderRadius.circular(5.sp),
-                                  color: AppColor.blackColor,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/image/line.svg",
-                                        height: 1.7.h,
-                                        color:
-                                            upcomingController.select.value == 0
-                                                ? AppColor.greenColor
-                                                : AppColor.textColor,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.avgScore,
-                                        color:
-                                            upcomingController.select.value == 0
-                                                ? AppColor.greenColor
-                                                : AppColor.textColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 11.sp,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                onTap: () {
-                                  log("se");
-                                  if (upcomingController.isSelect = true) {
-                                    upcomingController.select.value = 1;
-                                  } else {
-                                    upcomingController.isSelect = false;
-                                  }
-                                },
-                                child: AppContainer(
-                                  height: 5.h,
-                                  borderRadius: BorderRadius.circular(5.sp),
-                                  color: AppColor.blackColor,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.favorite_outline,
-                                        color:
-                                            upcomingController.select.value == 1
-                                                ? AppColor.greenColor
-                                                : AppColor.textColor,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.favourites,
-                                        color:
-                                            upcomingController.select.value == 1
-                                                ? AppColor.greenColor
-                                                : AppColor.textColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 11.sp,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Expanded(
-                        child: SizedBox(
-                          child: ListView.builder(
-                            itemCount: 10,
-                            physics: const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return AppContainer(
-                                height: 16.h,
-                                margin: EdgeInsets.symmetric(vertical: 2.sp),
-                                borderRadius: BorderRadius.circular(10.sp),
-                                color: AppColor.blackColor,
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 10.sp,
-                                      right: 10.sp,
-                                      top: 8.sp,
-                                      bottom: 5.sp),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          CircleAvatar(
-                                            radius: 18.sp,
-                                            child: Image.asset(
-                                                "assets/image/t20.png"),
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          Column(
-                                            children: [
-                                              Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      CustomeText(
-                                                          title: AppString
-                                                              .t20Predictions,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          color: AppColor
-                                                              .textColor,
-                                                          fontSize: 12.sp),
-                                                      Row(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Image.asset(
-                                                            "assets/image/youtubee.png",
-                                                            height: 2.h,
-                                                            width: 3.w,
-                                                          ),
-                                                          SizedBox(
-                                                            width: 1.w,
-                                                          ),
-                                                          CustomeText(
-                                                            title: AppString
-                                                                .subscriber,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            color: AppColor
-                                                                .textColor,
-                                                            fontSize: 8.sp,
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  SizedBox(
-                                                    width: 2.w,
-                                                  ),
-                                                  AppContainer(
-                                                    height: 2.h,
-                                                    width: 13.w,
-                                                    color: AppColor.offBlack,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            2.sp),
-                                                    child: Center(
-                                                      child: CustomeText(
-                                                        title: AppString.teams,
-                                                        fontSize: 8.sp,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        color:
-                                                            AppColor.greenColor,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          const Spacer(),
-                                          const Icon(
-                                            Icons.favorite_outline,
-                                            color: AppColor.textColor,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 1.h,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10.sp),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              children: [
-                                                CustomeText(
-                                                    title: "72",
-                                                    color: AppColor.textColor,
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 13.sp),
-                                                CustomeText(
-                                                  title: AppString.predictions,
-                                                  fontSize: 10.sp,
-                                                  color: AppColor.textColor,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ],
-                                            ),
-                                            Container(
-                                              height: 6.h,
-                                              width: 0.2.w,
-                                              color: AppColor.verticalDivider,
-                                            ),
-                                            Column(
-                                              children: [
-                                                CustomeText(
-                                                    title: "429",
-                                                    color: AppColor.textColor,
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 13.sp),
-                                                CustomeText(
-                                                  title: AppString.averageScore,
-                                                  fontSize: 10.sp,
-                                                  color: AppColor.textColor,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ],
-                                            ),
-                                            Container(
-                                              height: 6.h,
-                                              width: 0.2.w,
-                                              color: AppColor.verticalDivider,
-                                            ),
-                                            Column(
-                                              children: [
-                                                CustomeText(
-                                                    title: "13",
-                                                    color: AppColor.textColor,
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 13.sp),
-                                                CustomeText(
-                                                  title: AppString.wins,
-                                                  fontSize: 10.sp,
-                                                  color: AppColor.textColor,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  Positioned(
-                    bottom: 35.sp,
-                    left: 100.sp,
-                    child: AppContainer(
-                      onTap: () {},
-                      height: 5.h,
-                      width: 30.w,
-                      color: AppColor.greenColor,
-                      borderRadius: BorderRadius.circular(5.sp),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5.sp,
-                          color: AppColor.whiteColor.withOpacity(0.5),
-                        )
-                      ],
-                      child: Center(
-                        child: CustomeText(
-                          title: AppString.createTeams,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 10.sp,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            FantasyTab(),
 
             ///bestPicks tab
-            Padding(
-              padding: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 10.sp),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Card(
-                      color: AppColor.blackColor,
-                      child: ExpansionTile(
-                        childrenPadding:
-                            EdgeInsets.only(left: 10.sp, right: 10.sp),
-                        backgroundColor: AppColor.blackColor,
-                        iconColor: AppColor.whiteColor,
-                        title: Row(
-                          children: [
-                            AppContainer(
-                              width: 22.w,
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/image/glove.svg",
-                                    height: 3.h,
-                                  ),
-                                  SizedBox(
-                                    width: 1.5.w,
-                                  ),
-                                  CustomeText(
-                                    title: AppString.wk,
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            CustomeText(
-                              title: AppString.wicketKeeper,
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12.sp,
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Divider(
-                            height: 0.4.sp,
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                CustomeText(
-                                  title: AppString.playerName,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                CustomeText(
-                                  title: AppString.selectedBy,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: AppContainer(
-                              height: 6.h,
-                              width: 13.w,
-                              child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                },
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Center(
-                                  child: Text("NO IMAGE!!!"),
-                                ),
-                              ),
-                            ),
-                            title: CustomeText(
-                              title: "Rohit Sharma",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                            subtitle: CustomeText(
-                              title: "MI",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.only(right: 10.sp),
-                              child: CustomeText(
-                                title: "19.75%",
-                                color: AppColor.textColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.sp,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      color: AppColor.blackColor,
-                      child: ExpansionTile(
-                        backgroundColor: AppColor.blackColor,
-                        iconColor: AppColor.whiteColor,
-                        title: Row(
-                          children: [
-                            AppContainer(
-                              width: 22.w,
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/image/bat.svg",
-                                    height: 3.h,
-                                  ),
-                                  SizedBox(
-                                    width: 1.5.w,
-                                  ),
-                                  CustomeText(
-                                    title: AppString.bat,
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            CustomeText(
-                              title: AppString.batsman,
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp,
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Divider(
-                            height: 0.4.sp,
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                CustomeText(
-                                  title: AppString.playerName,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                CustomeText(
-                                  title: AppString.selectedBy,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: AppContainer(
-                              height: 6.h,
-                              width: 13.w,
-                              child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                },
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Center(
-                                  child: Text("NO IMAGE!!!"),
-                                ),
-                              ),
-                            ),
-                            title: CustomeText(
-                              title: "Rohit Sharma",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                            subtitle: CustomeText(
-                              title: "MI",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.only(right: 10.sp),
-                              child: CustomeText(
-                                title: "19.75%",
-                                color: AppColor.textColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.sp,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      color: AppColor.blackColor,
-                      child: ExpansionTile(
-                        backgroundColor: AppColor.blackColor,
-                        iconColor: AppColor.whiteColor,
-                        title: Row(
-                          children: [
-                            AppContainer(
-                              width: 22.w,
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/image/batball.svg",
-                                    height: 3.h,
-                                  ),
-                                  SizedBox(
-                                    width: 1.5.w,
-                                  ),
-                                  CustomeText(
-                                    title: AppString.ar,
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            CustomeText(
-                              title: AppString.allRounder,
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp,
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Divider(
-                            height: 0.4.sp,
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                CustomeText(
-                                  title: AppString.playerName,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                CustomeText(
-                                  title: AppString.selectedBy,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: AppContainer(
-                              height: 6.h,
-                              width: 13.w,
-                              child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                },
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Center(
-                                  child: Text("NO IMAGE!!!"),
-                                ),
-                              ),
-                            ),
-                            title: CustomeText(
-                              title: "Rohit Sharma",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                            subtitle: CustomeText(
-                              title: "MI",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.only(right: 10.sp),
-                              child: CustomeText(
-                                title: "19.75%",
-                                color: AppColor.textColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.sp,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      color: AppColor.blackColor,
-                      child: ExpansionTile(
-                        backgroundColor: AppColor.blackColor,
-                        iconColor: AppColor.whiteColor,
-                        title: Row(
-                          children: [
-                            AppContainer(
-                              width: 22.w,
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/image/ball.svg",
-                                    height: 3.h,
-                                  ),
-                                  SizedBox(
-                                    width: 1.5.w,
-                                  ),
-                                  CustomeText(
-                                    title: AppString.bowl,
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            CustomeText(
-                              title: AppString.bowler,
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp,
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Divider(
-                            height: 0.4.sp,
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                CustomeText(
-                                  title: AppString.playerName,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                CustomeText(
-                                  title: AppString.selectedBy,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: AppContainer(
-                              height: 6.h,
-                              width: 13.w,
-                              child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                },
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Center(
-                                  child: Text("NO IMAGE!!!"),
-                                ),
-                              ),
-                            ),
-                            title: CustomeText(
-                              title: "Rohit Sharma",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                            subtitle: CustomeText(
-                              title: "MI",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.only(right: 10.sp),
-                              child: CustomeText(
-                                title: "19.75%",
-                                color: AppColor.textColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.sp,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      color: AppColor.blackColor,
-                      child: ExpansionTile(
-                        backgroundColor: AppColor.blackColor,
-                        iconColor: AppColor.whiteColor,
-                        title: Row(
-                          children: [
-                            AppContainer(
-                              width: 22.w,
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/image/captain.svg",
-                                    height: 3.h,
-                                  ),
-                                  SizedBox(
-                                    width: 1.5.w,
-                                  ),
-                                  CustomeText(
-                                    title: AppString.cap,
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            CustomeText(
-                              title: AppString.captain,
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp,
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Divider(
-                            height: 0.4.sp,
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                CustomeText(
-                                  title: AppString.playerName,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                CustomeText(
-                                  title: AppString.selectedBy,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: AppContainer(
-                              height: 6.h,
-                              width: 13.w,
-                              child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                },
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Center(
-                                  child: Text("NO IMAGE!!!"),
-                                ),
-                              ),
-                            ),
-                            title: CustomeText(
-                              title: "Rohit Sharma",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                            subtitle: CustomeText(
-                              title: "MI",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.only(right: 10.sp),
-                              child: CustomeText(
-                                title: "19.75%",
-                                color: AppColor.textColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.sp,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Card(
-                      color: AppColor.blackColor,
-                      child: ExpansionTile(
-                        backgroundColor: AppColor.blackColor,
-                        iconColor: AppColor.whiteColor,
-                        title: Row(
-                          children: [
-                            AppContainer(
-                              width: 22.w,
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/image/vicecaptain.svg",
-                                    height: 3.h,
-                                  ),
-                                  SizedBox(
-                                    width: 1.5.w,
-                                  ),
-                                  CustomeText(
-                                    title: AppString.vc,
-                                    color: AppColor.textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.sp,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            CustomeText(
-                              title: AppString.viceCaptain,
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp,
-                            ),
-                          ],
-                        ),
-                        children: [
-                          Divider(
-                            height: 0.4.sp,
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                CustomeText(
-                                  title: AppString.playerName,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                CustomeText(
-                                  title: AppString.selectedBy,
-                                  color: AppColor.textColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: AppContainer(
-                              height: 6.h,
-                              width: 13.w,
-                              child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return const Center(
-                                      child: CircularProgressIndicator());
-                                },
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Center(
-                                  child: Text("NO IMAGE!!!"),
-                                ),
-                              ),
-                            ),
-                            title: CustomeText(
-                              title: "Rohit Sharma",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                            subtitle: CustomeText(
-                              title: "MI",
-                              color: AppColor.textColor,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.only(right: 10.sp),
-                              child: CustomeText(
-                                title: "19.75%",
-                                color: AppColor.textColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12.sp,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            BestPicksTab(),
             Container(),
 
             /// quiz tab
@@ -1150,8 +127,306 @@ class UpcomingMatchScreen extends StatelessWidget {
               child: Column(
                 children: [
                   AppContainer(
-                    height: 10.h,
+                    height: 8.h,
                     color: AppColor.blackColor,
+                    borderRadius: BorderRadius.circular(8.sp),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10.sp, right: 10.sp),
+                      child: Row(
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                      "assets/image/greenstar.svg"),
+                                  CustomeText(
+                                    title: "429",
+                                    fontSize: 20.sp,
+                                    color: AppColor.greenColor,
+                                  )
+                                ],
+                              ),
+                              CustomeText(
+                                title: AppString.totalPoints,
+                                color: AppColor.greenColor,
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w400,
+                              )
+                            ],
+                          ),
+                          const Spacer(),
+                          AppContainer(
+                            height: 5.h,
+                            width: 35.w,
+                            border: Border.all(color: AppColor.borderColor),
+                            borderRadius: BorderRadius.circular(15.sp),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset("assets/image/trophy.svg"),
+                                SizedBox(
+                                  width: 1.w,
+                                ),
+                                CustomeText(
+                                  title: AppString.leaderboard,
+                                  color: AppColor.borderColor,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w900,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  CustomeText(
+                    title: AppString.nextQuestion,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10.sp,
+                  ),
+                  CustomeText(
+                    title: "01:45:30",
+                    fontSize: 20.sp,
+                    color: AppColor.greenColor,
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  AppContainer(
+                    height: 27.h,
+                    color: AppColor.blackColor,
+                    borderRadius: BorderRadius.circular(8.sp),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: 12.sp, right: 12.sp, top: 10.sp),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              CustomeText(
+                                title: AppString.question,
+                                color: AppColor.quizTextColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15.sp,
+                              ),
+                              CustomeText(
+                                title: AppString.totalQuestion,
+                                color: AppColor.quizTextColor,
+                                fontSize: 8.sp,
+                              ),
+                              const Spacer(),
+                              SvgPicture.asset("assets/image/timecircle.svg",
+                                  height: 2.h),
+                              CustomeText(
+                                title: "45s",
+                                color: AppColor.quizTextColor,
+                                fontSize: 15.sp,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 0.8.h,
+                          ),
+                          LinearProgressIndicator(
+                            backgroundColor: AppColor.quizTextColor,
+                            color: AppColor.greenColor,
+                            minHeight: 0.2.h,
+                            value: 10,
+                          ),
+                          SizedBox(
+                            height: 1.3.h,
+                          ),
+                          CustomeText(
+                            title:
+                                "Who will be the Man of the Match for today’s match?",
+                            fontSize: 10.sp,
+                          ),
+                          SizedBox(
+                            height: 1.3.h,
+                          ),
+                          Row(
+                            children: [
+                              AppContainer(
+                                height: 4.h,
+                                width: 40.w,
+                                border: Border.all(color: AppColor.borderColor),
+                                borderRadius: BorderRadius.circular(5.sp),
+                                child: Padding(
+                                  padding: EdgeInsets.all(5.sp),
+                                  child: Row(
+                                    children: [
+                                      CustomeText(
+                                        title: "Rohit Sharma",
+                                        fontSize: 8.sp,
+                                        color: AppColor.quizTextColor,
+                                      ),
+                                      const Spacer(),
+                                      InkWell(
+                                        child: Container(
+                                          height: 2.h,
+                                          width: 5.w,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: AppColor.borderColor,
+                                                  width: 0.4.w)),
+                                        ),
+                                      )
+                                      // Radio(
+                                      //     visualDensity: const VisualDensity(
+                                      //         horizontal:
+                                      //             VisualDensity.minimumDensity,
+                                      //         vertical:
+                                      //             VisualDensity.minimumDensity),
+                                      //     materialTapTargetSize:
+                                      //         MaterialTapTargetSize.shrinkWrap,
+                                      //     value: 1,
+                                      //     groupValue: 0,
+                                      //     onChanged: (v) {})
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const Spacer(),
+                              AppContainer(
+                                height: 4.h,
+                                width: 40.w,
+                                border: Border.all(color: AppColor.borderColor),
+                                borderRadius: BorderRadius.circular(5.sp),
+                                child: Padding(
+                                  padding: EdgeInsets.all(5.sp),
+                                  child: Row(
+                                    children: [
+                                      CustomeText(
+                                        title: "Virat Kohli",
+                                        fontSize: 8.sp,
+                                        color: AppColor.quizTextColor,
+                                      ),
+                                      const Spacer(),
+                                      InkWell(
+                                        child: Container(
+                                          height: 2.h,
+                                          width: 5.w,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: AppColor.borderColor,
+                                                  width: 0.4.w)),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 1.3.h,
+                          ),
+                          Row(
+                            children: [
+                              AppContainer(
+                                height: 4.h,
+                                width: 40.w,
+                                border: Border.all(color: AppColor.borderColor),
+                                borderRadius: BorderRadius.circular(5.sp),
+                                child: Padding(
+                                  padding: EdgeInsets.all(5.sp),
+                                  child: Row(
+                                    children: [
+                                      CustomeText(
+                                        title: "Rohit Sharma",
+                                        fontSize: 8.sp,
+                                        color: AppColor.quizTextColor,
+                                      ),
+                                      const Spacer(),
+                                      InkWell(
+                                        child: Container(
+                                          height: 2.h,
+                                          width: 5.w,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: AppColor.borderColor,
+                                                  width: 0.4.w)),
+                                        ),
+                                      )
+                                      // Radio(
+                                      //     visualDensity: const VisualDensity(
+                                      //         horizontal:
+                                      //             VisualDensity.minimumDensity,
+                                      //         vertical:
+                                      //             VisualDensity.minimumDensity),
+                                      //     materialTapTargetSize:
+                                      //         MaterialTapTargetSize.shrinkWrap,
+                                      //     value: 1,
+                                      //     groupValue: 0,
+                                      //     onChanged: (v) {})
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const Spacer(),
+                              AppContainer(
+                                height: 4.h,
+                                width: 40.w,
+                                border: Border.all(color: AppColor.borderColor),
+                                borderRadius: BorderRadius.circular(5.sp),
+                                child: Padding(
+                                  padding: EdgeInsets.all(5.sp),
+                                  child: Row(
+                                    children: [
+                                      CustomeText(
+                                        title: "Virat Kohli",
+                                        fontSize: 8.sp,
+                                        color: AppColor.quizTextColor,
+                                      ),
+                                      const Spacer(),
+                                      InkWell(
+                                        child: Container(
+                                          height: 2.h,
+                                          width: 5.w,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                  color: AppColor.borderColor,
+                                                  width: 0.4.w)),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          Center(
+                            child: AppContainer(
+                              height: 3.5.h,
+                              width: 25.w,
+                              borderRadius: BorderRadius.circular(10.sp),
+                              border: Border.all(color: AppColor.borderColor),
+                              child: Center(
+                                child: CustomeText(
+                                  title: AppString.submit,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   )
                 ],
               ),

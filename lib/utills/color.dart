@@ -10,6 +10,8 @@ class AppColor {
   ///upcoming match
   static const textColor = Color(0XFFA7A7A7);
   static const offBlack = Color(0XFF333333);
+  static const borderColor = Color(0XFF858585);
+  static const quizTextColor = Color(0XFF919191);
 
   ///
   static const transparent = Colors.transparent;

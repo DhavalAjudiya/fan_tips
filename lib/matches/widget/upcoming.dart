@@ -1,4 +1,5 @@
 import 'package:fantips/matches/controler/utils_time.dart';
+import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
 import 'package:fantips/utills/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -39,32 +40,38 @@ class UpComing extends StatelessWidget {
               final current = _homecontroller
                   .currentMatch.value.matches?.notstarted?[index];
               return Obx(
-                () => CustomContainer(
-                  margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
-                  ontap: () {
-                    if (current?.selected.value == false) {
-                      current?.selected.value = true;
-                    } else {
-                      current?.selected.value = false;
-                    }
+                () => InkWell(
+                  onTap: () {
+                    Get.toNamed(UpcomingMatchScreen.routeName);
                   },
-                  icon: current?.selected.value == false
-                      ? const Icon(Icons.notifications)
-                      : const Icon(Icons.notifications_none),
-                  backgroundImage: NetworkImage(
-                    current?.t1Flag ?? AppString.imageNotFound,
-                  ),
-                  text: current?.team1Name ?? "",
-                  secondbackgroundImage: NetworkImage(
-                    current?.t2Flag ?? AppString.imageNotFound,
-                  ),
-                  subText: current?.team2Name ?? "",
-                  predictionText: "${current?.totalprediction ?? ""}",
-                  prediction: "Prediction",
-                  // lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
-                  lastText: _homecontroller.timeAgo(
-                    current?.startTime ?? 0,
+                  child: CustomContainer(
+                    margin:
+                        EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
+                    headertext: current?.matchName ?? "",
+                    ontap: () {
+                      if (current?.selected.value == false) {
+                        current?.selected.value = true;
+                      } else {
+                        current?.selected.value = false;
+                      }
+                    },
+                    icon: current?.selected.value == false
+                        ? const Icon(Icons.notifications)
+                        : const Icon(Icons.notifications_none),
+                    backgroundImage: NetworkImage(
+                      current?.t1Flag ?? AppString.imageNotFound,
+                    ),
+                    text: current?.team1Name ?? "",
+                    secondbackgroundImage: NetworkImage(
+                      current?.t2Flag ?? AppString.imageNotFound,
+                    ),
+                    subText: current?.team2Name ?? "",
+                    predictionText: "${current?.totalprediction ?? ""}",
+                    prediction: "Prediction",
+                    // lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
+                    lastText: _homecontroller.timeAgo(
+                      current?.startTime ?? 0,
+                    ),
                   ),
                 ),
               );
