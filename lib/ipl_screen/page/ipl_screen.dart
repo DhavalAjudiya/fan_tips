@@ -1,13 +1,20 @@
+import 'package:fantips/utills/style.dart';
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/screen/ipl_screen/custom_scoretile.dart';
 import 'package:fantips/screen/ipl_screen/ipl_controller.dart';
-import 'package:fantips/utills/style.dart';
-import 'package:fantips/widget/data_ipl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../T20Predictions/page/utills/asset.dart';
+import '../../T20Predictions/page/utills/color.dart';
+import '../../T20Predictions/page/utills/string.dart';
+import '../controller/ipl_controller.dart';
+import '../data/data_ipl.dart';
+import '../widget/custom_scoretile.dart';
+import '../widget/squads_details.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);
@@ -20,7 +27,7 @@ class IplScreen extends StatelessWidget {
       backgroundColor: AppColor.backGround,
       appBar: AppBar(
         backgroundColor: AppColor.backGround,
-        title: const Text(AppString.currentMatches),
+        title: Text(AppString.currentMatches),
         centerTitle: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(35),
@@ -50,13 +57,18 @@ class IplScreen extends StatelessWidget {
             // Squads
             ListView.builder(
               itemCount: IplTems.length,
+              padding: EdgeInsets.symmetric(vertical: 2.h),
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListTile(
+                return Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 3.w, vertical: 0.5.h),
+                  child: InkWell(
+                    onTap: () {
+                      Get.to(
+                        () => const SquadsDetailsScreen(),
+                      );
+                    },
+                    child: ListTile(
                       leading: Container(
                         height: 40,
                         width: 40,
@@ -76,7 +88,7 @@ class IplScreen extends StatelessWidget {
                       ),
                       tileColor: AppColor.greyBackGround,
                     ),
-                  ],
+                  ),
                 );
               },
             ),
@@ -99,12 +111,20 @@ class IplScreen extends StatelessWidget {
                     ),
                     // card
                     IplCardMatches(
-                      height: 18.h,
+                      onTap: () {
+                        if (iplController.isOn.value == false) {
+                          iplController.isOn.value = true;
+                        } else {
+                          iplController.isOn.value = false;
+                        }
+                      },
+                      icon: iplController.isOn.value == false
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_none_rounded),
                       width: 88.w,
                       titleMatches: 'RR vc RCB IPL,2021',
                       image1: IconAsset.logoCSK,
                       textTeam1: 'CSK',
-                      icon: Icons.notifications,
                       score1: "168/4",
                       over1: '(20)',
                       image2: IconAsset.logoMI,
@@ -138,8 +158,18 @@ class IplScreen extends StatelessWidget {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 1.3.h),
                             child: UpcomingIpl(
-                              height: 18.h,
                               width: 88.w,
+                              onTap: () {
+                                if (iplController.isOn.value == false) {
+                                  iplController.isOn.value = true;
+                                } else {
+                                  iplController.isOn.value = false;
+                                }
+                              },
+                              icon: iplController.isOn.value == false
+                                  ? const Icon(Icons.notifications)
+                                  : const Icon(
+                                      Icons.notifications_none_rounded),
                               titleMatches: 'RCB vc DC IPL,2021',
                               image1: IconAsset.logoRCB,
                               textTeam1: 'RCB',
@@ -175,7 +205,17 @@ class IplScreen extends StatelessWidget {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 1.3.h),
                             child: UpcomingIpl(
-                              height: 18.h,
+                              onTap: () {
+                                if (iplController.isOn.value == false) {
+                                  iplController.isOn.value = true;
+                                } else {
+                                  iplController.isOn.value = false;
+                                }
+                              },
+                              icon: iplController.isOn.value == false
+                                  ? const Icon(Icons.notifications)
+                                  : const Icon(
+                                      Icons.notifications_none_rounded),
                               width: 88.w,
                               titleMatches: 'PNJ vc KKR IPL,2021',
                               image1: IconAsset.logoPNJ,

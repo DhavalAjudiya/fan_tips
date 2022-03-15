@@ -1,4 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/string.dart';
+import 'package:fantips/matches/controler/utils_time.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -30,7 +31,7 @@ class Completed extends StatelessWidget {
                         _homecontroller.timeAgo(current?.startTime ?? 0),
                         style: const TextStyle(
                           color: Colors.white54,
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

@@ -2,6 +2,8 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../T20Predictions/page/utills/color.dart';
+
 class Appstyle {
   static TextStyle deadLineStyle = TextStyle(
     color: Colors.white,

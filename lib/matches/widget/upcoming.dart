@@ -1,11 +1,14 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
+import 'package:fantips/matches/widget/upcoming_matches/page/upcoming_match_page.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../commanWidget/commanText.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
@@ -39,12 +42,11 @@ class UpComing extends StatelessWidget {
             itemBuilder: (context, index) {
               final current = _homecontroller
                   .currentMatch.value.matches?.notstarted?[index];
-              return Obx(
-                () => InkWell(
-                  onTap: () {
-                    Get.toNamed(UpcomingMatchScreen.routeName);
-                  },
-                  child: CustomContainer(
+              return Obx(() => InkWell(
+                    onTap: () {
+                      Get.toNamed(UpcomingMatchScreen.routeName);
+                    },
+                    child: CustomContainer(
                       margin:
                           EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
                       headertext: current?.matchName ?? "",
@@ -68,12 +70,8 @@ class UpComing extends StatelessWidget {
                       subText: current?.team2Name ?? "",
                       predictionText: "${current?.totalprediction ?? ""}",
                       prediction: "Prediction",
-                      // lastText: _homecontroller.timeAgo(current?.startTime ?? 0),
-                      lastText: _homecontroller.timeAgo(
-                        current?.startTime ?? 0,
-                      )),
-                ),
-              );
+                    ),
+                  ));
             },
           ),
         ),

@@ -9,6 +9,8 @@ import '../data/modal/live_matches.dart';
 
 class MatchsScreenControoler extends GetxController
     with GetSingleTickerProviderStateMixin {
+
+
   TabController? tabController;
   RxBool loading = true.obs;
   Rx<CurrentMatch> currentMatch = CurrentMatch().obs;

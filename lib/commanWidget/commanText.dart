@@ -8,7 +8,7 @@ class CustomeText extends StatelessWidget {
 
   const CustomeText({
     Key? key,
-    required this.title,
+    this.title = "",
     this.color,
     this.fontSize,
     this.fontWeight,
