@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 
 class IplCardMatches extends StatelessWidget {
-  final IconData? icon;
+  final Widget? icon;
   final double? width;
   final double? height;
   final String? textTeam1;
@@ -38,14 +38,13 @@ class IplCardMatches extends StatelessWidget {
     this.image1,
     this.image2,
     this.width,
-    this.height,
-    this.icon,
+    this.height, this.icon,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
+      height: 19.h,
       width: width,
       decoration: BoxDecoration(color: AppColor.greyBackGround, borderRadius: BorderRadius.circular(10)),
       child: Padding(
@@ -60,14 +59,10 @@ class IplCardMatches extends StatelessWidget {
                   style: Appstyle.subIplStyle,
                 ),
                 const Spacer(),
-                GestureDetector(
+                InkWell(
+                  child: icon,
                   onTap: onTap,
-                  child: Icon(
-                    icon,
-                    size: 15.sp,
-                    color: Colors.white,
-                  ),
-                ),
+                )
               ],
             ),
             SizedBox(
@@ -191,7 +186,6 @@ class IplCardMatches extends StatelessWidget {
 }
 
 class UpcomingIpl extends StatelessWidget {
-  final IconData? icon;
   final double? width;
   final double? height;
   final String? textTeam1;
@@ -201,6 +195,8 @@ class UpcomingIpl extends StatelessWidget {
   final String? time;
   final String? titleMatches;
   final String? dayAgo;
+  final Widget? icon;
+  final VoidCallback? onTap;
 
   const UpcomingIpl({
     Key? key,
@@ -212,8 +208,7 @@ class UpcomingIpl extends StatelessWidget {
     this.image1,
     this.image2,
     this.width,
-    this.height,
-    this.icon,
+    this.height, this.icon, this.onTap,
   }) : super(key: key);
 
   @override
@@ -234,11 +229,10 @@ class UpcomingIpl extends StatelessWidget {
                   style: Appstyle.subIplStyle,
                 ),
                 const Spacer(),
-                Icon(
-                  Icons.notifications_none_rounded,
-                  size: 15.sp,
-                  color: Colors.white,
-                ),
+                InkWell(
+                  onTap: onTap,
+                  child: icon,
+                )
               ],
             ),
             SizedBox(

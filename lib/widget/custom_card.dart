@@ -1,8 +1,9 @@
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
+
+import '../T20Predictions/page/utills/asset.dart';
+import '../T20Predictions/page/utills/color.dart';
 
 class CustomCard extends StatelessWidget {
   final String? text;
@@ -26,7 +27,11 @@ class CustomCard extends StatelessWidget {
             children: [
               Text(
                 text!,
-                style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 4.w, fontWeight: FontWeight.bold, fontFamily: 'WorkSan'),
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 4.w,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'WorkSan'),
               ),
               SizedBox(
                 width: 1.8.w,

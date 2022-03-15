@@ -14,7 +14,7 @@ class PredictionsApiService {
   static Future<PredictionModal?> matchesData() async {
     try {
       var request = http.MultipartRequest('POST', Uri.parse(url));
-      request.fields.addAll({'matchStatus': '2', 'offset': '0', 'limit': '20'});
+      request.fields.addAll({'matchStatus': '4', 'offset': '0', 'limit': '20'});
       log("aaaa");
 
       http.StreamedResponse response = await request.send();

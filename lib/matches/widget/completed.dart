@@ -1,10 +1,8 @@
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/matches/controler/utils_time.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:sizer/sizer.dart';
-
-import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
 
@@ -30,7 +28,7 @@ class Completed extends StatelessWidget {
                   return Column(
                     children: [
                       Text(
-                        Utils.timeDurationAgo(current?.startTime ?? 0),
+                        _homecontroller.timeAgo(current?.startTime ?? 0),
                         style: const TextStyle(
                           color: Colors.white54,
                           fontSize: 16,

@@ -7,7 +7,7 @@ class AppImage {
   static const String working = "$image/working.svg";
   static const String mindset = "$image/mindset.svg";
   static const String youTub = "$image/you_tub.svg";
-
+  static const String flash = "$image/flash.svg";
   static const String fb = "assets/image/fb.png";
 }
 
@@ -27,4 +27,6 @@ class IconAsset {
   static const logoPNJ = '${assets}ipl_pnj.png';
   static const logoRR = '${assets}ipl_rr.png';
   static const logoRCB = '${assets}ipl_rcb.png';
+  static const String warning = '$icons/worning.svg';
+  static const String person = "$icons/person.svg";
 }

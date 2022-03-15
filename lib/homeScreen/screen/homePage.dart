@@ -1,5 +1,4 @@
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package
 import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../widget/custom_container.dart';
 import '../data/homepageController.dart';
-import 'newsDetailedPage.dart';
+import '../page/newsDetailedPage.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/HomeScreen";
@@ -81,12 +80,12 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                CustomeText(
-                                  title: AppString.zimbabweVsAfghanistan,
-                                  color: AppColor.whiteColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 10.sp,
-                                ),
+                                // CustomeText(
+                                //   title: AppString.zimbabevsAfghhanistan,
+                                //   color: AppColor.whiteColor,
+                                //   fontWeight: FontWeight.w500,
+                                //   fontSize: 10.sp,
+                                // ),
                                 const Spacer(),
                                 SvgPicture.asset(
                                   "assets/image/Vector.svg",
@@ -108,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                                             CircleAvatar(
                                               radius: 9.sp,
                                               backgroundImage: const AssetImage(
-                                                  "assets/image/zim.png"),
+                                                  "assets/image/Zim.png"),
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -148,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                                             CircleAvatar(
                                               radius: 9.sp,
                                               child: SvgPicture.asset(
-                                                  "assets/image/afglogo.svg"),
+                                                  "assets/image/AFG LOGO.svg"),
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -191,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                                   AppContainer(
                                     height: 8.h,
                                     width: 0.1.w,
-                                    color: AppColor.verticalDivider,
+                                    color: AppColor.grey.withOpacity(0.5),
                                   ),
                                   SizedBox(
                                     width: 2.w,
@@ -292,7 +291,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 18.sp,
-                                  child: Image.asset("assets/image/t20.png"),
+                                  child: Image.asset("assets/image/T20.png"),
                                 ),
                                 SizedBox(
                                   width: 2.w,
@@ -367,7 +366,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     height: 6.h,
                                     width: 0.2.w,
-                                    color: AppColor.verticalDivider,
+                                    color: const Color(0XFF4E4E4E),
                                   ),
                                   Column(
                                     children: [
@@ -385,7 +384,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     height: 6.h,
                                     width: 0.2.w,
-                                    color: AppColor.verticalDivider,
+                                    color: const Color(0XFF4E4E4E),
                                   ),
                                   Column(
                                     children: [
@@ -443,23 +442,14 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 12.sp,
                     ),
                     const Spacer(),
-                    InkWell(
-                      onTap: () {
-                        Get.toNamed(NewsScreen.routeName);
-                      },
-                      child: Row(
-                        children: [
-                          CustomeText(
-                            title: AppString.viewAll,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 10.sp,
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            size: 10.sp,
-                          )
-                        ],
-                      ),
+                    CustomeText(
+                      title: AppString.viewAll,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 10.sp,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 10.sp,
                     )
                   ],
                 ),
@@ -480,26 +470,21 @@ class HomeScreen extends StatelessWidget {
                             onTap: () {
                               Get.toNamed(NewsDetailedScreen.routeName,
                                   arguments: {
-                                    "image": homeController
-                                        .newsModel.value.news?[index].image,
-                                    "title": homeController
-                                        .newsModel.value.news?[index].title,
-                                    "subtitle": homeController
-                                        .newsModel.value.news?[index].smallDesc,
-                                    "time": homeController.timeAgo(
-                                        homeController.data(homeController
-                                            .newsModel
-                                            .value
-                                            .news?[index]
-                                            .time)),
+                                    "image":
+                                        "https://thumbs.dreamstime.com/b/soccer-stadium-green-grass-illumination-87619937.jpg",
+                                    "title":
+                                        "BCCI Secretary Arun Dhumal loss to the tune to thge matches... ",
+                                    "subtitle":
+                                        "India have registered their second successive Test series win in Australia, after beating...",
+                                    "time": "time",
                                   });
                             },
                             height: 20.h,
                             borderRadius: BorderRadius.circular(10.sp),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                  "${homeController.newsModel.value.news?[index].image}"),
+                                  "https://thumbs.dreamstime.com/b/soccer-stadium-green-grass-illumination-87619937.jpg"),
                             ),
                           ),
                           SizedBox(
@@ -507,7 +492,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           CustomeText(
                             title:
-                                "${homeController.newsModel.value.news?[index].title}",
+                                "BCCI Secretary Arun Dhumal loss to the tune to thge matches... ",
                             fontSize: 13.sp,
                             fontWeight: FontWeight.w500,
                           ),
@@ -516,7 +501,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           CustomeText(
                             title:
-                                "${homeController.newsModel.value.news?[index].smallDesc}",
+                                "India have registered their second successive Test series win in Australia, after beating...",
                             fontSize: 10.sp,
                             color: AppColor.whiteColor.withOpacity(0.5),
                           ),
@@ -524,8 +509,7 @@ class HomeScreen extends StatelessWidget {
                             height: 0.5.h,
                           ),
                           CustomeText(
-                            title:
-                                "${homeController.newsModel.value.news?[index].newsSource}",
+                            title: "source",
                             fontSize: 8.sp,
                             color: AppColor.whiteColor.withOpacity(0.5),
                           ),
@@ -533,9 +517,7 @@ class HomeScreen extends StatelessWidget {
                             height: 0.5.h,
                           ),
                           CustomeText(
-                            title: homeController.timeAgo(homeController.data(
-                                homeController
-                                    .newsModel.value.news?[index].time)),
+                            title: "time",
                             fontSize: 8.sp,
                             color: AppColor.whiteColor.withOpacity(0.5),
                           ),

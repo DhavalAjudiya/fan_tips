@@ -1,9 +1,10 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:page_view_indicators/step_page_indicator.dart';
 import 'package:sizer/sizer.dart';
-import '../../utills/color.dart';
 import '../custom_container.dart';
 
 class PageViewScreen extends StatefulWidget {
@@ -31,10 +32,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
         ],
       ),
     );
-
-    // onPageChanged: (int index) {
-    //   _currentPageNotifier.value = index;
-    // },
   }
 
   Widget _onePage() {
@@ -76,13 +73,13 @@ class _PageViewScreenState extends State<PageViewScreen> {
                   children: [
                     CustomeText(
                       title: AppString.reading,
-                      fontSize: 2.h,
+                      fontSize: 1.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
                     CustomeText(
                       title: AppString.fantasy,
-                      fontSize: 2.h,
+                      fontSize: 1.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
@@ -247,18 +244,18 @@ class _PageViewScreenState extends State<PageViewScreen> {
     );
   }
 
-  // Widget _buildStepIndicator() {
-  //   return Container(
-  //     color: Colors.black,
-  //     child: StepPageIndicator(
-  //       itemCount: 3,
-  //       currentPageNotifier: _currentPageNotifier,
-  //       size: 16,
-  //       onPageSelected: (int index) {
-  //         if (_currentPageNotifier.value > index)
-  //           _pageController.jumpToPage(index);
-  //       },
-  //     ),
-  //   );
-  // }
+  Widget _buildStepIndicator() {
+    return Container(
+      color: Colors.black,
+      child: StepPageIndicator(
+        itemCount: 3,
+        currentPageNotifier: _currentPageNotifier,
+        size: 16,
+        onPageSelected: (int index) {
+          if (_currentPageNotifier.value > index)
+            _pageController.jumpToPage(index);
+        },
+      ),
+    );
+  }
 }
