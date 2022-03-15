@@ -1,4 +1,5 @@
 import 'package:fantips/homeScreen/page/newsScreen.dart';
+import 'package:fantips/screen/ipl_screen/page/ipl_screen.dart';
 import 'package:fantips/match_upcoming_page.dart';
 import 'package:fantips/screen/ipl_screen/ipl_screen.dart';
 import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
@@ -41,71 +42,71 @@ class MyApp extends StatelessWidget {
           initialBinding: AppBiding(),
           initialRoute: FantasyPage.routeName,
           getPages: [
-            // GetPage(
-            //   name: SplashScreen.routeName,
-            //   page: () => SplashScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: PageViewScreen.routeName,
-            //   page: () => PageViewScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: MatchesScreen.routeName,
-            //   page: () => MatchesScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: BottomNavigatorController.routeName,
-            //   page: () => BottomNavigatorController(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: HomeScreen.routeName,
-            //   page: () => HomeScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: IplScreen.routeName,
-            //   page: () => IplScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: NewsDetailedScreen.routeName,
-            //   page: () => NewsDetailedScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: NewsScreen.routeName,
-            //   page: () => NewsScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: UpcomingMatchScreen.routeName,
-            //   page: () => UpcomingMatchScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: MatchesScreen.routeName,
-            //   page: () => MatchesScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: HomeScreen.routeName,
-            //   page: () => HomeScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: NewsDetailedScreen.routeName,
-            //   page: () => NewsDetailedScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: ExpertScreen.routeName,
-            //   page: () => ExpertScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: SplashScreen.routeName,
+              page: () => SplashScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: PageViewScreen.routeName,
+              page: () => PageViewScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: BottomNavigatorController.routeName,
+              page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: IplScreen.routeName,
+              page: () => IplScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsScreen.routeName,
+              page: () => NewsScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: UpcomingMatchScreen.routeName,
+              page: () => UpcomingMatchScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: ExpertScreen.routeName,
+              page: () => ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
             // GetPage(
             //   name: T20Prediction.routeName,
             //   page: () => T20Prediction(),

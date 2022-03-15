@@ -1,7 +1,8 @@
-import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
+import 'package
+import 'package:fantips/utills/color.dart';
+import 'package:fantips/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -191,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                                   AppContainer(
                                     height: 8.h,
                                     width: 0.1.w,
-                                    color: AppColor.grey.withOpacity(0.5),
+                                    color: AppColor.verticalDivider,
                                   ),
                                   SizedBox(
                                     width: 2.w,
@@ -367,7 +368,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     height: 6.h,
                                     width: 0.2.w,
-                                    color: const Color(0XFF4E4E4E),
+                                    color: AppColor.verticalDivider,
                                   ),
                                   Column(
                                     children: [
@@ -385,7 +386,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     height: 6.h,
                                     width: 0.2.w,
-                                    color: const Color(0XFF4E4E4E),
+                                    color: AppColor.verticalDivider,
                                   ),
                                   Column(
                                     children: [
@@ -443,14 +444,23 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 12.sp,
                     ),
                     const Spacer(),
-                    CustomeText(
-                      title: AppString.viewAll,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 10.sp,
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 10.sp,
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(NewsScreen.routeName);
+                      },
+                      child: Row(
+                        children: [
+                          CustomeText(
+                            title: AppString.viewAll,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10.sp,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 10.sp,
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),

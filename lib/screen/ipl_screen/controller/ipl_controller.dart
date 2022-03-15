@@ -21,9 +21,30 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   void onInit() {
     super.onInit();
     tabController = TabController(length: myTabs.length, vsync: this);
+    tabController1 = TabController(length: upcoming.length, vsync: this);
+    isOn();
   }
 
-  // @override
+  final List<Tab> upcoming = [
+    const Tab(
+      text: 'Fantasy',
+    ),
+    const Tab(
+      text: 'Best Picks',
+    ),
+    const Tab(
+      text: 'My Teams',
+    ),
+    const Tab(
+      text: 'Quiz',
+    )
+  ];
+
+  TabController? tabController1;
+
+
+
+// @override
   // void onClose() {
   //   tabController!.dispose();
   //   super.onClose();
