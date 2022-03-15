@@ -1,3 +1,5 @@
+import 'package:fantips/homeScreen/page/newsScreen.dart';
+import 'package:fantips/upcoming_matches/page/upcoming_match_page.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,11 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'T20Predictions/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
+import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
+import 'homeScreen/page/homePage.dart';
+import 'matches/page/current_matches.dart';
+import 'pageView/page_view.dart';
 import 'homeScreen/homePage.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'matches/page/current_matches.dart';
@@ -54,6 +60,31 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: BottomNavigatorController.routeName,
               page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsScreen.routeName,
+              page: () => NewsScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: UpcomingMatchScreen.routeName,
+              page: () => UpcomingMatchScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(
