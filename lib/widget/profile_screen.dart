@@ -1,10 +1,10 @@
 import 'dart:io';
-import 'package:fantips/utills/color.dart';
 import 'package:fantips/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import '../T20Predictions/page/utills/color.dart';
 import '../expert/data/controller.dart';
 
 class ProfileScreen extends StatefulWidget {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../T20Predictions/page/utills/color.dart';
 import '../matches/widget/style.dart';
-import '../utills/color.dart';
 
 class CustomContainer extends StatelessWidget {
   final String headertext;
