@@ -24,7 +24,7 @@ class AppString {
   static const String bestPicksTab = "Best Picks";
   static const String myTeamTab = "My Teams";
   static const String quizTab = "Quiz";
-  static const String avgScore = "Avg Score";
+  static const String avgScore1 = "Avg Score";
   static const String favourites = "Favourites";
   static const String teams = "2 Teams";
   static const String createTeams = "CREATE TEAMS";
@@ -48,6 +48,8 @@ class AppString {
   static const String question = "Question 4";
   static const String totalQuestion = "/10";
   static const String submit = "Submit";
+  static const String wicketKeeper1 = "WICKET - KEEPER";
+  static const String allRounders = "ALL-ROUNDERS";
 
   /// current matchs
   static const title = "Current Matches";
@@ -126,6 +128,7 @@ class AppString {
   static const l = 'L';
   static const points = 'Points';
   static const nrr = 'NRR';
+<<<<<<< HEAD
 
   /// fantacy screen
   static const String search = "Search";
@@ -135,4 +138,6 @@ class AppString {
   static const String avregescor = "Average Score";
   static const String win = "52";
   static const String noMatch = "No Experts Founds..";
+=======
+>>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 }

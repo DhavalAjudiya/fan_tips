@@ -2,7 +2,7 @@ import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
+import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -237,7 +237,7 @@ class FantasyTab extends StatelessWidget {
                                   width: 1.w,
                                 ),
                                 CustomeText(
-                                  title: AppString.avgScore,
+                                  title: AppString.avregescor,
                                   color: iplController.select.value == 0
                                       ? AppColor.greenColor
                                       : AppColor.textColor,

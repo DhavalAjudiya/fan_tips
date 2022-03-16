@@ -1,10 +1,21 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
@@ -25,7 +36,7 @@ class T20Prediction extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _backButton(),
+            _backButton(predictionData),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,7 +88,7 @@ class T20Prediction extends StatelessWidget {
     );
   }
 
-  Widget _backButton() {
+  Widget _backButton(predictionData) {
     return Row(
       children: [
         const CustomBackButton(
@@ -85,7 +96,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: AppString.t20,
+          title: "${predictionData["title"]}",
           fontSize: 3.h,
         ),
       ],
@@ -203,7 +214,7 @@ class T20Prediction extends StatelessWidget {
                               SizedBox(height: 1.5.h),
                               CustomeText(
                                 fontSize: 2.5.h,
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 fontWeight: FontWeight.w500,
                               ),
                             ],

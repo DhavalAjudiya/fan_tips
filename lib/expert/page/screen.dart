@@ -10,6 +10,10 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
 import '../../widget/custom_container.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import '../T20Predictions/prediction.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';

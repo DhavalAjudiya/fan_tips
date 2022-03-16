@@ -63,6 +63,36 @@ class UpComing extends StatelessWidget {
                   prediction: "Prediction",
                 ),
               );
+              // return Obx(() => InkWell(
+              //       onTap: () {
+              //         Get.toNamed(UpcomingMatchScreen.routeName);
+              //       },
+              //       child: CustomContainer(
+              //         margin:
+              //             EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
+              //         headertext: current?.matchName ?? "",
+              //         ontap: () {
+              //           if (current?.selected.value == false) {
+              //             current?.selected.value = true;
+              //           } else {
+              //             current?.selected.value = false;
+              //           }
+              //         },
+              //         icon: current?.selected.value == false
+              //             ? const Icon(Icons.notifications)
+              //             : const Icon(Icons.notifications_none),
+              //         backgroundImage: NetworkImage(
+              //           current?.t1Flag ?? AppString.imageNotFound,
+              //         ),
+              //         text: current?.team1Name ?? "",
+              //         secondbackgroundImage: NetworkImage(
+              //           current?.t2Flag ?? AppString.imageNotFound,
+              //         ),
+              //         subText: current?.team2Name ?? "",
+              //         predictionText: "${current?.totalprediction ?? ""}",
+              //         prediction: "Prediction",
+              //       ),
+              //     ));
             },
           ),
         ),

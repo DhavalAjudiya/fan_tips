@@ -37,7 +37,8 @@ class IplCardMatches extends StatelessWidget {
     this.image1,
     this.image2,
     this.width,
-    this.height, this.icon,
+    this.height,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -223,7 +224,9 @@ class UpcomingIpl extends StatelessWidget {
     this.image1,
     this.image2,
     this.width,
-    this.height, this.icon, this.onTap,
+    this.height,
+    this.icon,
+    this.onTap,
   }) : super(key: key);
 
   @override
