@@ -118,7 +118,7 @@ class AppString {
   static const enterDescription = 'Enter Description';
   static const contactBranding = 'Contact us for branding';
 
-  // IPL String
+  /// IPL String
   static const currentMatches = 'Current Matches';
   static const squads = 'Squads';
   static const pointTable = 'Point Table';
@@ -128,4 +128,16 @@ class AppString {
   static const l = 'L';
   static const points = 'Points';
   static const nrr = 'NRR';
+<<<<<<< HEAD
+
+  /// fantacy screen
+  static const String search = "Search";
+  static const String export = "Export";
+  static const String num = "460";
+  static const String score = "481";
+  static const String avregescor = "Average Score";
+  static const String win = "52";
+  static const String noMatch = "No Experts Founds..";
+=======
+>>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 }
