@@ -1,20 +1,9 @@
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
-<<<<<<< HEAD:lib/upcoming_matches/page/upcoming_match_page.dart
-=======
-
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250:lib/matches/widget/upcoming_matches/page/upcoming_match_page.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-<<<<<<< HEAD:lib/upcoming_matches/page/upcoming_match_page.dart
-=======
-import '../../T20Predictions/page/utills/color.dart';
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250:lib/matches/widget/upcoming_matches/page/upcoming_match_page.dart
-import '../../T20Predictions/page/utills/string.dart';
-import '../../widget/custom_container.dart';
 
 import '../../../../T20Predictions/page/utills/color.dart';
 import '../../../../T20Predictions/page/utills/string.dart';

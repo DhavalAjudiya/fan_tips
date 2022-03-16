@@ -11,11 +11,10 @@ import 'bottomBar/bottomNaviBar.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
-import 'ipl_screen/page/ipl_screen.dart';
 import 'matches/page/current_matches.dart';
 import 'matches/widget/upcoming_matches/page/upcoming_match_page.dart';
 import 'pageView/page_view.dart';
-import 'screen/ipl_screen/page/upcoming_matches.dart';
+
 import 'widget/splash_screen.dart';
 
 Future<void> main() async {

@@ -4,10 +4,6 @@ import 'package:fantips/screen/more_screen/more_details_screen/apply_export_scre
 import 'package:fantips/screen/more_screen/more_details_screen/contect_screen.dart';
 import 'package:fantips/screen/more_screen/more_details_screen/favourite_experts.dart';
 import 'package:fantips/screen/more_screen/more_details_screen/feedback_screen.dart';
-<<<<<<< HEAD
-=======
-
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import 'package:fantips/widget/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';

@@ -122,7 +122,7 @@ class InfoPage extends StatelessWidget {
                         ),
                         CustomeText(
                           fontSize: 2.h,
-                          title: AppString.avgScore,
+                          // title: AppString.avgScore,
                           fontWeight: FontWeight.w500,
                           color: AppColor.grey,
                         ),

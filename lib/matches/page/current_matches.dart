@@ -25,9 +25,9 @@ class MatchesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderRow(
-                title: AppString.title,
-              ),
+              // HeaderRow(
+              //   title: AppString.title,
+              // ),
               SizedBox(height: 2.h),
               TabBar(
                 unselectedLabelColor: Colors.white,

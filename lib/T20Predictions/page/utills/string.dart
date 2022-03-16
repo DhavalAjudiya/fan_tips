@@ -128,7 +128,6 @@ class AppString {
   static const l = 'L';
   static const points = 'Points';
   static const nrr = 'NRR';
-<<<<<<< HEAD
 
   /// fantacy screen
   static const String search = "Search";
@@ -138,6 +137,4 @@ class AppString {
   static const String avregescor = "Average Score";
   static const String win = "52";
   static const String noMatch = "No Experts Founds..";
-=======
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 }
