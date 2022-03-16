@@ -1,3 +1,4 @@
+import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,15 +6,8 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
-import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
-
-<<<<<<< HEAD:lib/upcoming_matches/widget/fantasy_tab.dart
-import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
-import '../../commanWidget/commanText.dart';
-=======
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250:lib/matches/widget/upcoming_matches/widget/fantasy_tab.dart
-import '../../widget/custom_container.dart';
+import '../../../../commanWidget/commanText.dart';
+import '../controller/upcoming_controller.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);

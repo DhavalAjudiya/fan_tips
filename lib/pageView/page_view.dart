@@ -19,7 +19,7 @@ class PageViewScreen extends StatefulWidget {
 
 class _PageViewScreenState extends State<PageViewScreen> {
   PageScroll foodie = PageScroll();
-  final _pageController = PageController(initialPage: 0);
+  final _pageController = PageController(viewportFraction: 3);
   final _currentPageNotifier = ValueNotifier(0);
 
   @override
@@ -30,29 +30,12 @@ class _PageViewScreenState extends State<PageViewScreen> {
           Column(
             children: [
               _buildPageView(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: AppContainer(
-                  /// navigator page
-                  onTap: () {
-                    Get.toNamed(BottomNavigatorController.routeName);
-                  },
-                  height: 7.h,
-                  width: double.infinity,
-                  color: AppColor.green,
-                  child: const Center(
-                    child: CustomeText(
-                      title: AppString.next,
-                      color: AppColor.white,
-                    ),
-                  ),
-                ),
-              ),
+              _nextContainer(),
             ],
           ),
           Positioned(
-            bottom: 100,
-            left: 150,
+            bottom: 150,
+            left: 200,
             child: _buildStepIndicator(),
           ),
         ],
@@ -89,23 +72,23 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 ),
                 CustomeText(
                   title: "${foodie.categori[index][AppString.name]}",
-                  fontSize: 3.5.h,
+                  fontSize: 2.5.h,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 1.h,
                 ),
                 Column(
                   children: [
                     CustomeText(
                       title: AppString.reading,
-                      fontSize: 2.h,
+                      fontSize: 1.5.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
                     CustomeText(
                       title: AppString.fantasy,
-                      fontSize: 2.h,
+                      fontSize: 1.5.h,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                     ),
@@ -136,6 +119,28 @@ class _PageViewScreenState extends State<PageViewScreen> {
           _pageController.initialPage;
         }
       },
+    );
+  }
+
+  Widget _nextContainer() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: AppContainer(
+        /// navigator page
+        onTap: () {
+          Get.toNamed(BottomNavigatorController.routeName);
+        },
+        height: 6.h,
+        width: double.infinity,
+        color: AppColor.green,
+        child: Center(
+          child: CustomeText(
+            title: AppString.next,
+            color: AppColor.white,
+            fontSize: 1.5.h,
+          ),
+        ),
+      ),
     );
   }
 }

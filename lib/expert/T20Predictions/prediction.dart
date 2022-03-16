@@ -3,19 +3,11 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
-<<<<<<< HEAD
-=======
-
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-<<<<<<< HEAD
-=======
-
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';

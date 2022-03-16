@@ -66,11 +66,11 @@ class MyApp extends StatelessWidget {
             //   page: () => HomeScreen(),
             //   transition: Transition.rightToLeft,
             // ),
-            // GetPage(
-            //   name: IplScreen.routeName,
-            //   page: () => IplScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            // // GetPage(
+            // //   name: IplScreen.routeName,
+            // //   page: () => IplScreen(),
+            // //   transition: Transition.rightToLeft,
+            // // ),
             // GetPage(
             //   name: NewsDetailedScreen.routeName,
             //   page: () => NewsDetailedScreen(),
