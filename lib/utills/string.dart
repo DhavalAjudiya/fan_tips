@@ -17,6 +17,9 @@ class AppString {
   static const String predictionExpert = "Prediction Expert";
   static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
+  static const String profile = "Profile";
+  static const String logout = "Logout";
+  static const String submit = "Submit";
 
   /// current matchs
   static const title = "Current Matches";

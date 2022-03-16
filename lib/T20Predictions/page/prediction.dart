@@ -2,7 +2,6 @@ import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/expert/T20Predictions/prediction_controller.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class T20Prediction extends StatelessWidget {
   static const routeName = "/T20Prediction";

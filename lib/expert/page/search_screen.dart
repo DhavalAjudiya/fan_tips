@@ -1,8 +1,9 @@
 import 'package:fantips/expert/data/controller.dart';
-import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../T20Predictions/page/utills/color.dart';
 
 class Search extends StatelessWidget {
   IpController iplController = Get.find();
