@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/T20Predictions/widget/info.dart';
@@ -5,6 +6,7 @@ import 'package:fantips/expert/T20Predictions/prediction_controller.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../widget/current_match_container.dart';
@@ -96,10 +98,6 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
-<<<<<<< HEAD
-          InfoPage(),
-          MatchesPage(),
-=======
           Column(
             children: [
               /// Shear Button
@@ -326,7 +324,6 @@ class T20Prediction extends StatelessWidget {
               ),
             ),
           ),
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
         ],
       ),
     );

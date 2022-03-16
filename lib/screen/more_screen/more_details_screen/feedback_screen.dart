@@ -1,10 +1,6 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/screen/more_screen/more_details_screen/controller.dart';
-<<<<<<< HEAD
-=======
-
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
