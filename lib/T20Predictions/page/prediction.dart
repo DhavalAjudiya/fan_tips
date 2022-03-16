@@ -9,9 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '../widget/matches.dart';
 
 class T20Prediction extends StatelessWidget {

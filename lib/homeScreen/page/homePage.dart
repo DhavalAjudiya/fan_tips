@@ -13,6 +13,7 @@ import '../data/homepageController.dart';
 import '../widget/featuredexpert_container.dart';
 import '../widget/matchforyou_container.dart';
 import 'newsDetailedPage.dart';
+import 'newsScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/HomeScreen";

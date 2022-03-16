@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1056290646712",
+    "project_id": "fantips-63538",
+    "storage_bucket": "fantips-63538.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056290646712:android:a0ecb6fb675e3e7981e24d",
+        "android_client_info": {
+          "package_name": "com.example.fantips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056290646712-akbatvtsmnv7ufphn7fm89knc52kkbjq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fantips",
+            "certificate_hash": "0bd7f6df820c9c9337afd181b0ac995d023509e4"
+          }
+        },
+        {
+          "client_id": "1056290646712-4l7gfqgonivu0kr6q4k1f7tfcio98jpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv-OkjzRyhyyK-QB0c5DnEk0dMbv6NgOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056290646712-4l7gfqgonivu0kr6q4k1f7tfcio98jpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

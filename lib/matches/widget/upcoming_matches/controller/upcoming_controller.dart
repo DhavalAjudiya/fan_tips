@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class UpcomingMatchController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;
-
+  RxInt squadSelect = 0.obs;
   RxInt select = 0.obs;
   bool isSelect = false;
   RxList<String> titleScore =
