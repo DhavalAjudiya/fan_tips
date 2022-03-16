@@ -1,12 +1,11 @@
 import 'package:fantips/screen/more_screen/more_details_screen/custom_appbar.dart';
-import 'package:fantips/utills/color.dart';
-import 'package:fantips/utills/string.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../T20Predictions/page/utills/color.dart';
+import '../../../T20Predictions/page/utills/string.dart';
 
 class ContactScreen extends StatelessWidget {
   ContactScreen({Key? key}) : super(key: key);

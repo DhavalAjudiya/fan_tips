@@ -1,6 +1,7 @@
-import 'package:fantips/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+
+import '../T20Predictions/page/utills/color.dart';
 
 class Appstyle {
   static TextStyle deadLineStyle = TextStyle(
@@ -41,5 +42,17 @@ class Appstyle {
     fontWeight: FontWeight.bold,
     fontFamily: 'WorkSon',
     fontSize: 14.sp,
+  );
+  static TextStyle pointTitle = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Workson',
+    color: AppColor.grey,
+  );
+  static TextStyle pointSub = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Workson',
+    color: AppColor.grey,
   );
 }

@@ -30,10 +30,10 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
       text: 'Fantasy',
     ),
     const Tab(
-      text: 'Best Picks',
+      text: 'Commentary',
     ),
     const Tab(
-      text: 'My Teams',
+      text: 'ScoreCard',
     ),
     const Tab(
       text: 'Quiz',

@@ -2,13 +2,15 @@ import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/screen/ipl_screen/data/data_ipl.dart';
 import 'package:fantips/screen/ipl_screen/widget/custom_scoretile.dart';
 import 'package:fantips/screen/ipl_screen/widget/squads_details.dart';
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/color.dart';
-import 'package:fantips/utills/string.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../T20Predictions/page/utills/asset.dart';
+import '../../../T20Predictions/page/utills/color.dart';
+import '../../../T20Predictions/page/utills/string.dart';
+import '../../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);

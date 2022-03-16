@@ -1,14 +1,16 @@
 import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/utills/asset.dart';
-import 'package:fantips/utills/color.dart';
+import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
-class UpcomingIplScreen extends StatelessWidget {
-  UpcomingIplScreen({Key? key}) : super(key: key);
+import '../../../T20Predictions/page/utills/color.dart';
+import 'commentry_screen.dart';
+
+class LiveScoreScreen extends StatelessWidget {
+  LiveScoreScreen({Key? key}) : super(key: key);
 
   final IplController iplController = Get.find();
 
@@ -26,23 +28,7 @@ class UpcomingIplScreen extends StatelessWidget {
             Icons.arrow_back,
           ),
         ),
-        title: Row(
-          children: [
-            Text('WI'),
-            SizedBox(
-              width: 1.5.w,
-            ),
-            Container(
-              width: 2.5.w,
-              height: 2.h,
-              child: SvgPicture.asset(AppImage.flash),
-            ),
-            SizedBox(
-              width: 1.8.w,
-            ),
-            Text('ENG'),
-          ],
-        ),
+        title: Text('CSK batting'),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(35),
           child: Align(
@@ -63,15 +49,15 @@ class UpcomingIplScreen extends StatelessWidget {
       body: TabBarView(
         controller: iplController.tabController1,
         children: [
+          // fantasy
           Container(
             color: Colors.black,
           ),
-          Container(
-            color: Colors.red,
-          ),
-          Container(
-            color: Colors.orange,
-          ),
+          // commentry
+          Commentary(),
+          // scorecard
+          ScoreCardScreen(),
+          // quiz
           Container(
             color: Colors.blue,
           ),

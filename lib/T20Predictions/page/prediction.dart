@@ -318,8 +318,8 @@ class T20Prediction extends StatelessWidget {
                     prediction: "Prediction",
                     lastText: current?.infoMsg ?? "",
                     // _predictionController.timeAgo(current?.startTime ?? 0),
-                    person: Icons.supervisor_account, size: 2.5.h,
-                    teams: AppString.team,
+                    // person: Icons.supervisor_account, size: 2.5.h,
+                    // teams: AppString.team,
                   );
                 },
               ),
