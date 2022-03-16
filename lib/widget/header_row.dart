@@ -1,16 +1,24 @@
-import 'package:fantips/T20Predictions/page/utills/asset.dart';
-import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
+import 'package:fantips/utills/string.dart';
+import 'package:fantips/widget/google_sign_in_repo.dart';
+import 'package:fantips/widget/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../T20Predictions/page/utills/asset.dart';
+import '../T20Predictions/page/utills/color.dart';
 import '../commanWidget/commanText.dart';
+import '../expert/data/controller.dart';
 import 'custom_container.dart';
 
 class HeaderRow extends StatelessWidget {
+  IpController ipController = Get.find();
   final String title;
-  const HeaderRow({
+  GestureTapCallback? onTap;
+  final Widget? child;
+  HeaderRow({
     this.title = "",
+    this.onTap,
+    this.child,
   });
 
   @override
@@ -24,19 +32,19 @@ class HeaderRow extends StatelessWidget {
           fontWeight: FontWeight.w700,
         ),
         const Spacer(),
-        InkWell(
-          onTap: () {
-            showModalBottomSheet(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(6.w),
-                  topLeft: Radius.circular(6.w),
+        Obx(
+          () => InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(6.w),
+                    topLeft: Radius.circular(6.w),
+                  ),
                 ),
-              ),
-              context: context,
-              builder: (context) => SizedBox(
-                height: 500,
-                child: Column(
+                context: context,
+                builder: (context) => Column(
                   children: [
                     Row(
                       children: [
@@ -88,7 +96,12 @@ class HeaderRow extends StatelessWidget {
                       width: 60.w,
                       color: AppColor.containerBackground,
                       borderRadius: BorderRadius.circular(10),
-                      onTap: () {},
+                      onTap: () {
+                        signInWithGoogle().then((data) {
+                          ipController.isLoggedIn.value = true;
+                          ipController.userObj = data;
+                        }).catchError((e) {});
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -120,15 +133,34 @@ class HeaderRow extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            );
-          },
-          child: CustomeText(
-            title: AppString.login,
-            color: AppColor.green,
-            fontWeight: FontWeight.w700,
-            fontSize: 13.sp,
+              );
+            },
+            child: ipController.isLoggedIn.value == false
+                ? CustomeText(
+                    title: AppString.login,
+                    color: AppColor.green,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13.sp,
+                  )
+                : GestureDetector(
+                    onTap: () {
+                      Get.to(ProfileScreen());
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: AppColor.transparent,
+                      radius: 12,
+                      backgroundImage: NetworkImage(
+                          "${ipController.userObj?.user?.photoURL}"),
+                    ),
+                  ),
           ),
+        ),
+        SizedBox(
+          width: 5.w,
+        ),
+        InkWell(
+          onTap: onTap,
+          child: child,
         ),
       ],
     );

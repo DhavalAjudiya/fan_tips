@@ -211,6 +211,9 @@ class CustomLCContainer extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final VoidCallback? ontap;
   final Widget icon;
+  final IconData? person;
+  final double? size;
+  final String team;
 
   CustomLCContainer({
     this.headertext = "",
@@ -232,6 +235,9 @@ class CustomLCContainer extends StatelessWidget {
     required this.icon,
     this.t1owk = "",
     this.t2owk = "",
+    this.person,
+    this.size,
+    this.team = "",
   });
   @override
   Widget build(BuildContext context) {
@@ -379,6 +385,14 @@ class CustomLCContainer extends StatelessWidget {
                   children: [
                     Text(
                       lastText,
+                      style: AppStyle.title,
+                    ),
+                    Icon(
+                      person,
+                      size: size,
+                    ),
+                    Text(
+                      team,
                       style: AppStyle.title,
                     ),
                   ],

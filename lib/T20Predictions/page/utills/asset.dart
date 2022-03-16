@@ -8,7 +8,11 @@ class AppImage {
   static const String mindset = "$image/mindset.svg";
   static const String youTub = "$image/you_tub.svg";
   static const String flash = "$image/flash.svg";
-  static const String fb = "assets/image/fb.png";
+  static const String fb = "$image/fb.png";
+  static const String match = "$image/match.png";
+  static const String sign = "$image/sign.png";
+  static const String zim = "$image/zim.png";
+  static const String ind = "$image/ind.png";
 }
 
 class IconAsset {

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+=======
+>>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';

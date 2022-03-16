@@ -1,10 +1,7 @@
-<<<<<<< HEAD:lib/screen/ipl_screen/page/upcoming_matches.dart
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
+import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:flutter/foundation.dart';
-=======
->>>>>>> 5024a6b3c0b2c6a2142bf96e31458fced7ca9250:lib/ipl_screen/widget/upcoming_matches.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -14,7 +11,6 @@ import '../widget/fantasyTabBar/fantasy_tabBar.dart';
 
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
-import '../controller/ipl_controller.dart';
 
 class UpcomingIplScreen extends StatelessWidget {
   static const routeName = "/UpcomingIplScreen";
