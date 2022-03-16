@@ -1,4 +1,3 @@
-
 import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';

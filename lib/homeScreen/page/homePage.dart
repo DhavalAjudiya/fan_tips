@@ -3,7 +3,6 @@ import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
@@ -12,6 +11,7 @@ import '../data/homepageController.dart';
 import '../widget/featuredexpert_container.dart';
 import '../widget/matchforyou_container.dart';
 import 'newsDetailedPage.dart';
+import 'newsScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/HomeScreen";
