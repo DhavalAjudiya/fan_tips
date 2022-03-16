@@ -1,8 +1,7 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../T20Predictions/page/utills/color.dart';
 
 class IplCardMatches extends StatelessWidget {
   final Widget? icon;

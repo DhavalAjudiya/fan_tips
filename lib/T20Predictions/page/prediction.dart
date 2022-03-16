@@ -201,7 +201,7 @@ class T20Prediction extends StatelessWidget {
                               SizedBox(height: 1.5.h),
                               CustomeText(
                                 fontSize: 2.5.h,
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 fontWeight: FontWeight.w500,
                               ),
                             ],

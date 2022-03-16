@@ -1,10 +1,15 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
+
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
@@ -123,6 +128,7 @@ class T20Prediction extends StatelessWidget {
                 child: CustomeText(
                   color: AppColor.containerBackground,
                   fontSize: 6.h,
+                  title: '',
                 ),
               ),
               SizedBox(height: 3.h),
@@ -202,7 +208,7 @@ class T20Prediction extends StatelessWidget {
                               SizedBox(height: 1.5.h),
                               CustomeText(
                                 fontSize: 2.5.h,
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 fontWeight: FontWeight.w500,
                               ),
                             ],

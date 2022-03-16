@@ -1,8 +1,8 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../T20Predictions/page/utills/color.dart';
 import 'controller.dart';
 
 class BottomNavigatorController extends StatelessWidget {

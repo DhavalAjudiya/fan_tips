@@ -24,7 +24,7 @@ class AppString {
   static const String bestPicksTab = "Best Picks";
   static const String myTeamTab = "My Teams";
   static const String quizTab = "Quiz";
-  static const String avgScore = "Avg Score";
+  static const String avgScore1 = "Avg Score";
   static const String favourites = "Favourites";
   static const String teams = "2 Teams";
   static const String createTeams = "CREATE TEAMS";
@@ -48,6 +48,8 @@ class AppString {
   static const String question = "Question 4";
   static const String totalQuestion = "/10";
   static const String submit = "Submit";
+  static const String wicketKeeper1 = "WICKET - KEEPER";
+  static const String allRounders = "ALL-ROUNDERS";
 
   /// current matchs
   static const title = "Current Matches";

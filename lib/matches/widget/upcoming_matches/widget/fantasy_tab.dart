@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
+import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
 
-import '../../../../T20Predictions/page/utills/color.dart';
-import '../../../../T20Predictions/page/utills/string.dart';
-import '../../../../commanWidget/commanText.dart';
-import '../../../../widget/custom_container.dart';
-import '../controller/upcoming_controller.dart';
+import '../../widget/custom_container.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);
@@ -215,7 +214,7 @@ class FantasyTab extends StatelessWidget {
                                 width: 1.w,
                               ),
                               CustomeText(
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 color: upcomingController.select.value == 0
                                     ? AppColor.greenColor
                                     : AppColor.textColor,

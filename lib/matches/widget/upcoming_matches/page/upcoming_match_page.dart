@@ -1,9 +1,13 @@
 import 'package:fantips/commanWidget/commanText.dart';
+import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../T20Predictions/page/utills/color.dart';
+import '../../T20Predictions/page/utills/string.dart';
+import '../../widget/custom_container.dart';
 
 import '../../../../T20Predictions/page/utills/color.dart';
 import '../../../../T20Predictions/page/utills/string.dart';
@@ -121,7 +125,356 @@ class UpcomingMatchScreen extends StatelessWidget {
 
             ///bestPicks tab
             BestPicksTab(),
-            Container(),
+
+            /// my team
+            Column(
+              children: [
+                SizedBox(
+                  height: 1.h,
+                ),
+                AppContainer(
+                  height: 5.h,
+                  width: 50.w,
+                  color: AppColor.blackColor,
+                  borderRadius: BorderRadius.circular(8.sp),
+                  child: Padding(
+                    padding: EdgeInsets.all(4.5.sp),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: AppContainer(
+                            height: 4.h,
+                            color: AppColor.greenColor,
+                            borderRadius: BorderRadius.circular(5.sp),
+                            child: Center(
+                              child: CustomeText(
+                                title: "RCB Squad",
+                                color: AppColor.whiteColor,
+                                fontSize: 10.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 0.5.w,
+                        ),
+                        Expanded(
+                          child: AppContainer(
+                            height: 4.h,
+                            color: AppColor.blackColor,
+                            borderRadius: BorderRadius.circular(5.sp),
+                            child: Center(
+                              child: CustomeText(
+                                title: "RCB Squad",
+                                color: AppColor.whiteColor,
+                                fontSize: 10.sp,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                AppContainer(
+                  height: 55.h,
+                  width: 100.w,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(25.sp),
+                    topLeft: Radius.circular(25.sp),
+                  ),
+                  image: const DecorationImage(
+                    image: AssetImage(
+                      "assets/image/stadium.png",
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(10.sp),
+                    child: Column(
+                      children: [
+                        CustomeText(
+                          title: AppString.wicketKeeper,
+                          fontSize: 8.sp,
+                        ),
+                        Image.asset(
+                          "assets/image/playerimage.png",
+                          height: 4.5.h,
+                        ),
+                        AppContainer(
+                          height: 0.5.h,
+                          width: 10.w,
+                          boxShadow: const [
+                            BoxShadow(
+                                color: AppColor.blackColor,
+                                offset: Offset(0, 1),
+                                blurRadius: 6)
+                          ],
+                        ),
+                        CustomeText(
+                          title: "V kohli",
+                          fontSize: 10.sp,
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        CustomeText(
+                          title: AppString.batsman.toUpperCase(),
+                          fontSize: 10.sp,
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                                child: SizedBox(
+                              height: 7.5.h,
+                              child: ListView.builder(
+                                itemCount: 5,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 12.sp),
+                                    child: Column(
+                                      children: [
+                                        Image.asset(
+                                          "assets/image/playerimage.png",
+                                          height: 4.5.h,
+                                        ),
+                                        AppContainer(
+                                          height: 0.5.h,
+                                          width: 10.w,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                                color: AppColor.blackColor,
+                                                offset: Offset(0, 1),
+                                                blurRadius: 6)
+                                          ],
+                                        ),
+                                        CustomeText(
+                                          title: "V kohli",
+                                          fontSize: 10.sp,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ))
+                          ],
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        CustomeText(
+                          title: AppString.allRounder,
+                          fontSize: 10.sp,
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                Image.asset(
+                                  "assets/image/playerimage.png",
+                                  height: 4.5.h,
+                                ),
+                                AppContainer(
+                                  height: 0.5.h,
+                                  width: 10.w,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: AppColor.blackColor,
+                                        offset: Offset(0, 1),
+                                        blurRadius: 6)
+                                  ],
+                                ),
+                                CustomeText(
+                                  title: "V kohli",
+                                  fontSize: 10.sp,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 18.w,
+                            ),
+                            Column(
+                              children: [
+                                Image.asset(
+                                  "assets/image/playerimage.png",
+                                  height: 4.5.h,
+                                ),
+                                AppContainer(
+                                  height: 0.5.h,
+                                  width: 10.w,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: AppColor.blackColor,
+                                        offset: Offset(0, 1),
+                                        blurRadius: 6)
+                                  ],
+                                ),
+                                CustomeText(
+                                  title: "V kohli",
+                                  fontSize: 10.sp,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 18.w,
+                            ),
+                            Column(
+                              children: [
+                                Image.asset(
+                                  "assets/image/playerimage.png",
+                                  height: 4.5.h,
+                                ),
+                                AppContainer(
+                                  height: 0.5.h,
+                                  width: 10.w,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: AppColor.blackColor,
+                                        offset: Offset(0, 1),
+                                        blurRadius: 6)
+                                  ],
+                                ),
+                                CustomeText(
+                                  title: "V kohli",
+                                  fontSize: 10.sp,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        CustomeText(
+                          title: AppString.bowler.toUpperCase(),
+                          fontSize: 10.sp,
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                                child: SizedBox(
+                              height: 7.5.h,
+                              child: ListView.builder(
+                                itemCount: 5,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 12.sp),
+                                    child: Column(
+                                      children: [
+                                        Image.asset(
+                                          "assets/image/playerimage.png",
+                                          height: 4.5.h,
+                                        ),
+                                        AppContainer(
+                                          height: 0.5.h,
+                                          width: 10.w,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                                color: AppColor.blackColor,
+                                                offset: Offset(0, 1),
+                                                blurRadius: 6)
+                                          ],
+                                        ),
+                                        CustomeText(
+                                          title: "V kohli",
+                                          fontSize: 10.sp,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ))
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10.sp),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: CustomeText(
+                      title: "Bunch Player (05)",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 12.h,
+                        child: ListView.builder(
+                          itemCount: 10,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.only(left: 10.sp),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/image/defaultplayer.png",
+                                    height: 6.h,
+                                    width: 20.w,
+                                  ),
+                                  SizedBox(
+                                    height: 0.5.h,
+                                  ),
+                                  AppContainer(
+                                    height: 4.5.h,
+                                    width: 25.w,
+                                    borderRadius: BorderRadius.circular(5.sp),
+                                    color: AppColor.blackColor,
+                                    child: Column(
+                                      children: [
+                                        CustomeText(
+                                          title: "Virat",
+                                          fontSize: 10.sp,
+                                        ),
+                                        CustomeText(
+                                            title: "Batsman", fontSize: 10.sp),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
 
             /// quiz tab
             Padding(
@@ -360,17 +713,6 @@ class UpcomingMatchScreen extends StatelessWidget {
                                                   width: 0.4.w)),
                                         ),
                                       )
-                                      // Radio(
-                                      //     visualDensity: const VisualDensity(
-                                      //         horizontal:
-                                      //             VisualDensity.minimumDensity,
-                                      //         vertical:
-                                      //             VisualDensity.minimumDensity),
-                                      //     materialTapTargetSize:
-                                      //         MaterialTapTargetSize.shrinkWrap,
-                                      //     value: 1,
-                                      //     groupValue: 0,
-                                      //     onChanged: (v) {})
                                     ],
                                   ),
                                 ),
