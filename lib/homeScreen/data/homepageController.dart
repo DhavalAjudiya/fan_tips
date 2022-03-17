@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'apiService.dart';
 import 'newsModel.dart';
 
 class HomeController extends GetxController {
   RxInt matchSelect = 0.obs;
   RxInt featureSelect = 0.obs;
+  RxBool favoriteItem = false.obs;
+  RxBool notificationsItem = false.obs;
   PageController pageController = PageController(initialPage: 0);
+  RefreshController refreshNewsController =
+      RefreshController(initialRefresh: false);
   Rx<NewsDataModel> newsModel = NewsDataModel().obs;
 
   String timeAgo(DateTime date) {
@@ -40,6 +45,13 @@ class HomeController extends GetxController {
     final result = await ApiService().newsPostData();
     newsModel.value = result!;
     return newsModel;
+  }
+
+  Future<void> refreshNews() async {
+    await Future.delayed(
+      const Duration(milliseconds: 1000),
+    );
+    refreshNewsController.refreshCompleted();
   }
 
   @override

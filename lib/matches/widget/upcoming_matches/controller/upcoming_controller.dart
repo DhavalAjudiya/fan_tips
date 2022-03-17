@@ -7,10 +7,12 @@ class UpcomingMatchController extends GetxController
   RxInt squadSelect = 0.obs;
   RxInt select = 0.obs;
   bool isSelect = false;
+  RxInt answerSelect = 0.obs;
   RxList<String> titleScore =
       <String>["Prediction", "Average Score", "Wins"].obs;
   RxInt index = 0.obs;
-  RxString selectedBottomSheetText = "".obs;
+  RxString selectedBottomSheetText = "Prediction".obs;
+  RxBool favoriteItem = false.obs;
 
   @override
   void onInit() {

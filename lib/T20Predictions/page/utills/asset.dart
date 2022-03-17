@@ -13,6 +13,25 @@ class AppImage {
   static const String sign = "$image/sign.png";
   static const String zim = "$image/zim.png";
   static const String ind = "$image/ind.png";
+  static const String notification = "$image/notification.svg";
+  static const String afg = "$image/afglogo.svg";
+  static const String t20logo = "$image/t20.png";
+  static const String youtube = "$image/youtubee.png";
+  static const String line = "$image/line.svg";
+  static const String glove = "$image/glove.svg";
+  static const String bat = "$image/bat.svg";
+  static const String batBall = "$image/batball.svg";
+  static const String ball = "$image/ball.svg";
+  static const String captain = "$image/captain.svg";
+  static const String viceCaptain = "$image/vicecaptain.svg";
+  static const String greenStar = "$image/greenstar.svg";
+  static const String trophy = "$image/trophy.svg";
+  static const String timeCircle = "$image/timecircle.svg";
+  static const String stadium = "$image/stadium.png";
+  static const String playerImage = "$image/playerimage.png";
+  static const String defaultPlayer = "$image/defaultplayer.png";
+  static const String personImage =
+      "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg";
 }
 
 class IconAsset {

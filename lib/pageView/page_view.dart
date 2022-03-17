@@ -21,6 +21,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
   PageScroll foodie = PageScroll();
   final _pageController = PageController(initialPage: 0);
   final _currentPageNotifier = ValueNotifier(0);
+  int pageSelector = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +36,22 @@ class _PageViewScreenState extends State<PageViewScreen> {
                 child: AppContainer(
                   /// navigator page
                   onTap: () {
-                    Get.toNamed(BottomNavigatorController.routeName);
+                    _pageController.nextPage(
+                        duration: Duration(milliseconds: 600),
+                        curve: Curves.easeIn);
+
+                    if (_currentPageNotifier.value == 2) {
+                      Get.toNamed(BottomNavigatorController.routeName);
+                    }
                   },
                   height: 7.h,
                   width: double.infinity,
                   color: AppColor.green,
-                  child: const Center(
+                  child: Center(
                     child: CustomeText(
-                      title: AppString.next,
+                      title: _currentPageNotifier.value == 2
+                          ? "Get Started"
+                          : AppString.next,
                       color: AppColor.white,
                     ),
                   ),
@@ -52,7 +61,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
           ),
           Positioned(
             bottom: 100,
-            left: 150,
+            left: 170,
             child: _buildStepIndicator(),
           ),
         ],
@@ -115,8 +124,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
             ),
           );
         },
-        onPageChanged: (int index) {
-          _currentPageNotifier.value = index;
+        onPageChanged: (value) {
+          _currentPageNotifier.value = value;
         },
       ),
     );
