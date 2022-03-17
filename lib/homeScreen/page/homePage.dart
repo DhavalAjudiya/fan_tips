@@ -5,12 +5,10 @@ import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:fantips/homeScreen/page/newsScreen.dart';
-import 'package:fantips/widget/header_row.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
 import '../../widget/custom_container.dart';

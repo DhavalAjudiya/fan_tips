@@ -1,13 +1,12 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
-import 'package:fantips/commanWidget/commanText.dart';
-import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
+import '../../../../commanWidget/commanText.dart';
+import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 
 class BestPicksTab extends StatelessWidget {
