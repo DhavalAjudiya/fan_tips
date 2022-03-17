@@ -1,4 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +26,7 @@ class NewsDetailedScreen extends StatelessWidget {
                   height: 30.h,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(data["image"]),
+                    image: NetworkImage(data[AppString.image]),
                   ),
                 ),
                 SizedBox(
@@ -37,7 +38,7 @@ class NewsDetailedScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomeText(
-                        title: data["title"],
+                        title: data[AppString.text],
                         fontSize: 13.sp,
                         fontWeight: FontWeight.w500,
                       ),
@@ -45,7 +46,7 @@ class NewsDetailedScreen extends StatelessWidget {
                         height: 1.h,
                       ),
                       CustomeText(
-                        title: data["subtitle"],
+                        title: data[AppString.subtitle],
                         fontSize: 10.sp,
                         color: AppColor.whiteColor.withOpacity(0.5),
                       ),
@@ -53,7 +54,7 @@ class NewsDetailedScreen extends StatelessWidget {
                         height: 1.h,
                       ),
                       CustomeText(
-                        title: data["time"],
+                        title: data[AppString.timeText],
                         color: AppColor.whiteColor.withOpacity(0.5),
                       ),
                     ],

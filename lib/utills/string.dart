@@ -1,4 +1,8 @@
 class AppString {
+  /// fantasy screen API Link
+  static const String apiFantasy =
+      "https://api.freefantasy.in/tips/tipsters?name=";
+
   /// home screen text
   static const fanTips = "FanTips";
   static const logIn = "Login";
@@ -48,6 +52,7 @@ class AppString {
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
   static const String average_score = "Average-Score";
+  //static const String circular = "circular";
 
   /// T20 Prediction
   static const String t20 = "T20 Predictions";
@@ -68,4 +73,20 @@ class AppString {
   /// header Row
   static const String googleSign = "Sing In With Google";
   static const String fbLogin = "Sing In With Facebook";
+
+  /// screen
+  static const String exit = "Are you sure want to exit?";
+  static const String no = "No";
+  static const String yes = "Yes";
+  static const String circle = "Circular";
+  static const String pngtreeRoundCountry =
+      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
+
+  /// ipl screen controller
+  static const String fantasyName = "Fantasy";
+  static const String bestPicks = "Best Picks";
+  static const String myTeams = "My Teams";
+  static const String quiz = "Quiz";
+  static const String squads = "Squads";
+  static const String pointTable = "Point Table";
 }

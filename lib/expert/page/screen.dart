@@ -6,9 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
-import '../../commanWidget/commanText.dart';
-import '../../widget/custom_container.dart';
-import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
@@ -36,9 +33,9 @@ class ExpertScreen extends StatelessWidget {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              "Are you sure want to exit?",
+              AppString.exit,
               style: TextStyle(
-                fontFamily: "Circular",
+                fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -48,9 +45,9 @@ class ExpertScreen extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  "No",
+                  AppString.no,
                   style: TextStyle(
-                    fontFamily: "Circular",
+                    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -60,9 +57,9 @@ class ExpertScreen extends StatelessWidget {
                   exit(0);
                 },
                 child: Text(
-                  "Yes",
+                  AppString.yes,
                   style: TextStyle(
-                    fontFamily: "Circular",
+                    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -177,7 +174,7 @@ class ExpertScreen extends StatelessWidget {
                                       AppString.sortBy,
                                       style: TextStyle(
                                         fontSize: 14.sp,
-                                        fontFamily: 'circular',
+                                        fontFamily: AppString.circle,
                                         color: AppColor.white,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -203,7 +200,7 @@ class ExpertScreen extends StatelessWidget {
                                             data,
                                             style: TextStyle(
                                               fontSize: 12.sp,
-                                              fontFamily: 'circular',
+                                              fontFamily: AppString.circle,
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
@@ -308,7 +305,7 @@ class ExpertScreen extends StatelessWidget {
                               AppString.sortByAvgScore,
                               style: TextStyle(
                                 fontSize: 13.5.sp,
-                                fontFamily: 'circular',
+                                fontFamily: AppString.circle,
                                 color: AppColor.green,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -318,7 +315,7 @@ class ExpertScreen extends StatelessWidget {
                                 iplController.selectedBottomSheetText.value,
                                 style: TextStyle(
                                   fontSize: 13.5.sp,
-                                  fontFamily: 'circular',
+                                  fontFamily: AppString.circle,
                                   color: AppColor.green,
                                   fontWeight: FontWeight.w500,
                                 ),

@@ -2,7 +2,6 @@ import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
 import '../../commanWidget/commanText.dart';
@@ -41,7 +40,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 18.sp,
-                            child: Image.asset(AppImage.t20logo),
+                            child: Image.asset(AppImage.t20),
                           ),
                           SizedBox(
                             width: 2.w,
@@ -119,7 +118,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                             Column(
                               children: [
                                 CustomeText(
-                                    title: "72",
+                                    title: AppString.predic,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 13.sp),
                                 CustomeText(
@@ -137,7 +136,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                             Column(
                               children: [
                                 CustomeText(
-                                    title: "429",
+                                    title: AppString.avgNum,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 13.sp),
                                 CustomeText(
@@ -155,7 +154,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                             Column(
                               children: [
                                 CustomeText(
-                                    title: "13",
+                                    title: AppString.winsNum,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 13.sp),
                                 CustomeText(

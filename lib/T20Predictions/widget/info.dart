@@ -26,7 +26,8 @@ class InfoPage extends StatelessWidget {
               AppContainer(
                 onTap: () {
                   Share.share(
-                      "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
+                    "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips",
+                  );
                 },
                 child: SvgPicture.asset(
                   IconAsset.share,
@@ -46,7 +47,9 @@ class InfoPage extends StatelessWidget {
           fontSize: 3.h,
           fontWeight: FontWeight.w100,
         ),
-        SizedBox(height: 1.5.h),
+        SizedBox(
+          height: 1.5.h,
+        ),
 
         /// you tube
         Row(
@@ -70,7 +73,7 @@ class InfoPage extends StatelessWidget {
         /// view channel
         InkWell(
           onTap: () {
-            launch(AppString.youTubeUrl);
+            launch("https://www.youtube.com");
           },
           child: AppContainer(
             height: 3.1.h,

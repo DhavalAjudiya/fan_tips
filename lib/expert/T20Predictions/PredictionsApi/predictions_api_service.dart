@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:http/http.dart' as http;
 
 import 'predictions_modal.dart';
 
 class PredictionsApiService {
-  static var url = "https://api.freefantasy.in/tips/getMatches";
+  static var url = AppString.predictionsApiService;
 
   static Map<String, String> header = {
     "Content-Type": 'text/plain',
