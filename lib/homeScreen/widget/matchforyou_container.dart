@@ -45,9 +45,26 @@ class MatchForYouContainer extends StatelessWidget {
                             fontSize: 10.sp,
                           ),
                           const Spacer(),
-                          SvgPicture.asset(
-                            AppImage.vector,
-                            color: AppColor.whiteColor,
+                          Obx(
+                            () => InkWell(
+                              onTap: () {
+                                if (homeController.notificationsItem.value ==
+                                    false) {
+                                  homeController.notificationsItem.value = true;
+                                } else {
+                                  homeController.notificationsItem.value =
+                                      false;
+                                }
+                              },
+                              child: homeController.notificationsItem.value ==
+                                      false
+                                  ? SvgPicture.asset(
+                                      AppImage.notification,
+                                      color: AppColor.whiteColor,
+                                    )
+                                  : SvgPicture.asset(AppImage.notification,
+                                      color: AppColor.greenColor),
+                            ),
                           )
                         ],
                       ),

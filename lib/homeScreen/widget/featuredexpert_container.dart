@@ -64,7 +64,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                                             MainAxisAlignment.start,
                                         children: [
                                           Image.asset(
-                                            AppImage.youtubee,
+                                            AppImage.youtube,
                                             height: 2.h,
                                             width: 3.w,
                                           ),
@@ -86,19 +86,23 @@ class FeaturedExpertContainer extends StatelessWidget {
                           ),
                           const Spacer(),
                           Obx(
-                            () => IconButton(
-                              onPressed: () {
-                                if (homeController.selected.value == false) {
-                                  homeController.selected.value = true;
+                            () => InkWell(
+                              onTap: () {
+                                if (homeController.favoriteItem.value ==
+                                    false) {
+                                  homeController.favoriteItem.value = true;
                                 } else {
-                                  homeController.selected.value = false;
+                                  homeController.favoriteItem.value = false;
                                 }
                               },
-                              icon: homeController.selected.value == false
-                                  ? const Icon(Icons.favorite_border,
-                                      color: AppColor.grey)
-                                  : const Icon(Icons.favorite,
-                                      color: AppColor.green),
+                              child: homeController.favoriteItem.value == false
+                                  ? const Icon(
+                                      Icons.favorite_outline,
+                                    )
+                                  : const Icon(
+                                      Icons.favorite_outline,
+                                      color: AppColor.greenColor,
+                                    ),
                             ),
                           ),
                         ],

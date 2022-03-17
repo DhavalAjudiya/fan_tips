@@ -12,7 +12,7 @@ class IpController extends GetxController {
       RefreshController(initialRefresh: false);
   RxList<String> sort = <String>["Prediction", "Average Score", "Wins"].obs;
   RxInt index = 0.obs;
-  RxString selectedBottomSheetText = "".obs;
+  RxString selectedBottomSheetText = "Average Score".obs;
   TextEditingController searchController = TextEditingController();
   RxBool isLoggedIn = false.obs;
   UserCredential? userObj;

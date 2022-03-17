@@ -1,11 +1,13 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';

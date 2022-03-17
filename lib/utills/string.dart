@@ -45,6 +45,7 @@ class AppString {
   static const String mindset = "Mindset";
   static const String image = "image";
   static const String name = "name";
+  static const String getStarted = "Get Started";
 
   ///Prediction Expert
 

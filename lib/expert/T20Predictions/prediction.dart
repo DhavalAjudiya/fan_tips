@@ -3,11 +3,13 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
+
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
@@ -19,6 +21,8 @@ class T20Prediction extends StatelessWidget {
   static const routeName = "/T20Prediction";
   final PredictionController _predictionController =
       Get.put(PredictionController());
+
+  T20Prediction({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +48,7 @@ class T20Prediction extends StatelessWidget {
                       onTap: (index) {
                         _predictionController.selected.value = index;
                       },
-                      physics: ScrollPhysics(),
+                      physics: const ScrollPhysics(),
                       controller: _predictionController.tabController,
                       tabs: [
                         Tab(
@@ -269,7 +273,7 @@ class T20Prediction extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
 
               /// ads
               AppContainer(

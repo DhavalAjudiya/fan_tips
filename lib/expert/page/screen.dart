@@ -234,6 +234,7 @@ class ExpertScreen extends StatelessWidget {
                                               print(iplController.sort[index]
                                                   .toString());
                                             }
+                                            Get.back();
                                           },
                                         ),
                                       );

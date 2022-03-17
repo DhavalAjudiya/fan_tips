@@ -4,6 +4,7 @@ import 'package:fantips/screen/more_screen/more_details_screen/custom_appbar.dar
 import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
+
 import 'package:sizer/sizer.dart';
 
 class ContactScreen extends StatelessWidget {
