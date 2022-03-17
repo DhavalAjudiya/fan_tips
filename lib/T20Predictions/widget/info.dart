@@ -6,13 +6,14 @@ import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoPage extends StatelessWidget {
-  const InfoPage({Key? key}) : super(key: key);
-
+  InfoPage({Key? key}) : super(key: key);
+  final prediction = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,16 +39,11 @@ class InfoPage extends StatelessWidget {
         ),
         CircleAvatar(
           radius: 9.h,
-          backgroundColor: AppColor.grey,
-          child: CustomeText(
-            title: AppString.t,
-            color: AppColor.containerBackground,
-            fontSize: 6.h,
-          ),
+          backgroundImage: NetworkImage(prediction["img"]),
         ),
         SizedBox(height: 3.h),
         CustomeText(
-          title: AppString.t20,
+          title: prediction["text"],
           fontSize: 3.h,
           fontWeight: FontWeight.w100,
         ),
@@ -102,7 +98,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 5.h,
-                          title: AppString.predictionNum,
+                          title: prediction["prediction"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -117,7 +113,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 4.h,
-                          title: AppString.avgNum,
+                          title: prediction["avgScore"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -146,7 +142,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 4.h,
-                          title: AppString.winNum,
+                          title: prediction["win"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -161,7 +157,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 3.5.h,
-                          title: AppString.subscribersNum,
+                          title: prediction["subscribers"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(

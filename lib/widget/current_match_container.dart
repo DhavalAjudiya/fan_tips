@@ -387,6 +387,7 @@ class CustomLCContainer extends StatelessWidget {
                       lastText,
                       style: AppStyle.title,
                     ),
+                    Spacer(),
                     Icon(
                       person,
                       size: size,
