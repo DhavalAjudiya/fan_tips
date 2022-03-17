@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -40,7 +41,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 18.sp,
-                            child: Image.asset("assets/image/t20.png"),
+                            child: Image.asset(AppImage.t20logo),
                           ),
                           SizedBox(
                             width: 2.w,
@@ -64,7 +65,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                                             MainAxisAlignment.start,
                                         children: [
                                           Image.asset(
-                                            "assets/image/youtubee.png",
+                                            AppImage.youtube,
                                             height: 2.h,
                                             width: 3.w,
                                           ),
@@ -85,8 +86,25 @@ class FeaturedExpertContainer extends StatelessWidget {
                             ],
                           ),
                           const Spacer(),
-                          const Icon(
-                            Icons.favorite_outline,
+                          Obx(
+                            () => InkWell(
+                              onTap: () {
+                                if (homeController.favoriteItem.value ==
+                                    false) {
+                                  homeController.favoriteItem.value = true;
+                                } else {
+                                  homeController.favoriteItem.value = false;
+                                }
+                              },
+                              child: homeController.favoriteItem.value == false
+                                  ? const Icon(
+                                      Icons.favorite_outline,
+                                    )
+                                  : const Icon(
+                                      Icons.favorite_outline,
+                                      color: AppColor.greenColor,
+                                    ),
+                            ),
                           ),
                         ],
                       ),

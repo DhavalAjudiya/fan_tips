@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -45,9 +46,26 @@ class MatchForYouContainer extends StatelessWidget {
                             fontSize: 10.sp,
                           ),
                           const Spacer(),
-                          SvgPicture.asset(
-                            "assets/image/Vector.svg",
-                            color: AppColor.whiteColor,
+                          Obx(
+                            () => InkWell(
+                              onTap: () {
+                                if (homeController.notificationsItem.value ==
+                                    false) {
+                                  homeController.notificationsItem.value = true;
+                                } else {
+                                  homeController.notificationsItem.value =
+                                      false;
+                                }
+                              },
+                              child: homeController.notificationsItem.value ==
+                                      false
+                                  ? SvgPicture.asset(
+                                      AppImage.notification,
+                                      color: AppColor.whiteColor,
+                                    )
+                                  : SvgPicture.asset(AppImage.notification,
+                                      color: AppColor.greenColor),
+                            ),
                           )
                         ],
                       ),
@@ -64,8 +82,8 @@ class MatchForYouContainer extends StatelessWidget {
                                     children: [
                                       CircleAvatar(
                                         radius: 9.sp,
-                                        backgroundImage: const AssetImage(
-                                            "assets/image/zim.png"),
+                                        backgroundImage:
+                                            const AssetImage(AppImage.zim),
                                       ),
                                       SizedBox(
                                         width: 2.w,
@@ -104,8 +122,7 @@ class MatchForYouContainer extends StatelessWidget {
                                     children: [
                                       CircleAvatar(
                                         radius: 9.sp,
-                                        child: SvgPicture.asset(
-                                            "assets/image/afglogo.svg"),
+                                        child: SvgPicture.asset(AppImage.afg),
                                       ),
                                       SizedBox(
                                         width: 2.w,

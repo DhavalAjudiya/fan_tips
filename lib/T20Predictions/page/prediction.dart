@@ -13,6 +13,8 @@ import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../widget/matches.dart';
+
 class T20Prediction extends StatelessWidget {
   static const routeName = "/T20Prediction";
   final PredictionController _predictionController =
@@ -98,6 +100,8 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
+          InfoPage(),
+          MatchesPage(),
           Column(
             children: [
               /// Shear Button
