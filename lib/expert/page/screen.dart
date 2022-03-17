@@ -349,28 +349,47 @@ class ExpertScreen extends StatelessWidget {
                             var postData =
                                 iplController.expert.value.tipsters![index];
                             return Obx(
-                              () => PredictionContainer(
-                                predictionCount: "${postData.totalPredictions}",
-                                onPressed: () {
-                                  if (postData.wishlist.value == false) {
-                                    postData.wishlist.value = true;
-                                  } else {
-                                    postData.wishlist.value = false;
-                                  }
+                              () => InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    T20Prediction.routeName,
+                                    arguments: {
+                                      "img": postData.profileUrl ??
+                                          "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                      "text":
+                                          "${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...",
+                                      "prediction":
+                                          "${postData.totalPredictions}",
+                                      "avgScore": "${postData.avgScore}",
+                                      "win": "${postData.top3}",
+                                      "subscribers":
+                                          "${postData.subscriberCount?.substring(0, 4)}",
+                                    },
+                                  );
                                 },
-                                icon: postData.wishlist.value == false
-                                    ? const Icon(Icons.favorite_border,
-                                        color: AppColor.green)
-                                    : const Icon(Icons.favorite,
-                                        color: AppColor.green),
-                                winsCount: "${postData.top3}",
-                                youtubeText: "${postData.subscriberCount}",
-                                averageCount: "${postData.avgScore}",
-                                headerText:
-                                    '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                backgroundImage: NetworkImage(
-                                  postData.profileUrl ??
-                                      AppString.pngtreeRoundCountry,
+                                child: PredictionContainer(
+                                  predictionCount:
+                                      "${postData.totalPredictions}",
+                                  onPressed: () {
+                                    if (postData.wishlist.value == false) {
+                                      postData.wishlist.value = true;
+                                    } else {
+                                      postData.wishlist.value = false;
+                                    }
+                                  },
+                                  icon: postData.wishlist.value == false
+                                      ? const Icon(Icons.favorite_border,
+                                          color: AppColor.green)
+                                      : const Icon(Icons.favorite,
+                                          color: AppColor.green),
+                                  winsCount: "${postData.top3}",
+                                  youtubeText: "${postData.subscriberCount}",
+                                  averageCount: "${postData.avgScore}",
+                                  headerText:
+                                      '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                  backgroundImage: NetworkImage(postData
+                                          .profileUrl ??
+                                      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
                                 ),
                               ),
                             );
