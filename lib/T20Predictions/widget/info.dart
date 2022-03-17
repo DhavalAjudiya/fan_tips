@@ -3,7 +3,6 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_container.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -118,7 +117,7 @@ class InfoPage extends StatelessWidget {
                         ),
                         CustomeText(
                           fontSize: 2.h,
-                          // title: AppString.avgScore,
+                          title: AppString.avgScore1,
                           fontWeight: FontWeight.w500,
                           color: AppColor.grey,
                         ),

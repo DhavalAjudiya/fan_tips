@@ -22,6 +22,8 @@ class T20Prediction extends StatelessWidget {
   final PredictionController _predictionController =
       Get.put(PredictionController());
 
+  T20Prediction({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final predictionData = Get.arguments;
@@ -46,7 +48,7 @@ class T20Prediction extends StatelessWidget {
                       onTap: (index) {
                         _predictionController.selected.value = index;
                       },
-                      physics: ScrollPhysics(),
+                      physics: const ScrollPhysics(),
                       controller: _predictionController.tabController,
                       tabs: [
                         Tab(
@@ -269,7 +271,7 @@ class T20Prediction extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
 
               /// ads
               AppContainer(

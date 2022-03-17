@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';

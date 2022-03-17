@@ -5,6 +5,7 @@ class AppColor {
   static const whiteColor = Color(0XFFFFFFFF);
   static const blackColor = Color(0XFF1B1B1B);
   static const greenColor = Color(0XFF25C06D);
+  static const gradientGreen = Color(0XFF17E751);
 
   ///upcoming match
   static const textColor = Color(0XFFA7A7A7);
