@@ -13,6 +13,8 @@ import 'list.dart';
 class PageViewScreen extends StatefulWidget {
   static const routeName = "/PageViewScreen";
 
+  const PageViewScreen({Key? key}) : super(key: key);
+
   @override
   State<PageViewScreen> createState() => _PageViewScreenState();
 }

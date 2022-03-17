@@ -8,7 +8,6 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../ipl_screen/controller/ipl_controller.dart';
 import '../../utills/string.dart';
 import '../../widget/header_row.dart';
 import 'prediction_container.dart';

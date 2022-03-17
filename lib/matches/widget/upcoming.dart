@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -39,7 +38,10 @@ class UpComing extends StatelessWidget {
                   .currentMatch.value.matches?.notstarted?[index];
               return Obx(
                 () => CustomContainer(
-                  margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
+                  margin: EdgeInsets.symmetric(
+                    vertical: 1.h,
+                    horizontal: 2.w,
+                  ),
                   headertext: current?.matchName ?? "",
                   ontap: () {
                     if (current?.selected.value == false) {
@@ -49,8 +51,12 @@ class UpComing extends StatelessWidget {
                     }
                   },
                   icon: current?.selected.value == false
-                      ? const Icon(Icons.notifications)
-                      : const Icon(Icons.notifications_none),
+                      ? const Icon(
+                          Icons.notifications,
+                        )
+                      : const Icon(
+                          Icons.notifications_none,
+                        ),
                   backgroundImage: NetworkImage(
                     current?.t1Flag ?? AppString.imageNotFound,
                   ),
@@ -63,36 +69,6 @@ class UpComing extends StatelessWidget {
                   prediction: "Prediction",
                 ),
               );
-              // return Obx(() => InkWell(
-              //       onTap: () {
-              //         Get.toNamed(UpcomingMatchScreen.routeName);
-              //       },
-              //       child: CustomContainer(
-              //         margin:
-              //             EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-              //         headertext: current?.matchName ?? "",
-              //         ontap: () {
-              //           if (current?.selected.value == false) {
-              //             current?.selected.value = true;
-              //           } else {
-              //             current?.selected.value = false;
-              //           }
-              //         },
-              //         icon: current?.selected.value == false
-              //             ? const Icon(Icons.notifications)
-              //             : const Icon(Icons.notifications_none),
-              //         backgroundImage: NetworkImage(
-              //           current?.t1Flag ?? AppString.imageNotFound,
-              //         ),
-              //         text: current?.team1Name ?? "",
-              //         secondbackgroundImage: NetworkImage(
-              //           current?.t2Flag ?? AppString.imageNotFound,
-              //         ),
-              //         subText: current?.team2Name ?? "",
-              //         predictionText: "${current?.totalprediction ?? ""}",
-              //         prediction: "Prediction",
-              //       ),
-              //     ));
             },
           ),
         ),
