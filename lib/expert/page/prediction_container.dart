@@ -1,4 +1,6 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -70,7 +72,7 @@ class PredictionContainer extends StatelessWidget {
                                 headerText,
                                 style: const TextStyle(
                                     fontSize: 16,
-                                    fontFamily: 'circular',
+                                    fontFamily: AppString.circular,
                                     color: Colors.white),
                               ),
                               SizedBox(
@@ -81,7 +83,7 @@ class PredictionContainer extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   SvgPicture.asset(
-                                    "assets/image/youtube.svg",
+                                    AppImage.youTub,
                                     height: 1.2.h,
                                   ),
                                   SizedBox(
@@ -89,8 +91,8 @@ class PredictionContainer extends StatelessWidget {
                                   ),
                                   Text(
                                     youtubeText,
-                                    style: TextStyle(
-                                      fontFamily: 'circular',
+                                    style: const TextStyle(
+                                      fontFamily: AppString.circular,
                                       fontWeight: FontWeight.w500,
                                       color: AppColor.subTitleColor,
                                       fontSize: 10,
@@ -129,12 +131,12 @@ class PredictionContainer extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        "Prediction",
+                        AppString.predictionData,
                         style: TextStyle(
                           fontSize: 13,
                           color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
-                          fontFamily: 'circular',
+                          fontFamily: AppString.circular,
                         ),
                       ),
                     ],
@@ -155,12 +157,12 @@ class PredictionContainer extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        "Average Score",
+                        AppString.avregescor,
                         style: TextStyle(
                           fontSize: 13,
                           color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
-                          fontFamily: 'circular',
+                          fontFamily: AppString.circular,
                         ),
                       ),
                     ],
@@ -181,12 +183,12 @@ class PredictionContainer extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        "Wins",
+                        AppString.wins,
                         style: TextStyle(
                           fontSize: 13,
                           color: AppColor.subTitleColor,
                           fontWeight: FontWeight.w500,
-                          fontFamily: 'circular',
+                          fontFamily: AppString.circular,
                         ),
                       ),
                       SizedBox(width: 25.w),

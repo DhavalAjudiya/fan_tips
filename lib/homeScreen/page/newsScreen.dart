@@ -20,7 +20,7 @@ class NewsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.blackColor,
       appBar: AppBar(
-        title: CustomeText(
+        title: const CustomeText(
           title: AppString.news,
         ),
         backgroundColor: AppColor.blackColor,

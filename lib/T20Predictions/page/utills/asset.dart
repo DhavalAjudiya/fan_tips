@@ -13,6 +13,10 @@ class AppImage {
   static const String sign = "$image/sign.png";
   static const String zim = "$image/zim.png";
   static const String ind = "$image/ind.png";
+  static const String vector = "$image/Vector.svg";
+  static const String afglogo = "$image/afglogo.svg";
+  static const String t20 = "$image/t20.png";
+  static const String youtubee = "$image/youtubee.png";
 }
 
 class IconAsset {

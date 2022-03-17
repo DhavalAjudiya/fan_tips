@@ -88,7 +88,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: "${predictionData["title"]}",
+          title: "${predictionData[AppString.text]}",
           fontSize: 3.h,
         ),
       ],
@@ -120,7 +120,7 @@ class T20Prediction extends StatelessWidget {
                 ),
               ),
               CircleAvatar(
-                backgroundImage: NetworkImage(predictionData["image"]),
+                backgroundImage: NetworkImage(predictionData[AppString.image]),
                 radius: 9.h,
                 backgroundColor: AppColor.grey,
                 child: CustomeText(
@@ -131,7 +131,7 @@ class T20Prediction extends StatelessWidget {
               ),
               SizedBox(height: 3.h),
               CustomeText(
-                title: "${predictionData["title"]}",
+                title: "${predictionData[AppString.text]}",
                 fontSize: 3.h,
                 fontWeight: FontWeight.w100,
               ),
@@ -158,7 +158,7 @@ class T20Prediction extends StatelessWidget {
               /// view channel
               InkWell(
                 onTap: () {
-                  launch(AppString.youTubeUrl);
+                  launch("https://www.youtube.com");
                 },
                 child: AppContainer(
                   height: 3.3.h,
@@ -185,7 +185,8 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.5.h,
-                                title: "${predictionData["prediction"]}",
+                                title:
+                                    "${predictionData[AppString.predictionData]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               SizedBox(height: 1.5.h),
@@ -200,7 +201,8 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.h,
-                                title: "${predictionData["averageScore"]}",
+                                title:
+                                    "${predictionData[AppString.averageScoreData]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               SizedBox(height: 1.5.h),
@@ -229,7 +231,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.h,
-                                title: "${predictionData["win"]}",
+                                title: "${predictionData[AppString.winText]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomeText(
@@ -243,7 +245,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 3.5.h,
-                                title: "${predictionData["subscribers"]}",
+                                title: "${predictionData[AppString.subs]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomeText(
@@ -324,7 +326,7 @@ class T20Prediction extends StatelessWidget {
                           t2wk: "${current?.t2Wk}",
                           t2over: "${current?.t2Over}",
                           predictionText: "${current?.totalprediction ?? ""}",
-                          prediction: "Prediction",
+                          prediction: AppString.predictionData,
                           lastText: "Prince",
                           // _predictionController.timeAgo(
                           //   current?.startTime ?? 0,

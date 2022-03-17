@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,7 @@ class Search extends StatelessWidget {
               cursorColor: Colors.white,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.all(7),
-                hintText: "Search",
+                hintText: AppString.search,
                 prefixIcon: IconButton(
                   onPressed: () {
                     Navigator.pop(context);

@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'apiService.dart';
@@ -6,6 +7,7 @@ import 'newsModel.dart';
 class HomeController extends GetxController {
   RxInt matchSelect = 0.obs;
   RxInt featureSelect = 0.obs;
+  RxBool selected = false.obs;
   PageController pageController = PageController(initialPage: 0);
   Rx<NewsDataModel> newsModel = NewsDataModel().obs;
 
@@ -29,7 +31,7 @@ class HomeController extends GetxController {
     if (diff.inMinutes > 0) {
       return "${diff.inMinutes} ${diff.inMinutes == 1 ? "minute" : "minutes"} ago";
     }
-    return "just now";
+    return AppString.justNow;
   }
 
   DateTime data(val) {

@@ -1,4 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 
 class MoreScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class MoreScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              "More Screen",
+              AppString.moreScreen,
               style: TextStyle(
                 color: AppColor.greenColor,
                 fontSize: 30,

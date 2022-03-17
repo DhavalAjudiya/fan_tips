@@ -158,7 +158,7 @@ class T20Prediction extends StatelessWidget {
               /// view channel
               InkWell(
                 onTap: () {
-                  launch(AppString.youTubeUrl);
+                  launch("https://www.youtube.com");
                 },
                 child: AppContainer(
                   height: 3.3.h,

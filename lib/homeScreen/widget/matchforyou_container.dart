@@ -1,8 +1,8 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
 import '../../commanWidget/commanText.dart';
@@ -46,7 +46,7 @@ class MatchForYouContainer extends StatelessWidget {
                           ),
                           const Spacer(),
                           SvgPicture.asset(
-                            "assets/image/Vector.svg",
+                            AppImage.vector,
                             color: AppColor.whiteColor,
                           )
                         ],
@@ -65,19 +65,20 @@ class MatchForYouContainer extends StatelessWidget {
                                       CircleAvatar(
                                         radius: 9.sp,
                                         backgroundImage: const AssetImage(
-                                            "assets/image/zim.png"),
+                                          AppImage.zim,
+                                        ),
                                       ),
                                       SizedBox(
                                         width: 2.w,
                                       ),
                                       CustomeText(
-                                        title: "ZIM",
+                                        title: AppString.zim,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
                                       const Spacer(),
                                       CustomeText(
-                                        title: "110/7",
+                                        title: AppString.scoWik,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
@@ -85,7 +86,7 @@ class MatchForYouContainer extends StatelessWidget {
                                         width: 1.w,
                                       ),
                                       CustomeText(
-                                        title: "&",
+                                        title: AppString.andSing,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
@@ -93,7 +94,7 @@ class MatchForYouContainer extends StatelessWidget {
                                         width: 1.w,
                                       ),
                                       CustomeText(
-                                        title: "110/7",
+                                        title: AppString.scoWik,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       )
@@ -105,19 +106,20 @@ class MatchForYouContainer extends StatelessWidget {
                                       CircleAvatar(
                                         radius: 9.sp,
                                         child: SvgPicture.asset(
-                                            "assets/image/afglogo.svg"),
+                                          AppImage.afglogo,
+                                        ),
                                       ),
                                       SizedBox(
                                         width: 2.w,
                                       ),
                                       CustomeText(
-                                        title: "ZIM",
+                                        title: AppString.zim,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
                                       const Spacer(),
                                       CustomeText(
-                                        title: "110/7",
+                                        title: AppString.scoWik,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
@@ -125,7 +127,7 @@ class MatchForYouContainer extends StatelessWidget {
                                         width: 1.w,
                                       ),
                                       CustomeText(
-                                        title: "&",
+                                        title: AppString.andSing,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
@@ -133,7 +135,7 @@ class MatchForYouContainer extends StatelessWidget {
                                         width: 1.w,
                                       ),
                                       CustomeText(
-                                        title: "110/7",
+                                        title: AppString.scoWik,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       )
@@ -176,7 +178,7 @@ class MatchForYouContainer extends StatelessWidget {
                         height: 1.5.h,
                       ),
                       CustomeText(
-                        title: "Match Starts in 5:45s",
+                        title: AppString.time,
                         fontSize: 10.sp,
                       )
                     ],
