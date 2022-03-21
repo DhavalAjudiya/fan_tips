@@ -179,11 +179,11 @@ class AppString {
   static const String pnj = "PNJ";
   static const String kkr = "KKR";
 
-  static const String m = 'M';
-  static const String w = 'W';
-  static const String l = 'L';
-  static const String points = 'Points';
-  static const String nrr = 'NRR';
+  static const m = 'M';
+  static const w = 'W';
+  static const l = 'L';
+  static const points = 'Points';
+  static const nrr = 'NRR';
 
   /// upComing match tabBar
   static const String wi = "WI";
