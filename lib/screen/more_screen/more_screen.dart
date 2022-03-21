@@ -1,17 +1,16 @@
 import 'dart:io';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/screen/more_screen/more_details_screen/apply_export_screen.dart';
-import 'package:fantips/screen/more_screen/more_details_screen/contect_screen.dart';
-import 'package:fantips/screen/more_screen/more_details_screen/favourite_experts.dart';
-import 'package:fantips/screen/more_screen/more_details_screen/feedback_screen.dart';
 import 'package:fantips/widget/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
+import '../../more_screen/more_details_screen/apply_export_screen.dart';
+import '../../more_screen/more_details_screen/contect_screen.dart';
+import '../../more_screen/more_details_screen/favourite_experts.dart';
+import '../../more_screen/more_details_screen/feedback_screen.dart';
 import '../../utills/string.dart';
 
 class MoreScreen extends StatelessWidget {

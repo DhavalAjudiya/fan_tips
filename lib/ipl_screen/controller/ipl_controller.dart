@@ -56,8 +56,6 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   TabController? tabController;
   TabController? tabController1;
 
-  var service;
-
   @override
   void onInit() {
     fetchProducts(value: controller.text);

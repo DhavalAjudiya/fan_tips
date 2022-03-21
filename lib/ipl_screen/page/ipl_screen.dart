@@ -1,23 +1,15 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'dart:io';
-import 'package:fantips/T20Predictions/page/utills/asset.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/ipl_screen/widget/match_screen.dart';
 import 'package:fantips/ipl_screen/widget/squad_tab.dart';
-import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../widget/point_table_tab.dart';
-import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
 import '../controller/ipl_controller.dart';
-import '../data/data_ipl.dart';
-import '../widget/custom_scoretile.dart';
-import '../widget/squads_details.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);
@@ -43,8 +35,10 @@ class IplScreen extends StatelessWidget {
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
               labelColor: AppColor.greenColor,
-              labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
-              unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
+              labelStyle:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
+              unselectedLabelStyle:
+                  const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
               unselectedLabelColor: Colors.white,
             ),
           ),

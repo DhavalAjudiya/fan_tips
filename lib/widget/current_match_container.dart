@@ -23,26 +23,25 @@ class CustomContainer extends StatelessWidget {
   final Widget icon;
   final VoidCallback? onTap;
 
-  const CustomContainer({
-    this.headertext = "",
-    this.text = "",
-    this.backgroundImage,
-    this.secondbackgroundImage,
-    this.subText = "",
-    this.predictionText = "",
-    this.prediction = "",
-    this.lastText = "",
-    this.margin,
-    this.t1run = "",
-    this.t1wk = "",
-    this.t1over = "",
-    this.t2run = "",
-    this.t2wk = "",
-    this.t2over = "",
-    this.ontap,
-    required this.icon,
-    this.onTap
-  });
+  const CustomContainer(
+      {this.headertext = "",
+      this.text = "",
+      this.backgroundImage,
+      this.secondbackgroundImage,
+      this.subText = "",
+      this.predictionText = "",
+      this.prediction = "",
+      this.lastText = "",
+      this.margin,
+      this.t1run = "",
+      this.t1wk = "",
+      this.t1over = "",
+      this.t2run = "",
+      this.t2wk = "",
+      this.t2over = "",
+      this.ontap,
+      required this.icon,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -249,11 +248,6 @@ class CustomLCContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(7.sp),
         child: Card(
           color: AppColor.containerBackground,
-          // height: 16.h,
-          // decoration: BoxDecoration(
-          //   color: AppColor.containerBackground,
-          //   borderRadius: BorderRadius.circular(7.sp),
-          // ),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 1.5.w, horizontal: 4.w),
             child: Column(
