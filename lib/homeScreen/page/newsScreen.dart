@@ -1,14 +1,13 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
+import 'package:fantips/homeScreen/page/newsDetailedPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
+import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import 'newsDetailedPage.dart';
 
@@ -22,7 +21,7 @@ class NewsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.blackColor,
       appBar: AppBar(
-        title: CustomeText(
+        title: const CustomeText(
           title: AppString.news,
         ),
         backgroundColor: AppColor.blackColor,
@@ -132,7 +131,7 @@ class NewsScreen extends StatelessWidget {
                                   width: 2.w,
                                 ),
                                 Expanded(
-                                  child: Container(
+                                  child: SizedBox(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,

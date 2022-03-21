@@ -10,17 +10,19 @@ class IpController extends GetxController {
   Rx<Expert> expert = Expert().obs;
   RefreshController refreshController =
       RefreshController(initialRefresh: false);
-  RxList<String> sort = <String>["Prediction", "Average Score", "Wins"].obs;
   RxInt index = 0.obs;
-  RxString selectedBottomSheetText = "Average Score".obs;
+  bool isBottomSelect = false;
+
   TextEditingController searchController = TextEditingController();
   RxBool isLoggedIn = false.obs;
   UserCredential? userObj;
+  RxList searchItem = [].obs;
 
   dataPost() async {
     var result = await MatchApiService().data();
     if (result != null) {
       expert.value = result;
+
       return result;
     }
   }

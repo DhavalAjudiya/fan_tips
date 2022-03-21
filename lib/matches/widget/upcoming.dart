@@ -1,13 +1,10 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/matches/widget/upcoming_matches/page/upcoming_match_page.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../commanWidget/commanText.dart';
+import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
 
@@ -68,6 +65,8 @@ class UpComing extends StatelessWidget {
                       subText: current?.team2Name ?? "",
                       predictionText: "${current?.totalprediction ?? ""}",
                       prediction: "Prediction",
+                      lastText: _homecontroller
+                          .timeAgo(_homecontroller.time(current?.startTime)),
                     ),
                   ));
             },

@@ -1,7 +1,6 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import '../T20Predictions/page/utills/color.dart';
 
 import '../T20Predictions/page/utills/color.dart';
 
@@ -44,5 +43,22 @@ class Appstyle {
     fontWeight: FontWeight.bold,
     fontFamily: 'WorkSon',
     fontSize: 14.sp,
+  );
+  static TextStyle pointTitle = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Workson',
+    color: AppColor.grey,
+  );
+  static TextStyle pointSub = TextStyle(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Workson',
+    color: AppColor.grey,
+  );
+  static TextStyle scoreTitle = TextStyle(
+    color: AppColor.grey,
+    fontWeight: FontWeight.bold,
+    fontSize: 12.sp,
   );
 }

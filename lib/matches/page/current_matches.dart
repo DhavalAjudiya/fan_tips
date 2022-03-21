@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/matches/widget/upcoming.dart';
 import 'package:flutter/material.dart';
@@ -16,66 +15,206 @@ class MatchesScreen extends StatelessWidget {
 
   MatchesScreen({Key? key}) : super(key: key);
   final _homecontroller = Get.put(MatchsScreenControoler());
-
+  final IpController ipController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: WillPopScope(
-        onWillPop: () async {
-          final value = await showDialog<bool>(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Text(
-                "Are you sure want to exit?",
-                style: TextStyle(
-                  fontFamily: "Circular",
-                  fontSize: 15.sp,
+    return WillPopScope(
+      onWillPop: () async {
+        final value = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(
+              AppString.exit,
+              style: TextStyle(
+                fontFamily: AppString.circle,
+                fontSize: 15.sp,
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  AppString.no,
+                  style: TextStyle(
+                    fontFamily: AppString.circle,
+                    fontSize: 15.sp,
+                  ),
                 ),
               ),
-              actions: <Widget>[
-                FlatButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(
-                    "No",
-                    style: TextStyle(
-                      fontFamily: "Circular",
-                      fontSize: 15.sp,
-                    ),
+              FlatButton(
+                onPressed: () {
+                  exit(0);
+                },
+                child: Text(
+                  AppString.yes,
+                  style: TextStyle(
+                    fontFamily: AppString.circle,
+                    fontSize: 15.sp,
                   ),
                 ),
-                FlatButton(
-                  onPressed: () {
-                    exit(0);
-                  },
-                  child: Text(
-                    "Yes",
-                    style: TextStyle(
-                      fontFamily: "Circular",
-                      fontSize: 15.sp,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-          if (value != null) {
-            return Future.value(value);
-          } else {
-            return Future.value(false);
-          }
-        },
+              ),
+            ],
+          ),
+        );
+        if (value != null) {
+          return Future.value(value);
+        } else {
+          return Future.value(false);
+        }
+      },
+      child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,
           body: Padding(
-            padding: EdgeInsets.only(top: 1.w, left: 2.w, right: 2.w),
+            padding: EdgeInsets.only(top: 5.sp, left: 5.sp, right: 8.sp),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HeaderRow(
-                  title: AppString.title,
+                Row(
+                  children: [
+                    CustomeText(
+                      title: AppString.title,
+                      color: AppColor.whiteColor,
+                      fontSize: 17.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    const Spacer(),
+                    Obx(
+                      () => InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                            backgroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(6.w),
+                                topLeft: Radius.circular(6.w),
+                              ),
+                            ),
+                            context: context,
+                            builder: (context) => Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Get.back();
+                                      },
+                                      icon: Icon(
+                                        Icons.clear,
+                                        size: 9.w,
+                                      ),
+                                      splashColor: AppColor.transparent,
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                  ],
+                                ),
+                                Image.asset(AppImage.logo, height: 40.w),
+                                Padding(
+                                  padding: EdgeInsets.all(5.w),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 27.w,
+                                        color: AppColor.grey,
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      const CustomeText(
+                                          title: AppString.letsconnect),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 27.w,
+                                        color: AppColor.grey,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+                                AppContainer(
+                                  height: 6.h,
+                                  width: 60.w,
+                                  color: AppColor.containerBackground,
+                                  borderRadius: BorderRadius.circular(10),
+                                  onTap: () {
+                                    signInWithGoogle().then((data) {
+                                      ipController.isLoggedIn.value = true;
+                                      ipController.userObj = data;
+                                    }).catchError((e) {});
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Image.asset(AppImage.google, height: 8.w),
+                                      const CustomeText(
+                                        title: AppString.googleSign,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+                                AppContainer(
+                                  height: 6.h,
+                                  width: 60.w,
+                                  color: AppColor.containerBackground,
+                                  borderRadius: BorderRadius.circular(10),
+                                  onTap: () {},
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Image.asset(AppImage.fb, height: 8.w),
+                                      const CustomeText(
+                                        title: AppString.fbLogin,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        child: ipController.isLoggedIn.value == false
+                            ? CustomeText(
+                                title: AppString.login,
+                                color: AppColor.green,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 13.sp,
+                              )
+                            : GestureDetector(
+                                onTap: () {
+                                  Get.to(ProfileScreen());
+                                },
+                                child: CircleAvatar(
+                                  backgroundColor: AppColor.transparent,
+                                  radius: 12,
+                                  backgroundImage: NetworkImage(
+                                      "${ipController.userObj?.user?.photoURL}"),
+                                ),
+                              ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                  ],
                 ),
+                // HeaderRow(
+                //   title: AppString.title,
+                // ),
                 SizedBox(height: 2.h),
                 TabBar(
                   unselectedLabelColor: Colors.white,

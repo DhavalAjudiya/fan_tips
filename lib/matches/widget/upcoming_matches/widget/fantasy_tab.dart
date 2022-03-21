@@ -7,8 +7,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import '../../../../commanWidget/commanText.dart';
+import '../../../../widget/custom_container.dart';
+import '../controller/upcoming_controller.dart';
+import '../../../../utills/string.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../../../../commanWidget/commanText.dart';
@@ -98,7 +100,7 @@ class FantasyTab extends StatelessWidget {
                             context: context,
                             builder: (context) {
                               return Container(
-                                height: 28.h,
+                                height: 25.h,
                                 decoration: BoxDecoration(
                                   color: AppColor.containerBackgroundColor,
                                   borderRadius: BorderRadius.only(
@@ -106,92 +108,146 @@ class FantasyTab extends StatelessWidget {
                                     topRight: Radius.circular(12.sp),
                                   ),
                                 ),
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(
-                                            AppImage.line,
-                                            color: AppColor.whiteColor,
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          CustomeText(
-                                            title: AppString.sortBy,
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.w500,
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: SizedBox(
-                                        height: 80.h,
-                                        child: ListView.separated(
-                                          separatorBuilder: (context, index) =>
-                                              const Divider(
-                                            height: 0,
-                                            color: AppColor.verticalDivider,
-                                          ),
-                                          itemCount: upcomingController
-                                              .titleScore.value.length,
-                                          itemBuilder: (context, index) {
-                                            var data = upcomingController
-                                                .titleScore[index];
-                                            return Obx(
-                                              () => ListTile(
-                                                title: CustomeText(
-                                                  title: data,
-                                                  fontSize: 12.sp,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                                trailing: ((upcomingController
-                                                            .index.value ==
-                                                        0)
-                                                    ? upcomingController
-                                                                .selectedBottomSheetText
-                                                                .value ==
-                                                            upcomingController
-                                                                .titleScore[
-                                                                    index]
-                                                                .toString()
-                                                        ? const CircleAvatar(
-                                                            radius: 8,
-                                                            backgroundColor:
-                                                                AppColor.white,
-                                                            child: Icon(
-                                                                Icons.done,
-                                                                size: 12),
-                                                          )
-                                                        : const Text("")
-                                                    : const Text("")),
-                                                onTap: () {
-                                                  if (upcomingController
-                                                          .index.value ==
-                                                      0) {
-                                                    upcomingController
-                                                            .selectedBottomSheetText
-                                                            .value =
-                                                        upcomingController
-                                                            .titleScore[index]
-                                                            .toString();
-                                                  }
-                                                  Get.back();
-                                                },
-                                              ),
-                                            );
-                                          },
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 10.sp, right: 10.sp, top: 10.sp),
+                                  child: Obx(
+                                    () => Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            SvgPicture.asset(
+                                              AppImage.line,
+                                              color: AppColor.whiteColor,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            CustomeText(
+                                              title: AppString.sortBy,
+                                              fontSize: 14.sp,
+                                              fontWeight: FontWeight.w500,
+                                            )
+                                          ],
                                         ),
-                                      ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            if (upcomingController.isSelect =
+                                                true) {
+                                              upcomingController.index.value =
+                                                  0;
+                                            } else {
+                                              upcomingController.isSelect =
+                                                  false;
+                                            }
+                                          },
+                                          child: Row(
+                                            children: [
+                                              CustomeText(
+                                                title: AppString.prediction,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.sp,
+                                              ),
+                                              const Spacer(),
+                                              upcomingController.index.value ==
+                                                      0
+                                                  ? const CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor:
+                                                          AppColor.white,
+                                                      child: Icon(Icons.done,
+                                                          size: 12),
+                                                    )
+                                                  : const CustomeText(
+                                                      title: "",
+                                                    )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            if (upcomingController.isSelect =
+                                                true) {
+                                              upcomingController.index.value =
+                                                  1;
+                                            } else {
+                                              upcomingController.isSelect =
+                                                  false;
+                                            }
+                                          },
+                                          child: Row(
+                                            children: [
+                                              CustomeText(
+                                                title: AppString.avgScore,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.sp,
+                                              ),
+                                              const Spacer(),
+                                              upcomingController.index.value ==
+                                                      1
+                                                  ? const CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor:
+                                                          AppColor.white,
+                                                      child: Icon(Icons.done,
+                                                          size: 12),
+                                                    )
+                                                  : const CustomeText(
+                                                      title: "",
+                                                    )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            if (upcomingController.isSelect =
+                                                true) {
+                                              upcomingController.index.value =
+                                                  2;
+                                            } else {
+                                              upcomingController.isSelect =
+                                                  false;
+                                            }
+                                          },
+                                          child: Row(
+                                            children: [
+                                              CustomeText(
+                                                title: AppString.wins,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.sp,
+                                              ),
+                                              const Spacer(),
+                                              upcomingController.index.value ==
+                                                      2
+                                                  ? const CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor:
+                                                          AppColor.white,
+                                                      child: Icon(Icons.done,
+                                                          size: 12),
+                                                    )
+                                                  : const CustomeText(
+                                                      title: "",
+                                                    )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
+                                  ),
                                 ),
                               );
                             },
@@ -216,8 +272,13 @@ class FantasyTab extends StatelessWidget {
                               ),
                               Obx(
                                 () => CustomeText(
-                                  title: upcomingController
-                                      .selectedBottomSheetText.value,
+                                  title: upcomingController.index.value == 0
+                                      ? AppString.prediction
+                                      : upcomingController.index.value == 1
+                                          ? AppString.avgScore
+                                          : upcomingController.index.value == 2
+                                              ? AppString.wins
+                                              : "",
                                   color: upcomingController.select.value == 0
                                       ? AppColor.greenColor
                                       : AppColor.textColor,
@@ -284,7 +345,7 @@ class FantasyTab extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return AppContainer(
-                        height: 16.h,
+                        height: 17.h,
                         margin: EdgeInsets.symmetric(vertical: 2.sp),
                         borderRadius: BorderRadius.circular(10.sp),
                         color: AppColor.blackColor,
@@ -487,8 +548,9 @@ class FantasyTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.sp),
               boxShadow: [
                 BoxShadow(
-                  blurRadius: 5.sp,
-                  color: AppColor.whiteColor.withOpacity(0.5),
+                  offset: Offset(1,3),
+                  blurRadius: 2.sp,
+                  color: AppColor.grey.withOpacity(0.4),
                 )
               ],
               child: Center(

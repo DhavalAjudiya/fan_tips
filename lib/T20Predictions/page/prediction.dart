@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/T20Predictions/widget/info.dart';
 import 'package:fantips/expert/T20Predictions/prediction_controller.dart';
 import 'package:fantips/commanWidget/commanText.dart';
@@ -9,16 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../widget/matches.dart';
 
 class T20Prediction extends StatelessWidget {
   static const routeName = "/T20Prediction";
   final PredictionController _predictionController =
       Get.put(PredictionController());
+  final prediction = Get.arguments;
+
+  T20Prediction({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class T20Prediction extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _backButton(),
+            _backButton(prediction),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -43,7 +45,7 @@ class T20Prediction extends StatelessWidget {
                       onTap: (index) {
                         _predictionController.selected.value = index;
                       },
-                      physics: ScrollPhysics(),
+                      physics: const ScrollPhysics(),
                       controller: _predictionController.tabController,
                       tabs: [
                         Tab(
@@ -79,7 +81,7 @@ class T20Prediction extends StatelessWidget {
     );
   }
 
-  Widget _backButton() {
+  Widget _backButton(prediction) {
     return Row(
       children: [
         const CustomBackButton(
@@ -87,7 +89,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: AppString.t20,
+          title: prediction[AppString.texts],
           fontSize: 3.h,
         ),
       ],
@@ -100,8 +102,9 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
-          InfoPage(),
+          const InfoPage(),
           MatchesPage(),
+
           Column(
             children: [
               /// Shear Button
@@ -158,7 +161,7 @@ class T20Prediction extends StatelessWidget {
               /// view channel
               InkWell(
                 onTap: () {
-                  launch(AppString.youTubeUrl);
+           //       launch(AppString.youTubeUrl);
                 },
                 child: AppContainer(
                   height: 3.3.h,
@@ -267,7 +270,7 @@ class T20Prediction extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
 
               /// ads
               AppContainer(
@@ -323,6 +326,8 @@ class T20Prediction extends StatelessWidget {
                     prediction: "Prediction",
                     lastText: current?.infoMsg ?? "",
                     // _predictionController.timeAgo(current?.startTime ?? 0),
+                    person: Icons.supervisor_account, size: 2.5.h,
+             //       teams: AppString.team,
                   );
                 },
               ),
