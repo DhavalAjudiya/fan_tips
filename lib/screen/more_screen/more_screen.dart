@@ -1,6 +1,4 @@
-import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'dart:io';
-
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/screen/more_screen/more_details_screen/apply_export_screen.dart';
 import 'package:fantips/screen/more_screen/more_details_screen/contect_screen.dart';

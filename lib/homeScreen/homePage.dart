@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../T20Predictions/page/utills/color.dart';
-import '../T20Predictions/page/utills/string.dart';
+import '../utills/string.dart';
 import 'data/homepageController.dart';
 
 class HomeScreen extends StatelessWidget {
