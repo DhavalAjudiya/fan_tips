@@ -3,12 +3,9 @@ import 'dart:math';
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/upcoming_matches/widget/live_score_screen/widget/custom_score_card.dart';
 import 'package:fantips/utills/style.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../matches/controler/matchs_controller.dart';
 
 class Commentary extends StatelessWidget {

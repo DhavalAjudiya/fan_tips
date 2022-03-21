@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utills/string.dart';
 
+// ignore: deprecated_member_use
 class IplController extends GetxController with SingleGetTickerProviderMixin {
 
 
@@ -23,10 +24,10 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
       text: AppString.fantasyName,
     ),
     const Tab(
-      text: AppString.bestPicks,
+      text: AppString.commentary,
     ),
     const Tab(
-      text: AppString.myTeams,
+      text: AppString.scoreCard,
     ),
     const Tab(
       text: AppString.quiz,
@@ -35,6 +36,8 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
 
   TabController? tabController;
   TabController? tabController1;
+
+  var service;
 
   @override
   void onInit() {

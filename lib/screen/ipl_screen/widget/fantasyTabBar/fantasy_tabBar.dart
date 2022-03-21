@@ -3,7 +3,6 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -12,9 +11,9 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../widget/custom_container.dart';
 
-class FantasyTab extends StatelessWidget {
+class FantasyTabBar extends StatelessWidget {
   final IplController iplController = Get.put(IplController());
-  FantasyTab({Key? key}) : super(key: key);
+  FantasyTabBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

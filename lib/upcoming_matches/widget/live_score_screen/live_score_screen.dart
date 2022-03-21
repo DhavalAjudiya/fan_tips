@@ -1,10 +1,6 @@
 import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
-
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../ipl_screen/controller/ipl_controller.dart';
 import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
@@ -39,6 +35,7 @@ class LiveScoreScreen extends StatelessWidget {
               tabs: iplController.upcoming,
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
+
               labelColor: AppColor.greenColor,
               labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
               unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
@@ -51,7 +48,7 @@ class LiveScoreScreen extends StatelessWidget {
         controller: iplController.tabController1,
         children: [
           // fantasy
-          FantasyTab(),
+          LiveFantasyTab(),
           // commentry
           Commentary(),
           // scorecard

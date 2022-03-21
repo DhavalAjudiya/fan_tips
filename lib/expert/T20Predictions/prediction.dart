@@ -302,9 +302,7 @@ class T20Prediction extends StatelessWidget {
                               vertical: 1.h, horizontal: 2.w),
                           headertext: current?.matchName ?? "",
                           ontap: () {
-                            // ignore: unrelated_type_equality_checks
                             if (_predictionController.selected.value == false) {
-                              // ignore: unrelated_type_equality_checks
                               _predictionController.selected.value == true;
                             } else {
                               _predictionController.selected.value == false;
