@@ -28,7 +28,8 @@ class Completed extends StatelessWidget {
                   return Column(
                     children: [
                       Text(
-                        _homecontroller.timeAgo(current?.startTime ?? 0),
+                        _homecontroller
+                            .timeAgo(_homecontroller.time(current?.startTime)),
                         style: const TextStyle(
                           color: Colors.white54,
                           fontSize: 16,

@@ -68,6 +68,8 @@ class UpComing extends StatelessWidget {
                       subText: current?.team2Name ?? "",
                       predictionText: "${current?.totalprediction ?? ""}",
                       prediction: "Prediction",
+                      lastText: _homecontroller
+                          .timeAgo(_homecontroller.time(current?.startTime)),
                     ),
                   ));
             },
