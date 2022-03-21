@@ -1,11 +1,9 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/screen/ipl_screen/page/search_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
 import '../../../utills/string.dart';
@@ -83,7 +81,7 @@ class UpcomingIplPage extends StatelessWidget {
       body: TabBarView(
         controller: iplController.tabController1,
         children: [
-          FantasyTab(),
+          // FantasyTab(),
           Container(
             color: Colors.red,
           ),

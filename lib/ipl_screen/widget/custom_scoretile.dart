@@ -5,7 +5,6 @@ import 'package:sizer/sizer.dart';
 
 import '../../../T20Predictions/page/utills/color.dart';
 
-
 class IplCardMatches extends StatelessWidget {
   final Widget? icon;
   final double? width;
@@ -148,7 +147,7 @@ class IplCardMatches extends StatelessWidget {
                               fontSize: 11.sp),
                         ),
                         SizedBox(
-                          width: 26.w,
+                          width: 2.w,
                         ),
                         RichText(
                           text: TextSpan(

@@ -44,7 +44,7 @@ class InfoPage extends StatelessWidget {
         ),
         SizedBox(height: 3.h),
         CustomeText(
-          title: prediction["text"],
+          title: prediction["subtext"],
           fontSize: 3.h,
           fontWeight: FontWeight.w100,
         ),
@@ -75,6 +75,7 @@ class InfoPage extends StatelessWidget {
         InkWell(
           onTap: () {
             launch("https://www.youtube.com/c/${prediction["text"]}");
+            print("rthj9poiya${prediction['text']}");
           },
           child: AppContainer(
             height: 3.1.h,

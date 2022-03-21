@@ -11,7 +11,6 @@ import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
 import 'ipl_screen/page/ipl_screen.dart';
-import 'ipl_screen/widget/upcoming_matches.dart';
 import 'matches/page/current_matches.dart';
 import 'matches/widget/upcoming_matches/page/upcoming_match_page.dart';
 import 'pageView/page_view.dart';
@@ -26,8 +25,6 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -43,7 +40,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: UpcomingIplPage.routeName,
+          initialRoute: SplashScreen.routeName,
           getPages: [
             GetPage(
               name: SplashScreen.routeName,

@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 
-import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -12,6 +10,7 @@ import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
+import '../../utills/style.dart';
 import '../controller/ipl_controller.dart';
 import '../data/data_ipl.dart';
 import '../widget/custom_scoretile.dart';
@@ -74,7 +73,7 @@ class IplScreen extends StatelessWidget {
         backgroundColor: AppColor.backGround,
         appBar: AppBar(
           backgroundColor: AppColor.backGround,
-          title: const Text(AppString.currentMatches),
+          title: Text(AppString.currentMatches),
           centerTitle: false,
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(35),
