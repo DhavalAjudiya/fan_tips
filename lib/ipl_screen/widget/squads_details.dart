@@ -25,20 +25,19 @@ class SquadsDetailsScreen extends StatelessWidget {
               AppString.batsman,
               style: Appstyle.moreStyle,
             ),
-            Expanded(
+            Container(
+              height: 80.h,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: IplTems.length,
                 itemBuilder: (context, index) {
-                  print(IplTems[index]['batsman'][0]);
                   return Padding(
                     padding: EdgeInsets.symmetric(vertical: 1.h),
-                    child: Container(
-                      height: 10.h,
-                      child: ListTile(
-                        leading: CircleAvatar(),
-                        title: Text('${IplTems[index]['batsman'][0]["name"]}'),
+                    child: ListTile(
+                      leading: const CircleAvatar(
+                        backgroundColor: AppColor.grey,
                       ),
+                      title: Text(IplTems[index]['batsman'][0]),
                     ),
                   );
                 },

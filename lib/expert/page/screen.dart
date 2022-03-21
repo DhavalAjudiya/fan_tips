@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:fantips/expert/page/search_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -15,6 +14,7 @@ import '../../widget/header_row.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';
 
+// ignore: must_be_immutable
 class ExpertScreen extends StatelessWidget {
   static const routeName = "/ExpertScreen";
   IpController iplController = Get.put(IpController());
@@ -35,33 +35,35 @@ class ExpertScreen extends StatelessWidget {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              AppString.exit,
+              AppString.next,
               style: TextStyle(
-                fontFamily: AppString.circle,
+             //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  AppString.no,
+                  AppString.wk,
                   style: TextStyle(
-                    fontFamily: AppString.circle,
+               //    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);
                 },
                 child: Text(
-                  AppString.yes,
+                  AppString.news,
                   style: TextStyle(
-                    fontFamily: AppString.circle,
+              //      fontFamily: AppStringcircle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -166,13 +168,13 @@ class ExpertScreen extends StatelessWidget {
                                         ),
                                         const Spacer(),
                                         iplController.index.value == 0
-                                            ? const CircleAvatar(
+                                            ? const CircleAvatar (
                                                 radius: 8,
                                                 backgroundColor: AppColor.white,
                                                 child:
                                                     Icon(Icons.done, size: 12),
                                               )
-                                            : const CustomeText(
+                                            : const CustomeText (
                                                 title: "",
                                               )
                                       ],

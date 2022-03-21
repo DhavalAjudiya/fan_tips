@@ -248,11 +248,6 @@ class CustomLCContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(7.sp),
         child: Card(
           color: AppColor.containerBackground,
-          // height: 16.h,
-          // decoration: BoxDecoration(
-          //   color: AppColor.containerBackground,
-          //   borderRadius: BorderRadius.circular(7.sp),
-          // ),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 1.5.w, horizontal: 4.w),
             child: Column(

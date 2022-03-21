@@ -1,14 +1,11 @@
 import 'dart:developer';
-
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:fantips/expert/page/prediction_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
-import '../../utills/string.dart';
 
 class Search extends StatelessWidget {
   IpController iplController = Get.find();
@@ -95,6 +92,7 @@ class Search extends StatelessWidget {
                         ],
                       )
                     : iplController.searchController.value.text.isNotEmpty &&
+                            // ignore: invalid_use_of_protected_member
                             iplController.searchItem.value.isEmpty
                         ? Column(children: [
                             Icon(
@@ -109,6 +107,7 @@ class Search extends StatelessWidget {
                                 itemCount: iplController.searchItem.length,
                                 itemBuilder: (context, index) {
                                   var postData =
+                                      // ignore: invalid_use_of_protected_member
                                       iplController.searchItem.value[index];
                                   return Obx(
                                     () => PredictionContainer(

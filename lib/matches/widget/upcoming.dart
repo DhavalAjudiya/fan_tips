@@ -39,7 +39,14 @@ class UpComing extends StatelessWidget {
                   .currentMatch.value.matches?.notstarted?[index];
               return Obx(() => InkWell(
                     onTap: () {
-                      Get.toNamed(UpcomingMatchScreen.routeName);
+                      Get.toNamed(UpcomingMatchScreen.routeName, arguments: {
+                        "t1img": current?.t1Flag ?? AppString.imageNotFound,
+                        "t2img": current?.t2Flag ?? AppString.imageNotFound,
+                        "t1name": current?.team1Name ?? "",
+                        "t2name": current?.team2Name ?? "",
+                        "time": _homecontroller
+                            .timeAgo(_homecontroller.time(current?.startTime)),
+                      });
                     },
                     child: CustomContainer(
                       margin:

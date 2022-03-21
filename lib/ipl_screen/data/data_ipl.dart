@@ -4,32 +4,18 @@ final List<Map<String, dynamic>> IplTems = [
     'teamLogo': 'assets/ipl_dc.png',
     'team': 'Delhi Capitalls',
     'batsman': [
-      {
-        'name': " David Warner",
-      },
-      {
-        'name': "Prithvi Shaw",
-      },
-      {
-        'name': " Ashwin Hebbar",
-      },
-      {
-        'name': "Mandeep Singh",
-      },
-      {
-        'name': "Yash Dhull",
-      },
-      {
-        'name': "Vicky Ostwal",
-      },
-      {
-        'name': "Ripal Patel",
-      },
+      " David Warner",
+      "Prithvi Shaw",
+      " Ashwin Hebbar",
+      "Mandeep Singh",
+      "Yash Dhull",
+      "Vicky Ostwal",
+      "Ripal Patel",
     ],
     'wicketkeeper-batter': [
       "Rishabh Pant",
       "KS Bharat",
-      " Tim Seifert",
+      "Tim Seifert",
     ],
     'all-rounder': [
       "Mitchell Marsh",

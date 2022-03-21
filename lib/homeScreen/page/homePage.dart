@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
@@ -9,11 +7,10 @@ import 'package:fantips/homeScreen/page/newsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
-import '../../widget/google_sign_in_repo.dart';
-import '../../widget/profile_screen.dart';
 import '../data/homepageController.dart';
 import '../widget/featuredexpert_container.dart';
 import '../widget/matchforyou_container.dart';
@@ -39,6 +36,7 @@ class HomeScreen extends StatelessWidget {
               fontSize: 15.sp,
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -48,6 +46,7 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 15.sp,
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);
@@ -73,8 +72,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
+                  padding: EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

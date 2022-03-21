@@ -2,7 +2,6 @@ import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:fantips/widget/custom_container.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -13,9 +12,11 @@ import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../../../../utills/string.dart';
 
-class FantasyTab extends StatelessWidget {
-  FantasyTab({Key? key}) : super(key: key);
+
+class LiveFantasyTab extends StatelessWidget {
+  LiveFantasyTab({Key? key}) : super(key: key);
   final upcomingController = Get.put(UpcomingMatchController());
+  final data = Get.arguments;
   final HomeController homeController = Get.put(HomeController());
 
   @override
@@ -37,9 +38,10 @@ class FantasyTab extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 18.sp,
+                        backgroundImage: NetworkImage(data["t1img"]),
                       ),
-                      const CustomeText(
-                        title: "MI",
+                      CustomeText(
+                        title: data['t1name'],
                         fontWeight: FontWeight.w700,
                         color: AppColor.textColor,
                       ),
@@ -53,20 +55,21 @@ class FantasyTab extends StatelessWidget {
                             fontSize: 9.sp,
                           ),
                           CustomeText(
-                            title: "5h 30m",
+                            title: data['time'],
                             color: AppColor.textColor,
                             fontWeight: FontWeight.w700,
                             fontSize: 12.sp,
                           ),
                         ],
                       ),
-                      const CustomeText(
-                        title: "RCB",
+                      CustomeText(
+                        title: data['t2name'],
                         fontWeight: FontWeight.w700,
                         color: AppColor.textColor,
                       ),
                       CircleAvatar(
                         radius: 18.sp,
+                        backgroundImage: NetworkImage(data["t2img"]),
                       ),
                     ],
                   ),
