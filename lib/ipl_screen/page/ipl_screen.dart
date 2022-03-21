@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 
 import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +73,7 @@ class IplScreen extends StatelessWidget {
         backgroundColor: AppColor.backGround,
         appBar: AppBar(
           backgroundColor: AppColor.backGround,
-          title: const Text(AppString.currentMatches),
+          title: Text(AppString.currentMatches),
           centerTitle: false,
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(35),

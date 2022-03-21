@@ -3,7 +3,6 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';

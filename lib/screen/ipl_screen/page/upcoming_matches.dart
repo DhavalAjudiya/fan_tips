@@ -83,7 +83,7 @@ class UpcomingIplPage extends StatelessWidget {
       body: TabBarView(
         controller: iplController.tabController1,
         children: [
-          FantasyTab(),
+          // FantasyTab(),
           Container(
             color: Colors.red,
           ),

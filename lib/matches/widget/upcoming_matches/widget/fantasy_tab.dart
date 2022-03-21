@@ -11,15 +11,11 @@ import '../../../../commanWidget/commanText.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../../../../utills/string.dart';
-import '../../../../widget/custom_container.dart';
-import '../controller/upcoming_controller.dart';
-import '../../../../commanWidget/commanText.dart';
-import '../controller/upcoming_controller.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);
   final upcomingController = Get.put(UpcomingMatchController());
-
+  final data = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,9 +35,10 @@ class FantasyTab extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 18.sp,
+                        backgroundImage: NetworkImage(data["t1img"]),
                       ),
-                      const CustomeText(
-                        title: "MI",
+                      CustomeText(
+                        title: data['t1name'],
                         fontWeight: FontWeight.w700,
                         color: AppColor.textColor,
                       ),
@@ -55,20 +52,21 @@ class FantasyTab extends StatelessWidget {
                             fontSize: 9.sp,
                           ),
                           CustomeText(
-                            title: "5h 30m",
+                            title: data['time'],
                             color: AppColor.textColor,
                             fontWeight: FontWeight.w700,
                             fontSize: 12.sp,
                           ),
                         ],
                       ),
-                      const CustomeText(
-                        title: "RCB",
+                      CustomeText(
+                        title: data['t2name'],
                         fontWeight: FontWeight.w700,
                         color: AppColor.textColor,
                       ),
                       CircleAvatar(
                         radius: 18.sp,
+                        backgroundImage: NetworkImage(data["t2img"]),
                       ),
                     ],
                   ),
@@ -548,7 +546,7 @@ class FantasyTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.sp),
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(1,3),
+                  offset: Offset(1, 3),
                   blurRadius: 2.sp,
                   color: AppColor.grey.withOpacity(0.4),
                 )
