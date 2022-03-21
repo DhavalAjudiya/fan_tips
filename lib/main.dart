@@ -43,53 +43,53 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: UpcomingIplPage.routeName,
+          initialRoute: SplashScreen.routeName,
           getPages: [
-            // GetPage(
-            //   name: SplashScreen.routeName,
-            //   page: () => SplashScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: PageViewScreen.routeName,
-            //   page: () => PageViewScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: MatchesScreen.routeName,
-            //   page: () => MatchesScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: BottomNavigatorController.routeName,
-            //   page: () => BottomNavigatorController(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: HomeScreen.routeName,
-            //   page: () => HomeScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: IplScreen.routeName,
-            //   page: () => IplScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: NewsDetailedScreen.routeName,
-            //   page: () => NewsDetailedScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: NewsScreen.routeName,
-            //   page: () => NewsScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: UpcomingMatchScreen.routeName,
-            //   page: () => UpcomingMatchScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: SplashScreen.routeName,
+              page: () => SplashScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: PageViewScreen.routeName,
+              page: () => PageViewScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: BottomNavigatorController.routeName,
+              page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: IplScreen.routeName,
+              page: () => IplScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsScreen.routeName,
+              page: () => NewsScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: UpcomingMatchScreen.routeName,
+              page: () => UpcomingMatchScreen(),
+              transition: Transition.rightToLeft,
+            ),
             GetPage(
               name: UpcomingIplPage.routeName,
               page: () => UpcomingIplPage(),
@@ -100,21 +100,21 @@ class MyApp extends StatelessWidget {
               page: () => SearchScreen(),
               transition: Transition.rightToLeft,
             ),
-            // GetPage(
-            //   name: MatchesScreen.routeName,
-            //   page: () => MatchesScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: ExpertScreen.routeName,
-            //   page: () => ExpertScreen(),
-            //   transition: Transition.rightToLeft,
-            // ),
-            // GetPage(
-            //   name: T20Prediction.routeName,
-            //   page: () => T20Prediction(),
-            //   transition: Transition.rightToLeft,
-            // ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: ExpertScreen.routeName,
+              page: () => ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: T20Prediction.routeName,
+              page: () => T20Prediction(),
+              transition: Transition.rightToLeft,
+            ),
           ],
         );
       },
