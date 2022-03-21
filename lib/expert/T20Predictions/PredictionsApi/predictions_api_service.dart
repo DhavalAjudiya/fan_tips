@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../utills/string.dart';
 import 'predictions_modal.dart';
 
 class PredictionsApiService {
@@ -24,14 +24,11 @@ class PredictionsApiService {
       log("bbbb");
       if (response.statusCode == 200) {
         log("cccc");
-        print("response=====>>>>>>>$data");
         return PredictionModal.fromJson(jsonDecode(data));
       } else {
         return null;
       }
-    } catch (e) {
-      print("service==>>>$e");
-    }
+    } catch (e) {}
     return null;
   }
 }

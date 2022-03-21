@@ -6,9 +6,8 @@ import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../T20Predictions/page/utills/color.dart';
-import '../../../T20Predictions/page/utills/string.dart';
+import '../../../utills/string.dart';
 import 'custom_appbar.dart';
 
 class ApplyExpertScreen extends StatelessWidget {

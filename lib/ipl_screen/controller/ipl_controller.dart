@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../utills/string.dart';
 
 class IplController extends GetxController with SingleGetTickerProviderMixin {

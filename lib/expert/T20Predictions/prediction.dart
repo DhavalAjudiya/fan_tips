@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_icon_button.dart';
@@ -10,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
+import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
 import 'prediction_controller.dart';

@@ -1,5 +1,5 @@
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:http/http.dart' as http;
+import '../../utills/string.dart';
 import 'model.dart';
 
 class MatchApiService {

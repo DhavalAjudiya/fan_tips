@@ -107,7 +107,7 @@ class AppString {
 
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
-  static const String average_score = "Average-Score";
+  static const String averagScore = "Average-Score";
   static const String circular = "circular";
 
   /// T20 Prediction

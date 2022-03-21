@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
+import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
 

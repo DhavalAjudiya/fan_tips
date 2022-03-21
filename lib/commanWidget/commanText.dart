@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utills/string.dart';
+
 class CustomeText extends StatelessWidget {
   final String title;
   final Color? color;
@@ -19,7 +21,7 @@ class CustomeText extends StatelessWidget {
     return Text(
       title,
       style: TextStyle(
-          fontFamily: "circular",
+          fontFamily: AppString.circular,
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight),

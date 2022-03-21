@@ -35,6 +35,6 @@ class AppColor {
   static const greya = Color(0xFFBDBDBD);
   static const greyBlack = Color(0xFF212121);
   static const grey1 = Color(0xFF424242);
-  static final black1 = Color(0xffC2C2C2).withOpacity(0.7);
+  static final black1 = const Color(0xffC2C2C2).withOpacity(0.7);
   static const black2 = Color(0x73000000);
 }
