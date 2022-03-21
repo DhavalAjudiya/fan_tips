@@ -125,6 +125,52 @@ class IplScreen extends StatelessWidget {
                       totalPrediction: AppString.totalPrediction,
                       prediction: AppString.prediction,
                       time: AppString.time,
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(AppString.tomorrow, style: Appstyle.deadLineStyle),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    UpcomingIpl(
+                      width: 88.w,
+                      titleMatches: AppString.rr,
+                      image1: IconAsset.logoRR,
+                      textTeam1: AppString.rr,
+                      icon: Icon(Icons.notifications),
+                      dayAgo: 'Matches start in 2 days',
+                      time: '06 : 00PM',
+                      textTeam2: AppString.rcb,
+                      image2: IconAsset.logoRCB,
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(AppString.tomorrow, style: Appstyle.deadLineStyle),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    UpcomingIpl(
+                      width: 88.w,
+                      titleMatches: AppString.rr,
+                      image1: IconAsset.logoRR,
+                      textTeam1: AppString.rr,
+                      icon: Icon(Icons.notifications),
+                      dayAgo: 'Matches start in 2 days',
+                      time: '06 : 00PM',
+                      textTeam2: AppString.rcb,
+                      image2: IconAsset.logoRCB,
                     )
                   ],
                 ),
