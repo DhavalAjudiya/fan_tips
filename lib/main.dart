@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: UpcomingIplPage.routeName,
+          initialRoute: SplashScreen.routeName,
           getPages: [
             GetPage(
               name: SplashScreen.routeName,

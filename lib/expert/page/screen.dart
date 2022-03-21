@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/expert/page/search_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
+import '../../utills/string.dart';
 import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
@@ -145,8 +145,9 @@ class ExpertScreen extends StatelessWidget {
                                       )
                                     ],
                                   ),
+                                  Divider(),
                                   SizedBox(
-                                    height: 3.h,
+                                    height: 1.h,
                                   ),
                                   InkWell(
                                     onTap: () {
@@ -177,8 +178,9 @@ class ExpertScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                  Divider(),
                                   SizedBox(
-                                    height: 3.h,
+                                    height: 1.h,
                                   ),
                                   InkWell(
                                     onTap: () {
@@ -191,7 +193,7 @@ class ExpertScreen extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         CustomeText(
-                                          title: AppString.avgScore,
+                                          title: AppString.average_score,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 13.sp,
                                         ),
@@ -209,8 +211,9 @@ class ExpertScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                  Divider(),
                                   SizedBox(
-                                    height: 3.h,
+                                    height: 1.h,
                                   ),
                                   InkWell(
                                     onTap: () {
@@ -316,7 +319,7 @@ class ExpertScreen extends StatelessWidget {
                                 title: iplController.index.value == 0
                                     ? AppString.prediction
                                     : iplController.index.value == 1
-                                        ? AppString.avgScore
+                                        ? AppString.average_score
                                         : iplController.index.value == 2
                                             ? AppString.wins
                                             : "",
