@@ -11,7 +11,6 @@ import '../../../../commanWidget/commanText.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../../../../utills/string.dart';
-import '../controller/upcoming_controller.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);
@@ -545,7 +544,7 @@ class FantasyTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.sp),
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(1,3),
+                  offset: Offset(1, 3),
                   blurRadius: 2.sp,
                   color: AppColor.grey.withOpacity(0.4),
                 )

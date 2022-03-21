@@ -23,26 +23,25 @@ class CustomContainer extends StatelessWidget {
   final Widget icon;
   final VoidCallback? onTap;
 
-  const CustomContainer({
-    this.headertext = "",
-    this.text = "",
-    this.backgroundImage,
-    this.secondbackgroundImage,
-    this.subText = "",
-    this.predictionText = "",
-    this.prediction = "",
-    this.lastText = "",
-    this.margin,
-    this.t1run = "",
-    this.t1wk = "",
-    this.t1over = "",
-    this.t2run = "",
-    this.t2wk = "",
-    this.t2over = "",
-    this.ontap,
-    required this.icon,
-    this.onTap
-  });
+  const CustomContainer(
+      {this.headertext = "",
+      this.text = "",
+      this.backgroundImage,
+      this.secondbackgroundImage,
+      this.subText = "",
+      this.predictionText = "",
+      this.prediction = "",
+      this.lastText = "",
+      this.margin,
+      this.t1run = "",
+      this.t1wk = "",
+      this.t1over = "",
+      this.t2run = "",
+      this.t2wk = "",
+      this.t2over = "",
+      this.ontap,
+      required this.icon,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {

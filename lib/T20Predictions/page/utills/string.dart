@@ -212,4 +212,11 @@ class AppString {
 
   /// more screen
   static const String moreScreen = "More Screen";
+
+  static const String exit = "Are you sure want to exit?";
+  static const String no = "No";
+  static const String yes = "Yes";
+  static const String circle = "Circular";
+  static const String pngtreeRoundCountry =
+      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 }
