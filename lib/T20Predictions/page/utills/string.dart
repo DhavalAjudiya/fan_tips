@@ -189,6 +189,8 @@ class AppString {
   static const String wi = "WI";
   static const String eng = "ENG";
 
+  // ignore: constant_identifier_names
+
   /// fantacy screen
   static const String search = "Search";
   static const String export = "Export";

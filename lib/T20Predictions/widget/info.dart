@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../utills/string.dart';
 
 class InfoPage extends StatelessWidget {
   InfoPage({Key? key}) : super(key: key);

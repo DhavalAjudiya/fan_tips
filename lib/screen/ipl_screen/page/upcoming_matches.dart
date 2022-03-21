@@ -1,21 +1,21 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
-import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
+import 'package:fantips/screen/ipl_screen/page/search_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
-import '../../../T20Predictions/page/utills/string.dart';
+import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
+import '../../../utills/string.dart';
 import '../widget/fantasyTabBar/fantasy_tabBar.dart';
-
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 
-class UpcomingIplScreen extends StatelessWidget {
+class UpcomingIplPage extends StatelessWidget {
   static const routeName = "/UpcomingIplScreen";
-  UpcomingIplScreen({Key? key}) : super(key: key);
+  UpcomingIplPage({Key? key}) : super(key: key);
 
   final IplController iplController = Get.put(IplController());
 
@@ -49,7 +49,11 @@ class UpcomingIplScreen extends StatelessWidget {
             const Text(AppString.eng),
             const Spacer(),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.put(
+                  SearchPage(),
+                );
+              },
               icon: Icon(
                 Icons.search,
                 size: 2.7.h,

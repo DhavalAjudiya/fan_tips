@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
@@ -9,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
+import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../../widget/google_sign_in_repo.dart';
 import '../../widget/profile_screen.dart';
@@ -282,8 +281,8 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
                   itemCount: 4,
+                  shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Obx(
                       () => Padding(

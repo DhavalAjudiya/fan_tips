@@ -1,10 +1,10 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_view_indicators/step_page_indicator.dart';
 import 'package:sizer/sizer.dart';
+import '../../utills/string.dart';
 import '../custom_container.dart';
 
 class PageViewScreen extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:fantips/homeScreen/page/newsScreen.dart';
-import 'package:fantips/screen/ipl_screen/widget/ipl_screen.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,9 +10,12 @@ import 'bottomBar/bottomNaviBar.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
 import 'homeScreen/page/homePage.dart';
+import 'ipl_screen/page/ipl_screen.dart';
+import 'ipl_screen/widget/upcoming_matches.dart';
 import 'matches/page/current_matches.dart';
 import 'matches/widget/upcoming_matches/page/upcoming_match_page.dart';
 import 'pageView/page_view.dart';
+import 'screen/ipl_screen/page/upcoming_matches.dart';
 import 'widget/splash_screen.dart';
 
 Future<void> main() async {
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialBinding: AppBiding(),
-          initialRoute: SplashScreen.routeName,
+          initialRoute: UpcomingIplPage.routeName,
           getPages: [
             GetPage(
               name: SplashScreen.routeName,
@@ -86,6 +88,11 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: UpcomingMatchScreen.routeName,
               page: () => UpcomingMatchScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: UpcomingIplPage.routeName,
+              page: () => UpcomingIplPage(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

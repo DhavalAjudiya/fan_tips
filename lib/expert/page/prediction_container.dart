@@ -1,10 +1,11 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../utills/string.dart';
 
 class PredictionContainer extends StatelessWidget {
   final ImageProvider backgroundImage;
@@ -33,7 +34,7 @@ class PredictionContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Container(
-        height: 16.h,
+        height: 17.h,
         decoration: BoxDecoration(
           color: const Color(0XFF1B1B1B),
           borderRadius: BorderRadius.circular(8),

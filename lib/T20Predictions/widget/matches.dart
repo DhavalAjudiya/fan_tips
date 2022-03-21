@@ -1,10 +1,10 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/expert/T20Predictions/prediction_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 
 class MatchesPage extends StatelessWidget {

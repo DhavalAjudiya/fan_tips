@@ -21,6 +21,7 @@ class CustomContainer extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final VoidCallback? ontap;
   final Widget icon;
+  final VoidCallback? onTap;
 
   const CustomContainer({
     this.headertext = "",
@@ -40,12 +41,13 @@ class CustomContainer extends StatelessWidget {
     this.t2over = "",
     this.ontap,
     required this.icon,
+    this.onTap
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 17.h,
+      height: 19.2.h,
       margin: margin,
       decoration: BoxDecoration(
         color: AppColor.containerBackground,
