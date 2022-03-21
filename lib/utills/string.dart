@@ -21,6 +21,8 @@ class AppString {
   static const String ipl = "IPL";
   static const String expert = "Expert";
   static const String mores = "More";
+  static const String commentary = "Commentary";
+  static const String scoreCard = "ScoreCard";
   static const String homeImage =
       "https://freeiconshop.com/wp-content/uploads/edd/home-outline.png";
   static const String matchImage =

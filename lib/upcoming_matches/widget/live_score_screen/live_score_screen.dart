@@ -1,6 +1,5 @@
 import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -39,6 +38,7 @@ class LiveScoreScreen extends StatelessWidget {
               tabs: iplController.upcoming,
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
+
               labelColor: AppColor.greenColor,
               labelStyle:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),

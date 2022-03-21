@@ -1,14 +1,11 @@
 import 'dart:developer';
-
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:fantips/expert/page/prediction_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
-import '../../utills/string.dart';
 
 class Search extends StatefulWidget {
   Search({Key? key}) : super(key: key);
@@ -39,6 +36,7 @@ class _SearchState extends State<Search> {
                   controller: iplController.searchController,
                   cursorColor: Colors.white,
                   onChanged: (value) {
+                    // ignore: invalid_use_of_protected_member
                     iplController.searchItem.value.clear();
 
                     for (var i = 0;
@@ -86,6 +84,7 @@ class _SearchState extends State<Search> {
                         ],
                       )
                     : iplController.searchController.value.text.isNotEmpty &&
+                            // ignore: invalid_use_of_protected_member
                             iplController.searchItem.value.isEmpty
                         ? Column(
                             children: [
@@ -103,6 +102,7 @@ class _SearchState extends State<Search> {
                                 itemBuilder: (context, index) {
                                   log("length=====>>>${iplController.searchItem.length}");
                                   var postData =
+                                      // ignore: invalid_use_of_protected_member
                                       iplController.searchItem.value[index];
                                   return PredictionContainer(
                                     predictionCount:

@@ -1,7 +1,6 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_container.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -12,8 +11,9 @@ import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../../../../utills/string.dart';
 
-class FantasyTab extends StatelessWidget {
-  FantasyTab({Key? key}) : super(key: key);
+
+class LiveFantasyTab extends StatelessWidget {
+  LiveFantasyTab({Key? key}) : super(key: key);
   final upcomingController = Get.put(UpcomingMatchController());
   final data = Get.arguments;
   @override

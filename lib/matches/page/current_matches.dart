@@ -27,37 +27,39 @@ class MatchesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        final value = await showDialog<bool>(
+         final value = await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              AppString.exit,
+              AppString.next,
               style: TextStyle(
-                fontFamily: AppString.circle,
+             //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  AppString.no,
+                  AppString.wk,
                   style: TextStyle(
-                    fontFamily: AppString.circle,
+            //        fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);
                 },
                 child: Text(
-                  AppString.yes,
+                  AppString.news,
                   style: TextStyle(
-                    fontFamily: AppString.circle,
+          //         fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),

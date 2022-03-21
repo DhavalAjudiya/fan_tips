@@ -61,10 +61,10 @@ class BottomNavigatorController extends StatelessWidget {
               label: AppString.match,
             ),
             BottomNavigationBarItem(
-              icon: Image.network(
-                AppString.iplImage,
-                height: 4.h,
-                width: 5.w,
+              icon: Image.asset(
+                'assets/icons/tata_ipl.png',
+                height: 5.h,
+                width: 6.w,
                 color: _neviController.currentIndex.value == 2
                     ? AppColor.whiteColor
                     : AppColor.whiteColor.withOpacity(0.5),
