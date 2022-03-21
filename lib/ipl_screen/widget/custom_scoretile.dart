@@ -1,4 +1,5 @@
 import 'package:fantips/utills/style.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -39,7 +40,8 @@ class IplCardMatches extends StatelessWidget {
     this.image1,
     this.image2,
     this.width,
-    this.height, this.icon,
+    this.height,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -47,7 +49,9 @@ class IplCardMatches extends StatelessWidget {
     return Container(
       height: 19.h,
       width: width,
-      decoration: BoxDecoration(color: AppColor.greyBackGround, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+          color: AppColor.greyBackGround,
+          borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.2.h),
         child: Column(
@@ -79,7 +83,8 @@ class IplCardMatches extends StatelessWidget {
                         Container(
                           width: 3.h,
                           height: 6.w,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: Image.asset(
                             image1!,
                             fit: BoxFit.fitHeight,
@@ -90,7 +95,10 @@ class IplCardMatches extends StatelessWidget {
                         ),
                         Text(
                           textTeam1!,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 11.sp),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 11.sp),
                         ),
                         SizedBox(
                           width: 23.w,
@@ -100,7 +108,10 @@ class IplCardMatches extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: score1!,
-                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 11.sp),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11.sp),
                               ),
                               TextSpan(
                                 text: over1!,
@@ -119,7 +130,8 @@ class IplCardMatches extends StatelessWidget {
                         Container(
                           width: 3.h,
                           height: 6.w,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: Image.asset(
                             image2!,
                             fit: BoxFit.fitHeight,
@@ -130,7 +142,10 @@ class IplCardMatches extends StatelessWidget {
                         ),
                         Text(
                           textTeam2!,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 11.sp),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 11.sp),
                         ),
                         SizedBox(
                           width: 26.w,
@@ -140,7 +155,10 @@ class IplCardMatches extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: score2!,
-                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 11.sp),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11.sp),
                               ),
                               TextSpan(
                                 text: over2!,
@@ -209,7 +227,9 @@ class UpcomingIpl extends StatelessWidget {
     this.image1,
     this.image2,
     this.width,
-    this.height, this.icon, this.onTap,
+    this.height,
+    this.icon,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -217,7 +237,9 @@ class UpcomingIpl extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      decoration: BoxDecoration(color: AppColor.greyBackGround, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+          color: AppColor.greyBackGround,
+          borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.2.h),
         child: Column(
@@ -249,7 +271,8 @@ class UpcomingIpl extends StatelessWidget {
                         Container(
                           width: 3.h,
                           height: 6.w,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: Image.asset(
                             image1!,
                             fit: BoxFit.fitHeight,
@@ -260,7 +283,10 @@ class UpcomingIpl extends StatelessWidget {
                         ),
                         Text(
                           textTeam1!,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 11.sp),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 11.sp),
                         ),
                       ],
                     ),
@@ -272,7 +298,8 @@ class UpcomingIpl extends StatelessWidget {
                         Container(
                           width: 3.h,
                           height: 6.w,
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: Image.asset(
                             image2!,
                             fit: BoxFit.fitHeight,
@@ -283,7 +310,10 @@ class UpcomingIpl extends StatelessWidget {
                         ),
                         Text(
                           textTeam2!,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 11.sp),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 11.sp),
                         ),
                       ],
                     )

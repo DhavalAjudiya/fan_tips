@@ -1,6 +1,8 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
+import 'package:fantips/matches/widget/upcoming_matches/page/upcoming_match_page.dart';
 import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -33,7 +35,8 @@ class UpComing extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount: _homecontroller.currentMatch.value.matches?.notstarted?.length,
+            itemCount:
+                _homecontroller.currentMatch.value.matches?.notstarted?.length,
             itemBuilder: (context, index) {
               final current = _homecontroller.currentMatch.value.matches?.notstarted?[index];
               return Obx(

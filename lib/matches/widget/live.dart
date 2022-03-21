@@ -8,6 +8,8 @@ import '../controler/matchs_controller.dart';
 
 class Live extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());
+
+  Live({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(

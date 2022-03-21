@@ -1,12 +1,13 @@
-import 'package:fantips/screen/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:sizer/sizer.dart';
+
 
 import '../../../T20Predictions/page/utills/color.dart';
+import '../../../ipl_screen/controller/ipl_controller.dart';
+import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
 import 'commentry_screen.dart';
 
 class LiveScoreScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class LiveScoreScreen extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back,
           ),
         ),
@@ -50,9 +51,7 @@ class LiveScoreScreen extends StatelessWidget {
         controller: iplController.tabController1,
         children: [
           // fantasy
-          Container(
-            color: Colors.black,
-          ),
+          FantasyTab(),
           // commentry
           Commentary(),
           // scorecard

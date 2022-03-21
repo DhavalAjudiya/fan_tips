@@ -1,5 +1,6 @@
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
+import 'package:fantips/matches/widget/upcoming.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -7,7 +8,6 @@ import '../../widget/header_row.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
-import '../widget/upcoming.dart';
 
 class MatchesScreen extends StatelessWidget {
   static const routeName = "/home_screen";
@@ -25,9 +25,9 @@ class MatchesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HeaderRow(
-                title: AppString.title,
-              ),
+              // HeaderRow(
+              //   title: AppString.title,
+              // ),
               SizedBox(height: 2.h),
               TabBar(
                 unselectedLabelColor: Colors.white,

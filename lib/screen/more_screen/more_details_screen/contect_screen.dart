@@ -1,7 +1,10 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/screen/more_screen/more_details_screen/custom_appbar.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
+
 import 'package:sizer/sizer.dart';
 
 import '../../../T20Predictions/page/utills/color.dart';
@@ -65,10 +68,7 @@ class ContactScreen extends StatelessWidget {
               SizedBox(
                 height: 4.h,
               ),
-              Text(
-                AppString.description,
-                style: Appstyle.moreStyle
-              ),
+              Text(AppString.description, style: Appstyle.moreStyle),
               MoreTextField(
                 maxLines: 4,
                 hint: AppString.enterDescription,
@@ -83,7 +83,7 @@ class ContactScreen extends StatelessWidget {
               MoreButtonScreen(
                 text: 'Submit',
                 onTap: () {
-                  if(_formKey.currentState!.validate()) {}
+                  if (_formKey.currentState!.validate()) {}
                 },
               ),
               SizedBox(

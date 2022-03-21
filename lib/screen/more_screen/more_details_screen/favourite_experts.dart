@@ -1,8 +1,12 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../T20Predictions/page/utills/string.dart';
+import '../../../T20Predictions/page/utills/color.dart';
 import 'custom_appbar.dart';
 
 class ExpertsScreen extends StatelessWidget {
@@ -21,7 +25,11 @@ class ExpertsScreen extends StatelessWidget {
           Center(
             child: Text(
               "You haven't added favorite experts",
-              style: TextStyle(fontFamily: 'WorkSan', color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12.sp),
+              style: TextStyle(
+                  fontFamily: 'WorkSan',
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12.sp),
             ),
           )
         ],

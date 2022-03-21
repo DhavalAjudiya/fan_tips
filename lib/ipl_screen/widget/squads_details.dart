@@ -1,5 +1,8 @@
-import 'package:fantips/screen/ipl_screen/data/data_ipl.dart';
+import 'dart:math';
+
 import 'package:fantips/screen/more_screen/more_details_screen/custom_appbar.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -7,6 +10,7 @@ import 'package:sizer/sizer.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../T20Predictions/page/utills/string.dart';
 import '../../../utills/style.dart';
+import '../data/data_ipl.dart';
 
 class SquadsDetailsScreen extends StatelessWidget {
   const SquadsDetailsScreen({Key? key}) : super(key: key);
@@ -29,13 +33,18 @@ class SquadsDetailsScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
+                scrollDirection: Axis.vertical,
                 itemCount: IplTems.length,
                 itemBuilder: (context, index) {
+                  print(IplTems[index]['batsman'][0]);
                   return Padding(
                     padding: EdgeInsets.symmetric(vertical: 1.h),
-                    child: ListTile(
-                      leading: CircleAvatar(),
-                      title: Text('Player Name'),
+                    child: Container(
+                      height: 10.h,
+                      child: ListTile(
+                        leading: CircleAvatar(),
+                        title: Text('${IplTems[index]['batsman'][0]["name"]}'),
+                      ),
                     ),
                   );
                 },

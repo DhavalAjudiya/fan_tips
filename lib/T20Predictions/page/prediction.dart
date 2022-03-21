@@ -1,8 +1,8 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
+import 'package:fantips/T20Predictions/widget/info.dart';
 import 'package:fantips/expert/T20Predictions/prediction_controller.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +11,9 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../widget/matches.dart';
 
 class T20Prediction extends StatelessWidget {
   static const routeName = "/T20Prediction";
@@ -97,6 +100,10 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
+
+          InfoPage(),
+          MatchesPage(),
+
           Column(
             children: [
               /// Shear Button
@@ -201,7 +208,7 @@ class T20Prediction extends StatelessWidget {
                               SizedBox(height: 1.5.h),
                               CustomeText(
                                 fontSize: 2.5.h,
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 fontWeight: FontWeight.w500,
                               ),
                             ],
@@ -318,8 +325,8 @@ class T20Prediction extends StatelessWidget {
                     prediction: "Prediction",
                     lastText: current?.infoMsg ?? "",
                     // _predictionController.timeAgo(current?.startTime ?? 0),
-                    // person: Icons.supervisor_account, size: 2.5.h,
-                    // teams: AppString.team,
+                    person: Icons.supervisor_account, size: 2.5.h,
+             //       teams: AppString.team,
                   );
                 },
               ),

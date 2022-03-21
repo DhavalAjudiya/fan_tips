@@ -1,3 +1,6 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_icon_button.dart';
@@ -25,7 +28,7 @@ class T20Prediction extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _backButton(),
+            _backButton(predictionData),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,7 +80,7 @@ class T20Prediction extends StatelessWidget {
     );
   }
 
-  Widget _backButton() {
+  Widget _backButton(predictionData) {
     return Row(
       children: [
         const CustomBackButton(
@@ -85,7 +88,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: AppString.t20,
+          title: "${predictionData["title"]}",
           fontSize: 3.h,
         ),
       ],
@@ -122,7 +125,7 @@ class T20Prediction extends StatelessWidget {
                 backgroundColor: AppColor.grey,
                 child: CustomeText(
                   color: AppColor.containerBackground,
-                  fontSize: 6.h, title: '',
+                  fontSize: 6.h,
                 ),
               ),
               SizedBox(height: 3.h),
@@ -202,7 +205,7 @@ class T20Prediction extends StatelessWidget {
                               SizedBox(height: 1.5.h),
                               CustomeText(
                                 fontSize: 2.5.h,
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 fontWeight: FontWeight.w500,
                               ),
                             ],

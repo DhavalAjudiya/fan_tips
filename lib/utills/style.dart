@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -54,5 +55,10 @@ class Appstyle {
     fontWeight: FontWeight.w500,
     fontFamily: 'Workson',
     color: AppColor.grey,
+  );
+  static TextStyle scoreTitle = TextStyle(
+    color: AppColor.grey,
+    fontWeight: FontWeight.bold,
+    fontSize: 12.sp,
   );
 }

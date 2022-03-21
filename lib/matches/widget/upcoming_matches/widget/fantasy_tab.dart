@@ -1,14 +1,15 @@
-import 'package:fantips/upcoming_matches/controller/upcoming_controller.dart';
+import 'package:fantips/commanWidget/commanText.dart';
+import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
-import '../../commanWidget/commanText.dart';
-import '../../widget/custom_container.dart';
+import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
+import '../../../../commanWidget/commanText.dart';
+import '../../../../widget/custom_container.dart';
+import '../controller/upcoming_controller.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);
@@ -215,7 +216,7 @@ class FantasyTab extends StatelessWidget {
                                 width: 1.w,
                               ),
                               CustomeText(
-                                title: AppString.avgScore,
+                                title: AppString.avgScore1,
                                 color: upcomingController.select.value == 0
                                     ? AppColor.greenColor
                                     : AppColor.textColor,
@@ -281,7 +282,7 @@ class FantasyTab extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return AppContainer(
-                        height: 16.h,
+                        height: 17.h,
                         margin: EdgeInsets.symmetric(vertical: 2.sp),
                         borderRadius: BorderRadius.circular(10.sp),
                         color: AppColor.blackColor,
@@ -462,8 +463,9 @@ class FantasyTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.sp),
               boxShadow: [
                 BoxShadow(
-                  blurRadius: 5.sp,
-                  color: AppColor.whiteColor.withOpacity(0.5),
+                  offset: Offset(1,3),
+                  blurRadius: 2.sp,
+                  color: AppColor.grey.withOpacity(0.4),
                 )
               ],
               child: Center(

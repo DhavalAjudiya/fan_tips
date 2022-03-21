@@ -29,28 +29,19 @@ class ScoreCardScreen extends StatelessWidget {
             SizedBox(
               height: 3.h,
             ),
+
+            // 1
             ExpansionTile(
               collapsedBackgroundColor: AppColor.greyBackGround,
               backgroundColor: AppColor.backGround,
-              title: Text(
-                'Chennai Super king',
-                style: TextStyle(color: AppColor.grey, fontWeight: FontWeight.bold, fontSize: 14.sp),
-              ),
-              trailing: Text(
-                '159-9(20.0)',
-                style: TextStyle(color: AppColor.grey, fontWeight: FontWeight.bold, fontSize: 14.sp),
-              ),
+              title: Text('Chennai Super king', style: Appstyle.scoreTitle),
+              trailing: Text('159-9(20.0)', style: Appstyle.scoreTitle),
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    /// BATSMAN
                     TableBatsMan(),
-                    const Divider(
-                      color: AppColor.greyBackGround,
-                      height: 1,
-                      thickness: 1,
-                    ),
+                    _divider(),
                     SizedBox(
                       width: 100.w,
                       height: 4.h,
@@ -64,11 +55,7 @@ class ScoreCardScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Divider(
-                      color: AppColor.greyBackGround,
-                      height: 1,
-                      thickness: 1,
-                    ),
+                    _divider(),
                     SizedBox(
                       width: 100.w,
                       height: 5.h,
@@ -88,47 +75,15 @@ class ScoreCardScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Divider(
-                      color: AppColor.greyBackGround,
-                      height: 1,
-                      thickness: 1,
-                    ),
-                    SizedBox(
-                      height: 6.h,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 1.h),
-                        child: Column(
-                          children: [
-                            Align(
-                              child: Text(
-                                'Yet to Bat',
-                                style: Appstyle.pointSub,
-                              ),
-                              alignment: Alignment.centerLeft,
-                            ),
-                            Align(
-                              child: Text(
-                                'Hardik , Pollard , Bumrahs',
-                                style: Appstyle.pointSub,
-                              ),
-                              alignment: Alignment.centerLeft,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    _divider(),
+                    _yetToBat(),
                     SizedBox(
                       height: 2.h,
                     ),
-
-                    /// Bowler
                     BowlerTable(),
-
                     SizedBox(
                       height: 2.h,
                     ),
-
-                    /// Falls of Wickets
                     FallWicket(),
                   ],
                 )
@@ -137,28 +92,18 @@ class ScoreCardScreen extends StatelessWidget {
             SizedBox(
               height: 2.h,
             ),
+            // 2
             ExpansionTile(
               collapsedBackgroundColor: AppColor.greyBackGround,
               backgroundColor: AppColor.backGround,
-              title: Text(
-                'Mumbai Indians',
-                style: TextStyle(color: AppColor.grey, fontWeight: FontWeight.bold, fontSize: 14.sp),
-              ),
-              trailing: Text(
-                '159-9(20.0)',
-                style: TextStyle(color: AppColor.grey, fontWeight: FontWeight.bold, fontSize: 14.sp),
-              ),
+              title: Text('Mumbai Indians', style: Appstyle.scoreTitle),
+              trailing: Text('159-9(20.0)', style: Appstyle.scoreTitle),
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    /// BATSMAN
                     TableBatsMan(),
-                    const Divider(
-                      color: AppColor.greyBackGround,
-                      height: 1,
-                      thickness: 1,
-                    ),
+                    _divider(),
                     SizedBox(
                       width: 100.w,
                       height: 4.h,
@@ -167,16 +112,20 @@ class ScoreCardScreen extends StatelessWidget {
                         children: [
                           Text('EXTRAS'),
                           RichText(
-                            text: TextSpan(children: [TextSpan(text: '4'), TextSpan(text: '(b,0,lb,0,w,6,nb,2)', style: Appstyle.pointSub)]),
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text: '4'),
+                                TextSpan(
+                                  text: '(b,0,lb,0,w,6,nb,2)',
+                                  style: Appstyle.pointSub,
+                                ),
+                              ],
+                            ),
                           )
                         ],
                       ),
                     ),
-                    const Divider(
-                      color: AppColor.greyBackGround,
-                      height: 1,
-                      thickness: 1,
-                    ),
+                    _divider(),
                     SizedBox(
                       width: 100.w,
                       height: 5.h,
@@ -196,52 +145,55 @@ class ScoreCardScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Divider(
-                      color: AppColor.greyBackGround,
-                      height: 1,
-                      thickness: 1,
-                    ),
-                    SizedBox(
-                      height: 6.h,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 1.h),
-                        child: Column(
-                          children: [
-                            Align(
-                              child: Text(
-                                'Yet to Bat',
-                                style: Appstyle.pointSub,
-                              ),
-                              alignment: Alignment.centerLeft,
-                            ),
-                            Align(
-                              child: Text(
-                                'Hardik , Pollard , Bumrahs',
-                                style: Appstyle.pointSub,
-                              ),
-                              alignment: Alignment.centerLeft,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    _divider(),
+                    _yetToBat(),
                     SizedBox(
                       height: 2.h,
                     ),
-
-                    /// Bowler
                     BowlerTable(),
-
                     SizedBox(
                       height: 2.h,
                     ),
-
-                    /// Falls of Wickets
                     FallWicket(),
                   ],
                 )
               ],
             )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _divider() {
+    return const Divider(
+                    color: AppColor.greyBackGround,
+                    height: 1,
+                    thickness: 1,
+                  );
+  }
+
+  Widget _yetToBat() {
+    return SizedBox(
+      height: 7.h,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 1.h),
+        child: Column(
+          children: [
+            Align(
+              child: Text(
+                'Yet to Bat',
+                style: Appstyle.pointSub,
+              ),
+              alignment: Alignment.centerLeft,
+            ),
+            Align(
+              child: Text(
+                'Hardik , Pollard , Bumrahs',
+                style: Appstyle.pointSub,
+              ),
+              alignment: Alignment.centerLeft,
+            ),
           ],
         ),
       ),

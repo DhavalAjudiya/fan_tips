@@ -24,7 +24,7 @@ class AppString {
   static const String bestPicksTab = "Best Picks";
   static const String myTeamTab = "My Teams";
   static const String quizTab = "Quiz";
-  static const String avgScore = "Avg Score";
+  static const String avgScore1 = "Avg Score";
   static const String favourites = "Favourites";
   static const String teams = "2 Teams";
   static const String createTeams = "CREATE TEAMS";
@@ -48,6 +48,8 @@ class AppString {
   static const String question = "Question 4";
   static const String totalQuestion = "/10";
   static const String submit = "Submit";
+  static const String wicketKeeper1 = "WICKET - KEEPER";
+  static const String allRounders = "ALL-ROUNDERS";
 
   /// current matchs
   static const title = "Current Matches";
@@ -116,10 +118,11 @@ class AppString {
   static const enterDescription = 'Enter Description';
   static const contactBranding = 'Contact us for branding';
 
-  // IPL String
+  /// IPL String
   static const currentMatches = 'Current Matches';
   static const squads = 'Squads';
   static const pointTable = 'Point Table';
+
   static const m = 'M';
   static const w = 'W';
   static const l = 'L';
@@ -128,4 +131,12 @@ class AppString {
 
   // ignore: constant_identifier_names
 
+  /// fantacy screen
+  static const String search = "Search";
+  static const String export = "Export";
+  static const String num = "460";
+  static const String score = "481";
+  static const String avregescor = "Average Score";
+  static const String win = "52";
+  static const String noMatch = "No Experts Founds..";
 }

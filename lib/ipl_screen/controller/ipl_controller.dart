@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class IplController extends GetxController with SingleGetTickerProviderMixin {
+
+
   RxBool isOn = false.obs;
   final List<Tab> myTabs = [
     const Tab(
@@ -20,7 +22,8 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   @override
   void onInit() {
     super.onInit();
-    tabController = TabController(length: myTabs.length, vsync: this);
+
+     tabController = TabController(length: myTabs.length, vsync: this);
     tabController1 = TabController(length: upcoming.length, vsync: this);
     isOn();
   }
@@ -41,8 +44,6 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   ];
 
   TabController? tabController1;
-
-
 
 // @override
   // void onClose() {
