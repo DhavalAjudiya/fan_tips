@@ -74,7 +74,7 @@ class InfoPage extends StatelessWidget {
         /// view channel
         InkWell(
           onTap: () {
-            launch("https://www.youtube.com");
+            launch("https://www.youtube.com/c/${prediction["text"]}");
           },
           child: AppContainer(
             height: 3.1.h,
@@ -185,7 +185,7 @@ class InfoPage extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
 
         /// ads
         AppContainer(

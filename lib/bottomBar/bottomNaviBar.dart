@@ -9,6 +9,8 @@ class BottomNavigatorController extends StatelessWidget {
   static const routeName = "/BottomNavigatorController";
   final BottomController _neviController = Get.put(BottomController());
 
+  BottomNavigatorController({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

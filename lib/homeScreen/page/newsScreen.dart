@@ -130,7 +130,7 @@ class NewsScreen extends StatelessWidget {
                                   width: 2.w,
                                 ),
                                 Expanded(
-                                  child: Container(
+                                  child: SizedBox(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
