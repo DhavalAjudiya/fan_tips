@@ -1,17 +1,17 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
+import '../../../T20Predictions/page/utills/string.dart';
+import '../widget/fantasyTabBar/fantasy_tabBar.dart';
 
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
-import '../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
-import '../controller/ipl_controller.dart';
 
 class UpcomingIplScreen extends StatelessWidget {
   static const routeName = "/UpcomingIplScreen";
@@ -35,23 +35,30 @@ class UpcomingIplScreen extends StatelessWidget {
         ),
         title: Row(
           children: [
-            const Text('WI'),
+            const Text(AppString.wi),
             SizedBox(
               width: 1.5.w,
             ),
-            Container(
-              width: 2.5.w,
-              height: 2.h,
-              child: SvgPicture.asset(AppImage.flash),
+            SvgPicture.asset(
+              AppImage.flash,
+              height: 1.3.h,
             ),
             SizedBox(
               width: 1.8.w,
             ),
-            const Text('ENG'),
+            const Text(AppString.eng),
+            const Spacer(),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+                size: 2.7.h,
+              ),
+            )
           ],
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(35),
+          preferredSize: const Size.fromHeight(35),
           child: Align(
             alignment: Alignment.center,
             child: TabBar(

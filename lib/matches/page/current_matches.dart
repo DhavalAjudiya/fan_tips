@@ -4,7 +4,6 @@ import 'package:fantips/matches/widget/upcoming.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../widget/header_row.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
@@ -17,11 +16,11 @@ class MatchesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Padding(
-          padding: EdgeInsets.only(top: 1.w, left: 2.w, right: 2.w),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(top: 5.sp, left: 5.sp, right: 8.sp),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

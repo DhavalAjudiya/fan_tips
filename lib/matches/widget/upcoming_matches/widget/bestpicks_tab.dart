@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class BestPicksTab extends StatelessWidget {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/image/glove.svg",
+                            AppImage.glove,
                             height: 3.h,
                           ),
                           SizedBox(
@@ -90,7 +91,7 @@ class BestPicksTab extends StatelessWidget {
                       height: 6.h,
                       width: 13.w,
                       child: Image.network(
-                        "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
+                        AppImage.personImage,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
                           return const Center(
@@ -139,7 +140,7 @@ class BestPicksTab extends StatelessWidget {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/image/bat.svg",
+                            AppImage.bat,
                             height: 3.h,
                           ),
                           SizedBox(
@@ -197,7 +198,7 @@ class BestPicksTab extends StatelessWidget {
                       height: 6.h,
                       width: 13.w,
                       child: Image.network(
-                        "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
+                        AppImage.personImage,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
                           return const Center(
@@ -246,7 +247,7 @@ class BestPicksTab extends StatelessWidget {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/image/batball.svg",
+                            AppImage.batBall,
                             height: 3.h,
                           ),
                           SizedBox(
@@ -304,7 +305,7 @@ class BestPicksTab extends StatelessWidget {
                       height: 6.h,
                       width: 13.w,
                       child: Image.network(
-                        "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
+                        AppImage.personImage,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
                           return const Center(
@@ -353,7 +354,7 @@ class BestPicksTab extends StatelessWidget {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/image/ball.svg",
+                            AppImage.ball,
                             height: 3.h,
                           ),
                           SizedBox(
@@ -411,7 +412,7 @@ class BestPicksTab extends StatelessWidget {
                       height: 6.h,
                       width: 13.w,
                       child: Image.network(
-                        "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
+                        AppImage.personImage,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
                           return const Center(
@@ -460,7 +461,7 @@ class BestPicksTab extends StatelessWidget {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/image/captain.svg",
+                            AppImage.captain,
                             height: 3.h,
                           ),
                           SizedBox(
@@ -518,7 +519,7 @@ class BestPicksTab extends StatelessWidget {
                       height: 6.h,
                       width: 13.w,
                       child: Image.network(
-                        "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
+                        AppImage.personImage,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
                           return const Center(
@@ -567,7 +568,7 @@ class BestPicksTab extends StatelessWidget {
                       child: Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/image/vicecaptain.svg",
+                            AppImage.viceCaptain,
                             height: 3.h,
                           ),
                           SizedBox(
@@ -625,7 +626,7 @@ class BestPicksTab extends StatelessWidget {
                       height: 6.h,
                       width: 13.w,
                       child: Image.network(
-                        "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg",
+                        AppImage.personImage,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
                           return const Center(

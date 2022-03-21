@@ -1,3 +1,4 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/foundation.dart';
@@ -9,6 +10,7 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import '../../../../commanWidget/commanText.dart';
 import '../../../../widget/custom_container.dart';
+import '../controller/upcoming_controller.dart';
 import '../controller/upcoming_controller.dart';
 
 class FantasyTab extends StatelessWidget {
@@ -114,7 +116,7 @@ class FantasyTab extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         children: [
                                           SvgPicture.asset(
-                                            "assets/image/line.svg",
+                                            AppImage.line,
                                             color: AppColor.whiteColor,
                                           ),
                                           SizedBox(
@@ -180,11 +182,7 @@ class FantasyTab extends StatelessWidget {
                                                             .titleScore[index]
                                                             .toString();
                                                   }
-                                                  if (kDebugMode) {
-                                                    print(upcomingController
-                                                        .titleScore[index]
-                                                        .toString());
-                                                  }
+                                                  Get.back();
                                                 },
                                               ),
                                             );
@@ -206,7 +204,7 @@ class FantasyTab extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                "assets/image/line.svg",
+                                AppImage.line,
                                 height: 1.7.h,
                                 color: upcomingController.select.value == 0
                                     ? AppColor.greenColor
@@ -215,13 +213,16 @@ class FantasyTab extends StatelessWidget {
                               SizedBox(
                                 width: 1.w,
                               ),
-                              CustomeText(
-                                title: AppString.avgScore1,
-                                color: upcomingController.select.value == 0
-                                    ? AppColor.greenColor
-                                    : AppColor.textColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 11.sp,
+                              Obx(
+                                () => CustomeText(
+                                  title: upcomingController
+                                      .selectedBottomSheetText.value,
+                                  color: upcomingController.select.value == 0
+                                      ? AppColor.greenColor
+                                      : AppColor.textColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 11.sp,
+                                ),
                               )
                             ],
                           ),
@@ -300,7 +301,7 @@ class FantasyTab extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     radius: 18.sp,
-                                    child: Image.asset("assets/image/t20.png"),
+                                    child: Image.asset(AppImage.t20logo),
                                   ),
                                   SizedBox(
                                     width: 2.w,
@@ -328,7 +329,7 @@ class FantasyTab extends StatelessWidget {
                                                     MainAxisAlignment.start,
                                                 children: [
                                                   Image.asset(
-                                                    "assets/image/youtubee.png",
+                                                    AppImage.youtube,
                                                     height: 2.h,
                                                     width: 3.w,
                                                   ),
@@ -368,9 +369,31 @@ class FantasyTab extends StatelessWidget {
                                     ],
                                   ),
                                   const Spacer(),
-                                  const Icon(
-                                    Icons.favorite_outline,
-                                    color: AppColor.textColor,
+                                  Obx(
+                                    () => InkWell(
+                                      onTap: () {
+                                        if (upcomingController
+                                                .favoriteItem.value ==
+                                            false) {
+                                          upcomingController
+                                              .favoriteItem.value = true;
+                                        } else {
+                                          upcomingController
+                                              .favoriteItem.value = false;
+                                        }
+                                      },
+                                      child: upcomingController
+                                                  .favoriteItem.value ==
+                                              false
+                                          ? const Icon(
+                                              Icons.favorite_outline,
+                                              color: AppColor.textColor,
+                                            )
+                                          : const Icon(
+                                              Icons.favorite,
+                                              color: AppColor.greenColor,
+                                            ),
+                                    ),
                                   ),
                                 ],
                               ),

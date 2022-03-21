@@ -1,10 +1,12 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/commanWidget/commanText.dart';
+import 'package:fantips/expert/page/search_screen.dart';
+
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../../T20Predictions/page/utills/color.dart';
 import '../../../../T20Predictions/page/utills/string.dart';
 import '../../../../widget/custom_container.dart';
@@ -52,7 +54,7 @@ class UpcomingMatchScreen extends StatelessWidget {
             SizedBox(
               width: 1.w,
             ),
-            SvgPicture.asset("assets/image/flash.svg", height: 1.5.h),
+            SvgPicture.asset(AppImage.flash, height: 1.5.h),
             SizedBox(
               width: 1.w,
             ),
@@ -105,7 +107,9 @@ class UpcomingMatchScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(Search());
+              },
               icon: Icon(
                 Icons.search,
                 color: AppColor.textColor,
@@ -197,7 +201,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                   ),
                   image: const DecorationImage(
                     image: AssetImage(
-                      "assets/image/stadium.png",
+                      AppImage.stadium,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -210,7 +214,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                           fontSize: 8.sp,
                         ),
                         Image.asset(
-                          "assets/image/playerimage.png",
+                          AppImage.playerImage,
                           height: 4.5.h,
                         ),
                         AppContainer(
@@ -252,7 +256,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         Image.asset(
-                                          "assets/image/playerimage.png",
+                                          AppImage.playerImage,
                                           height: 4.5.h,
                                         ),
                                         AppContainer(
@@ -293,7 +297,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                             Column(
                               children: [
                                 Image.asset(
-                                  "assets/image/playerimage.png",
+                                  AppImage.playerImage,
                                   height: 4.5.h,
                                 ),
                                 AppContainer(
@@ -318,7 +322,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                             Column(
                               children: [
                                 Image.asset(
-                                  "assets/image/playerimage.png",
+                                  AppImage.playerImage,
                                   height: 4.5.h,
                                 ),
                                 AppContainer(
@@ -343,7 +347,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                             Column(
                               children: [
                                 Image.asset(
-                                  "assets/image/playerimage.png",
+                                  AppImage.playerImage,
                                   height: 4.5.h,
                                 ),
                                 AppContainer(
@@ -389,7 +393,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         Image.asset(
-                                          "assets/image/playerimage.png",
+                                          AppImage.playerImage,
                                           height: 4.5.h,
                                         ),
                                         AppContainer(
@@ -450,7 +454,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Image.asset(
-                                    "assets/image/defaultplayer.png",
+                                    AppImage.defaultPlayer,
                                     height: 6.h,
                                     width: 20.w,
                                   ),
@@ -503,8 +507,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  SvgPicture.asset(
-                                      "assets/image/greenstar.svg"),
+                                  SvgPicture.asset(AppImage.greenStar),
                                   CustomeText(
                                     title: "429",
                                     fontSize: 20.sp,
@@ -529,7 +532,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SvgPicture.asset("assets/image/trophy.svg"),
+                                SvgPicture.asset(AppImage.trophy),
                                 SizedBox(
                                   width: 1.w,
                                 ),
@@ -565,6 +568,15 @@ class UpcomingMatchScreen extends StatelessWidget {
                   AppContainer(
                     height: 27.h,
                     color: AppColor.blackColor,
+                    // gradient: LinearGradient(
+                    //   colors: [
+                    //     AppColor.gradientGreen.withOpacity(0.2),
+                    //     AppColor.blackColor.withOpacity(0.8)
+                    //   ],
+                    //   begin: Alignment.centerRight,
+                    //   end: Alignment.center,
+                    // ),
+
                     borderRadius: BorderRadius.circular(8.sp),
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -586,7 +598,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                                 fontSize: 8.sp,
                               ),
                               const Spacer(),
-                              SvgPicture.asset("assets/image/timecircle.svg",
+                              SvgPicture.asset(AppImage.timeCircle,
                                   height: 2.h),
                               CustomeText(
                                 title: "45s",
@@ -602,7 +614,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                             backgroundColor: AppColor.quizTextColor,
                             color: AppColor.greenColor,
                             minHeight: 0.2.h,
-                            value: 10,
+                            value: 1,
                           ),
                           SizedBox(
                             height: 1.3.h,
@@ -637,10 +649,11 @@ class UpcomingMatchScreen extends StatelessWidget {
                                           height: 2.h,
                                           width: 5.w,
                                           decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                  color: AppColor.borderColor,
-                                                  width: 0.4.w)),
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                                color: AppColor.borderColor,
+                                                width: 0.4.w),
+                                          ),
                                         ),
                                       )
                                       // Radio(
@@ -771,7 +784,7 @@ class UpcomingMatchScreen extends StatelessWidget {
                               child: Center(
                                 child: CustomeText(
                                   title: AppString.submit,
-                                  fontSize: 12.sp,
+                                  fontSize: 11.sp,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),

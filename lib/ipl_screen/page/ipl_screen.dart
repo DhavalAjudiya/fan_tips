@@ -5,7 +5,6 @@ import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
@@ -25,7 +24,7 @@ class IplScreen extends StatelessWidget {
       backgroundColor: AppColor.backGround,
       appBar: AppBar(
         backgroundColor: AppColor.backGround,
-        title: Text(AppString.currentMatches),
+        title: const Text(AppString.currentMatches),
         centerTitle: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(35),
@@ -69,14 +68,14 @@ class IplScreen extends StatelessWidget {
                         width: 40,
                         decoration: const BoxDecoration(shape: BoxShape.circle),
                         child: Image.asset(
-                          IplTems[index]['teamLogo'],
+                          IplTems[index][AppString.teamLogo],
                         ),
                       ),
                       title: Text(
-                        IplTems[index]['team'],
+                        IplTems[index][AppString.team1],
                         style: TextStyle(
                           color: Colors.white,
-                          fontFamily: 'WorkSan',
+                          fontFamily: AppString.workSan,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w600,
                         ),
@@ -97,14 +96,37 @@ class IplScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Tomorrow,', style: Appstyle.deadLineStyle),
-                        Text(' 15 May', style: Appstyle.deadLineStyle),
+                        Text(AppString.tomorrow, style: Appstyle.deadLineStyle),
                       ],
                     ),
                     SizedBox(
                       height: 1.h,
                     ),
                     // card
+                    IplCardMatches(
+                      onTap: () {
+                        if (iplController.isOn.value == false) {
+                          iplController.isOn.value = true;
+                        } else {
+                          iplController.isOn.value = false;
+                        }
+                      },
+                      icon: iplController.isOn.value == false
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_none_rounded),
+                      width: 88.w,
+                      titleMatches: AppString.rr,
+                      image1: IconAsset.logoCSK,
+                      textTeam1: AppString.csk,
+                      score1: AppString.score1,
+                      over1: AppString.over1,
+                      image2: IconAsset.logoMI,
+                      textTeam2: AppString.mi,
+                      score2: AppString.score2,
+                      over2: AppString.over2,
+                      totalPrediction: AppString.totalPrediction,
+                      prediction: AppString.prediction,
+                      time: AppString.time,
                     Obx( () => IplCardMatches(
                         onTap: () {
                           if (iplController.isOn.value == false) {
@@ -135,8 +157,8 @@ class IplScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('sunday,', style: Appstyle.deadLineStyle),
-                        Text(' 16 May', style: Appstyle.deadLineStyle),
+                        Text(AppString.sunday, style: Appstyle.deadLineStyle),
+                        Text(AppString.may, style: Appstyle.deadLineStyle),
                       ],
                     ),
                     SizedBox(
@@ -151,6 +173,26 @@ class IplScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 1.3.h),
+                            child: UpcomingIpl(
+                              width: 88.w,
+                              onTap: () {
+                                if (iplController.isOn.value == false) {
+                                  iplController.isOn.value = true;
+                                } else {
+                                  iplController.isOn.value = false;
+                                }
+                              },
+                              icon: iplController.isOn.value == false
+                                  ? const Icon(Icons.notifications)
+                                  : const Icon(
+                                      Icons.notifications_none_rounded),
+                              titleMatches: AppString.titleMatches,
+                              image1: IconAsset.logoRCB,
+                              textTeam1: AppString.rcb,
+                              image2: IconAsset.logoDC,
+                              textTeam2: AppString.dc,
+                              time: AppString.timer,
+                              dayAgo: AppString.dayAgo,
                             child: Obx( () => UpcomingIpl(
                                 width: 88.w,
                                 onTap: () {
@@ -181,8 +223,8 @@ class IplScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('sunday,', style: Appstyle.deadLineStyle),
-                        Text(' 16 May', style: Appstyle.deadLineStyle),
+                        Text(AppString.sunday, style: Appstyle.deadLineStyle),
+                        Text(AppString.may, style: Appstyle.deadLineStyle),
                       ],
                     ),
                     SizedBox(
@@ -197,6 +239,26 @@ class IplScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 1.3.h),
+                            child: UpcomingIpl(
+                              onTap: () {
+                                if (iplController.isOn.value == false) {
+                                  iplController.isOn.value = true;
+                                } else {
+                                  iplController.isOn.value = false;
+                                }
+                              },
+                              icon: iplController.isOn.value == false
+                                  ? const Icon(Icons.notifications)
+                                  : const Icon(
+                                      Icons.notifications_none_rounded),
+                              width: 88.w,
+                              titleMatches: AppString.titleMatche,
+                              image1: IconAsset.logoPNJ,
+                              textTeam1: AppString.pnj,
+                              image2: IconAsset.logoKKR,
+                              textTeam2: AppString.kkr,
+                              time: AppString.timer,
+                              dayAgo: AppString.dayAgo,
                             child: Obx( () =>
                               UpcomingIpl(
                                 onTap: () {
@@ -566,6 +628,108 @@ class IplScreen extends StatelessWidget {
                 ],
               ),
             ),
+                      Text(
+                        AppString.w,
+                        style: Appstyle.pointTableGrey,
+                      ),
+                      SizedBox(
+                        width: 3.5.w,
+                      ),
+                      Text(
+                        AppString.l,
+                        style: Appstyle.pointTableGrey,
+                      ),
+                      SizedBox(
+                        width: 3.5.w,
+                      ),
+                      Text(
+                        AppString.points,
+                        style: Appstyle.pointTableGrey,
+                      ),
+                      SizedBox(
+                        width: 5.w,
+                      ),
+                      Text(
+                        AppString.nrr,
+                        style: Appstyle.pointTableGrey,
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  SizedBox(
+                    width: 91.w,
+                    height: 45.h,
+                    child: ListView.builder(
+                      itemCount: pointTable.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 1.5.h),
+                          child: SizedBox(
+                            height: 5.h,
+                            child: Column(
+                              children: [
+                                Divider(
+                                  height: 1.h,
+                                  //    color: Colors.grey.withOpacity(0.4),
+                                  color: Colors.grey,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 1.5.h),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        pointTable[index][AppString.team1],
+                                        style: Appstyle.pointTableWhite,
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        '7',
+                                        style: Appstyle.pointTableWhite,
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Text(
+                                        '2',
+                                        style: Appstyle.pointTableWhite,
+                                      ),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      Text(
+                                        '5',
+                                        style: Appstyle.pointTableWhite,
+                                      ),
+                                      SizedBox(
+                                        width: 6.5.w,
+                                      ),
+                                      Text(
+                                        '10',
+                                        style: Appstyle.pointTableWhite,
+                                      ),
+                                      SizedBox(
+                                        width: 5.5.w,
+                                      ),
+                                      Text(
+                                        "+0.55",
+                                        style: Appstyle.pointTableWhite,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),

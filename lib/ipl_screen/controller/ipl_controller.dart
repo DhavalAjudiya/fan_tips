@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../utills/string.dart';
+
 class IplController extends GetxController with SingleGetTickerProviderMixin {
 
 
   RxBool isOn = false.obs;
   final List<Tab> myTabs = [
     const Tab(
-      text: 'Squads',
+      text: AppString.squads,
     ),
     const Tab(
-      text: 'Matches',
+      text: AppString.matches,
     ),
     const Tab(
-      text: 'Point Table',
+      text: AppString.pointTable,
     )
   ];
 
@@ -30,16 +32,18 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
 
   final List<Tab> upcoming = [
     const Tab(
-      text: 'Fantasy',
+      text: AppString.fantasyName,
     ),
     const Tab(
       text: 'Commentary',
+      text: AppString.bestPicks,
     ),
     const Tab(
       text: 'ScoreCard',
+      text: AppString.myTeams,
     ),
     const Tab(
-      text: 'Quiz',
+      text: AppString.quiz,
     )
   ];
 

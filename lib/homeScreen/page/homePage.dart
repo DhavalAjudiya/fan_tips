@@ -1,13 +1,19 @@
+import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
+import 'package:fantips/expert/data/controller.dart';
+import 'package:fantips/homeScreen/data/homepageController.dart';
+import 'package:fantips/homeScreen/page/newsScreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
 import '../../widget/custom_container.dart';
+import '../../widget/google_sign_in_repo.dart';
+import '../../widget/profile_screen.dart';
 import '../data/homepageController.dart';
 import '../widget/featuredexpert_container.dart';
 import '../widget/matchforyou_container.dart';
@@ -17,6 +23,7 @@ import 'newsScreen.dart';
 class HomeScreen extends StatelessWidget {
   static const routeName = "/HomeScreen";
   final HomeController homeController = Get.put(HomeController());
+  final IpController ipController = Get.put(IpController());
 
   HomeScreen({Key? key}) : super(key: key);
 
@@ -39,12 +46,138 @@ class HomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       fontSize: 15.sp,
                     ),
-                    CustomeText(
-                      title: AppString.logIn,
-                      color: AppColor.greenColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12.sp,
-                    )
+                    Obx(
+                      () => InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                            backgroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(6.w),
+                                topLeft: Radius.circular(6.w),
+                              ),
+                            ),
+                            context: context,
+                            builder: (context) => Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Get.back();
+                                      },
+                                      icon: Icon(
+                                        Icons.clear,
+                                        size: 9.w,
+                                      ),
+                                      splashColor: AppColor.transparent,
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                  ],
+                                ),
+                                Image.asset(AppImage.logo, height: 40.w),
+                                Padding(
+                                  padding: EdgeInsets.all(5.w),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 27.w,
+                                        color: AppColor.grey,
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      const CustomeText(
+                                          title: AppString.letsconnect),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      Container(
+                                        height: 0.2.h,
+                                        width: 27.w,
+                                        color: AppColor.grey,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+                                AppContainer(
+                                  height: 6.h,
+                                  width: 60.w,
+                                  color: AppColor.containerBackground,
+                                  borderRadius: BorderRadius.circular(10),
+                                  onTap: () {
+                                    signInWithGoogle().then((data) {
+                                      ipController.isLoggedIn.value = true;
+                                      ipController.userObj = data;
+                                    }).catchError((e) {});
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Image.asset(AppImage.google, height: 8.w),
+                                      const CustomeText(
+                                        title: AppString.googleSign,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2.h,
+                                ),
+                                AppContainer(
+                                  height: 6.h,
+                                  width: 60.w,
+                                  color: AppColor.containerBackground,
+                                  borderRadius: BorderRadius.circular(10),
+                                  onTap: () {},
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Image.asset(AppImage.fb, height: 8.w),
+                                      const CustomeText(
+                                        title: AppString.fbLogin,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        child: ipController.isLoggedIn.value == false
+                            ? CustomeText(
+                                title: AppString.login,
+                                color: AppColor.green,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 13.sp,
+                              )
+                            : GestureDetector(
+                                onTap: () {
+                                  Get.to(ProfileScreen());
+                                },
+                                child: CircleAvatar(
+                                  backgroundColor: AppColor.transparent,
+                                  radius: 12,
+                                  backgroundImage: NetworkImage(
+                                      "${ipController.userObj?.user?.photoURL}"),
+                                ),
+                              ),
+                      ),
+                    ),
+                    // CustomeText(
+                    //   title: AppString.logIn,
+                    //   color: AppColor.greenColor,
+                    //   fontWeight: FontWeight.w700,
+                    //   fontSize: 12.sp,
+                    // )
                   ],
                 ),
               ),

@@ -3,16 +3,16 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_container.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoPage extends StatelessWidget {
-  const InfoPage({Key? key}) : super(key: key);
-
+  InfoPage({Key? key}) : super(key: key);
+  final prediction = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +26,8 @@ class InfoPage extends StatelessWidget {
               AppContainer(
                 onTap: () {
                   Share.share(
-                      "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
+                    "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips",
+                  );
                 },
                 child: SvgPicture.asset(
                   IconAsset.share,
@@ -38,20 +39,17 @@ class InfoPage extends StatelessWidget {
         ),
         CircleAvatar(
           radius: 9.h,
-          backgroundColor: AppColor.grey,
-          child: CustomeText(
-            title: AppString.t,
-            color: AppColor.containerBackground,
-            fontSize: 6.h,
-          ),
+          backgroundImage: NetworkImage(prediction["img"]),
         ),
         SizedBox(height: 3.h),
         CustomeText(
-          title: AppString.t20,
+          title: prediction["text"],
           fontSize: 3.h,
           fontWeight: FontWeight.w100,
         ),
-        SizedBox(height: 1.5.h),
+        SizedBox(
+          height: 1.5.h,
+        ),
 
         /// you tube
         Row(
@@ -75,7 +73,7 @@ class InfoPage extends StatelessWidget {
         /// view channel
         InkWell(
           onTap: () {
-            launch(AppString.youTubeUrl);
+            launch("https://www.youtube.com");
           },
           child: AppContainer(
             height: 3.1.h,
@@ -102,7 +100,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 5.h,
-                          title: AppString.predictionNum,
+                          title: prediction["prediction"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -117,12 +115,12 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 4.h,
-                          title: AppString.avgNum,
+                          title: prediction["avgScore"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
                           fontSize: 2.h,
-                          // title: AppString.avgScore,
+                          title: AppString.avgScore1,
                           fontWeight: FontWeight.w500,
                           color: AppColor.grey,
                         ),
@@ -146,7 +144,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 4.h,
-                          title: AppString.winNum,
+                          title: prediction["win"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -161,7 +159,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 3.5.h,
-                          title: AppString.subscribersNum,
+                          title: prediction["subscribers"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(

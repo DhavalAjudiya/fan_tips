@@ -19,7 +19,7 @@ class T20Prediction extends StatelessWidget {
   static const routeName = "/T20Prediction";
   final PredictionController _predictionController =
       Get.put(PredictionController());
-
+  final prediction = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class T20Prediction extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _backButton(),
+            _backButton(prediction),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -79,7 +79,7 @@ class T20Prediction extends StatelessWidget {
     );
   }
 
-  Widget _backButton() {
+  Widget _backButton(prediction) {
     return Row(
       children: [
         const CustomBackButton(
@@ -87,7 +87,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: AppString.t20,
+          title: prediction["text"],
           fontSize: 3.h,
         ),
       ],
@@ -100,7 +100,6 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
-
           InfoPage(),
           MatchesPage(),
 
