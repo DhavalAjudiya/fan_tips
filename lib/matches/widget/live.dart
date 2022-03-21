@@ -1,4 +1,3 @@
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/upcoming_matches/widget/live_score_screen/live_score_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

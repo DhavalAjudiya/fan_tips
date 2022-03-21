@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
+import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
 import '../../../utills/string.dart';
 import '../widget/fantasyTabBar/fantasy_tabBar.dart';
 import '../../../T20Predictions/page/utills/asset.dart';

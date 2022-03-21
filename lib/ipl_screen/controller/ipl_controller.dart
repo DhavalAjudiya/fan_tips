@@ -18,27 +18,14 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
     )
   ];
 
-  TabController? tabController;
-
-  @override
-  void onInit() {
-    super.onInit();
-
-     tabController = TabController(length: myTabs.length, vsync: this);
-    tabController1 = TabController(length: upcoming.length, vsync: this);
-    isOn();
-  }
-
   final List<Tab> upcoming = [
     const Tab(
       text: AppString.fantasyName,
     ),
     const Tab(
-      text: 'Commentary',
       text: AppString.bestPicks,
     ),
     const Tab(
-      text: 'ScoreCard',
       text: AppString.myTeams,
     ),
     const Tab(
@@ -46,11 +33,14 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
     )
   ];
 
+  TabController? tabController;
   TabController? tabController1;
 
-// @override
-  // void onClose() {
-  //   tabController!.dispose();
-  //   super.onClose();
-  // }
+  @override
+  void onInit() {
+    super.onInit();
+    tabController = TabController(length: myTabs.length, vsync: this);
+    tabController1 = TabController(length: upcoming.length, vsync: this);
+    isOn();
+  }
 }
