@@ -47,7 +47,7 @@ class AppString {
 
   ///
   static const String predictionExpert = "Prediction Expert";
-  static const String sortByAvgScore = "Sort by : Avg Score";
+  static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
 
   /// upcoming page text
@@ -179,11 +179,11 @@ class AppString {
   static const String pnj = "PNJ";
   static const String kkr = "KKR";
 
-  static const String m = 'M';
-  static const String w = 'W';
-  static const String l = 'L';
-  static const String points = 'Points';
-  static const String nrr = 'NRR';
+  static const m = 'M';
+  static const w = 'W';
+  static const l = 'L';
+  static const points = 'Points';
+  static const nrr = 'NRR';
 
   /// upComing match tabBar
   static const String wi = "WI";
@@ -196,7 +196,7 @@ class AppString {
   static const String export = "Export";
   static const String num = "460";
   static const String score = "481";
-  static const String avregescor = "Average Score";
+  static const String avgScore = "Average Score";
   static const String win = "52";
   static const String noMatch = "No Experts Founds..";
   static const String createTeam = "CREATE TEAMS";

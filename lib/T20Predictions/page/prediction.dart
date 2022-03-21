@@ -21,6 +21,7 @@ class T20Prediction extends StatelessWidget {
   final prediction = Get.arguments;
 
   T20Prediction({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +102,7 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
-          InfoPage(),
+          const InfoPage(),
           MatchesPage(),
 
           Column(
@@ -269,7 +270,7 @@ class T20Prediction extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
 
               /// ads
               AppContainer(
