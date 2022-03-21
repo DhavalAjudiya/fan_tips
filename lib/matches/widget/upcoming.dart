@@ -35,32 +35,40 @@ class UpComing extends StatelessWidget {
             itemCount:
                 _homecontroller.currentMatch.value.matches?.notstarted?.length,
             itemBuilder: (context, index) {
-              final current = _homecontroller.currentMatch.value.matches?.notstarted?[index];
-              return Obx(
-                () => CustomContainer(
-
-                  margin: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                  headertext: current?.matchName ?? "",
-                  ontap: () {
-                    if (current?.selected.value == false) {
-                      current?.selected.value = true;
-                    } else {
-                      current?.selected.value = false;
-                    }
-                  },
-                  icon: current?.selected.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none),
-                  backgroundImage: NetworkImage(
-                    current?.t1Flag ?? AppString.imageNotFound,
-                  ),
-                  text: current?.team1Name ?? "",
-                  secondbackgroundImage: NetworkImage(
-                    current?.t2Flag ?? AppString.imageNotFound,
-                  ),
-                  subText: current?.team2Name ?? "",
-                  predictionText: "${current?.totalprediction ?? ""}",
-                  prediction: "Prediction",
-                ),
-              );
+              final current = _homecontroller
+                  .currentMatch.value.matches?.notstarted?[index];
+              return Obx(() => InkWell(
+                    onTap: () {
+                      Get.toNamed(UpcomingMatchScreen.routeName);
+                    },
+                    child: CustomContainer(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
+                      headertext: current?.matchName ?? "",
+                      ontap: () {
+                        if (current?.selected.value == false) {
+                          current?.selected.value = true;
+                        } else {
+                          current?.selected.value = false;
+                        }
+                      },
+                      icon: current?.selected.value == false
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_none),
+                      backgroundImage: NetworkImage(
+                        current?.t1Flag ?? AppString.imageNotFound,
+                      ),
+                      text: current?.team1Name ?? "",
+                      secondbackgroundImage: NetworkImage(
+                        current?.t2Flag ?? AppString.imageNotFound,
+                      ),
+                      subText: current?.team2Name ?? "",
+                      predictionText: "${current?.totalprediction ?? ""}",
+                      prediction: "Prediction",
+                      lastText: _homecontroller
+                          .timeAgo(_homecontroller.time(current?.startTime)),
+                    ),
+                  ));
             },
           ),
         ),

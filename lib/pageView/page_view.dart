@@ -13,6 +13,8 @@ import 'list.dart';
 class PageViewScreen extends StatefulWidget {
   static const routeName = "/PageViewScreen";
 
+  const PageViewScreen({Key? key}) : super(key: key);
+
   @override
   State<PageViewScreen> createState() => _PageViewScreenState();
 }
@@ -35,8 +37,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
             ],
           ),
           Positioned(
-            bottom: 150,
-            left: 200,
+            bottom: 100,
+            left: 160,
             child: _buildStepIndicator(),
           ),
         ],
@@ -130,7 +132,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
         /// navigator page
         onTap: () {
           _pageController.nextPage(
-              duration: Duration(milliseconds: 600), curve: Curves.easeIn);
+              duration: const Duration(milliseconds: 600),
+              curve: Curves.easeIn);
 
           if (_currentPageNotifier.value == 2) {
             Get.toNamed(BottomNavigatorController.routeName);

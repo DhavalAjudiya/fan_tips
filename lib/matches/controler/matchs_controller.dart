@@ -11,8 +11,6 @@ import '../data/modal/live_matches.dart';
 
 class MatchsScreenControoler extends GetxController
     with GetSingleTickerProviderStateMixin {
-
-
   TabController? tabController;
   RxBool loading = true.obs;
   Rx<CurrentMatch> currentMatch = CurrentMatch().obs;
@@ -67,8 +65,8 @@ class MatchsScreenControoler extends GetxController
     }
   }
 
-  String timeAgo(int milliSecond) {
-    DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
+  String timeAgo(DateTime date) {
+    // DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
     final diff = DateTime.now().difference(date);
 
     if (diff.inDays > 365) {
@@ -91,15 +89,6 @@ class MatchsScreenControoler extends GetxController
     }
     return "just now";
   }
-
-  // Object timeAgo(DateTime date) {
-  //   var duration = date.timeZoneOffset;
-  //   if (duration.isNegative) {
-  //     return (date.toString() + "    ago");
-  //   } else {
-  //     return (date.toString() + "  Ago");
-  //   }
-  // }
 
   DateTime time(value) {
     return DateTime.fromMillisecondsSinceEpoch(value);

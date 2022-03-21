@@ -15,13 +15,14 @@ class Live extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount:
-                _homecontroller.liveMatches.value.matches?.started?.length,
-            itemBuilder: (context, index) {
-              final current =
-                  _homecontroller.liveMatches.value.matches?.started?[index];
+          child: Obx(
+            () => ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount:
+                  _homecontroller.liveMatches.value.matches?.started?.length,
+              itemBuilder: (context, index) {
+                final current =
+                    _homecontroller.liveMatches.value.matches?.started?[index];
 
               return Obx(
                 () => GestureDetector(
