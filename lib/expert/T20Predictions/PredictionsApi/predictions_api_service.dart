@@ -2,10 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 
+import '../../../utills/string.dart';
 import 'predictions_modal.dart';
 
 class PredictionsApiService {
-  static var url = "https://api.freefantasy.in/tips/getMatches";
+  static var url = AppString.predictionsApiService;
 
   static Map<String, String> header = {
     "Content-Type": 'text/plain',
@@ -23,14 +24,11 @@ class PredictionsApiService {
       log("bbbb");
       if (response.statusCode == 200) {
         log("cccc");
-        print("response=====>>>>>>>$data");
         return PredictionModal.fromJson(jsonDecode(data));
       } else {
         return null;
       }
-    } catch (e) {
-      print("service==>>>$e");
-    }
+    } catch (e) {}
     return null;
   }
 }

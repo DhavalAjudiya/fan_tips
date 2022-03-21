@@ -1,18 +1,15 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fantips/commanWidget/commanText.dart';
-
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
+import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
 import 'prediction_controller.dart';
@@ -92,7 +89,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: "${predictionData["title"]}",
+          title: "${predictionData[AppString.text]}",
           fontSize: 3.h,
         ),
       ],
@@ -124,18 +121,17 @@ class T20Prediction extends StatelessWidget {
                 ),
               ),
               CircleAvatar(
-                backgroundImage: NetworkImage(predictionData["image"]),
+                backgroundImage: NetworkImage(predictionData[AppString.image]),
                 radius: 9.h,
                 backgroundColor: AppColor.grey,
                 child: CustomeText(
                   color: AppColor.containerBackground,
                   fontSize: 6.h,
-                  title: '',
                 ),
               ),
               SizedBox(height: 3.h),
               CustomeText(
-                title: "${predictionData["title"]}",
+                title: "${predictionData[AppString.text]}",
                 fontSize: 3.h,
                 fontWeight: FontWeight.w100,
               ),
@@ -162,7 +158,7 @@ class T20Prediction extends StatelessWidget {
               /// view channel
               InkWell(
                 onTap: () {
-                  launch(AppString.youTubeUrl);
+                  launch("https://www.youtube.com");
                 },
                 child: AppContainer(
                   height: 3.3.h,
@@ -189,7 +185,8 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.5.h,
-                                title: "${predictionData["prediction"]}",
+                                title:
+                                    "${predictionData[AppString.predictionData]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               SizedBox(height: 1.5.h),
@@ -204,7 +201,8 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.h,
-                                title: "${predictionData["averageScore"]}",
+                                title:
+                                    "${predictionData[AppString.averageScoreData]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               SizedBox(height: 1.5.h),
@@ -233,7 +231,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 5.h,
-                                title: "${predictionData["win"]}",
+                                title: "${predictionData[AppString.winText]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomeText(
@@ -247,7 +245,7 @@ class T20Prediction extends StatelessWidget {
                             children: [
                               CustomeText(
                                 fontSize: 3.5.h,
-                                title: "${predictionData["subscribers"]}",
+                                title: "${predictionData[AppString.subs]}",
                                 fontWeight: FontWeight.w500,
                               ),
                               CustomeText(
@@ -304,7 +302,9 @@ class T20Prediction extends StatelessWidget {
                               vertical: 1.h, horizontal: 2.w),
                           headertext: current?.matchName ?? "",
                           ontap: () {
+                            // ignore: unrelated_type_equality_checks
                             if (_predictionController.selected.value == false) {
+                              // ignore: unrelated_type_equality_checks
                               _predictionController.selected.value == true;
                             } else {
                               _predictionController.selected.value == false;
@@ -328,7 +328,7 @@ class T20Prediction extends StatelessWidget {
                           t2wk: "${current?.t2Wk}",
                           t2over: "${current?.t2Over}",
                           predictionText: "${current?.totalprediction ?? ""}",
-                          prediction: "Prediction",
+                          prediction: AppString.predictionData,
                           lastText: "Prince",
                           // _predictionController.timeAgo(
                           //   current?.startTime ?? 0,

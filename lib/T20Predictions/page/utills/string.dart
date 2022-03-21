@@ -1,4 +1,16 @@
 class AppString {
+  /// home screen API Link
+  static const String newsDataModel =
+      "https://api.freefantasy.in/tips/getNewsList?offset=0&limit=20";
+
+  /// prediction screen API Link
+  static const String predictionsApiService =
+      "https://api.freefantasy.in/tips/getMatches";
+
+  /// expert screen API Link
+  static const String matchApiService =
+      "https://api.freefantasy.in/tips/tipsters";
+
   /// bottom nevigation bar
   static const String home = "Home";
   static const String match = "Matches";
@@ -26,6 +38,12 @@ class AppString {
   static const String averageScore = "Average Score";
   static const String wins = "Wins";
   static const String news = "News";
+  static const String scoWik = "110/7";
+  static const String andSing = "&";
+  static const String time = "Match Starts in 5:45s";
+  static const String predic = "72";
+  static const String winsNum = "13";
+  static const String justNow = "just now";
 
   ///
   static const String predictionExpert = "Prediction Expert";
@@ -89,7 +107,8 @@ class AppString {
 
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
-  static const String average_score = "Average-Score";
+  static const String averagScore = "Average-Score";
+  static const String circular = "circular";
 
   /// T20 Prediction
   static const String t20 = "T20 Predictions";
@@ -106,11 +125,14 @@ class AppString {
   static const String subscribersNum = "50.8K";
   static const String subscribers = "Subscribers";
   static const String team = "3 Teams";
+  static const String predictionData = "prediction";
+  static const String averageScoreData = "averageScore";
+  static const String winText = "win";
+  static const String subs = "subscribers";
 
   /// header Row
   static const String googleSign = "Sing In With Google";
   static const String fbLogin = "Sing In With Facebook";
-  static const String youTubeUrl = "https://www.youtube.com";
 
   static const String experts = 'Favourite Experts';
   static const String more = 'More';
@@ -131,10 +153,31 @@ class AppString {
   static const String enterDescription = 'Enter Description';
   static const String contactBranding = 'Contact us for branding';
 
-  /// IPL String
+  /// IPL screen
   static const String currentMatches = 'Current Matches';
   static const String squads = 'Squads';
   static const String pointTable = 'Point Table';
+  static const String teamLogo = "teamLogo";
+  static const String team1 = "team";
+  static const String workSan = "WorkSan";
+  static const String rr = "RR vc RCB IPL,2021";
+  static const String csk = "CSK";
+  static const String score1 = "168/4";
+  static const String over1 = "(20)";
+  static const String mi = "MI";
+  static const String score2 = "130/5";
+  static const String over2 = "(18.3)";
+  static const String totalPrediction = "72";
+  static const String sunday = "sunday,";
+  static const String may = " 16 May";
+  static const String titleMatches = "RCB vc DC IPL,2021";
+  static const String rcb = "RCB";
+  static const String dc = "DC";
+  static const String timer = "'06:00 PM'";
+  static const String dayAgo = "Match Start in 2 Days";
+  static const String titleMatche = "PNJ vc KKR IPL,2021";
+  static const String pnj = "PNJ";
+  static const String kkr = "KKR";
 
   static const String m = 'M';
   static const String w = 'W';
@@ -145,6 +188,8 @@ class AppString {
   /// upComing match tabBar
   static const String wi = "WI";
   static const String eng = "ENG";
+
+  // ignore: constant_identifier_names
 
   /// fantacy screen
   static const String search = "Search";
@@ -159,4 +204,12 @@ class AppString {
   static const String indScore = "135-7 & 135-7";
   static const String zim = "ZIM";
   static const String zimScore = "120-5 & 120-5";
+
+  /// news detailed screen
+  static const String text = "title";
+  static const String subtitle = "subtitle";
+  static const String timeText = "time";
+
+  /// more screen
+  static const String moreScreen = "More Screen";
 }

@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../T20Predictions/page/utills/color.dart';
+import '../../utills/string.dart';
 
 class Search extends StatefulWidget {
   Search({Key? key}) : super(key: key);

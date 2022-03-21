@@ -7,6 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
+import '../../commanWidget/commanText.dart';
+import '../../widget/custom_container.dart';
+import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
@@ -34,9 +37,9 @@ class ExpertScreen extends StatelessWidget {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              "Are you sure want to exit?",
+              AppString.exit,
               style: TextStyle(
-                fontFamily: "Circular",
+                fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -46,9 +49,9 @@ class ExpertScreen extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  "No",
+                  AppString.no,
                   style: TextStyle(
-                    fontFamily: "Circular",
+                    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -58,9 +61,9 @@ class ExpertScreen extends StatelessWidget {
                   exit(0);
                 },
                 child: Text(
-                  "Yes",
+                  AppString.yes,
                   style: TextStyle(
-                    fontFamily: "Circular",
+                    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -352,28 +355,53 @@ class ExpertScreen extends StatelessWidget {
                             var postData =
                                 iplController.expert.value.tipsters![index];
                             return Obx(
-                              () => PredictionContainer(
-                                predictionCount: "${postData.totalPredictions}",
-                                onPressed: () {
-                                  if (postData.wishlist.value == false) {
-                                    postData.wishlist.value = true;
-                                  } else {
-                                    postData.wishlist.value = false;
-                                  }
+                              () => InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    T20Prediction.routeName,
+                                    arguments: {
+                                      "img": postData.profileUrl ??
+                                          "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                      "text":
+                                          "${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...",
+                                      "prediction":
+                                          "${postData.totalPredictions}",
+                                      "avgScore": "${postData.avgScore}",
+                                      "win": "${postData.top3}",
+                                      "subscribers":
+                                          "${postData.subscriberCount?.substring(0, 4)}",
+                                    },
+                                  );
                                 },
-                                icon: postData.wishlist.value == false
-                                    ? const Icon(Icons.favorite_border,
-                                        color: AppColor.green)
-                                    : const Icon(Icons.favorite,
-                                        color: AppColor.green),
-                                winsCount: "${postData.top3}",
-                                youtubeText: "${postData.subscriberCount}",
-                                averageCount: "${postData.avgScore}",
-                                headerText:
-                                    '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                backgroundImage: NetworkImage(postData
-                                        .profileUrl ??
-                                    "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
+                                child: PredictionContainer(
+                                  predictionCount:
+                                      "${postData.totalPredictions}",
+                                  onPressed: () {
+                                    if (postData.wishlist.value == false) {
+                                      postData.wishlist.value = true;
+                                    } else {
+                                      postData.wishlist.value = false;
+                                    }
+                                  },
+                                  icon: postData.wishlist.value == false
+                                      ? const Icon(
+                                          Icons.favorite_border,
+                                          color: AppColor.green,
+                                        )
+                                      : const Icon(
+                                          Icons.favorite,
+                                          color: AppColor.green,
+                                        ),
+                                  winsCount: "${postData.top3}",
+                                  youtubeText: "${postData.subscriberCount}",
+                                  averageCount: "${postData.avgScore}",
+                                  headerText:
+                                      '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                  backgroundImage: NetworkImage(
+                                    postData.profileUrl ??
+                                        "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                  ),
+                                ),
                               ),
                             );
                           },

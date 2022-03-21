@@ -1,5 +1,6 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
+
+import '../utills/string.dart';
 
 class PageScroll {
   List<Map> categori = [

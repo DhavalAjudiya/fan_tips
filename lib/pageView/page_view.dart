@@ -1,5 +1,4 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -7,6 +6,7 @@ import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
 import '../bottomBar/bottomNaviBar.dart';
 import '../commanWidget/commanText.dart';
+import '../utills/string.dart';
 import '../widget/custom_container.dart';
 import 'list.dart';
 

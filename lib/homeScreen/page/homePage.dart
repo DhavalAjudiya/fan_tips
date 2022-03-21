@@ -1,16 +1,14 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:fantips/homeScreen/page/newsScreen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../T20Predictions/page/utills/string.dart';
+import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../../widget/google_sign_in_repo.dart';
 import '../../widget/profile_screen.dart';
@@ -36,7 +34,11 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
+                padding: EdgeInsets.only(
+                  left: 15.sp,
+                  right: 10.sp,
+                  top: 8.sp,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -53,8 +55,12 @@ class HomeScreen extends StatelessWidget {
                             backgroundColor: Colors.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(6.w),
-                                topLeft: Radius.circular(6.w),
+                                topRight: Radius.circular(
+                                  6.w,
+                                ),
+                                topLeft: Radius.circular(
+                                  6.w,
+                                ),
                               ),
                             ),
                             context: context,
@@ -77,9 +83,14 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Image.asset(AppImage.logo, height: 40.w),
+                                Image.asset(
+                                  AppImage.logo,
+                                  height: 40.w,
+                                ),
                                 Padding(
-                                  padding: EdgeInsets.all(5.w),
+                                  padding: EdgeInsets.all(
+                                    5.w,
+                                  ),
                                   child: Row(
                                     children: [
                                       Container(
@@ -91,7 +102,8 @@ class HomeScreen extends StatelessWidget {
                                         width: 2.w,
                                       ),
                                       const CustomeText(
-                                          title: AppString.letsconnect),
+                                        title: AppString.letsconnect,
+                                      ),
                                       SizedBox(
                                         width: 2.w,
                                       ),
@@ -110,18 +122,27 @@ class HomeScreen extends StatelessWidget {
                                   height: 6.h,
                                   width: 60.w,
                                   color: AppColor.containerBackground,
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(
+                                    10,
+                                  ),
                                   onTap: () {
-                                    signInWithGoogle().then((data) {
-                                      ipController.isLoggedIn.value = true;
-                                      ipController.userObj = data;
-                                    }).catchError((e) {});
+                                    signInWithGoogle().then(
+                                      (data) {
+                                        ipController.isLoggedIn.value = true;
+                                        ipController.userObj = data;
+                                      },
+                                    ).catchError(
+                                      (e) {},
+                                    );
                                   },
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Image.asset(AppImage.google, height: 8.w),
+                                      Image.asset(
+                                        AppImage.google,
+                                        height: 8.w,
+                                      ),
                                       const CustomeText(
                                         title: AppString.googleSign,
                                       ),
@@ -135,13 +156,18 @@ class HomeScreen extends StatelessWidget {
                                   height: 6.h,
                                   width: 60.w,
                                   color: AppColor.containerBackground,
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(
+                                    10,
+                                  ),
                                   onTap: () {},
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Image.asset(AppImage.fb, height: 8.w),
+                                      Image.asset(
+                                        AppImage.fb,
+                                        height: 8.w,
+                                      ),
                                       const CustomeText(
                                         title: AppString.fbLogin,
                                       ),
@@ -161,23 +187,20 @@ class HomeScreen extends StatelessWidget {
                               )
                             : GestureDetector(
                                 onTap: () {
-                                  Get.to(ProfileScreen());
+                                  Get.to(
+                                    ProfileScreen(),
+                                  );
                                 },
                                 child: CircleAvatar(
                                   backgroundColor: AppColor.transparent,
                                   radius: 12,
                                   backgroundImage: NetworkImage(
-                                      "${ipController.userObj?.user?.photoURL}"),
+                                    "${ipController.userObj?.user?.photoURL}",
+                                  ),
                                 ),
                               ),
                       ),
                     ),
-                    // CustomeText(
-                    //   title: AppString.logIn,
-                    //   color: AppColor.greenColor,
-                    //   fontWeight: FontWeight.w700,
-                    //   fontSize: 12.sp,
-                    // )
                   ],
                 ),
               ),
@@ -185,7 +208,9 @@ class HomeScreen extends StatelessWidget {
                 height: 2.h,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 15.sp),
+                padding: EdgeInsets.only(
+                  left: 15.sp,
+                ),
                 child: CustomeText(
                   title: AppString.matchesForYou,
                   color: AppColor.whiteColor,
@@ -201,7 +226,9 @@ class HomeScreen extends StatelessWidget {
                 height: 1.h,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 15.sp),
+                padding: EdgeInsets.only(
+                  left: 15.sp,
+                ),
                 child: CustomeText(
                   title: AppString.featuredExperts,
                   color: AppColor.whiteColor,
@@ -217,7 +244,9 @@ class HomeScreen extends StatelessWidget {
                 height: 1.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.sp),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15.sp,
+                ),
                 child: Row(
                   children: [
                     CustomeText(
@@ -228,7 +257,9 @@ class HomeScreen extends StatelessWidget {
                     const Spacer(),
                     InkWell(
                       onTap: () {
-                        Get.toNamed(NewsScreen.routeName);
+                        Get.toNamed(
+                          NewsScreen.routeName,
+                        );
                       },
                       child: Row(
                         children: [
@@ -250,33 +281,38 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
                   itemCount: 4,
+                  shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Obx(
                       () => Padding(
                         padding: EdgeInsets.only(
-                            left: 10.sp, right: 10.sp, top: 8.sp),
+                          left: 10.sp,
+                          right: 10.sp,
+                          top: 8.sp,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             AppContainer(
                               onTap: () {
-                                Get.toNamed(NewsDetailedScreen.routeName,
-                                    arguments: {
-                                      "image": homeController
-                                          .newsModel.value.news?[index].image,
-                                      "title": homeController
-                                          .newsModel.value.news?[index].title,
-                                      "subtitle": homeController.newsModel.value
-                                          .news?[index].smallDesc,
-                                      "time": homeController.timeAgo(
-                                          homeController.data(homeController
-                                              .newsModel
-                                              .value
-                                              .news?[index]
-                                              .time)),
-                                    });
+                                Get.toNamed(
+                                  NewsDetailedScreen.routeName,
+                                  arguments: {
+                                    "image": homeController
+                                        .newsModel.value.news?[index].image,
+                                    "title": homeController
+                                        .newsModel.value.news?[index].title,
+                                    "subtitle": homeController
+                                        .newsModel.value.news?[index].smallDesc,
+                                    "time": homeController.timeAgo(
+                                      homeController.data(
+                                        homeController
+                                            .newsModel.value.news?[index].time,
+                                      ),
+                                    ),
+                                  },
+                                );
                               },
                               height: 20.h,
                               borderRadius: BorderRadius.circular(10.sp),
@@ -311,17 +347,24 @@ class HomeScreen extends StatelessWidget {
                               title:
                                   "${(homeController.newsModel.value.news?[index].newsSource ?? 0)}",
                               fontSize: 8.sp,
-                              color: AppColor.whiteColor.withOpacity(0.5),
+                              color: AppColor.whiteColor.withOpacity(
+                                0.5,
+                              ),
                             ),
                             SizedBox(
                               height: 0.5.h,
                             ),
                             CustomeText(
-                              title: homeController.timeAgo(homeController.data(
+                              title: homeController.timeAgo(
+                                homeController.data(
                                   homeController
-                                      .newsModel.value.news?[index].time)),
+                                      .newsModel.value.news?[index].time,
+                                ),
+                              ),
                               fontSize: 8.sp,
-                              color: AppColor.whiteColor.withOpacity(0.5),
+                              color: AppColor.whiteColor.withOpacity(
+                                0.5,
+                              ),
                             ),
                           ],
                         ),

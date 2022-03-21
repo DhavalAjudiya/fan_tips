@@ -4,14 +4,27 @@ final List<Map<String, dynamic>> IplTems = [
     'teamLogo': 'assets/ipl_dc.png',
     'team': 'Delhi Capitalls',
     'batsman': [
-      " David Warner",
-      "Prithvi Shaw",
-      " Ashwin Hebbar",
-      "Sarfaraz Khan",
-      "Mandeep Singh",
-      "Yash Dhull",
-      "Vicky Ostwal",
-      "Ripal Patel",
+      {
+        'name': " David Warner",
+      },
+      {
+        'name': "Prithvi Shaw",
+      },
+      {
+        'name': " Ashwin Hebbar",
+      },
+      {
+        'name': "Mandeep Singh",
+      },
+      {
+        'name': "Yash Dhull",
+      },
+      {
+        'name': "Vicky Ostwal",
+      },
+      {
+        'name': "Ripal Patel",
+      },
     ],
     'wicketkeeper-batter': [
       "Rishabh Pant",
@@ -280,34 +293,8 @@ final List<Map<String, dynamic>> IplTems = [
       "Vishnu Vinod",
     ]
   },
-  {
-    'teamLogo': 'assets/ic_gt.png',
-    'team': 'Gujarat Titan',
-    'batsman': [],
-    'wicketkeeper-batter': [
-
-    ],
-    'all-rounder': [
-
-    ],
-    'Bowler': [
-
-    ]
-  },
-  {
-    'teamLogo': 'assets/ic_lsg.png',
-    'team': 'Lucknow super giants',
-    'batsman': [],
-    'wicketkeeper-batter': [
-
-    ],
-    'all-rounder': [
-
-    ],
-    'Bowler': [
-
-    ]
-  },
+  {'teamLogo': 'assets/ic_gt.png', 'team': 'Gujarat Titan', 'batsman': [], 'wicketkeeper-batter': [], 'all-rounder': [], 'Bowler': []},
+  {'teamLogo': 'assets/ic_lsg.png', 'team': 'Lucknow super giants', 'batsman': [], 'wicketkeeper-batter': [], 'all-rounder': [], 'Bowler': []},
 ];
 
 final List<Map<String, dynamic>> pointTable = [
