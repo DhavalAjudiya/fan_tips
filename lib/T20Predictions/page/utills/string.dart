@@ -29,7 +29,7 @@ class AppString {
 
   ///
   static const String predictionExpert = "Prediction Expert";
-  static const String sortByAvgScore = "Sort by : Avg Score";
+  static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
 
   /// upcoming page text
@@ -151,7 +151,7 @@ class AppString {
   static const String export = "Export";
   static const String num = "460";
   static const String score = "481";
-  static const String avregescor = "Average Score";
+  static const String avgScore = "Average Score";
   static const String win = "52";
   static const String noMatch = "No Experts Founds..";
   static const String createTeam = "CREATE TEAMS";

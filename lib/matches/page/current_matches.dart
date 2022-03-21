@@ -4,6 +4,7 @@ import 'package:fantips/matches/widget/upcoming.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../widget/header_row.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
@@ -24,9 +25,12 @@ class MatchesScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // HeaderRow(
-              //   title: AppString.title,
-              // ),
+              SizedBox(
+                height: 3.h,
+                child: HeaderRow(
+                  title: AppString.title,
+                ),
+              ),
               SizedBox(height: 2.h),
               TabBar(
                 unselectedLabelColor: Colors.white,

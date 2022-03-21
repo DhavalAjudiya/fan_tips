@@ -220,7 +220,7 @@ class FantasyTab extends StatelessWidget {
                                                   fontSize: 2.5.h,
                                                 ),
                                                 CustomeText(
-                                                  title: AppString.avregescor,
+                                                  title: AppString.avgScore,
                                                   color: AppColor.greya,
                                                   fontSize: 1.3.h,
                                                 ),

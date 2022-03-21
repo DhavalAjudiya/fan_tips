@@ -35,8 +35,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
             ],
           ),
           Positioned(
-            bottom: 150,
-            left: 200,
+            bottom: 100,
+            left: 160,
             child: _buildStepIndicator(),
           ),
         ],
@@ -130,7 +130,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
         /// navigator page
         onTap: () {
           _pageController.nextPage(
-              duration: Duration(milliseconds: 600),
+              duration: const Duration(milliseconds: 600),
               curve: Curves.easeIn);
 
           if (_currentPageNotifier.value == 2) {

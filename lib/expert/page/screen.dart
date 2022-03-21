@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/expert/page/search_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
-import '../../commanWidget/commanText.dart';
-import '../../widget/custom_container.dart';
-import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../utills/string.dart';
+import '../../commanWidget/commanText.dart';
 import '../../widget/header_row.dart';
 import 'prediction_container.dart';
 import '../data/controller.dart';
@@ -113,7 +111,7 @@ class ExpertScreen extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return Container(
-                          height: 28.h,
+                          height: 25.h,
                           decoration: BoxDecoration(
                             color: AppColor.containerBackgroundColor,
                             borderRadius: BorderRadius.only(
@@ -121,131 +119,130 @@ class ExpertScreen extends StatelessWidget {
                               topRight: Radius.circular(12.sp),
                             ),
                           ),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: 10.sp, right: 10.sp, top: 10.sp),
+                            child: Obx(
+                              () => Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                        AppImage.line,
+                                        color: AppColor.whiteColor,
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      CustomeText(
+                                        title: AppString.sortBy,
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      if (iplController.isBottomSelect = true) {
+                                        iplController.index.value = 0;
+                                      } else {
+                                        iplController.isBottomSelect = false;
+                                      }
+                                    },
+                                    child: Row(
                                       children: [
-                                        Container(
-                                          height: 0.2.h,
-                                          width: 6.w,
-                                          decoration: BoxDecoration(
-                                            color: AppColor.white,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
+                                        CustomeText(
+                                          title: AppString.prediction,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 13.sp,
                                         ),
-                                        SizedBox(
-                                          height: 0.3.h,
-                                        ),
-                                        Container(
-                                          height: 0.2.h,
-                                          width: 4.5.w,
-                                          decoration: BoxDecoration(
-                                            color: AppColor.white,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 0.3.h,
-                                        ),
-                                        Container(
-                                          height: 0.2.h,
-                                          width: 2.5.w,
-                                          decoration: BoxDecoration(
-                                            color: AppColor.white,
-                                            borderRadius:
-                                                BorderRadius.circular(15.sp),
-                                          ),
-                                        ),
+                                        const Spacer(),
+                                        iplController.index.value == 0
+                                            ? const CircleAvatar(
+                                                radius: 8,
+                                                backgroundColor: AppColor.white,
+                                                child:
+                                                    Icon(Icons.done, size: 12),
+                                              )
+                                            : const CustomeText(
+                                                title: "",
+                                              )
                                       ],
                                     ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text(
-                                      AppString.sortBy,
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontFamily: 'circular',
-                                        color: AppColor.white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: SizedBox(
-                                  height: 80.h,
-                                  child: ListView.separated(
-                                    separatorBuilder: (context, index) =>
-                                        const Divider(
-                                      height: 0,
-                                      color: AppColor.verticalDivider,
-                                    ),
-                                    itemCount: iplController.sort.value.length,
-                                    itemBuilder: (context, index) {
-                                      var data = iplController.sort[index];
-                                      return Obx(
-                                        () => ListTile(
-                                          title: Text(
-                                            data,
-                                            style: TextStyle(
-                                              fontSize: 12.sp,
-                                              fontFamily: 'circular',
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          trailing: ((iplController
-                                                      .index.value ==
-                                                  0)
-                                              ? iplController
-                                                          .selectedBottomSheetText
-                                                          .value ==
-                                                      iplController.sort[index]
-                                                          .toString()
-                                                  ? const CircleAvatar(
-                                                      radius: 8,
-                                                      backgroundColor:
-                                                          AppColor.white,
-                                                      child: Icon(Icons.done,
-                                                          size: 12),
-                                                    )
-                                                  : const Text("")
-                                              : const Text("")),
-                                          onTap: () {
-                                            if (iplController.index.value ==
-                                                0) {
-                                              iplController
-                                                      .selectedBottomSheetText
-                                                      .value =
-                                                  iplController.sort[index]
-                                                      .toString();
-                                            }
-                                            if (kDebugMode) {
-                                              print(iplController.sort[index]
-                                                  .toString());
-                                            }
-                                            Get.back();
-                                          },
-                                        ),
-                                      );
-                                    },
                                   ),
-                                ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      if (iplController.isBottomSelect = true) {
+                                        iplController.index.value = 1;
+                                      } else {
+                                        iplController.isBottomSelect = false;
+                                      }
+                                    },
+                                    child: Row(
+                                      children: [
+                                        CustomeText(
+                                          title: AppString.avgScore,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 13.sp,
+                                        ),
+                                        const Spacer(),
+                                        iplController.index.value == 1
+                                            ? const CircleAvatar(
+                                                radius: 8,
+                                                backgroundColor: AppColor.white,
+                                                child:
+                                                    Icon(Icons.done, size: 12),
+                                              )
+                                            : const CustomeText(
+                                                title: "",
+                                              )
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      if (iplController.isBottomSelect = true) {
+                                        iplController.index.value = 2;
+                                      } else {
+                                        iplController.isBottomSelect = false;
+                                      }
+                                    },
+                                    child: Row(
+                                      children: [
+                                        CustomeText(
+                                          title: AppString.wins,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 13.sp,
+                                        ),
+                                        const Spacer(),
+                                        iplController.index.value == 2
+                                            ? const CircleAvatar(
+                                                radius: 8,
+                                                backgroundColor: AppColor.white,
+                                                child:
+                                                    Icon(Icons.done, size: 12),
+                                              )
+                                            : const CustomeText(
+                                                title: "",
+                                              )
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         );
                       },
@@ -307,23 +304,26 @@ class ExpertScreen extends StatelessWidget {
                             Text(
                               AppString.sortByAvgScore,
                               style: TextStyle(
-                                fontSize: 13.5.sp,
+                                fontSize: 13.sp,
                                 fontFamily: 'circular',
                                 color: AppColor.green,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             Obx(
-                              () => Text(
-                                iplController.selectedBottomSheetText.value,
-                                style: TextStyle(
-                                  fontSize: 13.5.sp,
-                                  fontFamily: 'circular',
-                                  color: AppColor.green,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              () => CustomeText(
+                                title: iplController.index.value == 0
+                                    ? AppString.prediction
+                                    : iplController.index.value == 1
+                                        ? AppString.avgScore
+                                        : iplController.index.value == 2
+                                            ? AppString.wins
+                                            : "",
+                                color: AppColor.greenColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 13.sp,
                               ),
-                            ),
+                            )
                           ],
                         ),
                         const Icon(

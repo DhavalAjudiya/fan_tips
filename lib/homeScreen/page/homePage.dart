@@ -283,7 +283,7 @@ class HomeScreen extends StatelessWidget {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: NetworkImage(
-                                    "${homeController.newsModel.value.news?[index].image}"),
+                                    "${(homeController.newsModel.value.news?[index].image ?? 0)}"),
                               ),
                             ),
                             SizedBox(
@@ -291,7 +291,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             CustomeText(
                               title:
-                                  "${homeController.newsModel.value.news?[index].title}",
+                                  "${(homeController.newsModel.value.news?[index].title ?? 0)}",
                               fontSize: 13.sp,
                               fontWeight: FontWeight.w500,
                             ),
@@ -300,7 +300,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             CustomeText(
                               title:
-                                  "${homeController.newsModel.value.news?[index].smallDesc}",
+                                  "${(homeController.newsModel.value.news?[index].smallDesc ?? 0)}",
                               fontSize: 10.sp,
                               color: AppColor.whiteColor.withOpacity(0.5),
                             ),
@@ -309,7 +309,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             CustomeText(
                               title:
-                                  "${homeController.newsModel.value.news?[index].newsSource}",
+                                  "${(homeController.newsModel.value.news?[index].newsSource ?? 0)}",
                               fontSize: 8.sp,
                               color: AppColor.whiteColor.withOpacity(0.5),
                             ),

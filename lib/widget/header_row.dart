@@ -11,15 +11,16 @@ import '../expert/data/controller.dart';
 import 'custom_container.dart';
 
 class HeaderRow extends StatelessWidget {
-  IpController ipController = Get.find();
+  final IpController ipController = Get.find();
   final String title;
-  GestureTapCallback? onTap;
+  final GestureTapCallback? onTap;
   final Widget? child;
   HeaderRow({
+    Key? key,
     this.title = "",
     this.onTap,
     this.child,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
