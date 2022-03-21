@@ -21,26 +21,28 @@ class AppString {
   static const String ipl = "IPL";
   static const String expert = "Expert";
   static const String mores = "More";
+  static const String commentary = "Commentary";
+  static const String scoreCard = "ScoreCard";
   static const String homeImage =
       "https://freeiconshop.com/wp-content/uploads/edd/home-outline.png";
   static const String matchImage =
       "https://i0.wp.com/villagecricket.co/wp-content/uploads/2020/06/cultures.png?fit=512%2C512&ssl=1";
   static const String iplImage =
-      "https://i0.wp.com/villagecricket.co/wp-content/uploads/2020/06/cultures.png?fit=512%2C512&ssl=1";
+      "https://images.vexels.com/media/users/3/240082/isolated/preview/e0ee48f50db6955ac53ec126be31ee06-cricket-player-playing-with-bat-cut-out.png";
 
   /// home screen text
-  static const fanTips = "FanTips";
-  static const logIn = "Login";
-  static const matchesForYou = "Matches for you";
-  static const zimbabevsAfghhanistan = "Zimbabe vs Afghhanistan";
-  static const featuredExperts = "Featured Experts";
-  static const topStories = "Top Stories";
-  static const viewAll = "View All";
-  static const t20Predictions = "T20 Predictions";
-  static const predictions = "Predictions";
-  static const subscriber = "50.9K subscribers";
-  static const averageScore = "Average Score";
-  static const wins = "Wins";
+  static const String fanTips = "FanTips";
+  static const String logIn = "Login";
+  static const String matchesForYou = "Matches for you";
+  static const String zimbabevsAfghhanistan = "Zimbabe vs Afghhanistan";
+  static const String featuredExperts = "Featured Experts";
+  static const String topStories = "Top Stories";
+  static const String viewAll = "View All";
+  static const String t20Predictions = "T20 Predictions";
+  static const String predictions = "Predictions";
+  static const String subscriber = "50.9K subscribers";
+  static const String averageScore = "Average Score";
+  static const String wins = "Wins";
   static const String zimbabweVsAfghanistan = "Zimbabwe vs Afghanistan";
   static const String news = "News";
   static const String scoWik = "110/7";
@@ -91,14 +93,14 @@ class AppString {
   static const String allRounders = "ALL-ROUNDERS";
 
   /// current matchs
-  static const title = "Current Matches";
-  static const upcoming = "UpComing";
-  static const live = "Live";
-  static const completed = "Completed";
-  static const tomorrow = "Tomorrow, 15 May";
-  static const yesterday = "yesterday, 13 May";
-  static const letsconnect = "LET'S CONNECT";
-  static const imageNotFound =
+  static const String title = "Current Matches";
+  static const String upcoming = "UpComing";
+  static const String live = "Live";
+  static const String completed = "Completed";
+  static const String tomorrow = "Tomorrow, 15 May";
+  static const String yesterday = "yesterday, 13 May";
+  static const String letsconnect = "LET'S CONNECT";
+  static const String imageNotFound =
       "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 
   /// splash screen
@@ -233,4 +235,7 @@ class AppString {
 
   /// more screen
   static const String moreScreen = "More Screen";
+
+  /// search screen
+  static const String notFount = "Not Fount";
 }

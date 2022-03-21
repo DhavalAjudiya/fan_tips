@@ -41,9 +41,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              AppString.exit,
+              AppString.next,
               style: TextStyle(
-                fontFamily: AppString.circle,
+             //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -53,9 +53,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  AppString.no,
+                  AppString.wk,
                   style: TextStyle(
-                    fontFamily: AppString.circle,
+               //    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -65,9 +65,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                   exit(0);
                 },
                 child: Text(
-                  AppString.yes,
+                  AppString.news,
                   style: TextStyle(
-                    fontFamily: AppString.circle,
+              //      fontFamily: AppStringcircle,
                     fontSize: 15.sp,
                   ),
                 ),

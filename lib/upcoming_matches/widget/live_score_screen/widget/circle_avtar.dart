@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../T20Predictions/page/utills/color.dart';
-
 class CircleLogo extends StatelessWidget {
 
   final String? image;

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../../T20Predictions/page/utills/asset.dart';
 import '../../../../T20Predictions/page/utills/color.dart';
 import 'circle_avtar.dart';
 

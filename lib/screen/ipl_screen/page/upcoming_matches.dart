@@ -1,13 +1,13 @@
+import 'dart:developer';
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/screen/ipl_screen/page/search_screen.dart';
+import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/search_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
 import '../../../utills/string.dart';
-import '../widget/fantasyTabBar/fantasy_tabBar.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 
@@ -48,8 +48,9 @@ class UpcomingIplPage extends StatelessWidget {
             const Spacer(),
             IconButton(
               onPressed: () {
-                Get.put(
-                  SearchPage(),
+                log("on tap");
+                Get.toNamed(
+                  SearchScreen.routeName,
                 );
               },
               icon: Icon(
@@ -81,7 +82,7 @@ class UpcomingIplPage extends StatelessWidget {
       body: TabBarView(
         controller: iplController.tabController1,
         children: [
-          // FantasyTab(),
+          FantasyTabBar(),
           Container(
             color: Colors.red,
           ),

@@ -1,24 +1,15 @@
 import 'dart:developer';
-
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/data/controller.dart';
 import 'package:fantips/expert/page/prediction_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../T20Predictions/page/utills/color.dart';
-import '../../utills/string.dart';
 
-class Search extends StatefulWidget {
-  Search({Key? key}) : super(key: key);
-
-  @override
-  State<Search> createState() => _SearchState();
-}
-
-class _SearchState extends State<Search> {
+class Search extends StatelessWidget {
   IpController iplController = Get.find();
+  Search({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

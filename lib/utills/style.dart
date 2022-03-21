@@ -11,7 +11,8 @@ class Appstyle {
     fontWeight: FontWeight.bold,
     fontFamily: 'WorkSan',
   );
-  static TextStyle subIplStyle = const TextStyle(
+  static TextStyle subIplStyle = TextStyle(
+    fontSize: 11.5.sp,
     color: Colors.white,
     fontFamily: 'WorkSan',
     fontWeight: FontWeight.w500,

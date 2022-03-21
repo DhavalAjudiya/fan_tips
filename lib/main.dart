@@ -98,6 +98,21 @@ class MyApp extends StatelessWidget {
               transition: Transition.rightToLeft,
             ),
             GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: ExpertScreen.routeName,
+              page: () => ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: T20Prediction.routeName,
+              page: () => T20Prediction(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
               name: ExpertScreen.routeName,
               page: () => ExpertScreen(),
               transition: Transition.rightToLeft,
