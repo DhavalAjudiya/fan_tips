@@ -24,14 +24,11 @@ class PredictionsApiService {
       log("bbbb");
       if (response.statusCode == 200) {
         log("cccc");
-        print("response=====>>>>>>>$data");
         return PredictionModal.fromJson(jsonDecode(data));
       } else {
         return null;
       }
-    } catch (e) {
-      print("service==>>>$e");
-    }
+    } catch (e) {}
     return null;
   }
 }

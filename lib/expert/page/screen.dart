@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
+import '../../T20Predictions/page/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
@@ -378,18 +379,23 @@ class ExpertScreen extends StatelessWidget {
                                     }
                                   },
                                   icon: postData.wishlist.value == false
-                                      ? const Icon(Icons.favorite_border,
-                                          color: AppColor.green)
-                                      : const Icon(Icons.favorite,
-                                          color: AppColor.green),
+                                      ? const Icon(
+                                          Icons.favorite_border,
+                                          color: AppColor.green,
+                                        )
+                                      : const Icon(
+                                          Icons.favorite,
+                                          color: AppColor.green,
+                                        ),
                                   winsCount: "${postData.top3}",
                                   youtubeText: "${postData.subscriberCount}",
                                   averageCount: "${postData.avgScore}",
                                   headerText:
                                       '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                  backgroundImage: NetworkImage(postData
-                                          .profileUrl ??
-                                      "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
+                                  backgroundImage: NetworkImage(
+                                    postData.profileUrl ??
+                                        "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                  ),
                                 ),
                               ),
                             );
