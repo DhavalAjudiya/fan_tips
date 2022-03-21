@@ -103,7 +103,6 @@ class T20Prediction extends StatelessWidget {
         children: [
           InfoPage(),
           MatchesPage(),
-
           Column(
             children: [
               /// Shear Button
@@ -160,7 +159,7 @@ class T20Prediction extends StatelessWidget {
               /// view channel
               InkWell(
                 onTap: () {
-           //       launch(AppString.youTubeUrl);
+                  //       launch(AppString.youTubeUrl);
                 },
                 child: AppContainer(
                   height: 3.3.h,
@@ -326,7 +325,7 @@ class T20Prediction extends StatelessWidget {
                     lastText: current?.infoMsg ?? "",
                     // _predictionController.timeAgo(current?.startTime ?? 0),
                     person: Icons.supervisor_account, size: 2.5.h,
-             //       teams: AppString.team,
+                    //       teams: AppString.team,
                   );
                 },
               ),

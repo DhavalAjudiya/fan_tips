@@ -544,7 +544,7 @@ class LiveFantasyTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.sp),
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(1,3),
+                  offset: Offset(1, 3),
                   blurRadius: 2.sp,
                   color: AppColor.grey.withOpacity(0.4),
                 )

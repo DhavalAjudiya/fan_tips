@@ -31,14 +31,15 @@ class Completed extends StatelessWidget {
                     },
                     child: Column(
                       children: [
-                        // Text(
-                        //   _homecontroller.timeAgo(current?.startTime ?? 0),
-                        //   style: const TextStyle(
-                        //     color: Colors.white54,
-                        //     fontSize: 16,
-                        //     fontWeight: FontWeight.w500,
-                        //   ),
-                        // ),
+                        Text(
+                          _homecontroller.timeAgo(
+                              _homecontroller.time(current?.startTime ?? 0)),
+                          style: const TextStyle(
+                            color: Colors.white54,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                         CustomLCContainer(
                           margin: EdgeInsets.symmetric(
                               vertical: 1.h, horizontal: 2.w),

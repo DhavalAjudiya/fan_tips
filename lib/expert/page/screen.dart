@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/expert/page/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
+import '../../utills/string.dart';
 import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
