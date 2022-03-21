@@ -1,6 +1,5 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/ipl_screen/data/data_ipl.dart';
 import 'package:fantips/ipl_screen/widget/custom_scoretile.dart';
@@ -9,6 +8,8 @@ import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../utills/string.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class IplScreen extends StatelessWidget {
       backgroundColor: AppColor.backGround,
       appBar: AppBar(
         backgroundColor: AppColor.backGround,
-        title: Text(AppString.currentMatches),
+        title: const Text(AppString.currentMatches),
         centerTitle: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(35),
@@ -68,14 +69,14 @@ class IplScreen extends StatelessWidget {
                         width: 40,
                         decoration: const BoxDecoration(shape: BoxShape.circle),
                         child: Image.asset(
-                          IplTems[index]['teamLogo'],
+                          IplTems[index][AppString.teamLogo],
                         ),
                       ),
                       title: Text(
-                        IplTems[index]['team'],
+                        IplTems[index][AppString.team1],
                         style: TextStyle(
                           color: Colors.white,
-                          fontFamily: 'WorkSan',
+                          fontFamily: AppString.workSan,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w600,
                         ),
@@ -96,8 +97,7 @@ class IplScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Tomorrow,', style: Appstyle.deadLineStyle),
-                        Text(' 15 May', style: Appstyle.deadLineStyle),
+                        Text(AppString.tomorrow, style: Appstyle.deadLineStyle),
                       ],
                     ),
                     SizedBox(
@@ -116,18 +116,18 @@ class IplScreen extends StatelessWidget {
                           ? const Icon(Icons.notifications)
                           : const Icon(Icons.notifications_none_rounded),
                       width: 88.w,
-                      titleMatches: 'RR vc RCB IPL,2021',
+                      titleMatches: AppString.rr,
                       image1: IconAsset.logoCSK,
-                      textTeam1: 'CSK',
-                      score1: "168/4",
-                      over1: '(20)',
+                      textTeam1: AppString.csk,
+                      score1: AppString.score1,
+                      over1: AppString.over1,
                       image2: IconAsset.logoMI,
-                      textTeam2: 'MI',
-                      score2: "130/5",
-                      over2: '(18.3)',
-                      totalPrediction: '72',
-                      prediction: 'Prediction',
-                      time: 'Match Starts in 5:45',
+                      textTeam2: AppString.mi,
+                      score2: AppString.score2,
+                      over2: AppString.over2,
+                      totalPrediction: AppString.totalPrediction,
+                      prediction: AppString.predictionData,
+                      time: AppString.time,
                     ),
                     SizedBox(
                       height: 1.3.h,
@@ -135,8 +135,8 @@ class IplScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('sunday,', style: Appstyle.deadLineStyle),
-                        Text(' 16 May', style: Appstyle.deadLineStyle),
+                        Text(AppString.sunday, style: Appstyle.deadLineStyle),
+                        Text(AppString.may, style: Appstyle.deadLineStyle),
                       ],
                     ),
                     SizedBox(
@@ -164,13 +164,13 @@ class IplScreen extends StatelessWidget {
                                   ? const Icon(Icons.notifications)
                                   : const Icon(
                                       Icons.notifications_none_rounded),
-                              titleMatches: 'RCB vc DC IPL,2021',
+                              titleMatches: AppString.titleMatches,
                               image1: IconAsset.logoRCB,
-                              textTeam1: 'RCB',
+                              textTeam1: AppString.rcb,
                               image2: IconAsset.logoDC,
-                              textTeam2: 'DC',
-                              time: '06:00 PM',
-                              dayAgo: 'Match Start in 2 Days',
+                              textTeam2: AppString.dc,
+                              time: AppString.timer,
+                              dayAgo: AppString.dayAgo,
                             ),
                           );
                         },
@@ -182,8 +182,8 @@ class IplScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('sunday,', style: Appstyle.deadLineStyle),
-                        Text(' 16 May', style: Appstyle.deadLineStyle),
+                        Text(AppString.sunday, style: Appstyle.deadLineStyle),
+                        Text(AppString.may, style: Appstyle.deadLineStyle),
                       ],
                     ),
                     SizedBox(
@@ -211,13 +211,13 @@ class IplScreen extends StatelessWidget {
                                   : const Icon(
                                       Icons.notifications_none_rounded),
                               width: 88.w,
-                              titleMatches: 'PNJ vc KKR IPL,2021',
+                              titleMatches: AppString.titleMatche,
                               image1: IconAsset.logoPNJ,
-                              textTeam1: 'PNJ',
+                              textTeam1: AppString.pnj,
                               image2: IconAsset.logoKKR,
-                              textTeam2: 'KKR',
-                              time: '06:00 PM',
-                              dayAgo: 'Match Start in 2 Days',
+                              textTeam2: AppString.kkr,
+                              time: AppString.timer,
+                              dayAgo: AppString.dayAgo,
                             ),
                           );
                         },
@@ -342,7 +342,7 @@ class IplScreen extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       Text(
-                                        pointTable[index]['team'],
+                                        pointTable[index][AppString.team1],
                                         style: Appstyle.pointTableWhite,
                                       ),
                                       const Spacer(),

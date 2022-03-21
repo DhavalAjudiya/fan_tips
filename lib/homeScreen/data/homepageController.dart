@@ -1,7 +1,7 @@
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import '../../utills/string.dart';
 import 'apiService.dart';
 import 'newsModel.dart';
 

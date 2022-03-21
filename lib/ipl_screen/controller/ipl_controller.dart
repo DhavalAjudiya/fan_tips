@@ -2,7 +2,6 @@ import 'package:fantips/screen/ipl_screen/data/model/fantacy_screen_modal.dart';
 import 'package:fantips/screen/ipl_screen/data/service/fantacy_screen_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../utills/string.dart';
 
 class IplController extends GetxController with SingleGetTickerProviderMixin {

@@ -1,13 +1,10 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
-
 import 'package:fantips/screen/more_screen/more_details_screen/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../T20Predictions/page/utills/color.dart';
-import '../../../T20Predictions/page/utills/string.dart';
 import '../../../utills/style.dart';
+import '../../utills/string.dart';
 import '../data/data_ipl.dart';
 
 class SquadsDetailsScreen extends StatelessWidget {

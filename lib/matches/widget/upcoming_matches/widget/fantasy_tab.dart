@@ -7,8 +7,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import '../../../../commanWidget/commanText.dart';
+import '../../../../utills/string.dart';
 import '../controller/upcoming_controller.dart';
 
 class FantasyTab extends StatelessWidget {

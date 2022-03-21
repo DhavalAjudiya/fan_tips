@@ -1,20 +1,18 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
+import '../../../../utills/string.dart';
 import '../../../../widget/custom_container.dart';
 
 class FantasyTab extends StatelessWidget {
   final IplController iplController = Get.put(IplController());
-  FantasyTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -95,10 +93,10 @@ class FantasyTab extends StatelessWidget {
                         Expanded(
                           child: ListView.builder(
                             itemCount:
-                                iplController.service.value.tipsters!.length,
+                                iplController.service.value.tipsters?.length,
                             itemBuilder: (context, index) {
                               var item =
-                                  iplController.service.value.tipsters![index];
+                                  iplController.service.value.tipsters?[index];
                               return Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 5),
@@ -120,7 +118,7 @@ class FantasyTab extends StatelessWidget {
                                           children: [
                                             CircleAvatar(
                                               backgroundImage: NetworkImage(
-                                                item.profileUrl ?? "",
+                                                item?.profileUrl ?? "",
                                               ),
                                               radius: 3.h,
                                             ),
@@ -133,7 +131,7 @@ class FantasyTab extends StatelessWidget {
                                                   height: 1.5.h,
                                                   width: 50.w,
                                                   child: CustomeText(
-                                                    title: item.name ?? "",
+                                                    title: item?.name ?? "",
                                                     // "${_searchController.service!.tipsters![0].name}",
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 1.5.h,
@@ -154,7 +152,7 @@ class FantasyTab extends StatelessWidget {
                                                     ),
                                                     CustomeText(
                                                       title:
-                                                          item.subscriberCount ??
+                                                          item?.subscriberCount ??
                                                               "",
                                                       //"${_searchController.service!.tipsters![0].subscriberCount}",
                                                       fontWeight:
@@ -170,14 +168,15 @@ class FantasyTab extends StatelessWidget {
                                             Obx(
                                               () => IconButton(
                                                 onPressed: () {
-                                                  if (item.selected.value ==
+                                                  if (item?.selected.value ==
                                                       false) {
-                                                    item.selected.value = true;
+                                                    item?.selected.value = true;
                                                   } else {
-                                                    item.selected.value = false;
+                                                    item?.selected.value =
+                                                        false;
                                                   }
                                                 },
-                                                icon: item.selected.value ==
+                                                icon: item?.selected.value ==
                                                         false
                                                     ? const Icon(
                                                         Icons.favorite_border,
@@ -196,7 +195,7 @@ class FantasyTab extends StatelessWidget {
                                               children: [
                                                 CustomeText(
                                                   title:
-                                                      "${item.totalPredictions}",
+                                                      "${item?.totalPredictions}",
                                                   color: AppColor.greya,
                                                   fontSize: 2.5.h,
                                                 ),
@@ -215,7 +214,7 @@ class FantasyTab extends StatelessWidget {
                                             Column(
                                               children: [
                                                 CustomeText(
-                                                  title: "${item.avgScore}",
+                                                  title: "${item?.avgScore}",
                                                   color: AppColor.greya,
                                                   fontSize: 2.5.h,
                                                 ),
@@ -234,7 +233,7 @@ class FantasyTab extends StatelessWidget {
                                             Column(
                                               children: [
                                                 CustomeText(
-                                                  title: "${item.top3}",
+                                                  title: "${item?.top3}",
                                                   color: AppColor.greya,
                                                   fontSize: 2.5.h,
                                                 ),
