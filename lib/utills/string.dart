@@ -233,4 +233,7 @@ class AppString {
 
   /// more screen
   static const String moreScreen = "More Screen";
+
+  /// search screen
+  static const String notFount = "Not Fount";
 }

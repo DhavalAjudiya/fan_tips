@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../../widget/custom_container.dart';
@@ -102,9 +101,8 @@ class T20Prediction extends StatelessWidget {
       child: TabBarView(
         controller: _predictionController.tabController,
         children: [
-          const InfoPage(),
+          InfoPage(),
           MatchesPage(),
-
           Column(
             children: [
               /// Shear Button
@@ -161,7 +159,7 @@ class T20Prediction extends StatelessWidget {
               /// view channel
               InkWell(
                 onTap: () {
-           //       launch(AppString.youTubeUrl);
+                  //       launch(AppString.youTubeUrl);
                 },
                 child: AppContainer(
                   height: 3.3.h,
@@ -327,7 +325,7 @@ class T20Prediction extends StatelessWidget {
                     lastText: current?.infoMsg ?? "",
                     // _predictionController.timeAgo(current?.startTime ?? 0),
                     person: Icons.supervisor_account, size: 2.5.h,
-             //       teams: AppString.team,
+                    //       teams: AppString.team,
                   );
                 },
               ),

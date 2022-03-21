@@ -36,6 +36,8 @@ class AppImage {
   static const String defaultPlayer = "$image/defaultplayer.png";
   static const String personImage =
       "https://upload.wikimedia.org/wikipedia/commons/6/69/Rohit_Sharma_2015_%28cropped%29.jpg";
+  static const String signNot = "assets/image/sign.png";
+  static const String matchNot = "assets/image/match.png";
 }
 
 class IconAsset {

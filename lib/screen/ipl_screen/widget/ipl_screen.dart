@@ -1,10 +1,10 @@
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/string.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/ipl_screen/data/data_ipl.dart';
 import 'package:fantips/ipl_screen/widget/custom_scoretile.dart';
 import 'package:fantips/ipl_screen/widget/squads_details.dart';
+import 'package:fantips/utills/string.dart';
 import 'package:fantips/utills/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
