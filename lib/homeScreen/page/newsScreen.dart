@@ -10,6 +10,7 @@ import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../T20Predictions/page/utills/string.dart';
 import '../../widget/custom_container.dart';
+import 'newsDetailedPage.dart';
 
 class NewsScreen extends StatelessWidget {
   static const routeName = "/NewsScreen";

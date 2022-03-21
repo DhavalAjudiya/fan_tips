@@ -225,6 +225,9 @@ class ExpertScreen extends StatelessWidget {
                                                   : const Text("")
                                               : const Text("")),
                                           onTap: () {
+                                            iplController.expert.value.tipsters
+                                                ?.sort((a, b) => a.avgScore!
+                                                    .compareTo(b.avgScore!));
                                             if (iplController.index.value ==
                                                 0) {
                                               iplController
@@ -234,8 +237,7 @@ class ExpertScreen extends StatelessWidget {
                                                       .toString();
                                             }
                                             if (kDebugMode) {
-                                              print(iplController.sort[index]
-                                                  .toString());
+                                              print(iplController.sort[index]);
                                             }
                                             Get.back();
                                           },

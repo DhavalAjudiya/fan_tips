@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../T20Predictions/page/utills/color.dart';
 import '../../../../T20Predictions/page/utills/string.dart';
+import '../../../../expert/page/search_screen.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../widget/bestpicks_tab.dart';

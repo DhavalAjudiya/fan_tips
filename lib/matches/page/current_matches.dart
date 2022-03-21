@@ -6,6 +6,7 @@ import 'package:fantips/matches/widget/upcoming.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../widget/header_row.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
