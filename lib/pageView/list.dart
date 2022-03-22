@@ -7,15 +7,17 @@ class PageScroll {
     {
       "image": AppImage.solution,
       "name": AppString.solution,
+      "next": "NEXT",
     },
     {
       "image": AppImage.working,
       "name": AppString.working,
+      "next": "NEXT",
     },
     {
       "image": AppImage.mindset,
       "name": AppString.mindset,
-      "next": AppString.next,
+      "next": "GET START",
     },
   ];
 }

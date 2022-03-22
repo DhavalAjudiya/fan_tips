@@ -11,9 +11,18 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../utills/string.dart';
 
-class InfoPage extends StatelessWidget {
+class InfoPage extends StatefulWidget {
   InfoPage({Key? key}) : super(key: key);
+
+  @override
+  State<InfoPage> createState() => _InfoPageState();
+}
+
+class _InfoPageState extends State<InfoPage> {
   final prediction = Get.arguments;
+
+  bool isOnTap = true;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,9 +35,7 @@ class InfoPage extends StatelessWidget {
             children: [
               AppContainer(
                 onTap: () {
-                  Share.share(
-                    "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips",
-                  );
+                  _share();
                 },
                 child: SvgPicture.asset(
                   IconAsset.share,
@@ -161,7 +168,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 3.5.h,
-                          title: "${prediction["subscribers"]}",
+                          title: prediction["subscribers"],
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -202,5 +209,16 @@ class InfoPage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _share() async {
+    if (isOnTap) {
+      await Share.share(
+        "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips",
+      );
+      isOnTap = false;
+      setState(() {});
+      Future.delayed(Duration(seconds: 2)).whenComplete(() => isOnTap = true);
+    }
   }
 }
