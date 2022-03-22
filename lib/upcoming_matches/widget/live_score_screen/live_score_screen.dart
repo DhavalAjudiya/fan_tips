@@ -62,7 +62,6 @@ class LiveScoreScreen extends StatelessWidget {
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
               unselectedLabelStyle:
                   const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
-              isScrollable: true,
             ),
           ),
         ),
