@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/commanWidget/commanText.dart';

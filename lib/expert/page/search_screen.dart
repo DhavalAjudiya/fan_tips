@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
+import '../../ipl_screen/controller/ipl_controller.dart';
+
+class Search extends StatefulWidget {
+  Search({Key? key}) : super(key: key);
 
 class Search extends StatefulWidget {
   Search({Key? key}) : super(key: key);
@@ -24,7 +28,7 @@ class _SearchState extends State<Search> {
         backgroundColor: Colors.black,
         body: Obx(
           () {
-            print(iplController.expert.value.tipsters?.length);
+            print(ipController.expert.value.tipsters?.length);
             return Column(
               children: [
                 Padding(
@@ -36,20 +40,20 @@ class _SearchState extends State<Search> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: TextField(
-                      controller: iplController.searchController,
+                      controller: ipController.searchController,
                       cursorColor: Colors.white,
                       onChanged: (value) {
-                        iplController.searchItem.clear();
+                        ipController.searchItem.clear();
                         for (var i = 0;
                             i <
-                                (iplController.expert.value.tipsters?.length ??
+                                (ipController.expert.value.tipsters?.length ??
                                     0);
                             i++) {
-                          if (iplController.expert.value.tipsters![i].name!
+                          if (ipController.expert.value.tipsters![i].name!
                               .toLowerCase()
                               .contains(value.toLowerCase())) {
-                            iplController.searchItem
-                                .add(iplController.expert.value.tipsters![i]);
+                            ipController.searchItem
+                                .add(ipController.expert.value.tipsters![i]);
                           }
                           setState(() {});
                         }
@@ -58,8 +62,8 @@ class _SearchState extends State<Search> {
                         suffixIcon: IconButton(
                           icon: Icon(Icons.close, color: AppColor.white),
                           onPressed: () {
-                            iplController.searchController.clear();
-                            iplController.searchItem.clear();
+                            ipController.searchController.clear();
+                            ipController.searchItem.clear();
                           },
                         ),
                         contentPadding: const EdgeInsets.all(7),
@@ -83,8 +87,8 @@ class _SearchState extends State<Search> {
                 ),
                 Obx(
                   () {
-                    log("length=====>>>${iplController.searchItem.length}");
-                    return iplController.searchController.value.text.isEmpty
+                    log("length=====>>>${ipController.searchItem.length}");
+                    return ipController.searchController.value.text.isEmpty
                         ? Padding(
                             padding: const EdgeInsets.only(top: 250),
                             child: Column(
@@ -100,9 +104,11 @@ class _SearchState extends State<Search> {
                               ],
                             ),
                           )
+                        : ipController.searchController.value.text.isNotEmpty &&
+                                ipController.searchItem.value.isEmpty
                         : iplController
                                     .searchController.value.text.isNotEmpty &&
-                                iplController.searchItem.value.isEmpty
+                                iplController.searchItem.isEmpty
                             ? Column(
                                 children: [
                                   Icon(
@@ -115,11 +121,11 @@ class _SearchState extends State<Search> {
                             : Expanded(
                                 child: SizedBox(
                                   child: ListView.builder(
-                                    itemCount: iplController.searchItem.length,
+                                    itemCount: ipController.searchItem.length,
                                     itemBuilder: (context, index) {
-                                      log("length=====>>>${iplController.searchItem.length}");
+                                      log("length=====>>>${ipController.searchItem.length}");
                                       var postData =
-                                          iplController.searchItem.value[index];
+                                          ipController.searchItem.value[index];
                                       return Obx(
                                         () => PredictionContainer(
                                           predictionCount:

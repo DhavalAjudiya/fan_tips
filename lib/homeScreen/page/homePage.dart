@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
@@ -75,8 +74,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
+                  padding: EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -152,10 +150,12 @@ class HomeScreen extends StatelessWidget {
                                     color: AppColor.containerBackground,
                                     borderRadius: BorderRadius.circular(10),
                                     onTap: () {
-                                      signInWithGoogle().then((data) {
-                                        ipController.isLoggedIn.value = true;
-                                        ipController.userObj = data;
-                                      }).catchError((e) {});
+                                      signInWithGoogle().then(
+                                        (data) {
+                                          ipController.isLoggedIn.value = true;
+                                          ipController.userObj = data;
+                                        },
+                                      ).catchError((e) {});
                                     },
                                     child: Row(
                                       mainAxisAlignment:
@@ -214,9 +214,9 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 1.w,
+                                      width: 5.w,
                                     ),
-                                    Icon(Icons.favorite_outline)
+                                    Icon(Icons.favorite_outline),
                                   ],
                                 ),
                         ),

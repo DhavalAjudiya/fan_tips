@@ -43,7 +43,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
             title: Text(
               AppString.next,
               style: TextStyle(
-             //   fontFamily: AppString.circle,
+                fontFamily: "Circular",
                 fontSize: 15.sp,
               ),
             ),
@@ -55,7 +55,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                 child: Text(
                   AppString.wk,
                   style: TextStyle(
-               //    fontFamily: AppString.circle,
+                    fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),
@@ -67,7 +67,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                 child: Text(
                   AppString.news,
                   style: TextStyle(
-              //      fontFamily: AppStringcircle,
+                    fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),

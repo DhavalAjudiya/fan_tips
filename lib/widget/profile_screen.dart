@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import '../T20Predictions/page/utills/color.dart';
 import '../expert/data/controller.dart';
+import '../ipl_screen/controller/ipl_controller.dart';
 
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final IplController iplController = Get.put(IplController());
   IpController ipController = Get.find();
   XFile? pickedImageFile;
   var selectedImagePath = ''.obs;
