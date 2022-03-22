@@ -37,6 +37,8 @@ class FeaturedExpertContainer extends StatelessWidget {
                             "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
                         "text": homeController
                             .predictionsData.value.tipsters?[index].name,
+                        "subtext": homeController
+                            .predictionsData.value.tipsters?[index].name,
                         "prediction": homeController.predictionsData.value
                             .tipsters?[index].totalPredictions,
                         "avgScore": homeController
