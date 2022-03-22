@@ -65,11 +65,13 @@ class UpComing extends StatelessWidget {
                               ? const Icon(Icons.notifications)
                               : const Icon(Icons.notifications_none),
                           backgroundImage: NetworkImage(
-                            current?.t1Flag ?? AppString.imageNotFound,
+                            current?.t1Flag ??
+                                "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
                           ),
                           text: current?.team1Name ?? "",
                           secondbackgroundImage: NetworkImage(
-                            current?.t2Flag ?? AppString.imageNotFound,
+                            current?.t2Flag ??
+                                "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
                           ),
                           subText: current?.team2Name ?? "",
                           predictionText: "${current?.totalprediction ?? ""}",

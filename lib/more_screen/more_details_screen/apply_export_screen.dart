@@ -2,6 +2,8 @@ import 'package:fantips/utills/style.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../utills/string.dart';
@@ -86,7 +88,9 @@ class ApplyExpertScreen extends StatelessWidget {
                 ),
                 MoreButtonScreen(
                   onTap: () {
-                    if (_formKey.currentState!.validate()) {}
+                    if (_formKey.currentState!.validate()) {
+                      Get.back();
+                    }
                   },
                   text: 'Submit',
                 ),

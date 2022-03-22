@@ -21,10 +21,11 @@ class CustomeText extends StatelessWidget {
     return Text(
       title,
       style: TextStyle(
-          fontFamily: AppString.circular,
-          color: color,
-          fontSize: fontSize,
-          fontWeight: fontWeight),
+        fontFamily: AppString.circular,
+        color: color,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+      ),
     );
   }
 }
