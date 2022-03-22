@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
+import '../../homeScreen/data/homepageController.dart';
 import '../../utills/string.dart';
 import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
@@ -163,8 +164,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             )
                                           ],
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -207,8 +209,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             ],
                                           ),
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -247,8 +250,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             ],
                                           ),
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
