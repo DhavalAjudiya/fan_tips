@@ -25,7 +25,7 @@ class _SearchState extends State<Search> {
         backgroundColor: Colors.black,
         body: Obx(
           () {
-            print(ipController.expert.value.tipsters?.length);
+            print(iplController.expert.value.tipsters?.length);
             return Column(
               children: [
                 Padding(
@@ -37,20 +37,20 @@ class _SearchState extends State<Search> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: TextField(
-                      controller: ipController.searchController,
+                      controller: iplController.searchController,
                       cursorColor: Colors.white,
                       onChanged: (value) {
-                        ipController.searchItem.clear();
+                        iplController.searchItem.clear();
                         for (var i = 0;
                             i <
-                                (ipController.expert.value.tipsters?.length ??
+                                (iplController.expert.value.tipsters?.length ??
                                     0);
                             i++) {
-                          if (ipController.expert.value.tipsters![i].name!
+                          if (iplController.expert.value.tipsters![i].name!
                               .toLowerCase()
                               .contains(value.toLowerCase())) {
-                            ipController.searchItem
-                                .add(ipController.expert.value.tipsters![i]);
+                            iplController.searchItem
+                                .add(iplController.expert.value.tipsters![i]);
                           }
                           setState(() {});
                         }
@@ -59,8 +59,8 @@ class _SearchState extends State<Search> {
                         suffixIcon: IconButton(
                           icon: Icon(Icons.close, color: AppColor.white),
                           onPressed: () {
-                            ipController.searchController.clear();
-                            ipController.searchItem.clear();
+                            iplController.searchController.clear();
+                            iplController.searchItem.clear();
                           },
                         ),
                         contentPadding: const EdgeInsets.all(7),
@@ -84,8 +84,8 @@ class _SearchState extends State<Search> {
                 ),
                 Obx(
                   () {
-                    log("length=====>>>${ipController.searchItem.length}");
-                    return ipController.searchController.value.text.isEmpty
+                    log("length=====>>>${iplController.searchItem.length}");
+                    return iplController.searchController.value.text.isEmpty
                         ? Padding(
                             padding: const EdgeInsets.only(top: 250),
                             child: Column(
@@ -102,7 +102,7 @@ class _SearchState extends State<Search> {
                             ),
                           )
                         : ipController.searchController.value.text.isNotEmpty &&
-                                ipController.searchItem.isEmpty
+                                ipController.searchItem.value.isEmpty
                             ? Column(
                                 children: [
                                   Icon(
@@ -115,11 +115,11 @@ class _SearchState extends State<Search> {
                             : Expanded(
                                 child: SizedBox(
                                   child: ListView.builder(
-                                    itemCount: ipController.searchItem.length,
+                                    itemCount: iplController.searchItem.length,
                                     itemBuilder: (context, index) {
-                                      log("length=====>>>${ipController.searchItem.length}");
+                                      log("length=====>>>${iplController.searchItem.length}");
                                       var postData =
-                                          ipController.searchItem.value[index];
+                                          iplController.searchItem.value[index];
                                       return Obx(
                                         () => PredictionContainer(
                                           predictionCount:

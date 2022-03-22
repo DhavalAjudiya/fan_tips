@@ -23,70 +23,78 @@ class ContactScreen extends StatelessWidget {
         key: _formKey,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 3.h,
-              ),
-              MoreTextField(
-                labelText: 'Name',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Name number should not be blank';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 3.h,
-              ),
-              MoreTextField(
-                labelText: 'Email / Mobile number',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Contact number or email should not be blank';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 3.h,
-              ),
-              MoreTextField(
-                labelText: 'Application link',
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Application link should not be blank';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 4.h,
-              ),
-              Text(AppString.description, style: Appstyle.moreStyle),
-              MoreTextField(
-                maxLines: 4,
-                hint: AppString.enterDescription,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Description should not be blank';
-                  }
-                  return null;
-                },
-              ),
-              const Spacer(),
-              MoreButtonScreen(
-                text: 'Submit',
-                onTap: () {
-                  if (_formKey.currentState!.validate()) {}
-                },
-              ),
-              SizedBox(
-                height: 4.h,
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 3.h,
+                ),
+                MoreTextField(
+                  textInputType: TextInputType.name,
+                  labelText: 'Name',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Name number should not be blank';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 3.h,
+                ),
+                MoreTextField(
+                  textInputType: TextInputType.emailAddress,
+                  labelText: 'Email / Mobile number',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Contact number or email should not be blank';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 3.h,
+                ),
+                MoreTextField(
+                  textInputType: TextInputType.url,
+                  labelText: 'Application link',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Application link should not be blank';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 4.h,
+                ),
+                Text(AppString.description, style: Appstyle.moreStyle),
+                MoreTextField(
+                  textInputType: TextInputType.text,
+                  maxLines: 4,
+                  hint: AppString.enterDescription,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Description should not be blank';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 27.h,
+                ),
+                MoreButtonScreen(
+                  text: 'Submit',
+                  onTap: () {
+                    if (_formKey.currentState!.validate()) {}
+                  },
+                ),
+                SizedBox(
+                  height: 3.h,
+                ),
+              ],
+            ),
           ),
         ),
       ),

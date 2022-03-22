@@ -1,21 +1,21 @@
 class AppString {
-  /// fantasy screen API Link
+  // fantasy screen API Link
   static const String apiFantasy =
       "https://api.freefantasy.in/tips/tipsters?name=";
 
-  /// home screen API Link
+  // home screen API Link
   static const String newsDataModel =
       "https://api.freefantasy.in/tips/getNewsList?offset=0&limit=20";
 
-  /// prediction screen API Link
+  // prediction screen API Link
   static const String predictionsApiService =
       "https://api.freefantasy.in/tips/getMatches";
 
-  /// expert screen API Link
+  //expert screen API Link
   static const String matchApiService =
       "https://api.freefantasy.in/tips/tipsters";
 
-  /// bottom nevigation bar
+  // bottom nevigation bar
   static const String home = "Home";
   static const String match = "Matches";
   static const String ipl = "IPL";
@@ -30,19 +30,19 @@ class AppString {
   static const String iplImage =
       "https://images.vexels.com/media/users/3/240082/isolated/preview/e0ee48f50db6955ac53ec126be31ee06-cricket-player-playing-with-bat-cut-out.png";
 
-  /// home screen text
-  static const String fanTips = "FanTips";
-  static const String logIn = "Login";
-  static const String matchesForYou = "Matches for you";
-  static const String zimbabevsAfghhanistan = "Zimbabe vs Afghhanistan";
-  static const String featuredExperts = "Featured Experts";
-  static const String topStories = "Top Stories";
-  static const String viewAll = "View All";
-  static const String t20Predictions = "T20 Predictions";
-  static const String predictions = "Predictions";
-  static const String subscriber = "50.9K subscribers";
-  static const String averageScore = "Average Score";
-  static const String wins = "Wins";
+  // home screen text
+  static const fanTips = "FanTips";
+  static const logIn = "Login";
+  static const matchesForYou = "Matches for you";
+  static const zimbabevsAfghhanistan = "Zimbabe vs Afghhanistan";
+  static const featuredExperts = "Featured Experts";
+  static const topStories = "Top Stories";
+  static const viewAll = "View All";
+  static const t20Predictions = "T20 Predictions";
+  static const predictions = "Predictions";
+  static const subscriber = "50.9K subscribers";
+  static const averageScore = "Average Score";
+  static const wins = "Wins";
   static const String zimbabweVsAfghanistan = "Zimbabwe vs Afghanistan";
   static const String news = "News";
   static const String scoWik = "110/7";
@@ -52,7 +52,7 @@ class AppString {
   static const String winsNum = "13";
   static const String justNow = "just now";
 
-  ///
+  //
   static const String predictionExpert = "Prediction Expert";
   static const String sortByAvgScore = "Sort by : ";
   static const String login = "Login";
@@ -92,18 +92,18 @@ class AppString {
   static const String wicketKeeper1 = "WICKET - KEEPER";
   static const String allRounders = "ALL-ROUNDERS";
 
-  /// current matchs
-  static const String title = "Current Matches";
-  static const String upcoming = "UpComing";
-  static const String live = "Live";
-  static const String completed = "Completed";
-  static const String tomorrow = "Tomorrow, 15 May";
-  static const String yesterday = "yesterday, 13 May";
-  static const String letsconnect = "LET'S CONNECT";
-  static const String imageNotFound =
+  // current matchs
+  static const title = "Current Matches";
+  static const upcoming = "UpComing";
+  static const live = "Live";
+  static const completed = "Completed";
+  static const tomorrow = "Tomorrow, 15 May";
+  static const yesterday = "yesterday, 13 May";
+  static const letsconnect = "LET'S CONNECT";
+  static const imageNotFound =
       "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 
-  /// splash screen
+  // splash screen
   static const String solution = "One Stop Solution";
   static const String reading = "No need to spend hours of viewing and reading";
   static const String fantasy = "fantasy videos and blogs.";
@@ -114,7 +114,7 @@ class AppString {
   static const String name = "name";
   static const String getStarted = "Get Started";
 
-  ///Prediction Expert
+  //Prediction Expert
 
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
@@ -122,7 +122,7 @@ class AppString {
   //static const String circular = "circular";
   static const String circular = "circular";
 
-  /// T20 Prediction
+  // T20 Prediction
   static const String t20 = "T20 Predictions";
   static const String info = "Info";
   static const String matches = "Matches";
@@ -144,7 +144,7 @@ class AppString {
   static const String subs = "subscribers";
   static const String texts = "text";
 
-  /// header Row
+  // header Row
   static const String googleSign = "Sing In With Google";
   static const String fbLogin = "Sing In With Facebook";
   static const String experts = 'Favourite Experts';
@@ -166,7 +166,7 @@ class AppString {
   static const String enterDescription = 'Enter Description';
   static const String contactBranding = 'Contact us for branding';
 
-  /// screen
+  // screen
   static const String exit = "Are you sure want to exit?";
   static const String no = "No";
   static const String yes = "Yes";
@@ -174,7 +174,7 @@ class AppString {
   static const String pngtreeRoundCountry =
       "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png";
 
-  /// ipl screen
+  // ipl screen
   static const String fantasyName = "Fantasy";
   static const String bestPicks = "Best Picks";
   static const String myTeams = "My Teams";
@@ -210,11 +210,11 @@ class AppString {
   static const String points = 'Points';
   static const String nrr = 'NRR';
 
-  /// upComing match tabBar
+  // upComing match tabBar
   static const String wi = "WI";
   static const String eng = "ENG";
 
-  /// fantacy screen
+  // fantacy screen
   static const String search = "Search";
   static const String export = "Export";
   static const String num = "460";
@@ -228,14 +228,14 @@ class AppString {
   static const String zim = "ZIM";
   static const String zimScore = "120-5 & 120-5";
 
-  /// news detailed screen
+  // news detailed screen
   static const String text = "title";
   static const String subtitle = "subtitle";
   static const String timeText = "time";
 
-  /// more screen
+  // more screen
   static const String moreScreen = "More Screen";
 
-  /// search screen
+  // search screen
   static const String notFount = "Not Fount";
 }

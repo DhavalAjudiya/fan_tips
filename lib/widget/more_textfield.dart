@@ -8,12 +8,13 @@ class MoreTextField extends StatelessWidget {
   final String? labelText;
   final int? maxLines;
   final String? hint;
+  final TextInputType? textInputType;
 
   const MoreTextField({
     this.hint,
     this.validator,
     this.labelText,
-    this.maxLines,
+    this.maxLines, this.textInputType,
   });
 
   @override
@@ -21,6 +22,7 @@ class MoreTextField extends StatelessWidget {
     return TextFormField(
       cursorWidth: 3,
       maxLines: maxLines,
+      keyboardType: textInputType,
       style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,

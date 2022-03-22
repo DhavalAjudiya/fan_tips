@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
+import '../../homeScreen/data/homepageController.dart';
 import '../../utills/string.dart';
 import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
@@ -41,31 +42,31 @@ class _ExpertScreenState extends State<ExpertScreen> {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              AppString.next,
+              "Are you sure want to exit?",
               style: TextStyle(
                 fontFamily: "Circular",
                 fontSize: 15.sp,
               ),
             ),
             actions: <Widget>[
-              InkWell(
-                onTap: () {
+              FlatButton(
+                onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  AppString.wk,
+                  "No",
                   style: TextStyle(
                     fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {
+              FlatButton(
+                onPressed: () {
                   exit(0);
                 },
                 child: Text(
-                  AppString.news,
+                  "Yes",
                   style: TextStyle(
                     fontFamily: "Circular",
                     fontSize: 15.sp,
@@ -105,6 +106,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                         },
                         child: SvgPicture.asset(
                           IconAsset.searchIcon,
+                          height: 18,
                         ),
                       ),
                     ),
@@ -435,10 +437,12 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                               Icons.favorite_border,
                                               color: AppColor.green,
                                             )
-                                          : const Icon(
-                                              Icons.favorite,
-                                              color: AppColor.green,
-                                            ),
+                                          : ipController.isLoggedIn == true
+                                              ? const Icon(
+                                                  Icons.favorite,
+                                                  color: AppColor.green,
+                                                )
+                                              : Text("hello"),
                                       winsCount: "${postData.top3}",
                                       youtubeText:
                                           "${postData.subscriberCount}",
