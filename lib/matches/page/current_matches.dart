@@ -1,8 +1,7 @@
 import 'dart:io';
+
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/matches/widget/upcoming.dart';
-import 'package:fantips/utills/string.dart';
-import 'package:fantips/widget/google_sign_in_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -10,6 +9,13 @@ import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../expert/data/controller.dart';
 import '../../screen/ipl_screen/page/wight/container/container_custom.dart';
+import '../../widget/profile_screen.dart';
+import '../../T20Predictions/page/utills/asset.dart';
+import '../../T20Predictions/page/utills/color.dart';
+import '../../expert/data/controller.dart';
+import '../../screen/ipl_screen/page/wight/container/container_custom.dart';
+import '../../utills/string.dart';
+import '../../widget/google_sign_in_repo.dart';
 import '../../widget/profile_screen.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';

@@ -4,20 +4,17 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../T20Predictions/page/utills/asset.dart';
-import '../../../T20Predictions/page/utills/color.dart';
 import '../../../commanWidget/commanText.dart';
-import '../../../ipl_screen/controller/ipl_controller.dart';
-import '../../../matches/widget/upcoming_matches/widget/fantasy_tab.dart';
 import '../../../screen/ipl_screen/page/wight/container/container_custom.dart';
 import '../../../screen/ipl_screen/widget/fantasyTabBar/fantasy_tabBar.dart';
 import '../../../utills/string.dart';
+import '../../../T20Predictions/page/utills/color.dart';
+import '../../../ipl_screen/controller/ipl_controller.dart';
 import 'commentry_screen.dart';
 
 class LiveScoreScreen extends StatelessWidget {
   LiveScoreScreen({Key? key}) : super(key: key);
-
   final IplController iplController = Get.find();
 
   @override
@@ -49,14 +46,13 @@ class LiveScoreScreen extends StatelessWidget {
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
               unselectedLabelStyle:
                   const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
-              unselectedLabelColor: Colors.white,
               isScrollable: true,
             ),
           ),
         ),
       ),
       body: TabBarView(
-        controller: iplController.tabController1,
+        controller: iplController.tabController,
         children: [
           // fantasy
           FantasyTabBar(),

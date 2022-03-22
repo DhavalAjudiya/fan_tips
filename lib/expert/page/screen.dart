@@ -41,31 +41,31 @@ class _ExpertScreenState extends State<ExpertScreen> {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              "Are you sure want to exit?",
+              AppString.next,
               style: TextStyle(
                 fontFamily: "Circular",
                 fontSize: 15.sp,
               ),
             ),
             actions: <Widget>[
-              FlatButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  "No",
+                  AppString.wk,
                   style: TextStyle(
                     fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),
               ),
-              FlatButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   exit(0);
                 },
                 child: Text(
-                  "Yes",
+                  AppString.news,
                   style: TextStyle(
                     fontFamily: "Circular",
                     fontSize: 15.sp,
