@@ -12,7 +12,6 @@ import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../expert/data/controller.dart';
 import '../../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
-import '../../screen/ipl_screen/page/wight/container/container_custom.dart';
 import '../../widget/profile_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/google_sign_in_repo.dart';

@@ -103,9 +103,6 @@ class _SearchState extends State<Search> {
                           )
                         : ipController.searchController.value.text.isNotEmpty &&
                                 ipController.searchItem.value.isEmpty
-                        : iplController
-                                    .searchController.value.text.isNotEmpty &&
-                                iplController.searchItem.isEmpty
                             ? Column(
                                 children: [
                                   Icon(
