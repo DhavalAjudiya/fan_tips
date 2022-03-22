@@ -23,7 +23,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
   PageScroll foodie = PageScroll();
   final _pageController = PageController(viewportFraction: 3);
   final _currentPageNotifier = ValueNotifier(0);
-  int pageSelector = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +32,10 @@ class _PageViewScreenState extends State<PageViewScreen> {
           Column(
             children: [
               _buildPageView(),
-              _nextContainer(),
             ],
           ),
           Positioned(
-            bottom: 100,
+            bottom: 120,
             left: 160,
             child: _buildStepIndicator(),
           ),
@@ -51,58 +49,88 @@ class _PageViewScreenState extends State<PageViewScreen> {
       child: PageView.builder(
         itemCount: foodie.categori.length,
         controller: _pageController,
+        onPageChanged: (value) {
+          _currentPageNotifier.value = value;
+        },
         itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
-            child: Column(
-              children: [
-                AppContainer(
-                  gradient: const LinearGradient(
-                    end: Alignment(0.7, 0.9),
-                    colors: <Color>[AppColor.white, AppColor.lightGreen],
-                  ),
-                  height: 30.h,
-                  width: 60.w,
-                  borderRadius: BorderRadius.circular(80),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(
-                        "${foodie.categori[index][AppString.image]}"),
-                  ),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                CustomeText(
-                  title: "${foodie.categori[index][AppString.name]}",
-                  fontSize: 2.5.h,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: 1.h,
-                ),
-                Column(
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
+                child: Column(
                   children: [
-                    CustomeText(
-                      title: AppString.reading,
-                      fontSize: 1.5.h,
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.bold,
+                    AppContainer(
+                      gradient: const LinearGradient(
+                        end: Alignment(0.7, 0.9),
+                        colors: <Color>[AppColor.white, AppColor.lightGreen],
+                      ),
+                      height: 30.h,
+                      width: 60.w,
+                      borderRadius: BorderRadius.circular(80),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: SvgPicture.asset(
+                            "${foodie.categori[index][AppString.image]}"),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15.h,
                     ),
                     CustomeText(
-                      title: AppString.fantasy,
-                      fontSize: 1.5.h,
-                      color: AppColor.grey,
+                      title: "${foodie.categori[index][AppString.name]}",
+                      fontSize: 2.5.h,
                       fontWeight: FontWeight.bold,
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Column(
+                      children: [
+                        CustomeText(
+                          title: AppString.reading,
+                          fontSize: 1.5.h,
+                          color: AppColor.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        CustomeText(
+                          title: AppString.fantasy,
+                          fontSize: 1.5.h,
+                          color: AppColor.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: AppContainer(
+                  /// navigator page
+                  onTap: () {
+                    _pageController.nextPage(
+                        duration: const Duration(milliseconds: 600),
+                        curve: Curves.easeIn);
+
+                    if (_currentPageNotifier.value == 2) {
+                      Get.toNamed(BottomNavigatorController.routeName);
+                    }
+                  },
+                  height: 6.h,
+                  width: double.infinity,
+                  color: AppColor.green,
+                  child: Center(
+                    child: CustomeText(
+                      title: "${foodie.categori[index]["next"]}",
+                      color: AppColor.white,
+                      fontSize: 1.8.h,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           );
-        },
-        onPageChanged: (value) {
-          _currentPageNotifier.value = value;
         },
       ),
     );
@@ -112,44 +140,16 @@ class _PageViewScreenState extends State<PageViewScreen> {
     return CirclePageIndicator(
       itemCount: 3,
       dotSpacing: 3.w,
-      selectedSize: 2.5.w,
+      selectedSize: 2.h,
       selectedDotColor: AppColor.green,
       dotColor: AppColor.grey,
       currentPageNotifier: _currentPageNotifier,
-      size: 1.h,
+      size: 2.9.w,
       onPageSelected: (index) {
         if (_currentPageNotifier.value > index) {
           _pageController.initialPage;
         }
       },
-    );
-  }
-
-  Widget _nextContainer() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: AppContainer(
-        /// navigator page
-        onTap: () {
-          _pageController.nextPage(
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.easeIn);
-
-          if (_currentPageNotifier.value == 2) {
-            Get.toNamed(BottomNavigatorController.routeName);
-          }
-        },
-        height: 6.h,
-        width: double.infinity,
-        color: AppColor.green,
-        child: Center(
-          child: CustomeText(
-            title: AppString.next,
-            color: AppColor.white,
-            fontSize: 1.5.h,
-          ),
-        ),
-      ),
     );
   }
 }

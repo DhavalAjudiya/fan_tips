@@ -24,7 +24,7 @@ class FeaturedExpertContainer extends StatelessWidget {
             onPageChanged: (value) {
               homeController.featureSelect.value = value;
             },
-            itemCount: 4,
+            itemCount: homeController.predictionsData.value.tipsters?.length,
             itemBuilder: (BuildContext context, int index) {
               return Obx(
                 () => AppContainer(
@@ -232,7 +232,7 @@ class FeaturedExpertContainer extends StatelessWidget {
               4,
               (index) => AppContainer(
                 height: 0.6.h,
-                width: 4.w,
+                width: homeController.featureSelect.value == index ? 4.w : 3.w,
                 margin: EdgeInsets.symmetric(horizontal: 1.w),
                 borderRadius: BorderRadius.circular(8.sp),
                 color: homeController.featureSelect.value == index

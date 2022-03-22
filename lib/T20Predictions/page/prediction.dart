@@ -85,7 +85,7 @@ class T20Prediction extends StatelessWidget {
         ),
         CustomeText(
           title: "${prediction["subtext"]}",
-          fontSize: 3.h,
+          fontSize: 2.5.h,
         ),
       ],
     );
