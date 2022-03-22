@@ -163,8 +163,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             )
                                           ],
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -207,8 +208,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             ],
                                           ),
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -247,8 +249,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             ],
                                           ),
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {

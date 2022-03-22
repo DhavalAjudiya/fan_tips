@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
+import '../../matches/controler/matchs_controller.dart';
+import '../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../data/homepageController.dart';
@@ -12,6 +14,7 @@ import '../data/homepageController.dart';
 class MatchForYouContainer extends StatelessWidget {
   MatchForYouContainer({Key? key}) : super(key: key);
   final HomeController homeController = Get.put(HomeController());
+  final _homecontroller = Get.put(MatchsScreenControoler());
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +27,16 @@ class MatchForYouContainer extends StatelessWidget {
             onPageChanged: (value) {
               homeController.matchSelect.value = value;
             },
-            itemCount: 4,
+            itemCount: _homecontroller
+                    .currentMatch.value.matches?.notstarted?.length ??
+                4,
             itemBuilder: (BuildContext context, int index) {
+              final matchData = _homecontroller
+                  .currentMatch.value.matches?.notstarted?[index];
               return AppContainer(
+                onTap: () {
+                  Get.toNamed(LiveScoreScreen.routeName);
+                },
                 margin: EdgeInsets.symmetric(horizontal: 10.sp),
                 borderRadius: BorderRadius.circular(10.sp),
                 color: AppColor.blackColor,
@@ -39,7 +49,7 @@ class MatchForYouContainer extends StatelessWidget {
                       Row(
                         children: [
                           CustomeText(
-                            title: AppString.zimbabweVsAfghanistan,
+                            title: matchData?.matchName ?? "",
                             color: AppColor.whiteColor,
                             fontWeight: FontWeight.w500,
                             fontSize: 10.sp,
@@ -81,40 +91,41 @@ class MatchForYouContainer extends StatelessWidget {
                                     children: [
                                       CircleAvatar(
                                         radius: 9.sp,
-                                        backgroundImage: const AssetImage(
-                                          AppImage.zim,
+                                        backgroundImage: NetworkImage(
+                                          matchData?.t1Flag ??
+                                              AppString.imageNotFound,
                                         ),
                                       ),
                                       SizedBox(
                                         width: 2.w,
                                       ),
                                       CustomeText(
-                                        title: AppString.zim,
+                                        title: matchData?.team1Name ?? "",
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
                                       const Spacer(),
-                                      CustomeText(
-                                        title: AppString.scoWik,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 10.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.andSing,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 10.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.scoWik,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 10.sp,
-                                      )
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.andSing,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // )
                                     ],
                                   ),
                                   const Spacer(),
@@ -122,40 +133,41 @@ class MatchForYouContainer extends StatelessWidget {
                                     children: [
                                       CircleAvatar(
                                         radius: 9.sp,
-                                        child: SvgPicture.asset(
-                                          AppImage.afglogo,
+                                        backgroundImage: NetworkImage(
+                                          matchData?.t2Flag ??
+                                              AppString.imageNotFound,
                                         ),
                                       ),
                                       SizedBox(
                                         width: 2.w,
                                       ),
                                       CustomeText(
-                                        title: AppString.zim,
+                                        title: matchData?.team2Name ?? "",
                                         fontWeight: FontWeight.w700,
                                         fontSize: 10.sp,
                                       ),
                                       const Spacer(),
-                                      CustomeText(
-                                        title: AppString.scoWik,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 10.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.andSing,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 10.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.scoWik,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 10.sp,
-                                      )
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.andSing,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // )
                                     ],
                                   ),
                                 ],
@@ -195,7 +207,8 @@ class MatchForYouContainer extends StatelessWidget {
                         height: 1.5.h,
                       ),
                       CustomeText(
-                        title: AppString.time,
+                        title: _homecontroller.timeAgo(
+                            _homecontroller.time(matchData?.startTime)),
                         fontSize: 10.sp,
                       )
                     ],
@@ -212,10 +225,12 @@ class MatchForYouContainer extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              4,
+              (_homecontroller
+                      .currentMatch.value.matches?.notstarted?.length) ??
+                  0,
               (index) => AppContainer(
                 height: 0.6.h,
-                width: 4.w,
+                width: homeController.matchSelect.value == index ? 4.w : 3.w,
                 margin: EdgeInsets.symmetric(horizontal: 1.w),
                 borderRadius: BorderRadius.circular(8.sp),
                 color: homeController.matchSelect.value == index
