@@ -432,7 +432,17 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                               false) {
                                             AppBottomSheet()
                                                 .bottomSheet(context);
-                                          } else {}
+                                          } else {
+                                            postData.wishlist.value == false
+                                                ? const Icon(
+                                                    Icons.favorite_border,
+                                                    color: AppColor.green,
+                                                  )
+                                                : const Icon(
+                                                    Icons.favorite,
+                                                    color: AppColor.green,
+                                                  );
+                                          }
                                           if (postData.wishlist.value ==
                                               false) {
                                             postData.wishlist.value = true;
