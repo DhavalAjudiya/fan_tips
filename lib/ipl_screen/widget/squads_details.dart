@@ -1,8 +1,8 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/screen/more_screen/more_details_screen/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../utills/style.dart';
+import '../../more_screen/more_details_screen/custom_appbar.dart';
 import '../../utills/string.dart';
 import '../data/data_ipl.dart';
 
@@ -37,7 +37,9 @@ class SquadsDetailsScreen extends StatelessWidget {
                       leading: const CircleAvatar(
                         backgroundColor: AppColor.grey,
                       ),
-                      title: Text(IplTems[index]['batsman'][0]),
+                      title: Text(
+                        IplTems[index]['batsman'][0],
+                      ),
                     ),
                   );
                 },

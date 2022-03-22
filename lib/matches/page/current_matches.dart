@@ -6,7 +6,11 @@ import 'package:fantips/widget/google_sign_in_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../widget/header_row.dart';
+import '../../T20Predictions/page/utills/asset.dart';
+import '../../T20Predictions/page/utills/color.dart';
+import '../../expert/data/controller.dart';
+import '../../screen/ipl_screen/page/wight/container/container_custom.dart';
+import '../../widget/profile_screen.dart';
 import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
@@ -21,39 +25,37 @@ class MatchesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-         final value = await showDialog<bool>(
+        final value = await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              AppString.next,
+              "Are you sure want to exit?",
               style: TextStyle(
-             //   fontFamily: AppString.circle,
+                fontFamily: "Circular",
                 fontSize: 15.sp,
               ),
             ),
             actions: <Widget>[
-              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  AppString.wk,
+                  "No",
                   style: TextStyle(
-            //        fontFamily: AppString.circle,
+                    fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),
               ),
-              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);
                 },
                 child: Text(
-                  AppString.news,
+                  "Yes",
                   style: TextStyle(
-          //         fontFamily: AppString.circle,
+                    fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),
