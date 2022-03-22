@@ -9,6 +9,12 @@ import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../expert/data/controller.dart';
 import '../../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
+import '../../screen/ipl_screen/page/wight/container/container_custom.dart';
+import '../../widget/profile_screen.dart';
+import '../../T20Predictions/page/utills/asset.dart';
+import '../../T20Predictions/page/utills/color.dart';
+import '../../expert/data/controller.dart';
+import '../../screen/ipl_screen/page/wight/container/container_custom.dart';
 import '../../utills/string.dart';
 import '../../widget/google_sign_in_repo.dart';
 import '../../widget/profile_screen.dart';
@@ -30,35 +36,33 @@ class MatchesScreen extends StatelessWidget {
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
-              AppString.next,
+              "Are you sure want to exit?",
               style: TextStyle(
-                //   fontFamily: AppString.circle,
+                fontFamily: "Circular",
                 fontSize: 15.sp,
               ),
             ),
             actions: <Widget>[
-              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  AppString.wk,
+                  "No",
                   style: TextStyle(
-                    //        fontFamily: AppString.circle,
+                    fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),
               ),
-              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);
                 },
                 child: Text(
-                  AppString.news,
+                  "Yes",
                   style: TextStyle(
-                    //         fontFamily: AppString.circle,
+                    fontFamily: "Circular",
                     fontSize: 15.sp,
                   ),
                 ),

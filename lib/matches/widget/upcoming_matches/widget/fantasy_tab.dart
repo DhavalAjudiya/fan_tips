@@ -12,7 +12,6 @@ import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../../../../utills/string.dart';
 
-
 class LiveFantasyTab extends StatelessWidget {
   LiveFantasyTab({Key? key}) : super(key: key);
   final upcomingController = Get.put(UpcomingMatchController());

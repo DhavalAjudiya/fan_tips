@@ -37,7 +37,9 @@ class SquadsDetailsScreen extends StatelessWidget {
                       leading: const CircleAvatar(
                         backgroundColor: AppColor.grey,
                       ),
-                      title: Text(IplTems[index]['batsman'][0]),
+                      title: Text(
+                        IplTems[index]['batsman'][0],
+                      ),
                     ),
                   );
                 },

@@ -151,10 +151,12 @@ class HomeScreen extends StatelessWidget {
                                     color: AppColor.containerBackground,
                                     borderRadius: BorderRadius.circular(10),
                                     onTap: () {
-                                      signInWithGoogle().then((data) {
-                                        ipController.isLoggedIn.value = true;
-                                        ipController.userObj = data;
-                                      }).catchError((e) {});
+                                      signInWithGoogle().then(
+                                        (data) {
+                                          ipController.isLoggedIn.value = true;
+                                          ipController.userObj = data;
+                                        },
+                                      ).catchError((e) {});
                                     },
                                     child: Row(
                                       mainAxisAlignment:
@@ -213,9 +215,9 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 1.w,
+                                      width: 5.w,
                                     ),
-                                    Icon(Icons.favorite_outline)
+                                    Icon(Icons.favorite_outline),
                                   ],
                                 ),
                         ),
