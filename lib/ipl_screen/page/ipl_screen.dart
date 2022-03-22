@@ -1,15 +1,19 @@
+import 'dart:io';
+
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/ipl_screen/widget/match_screen.dart';
-import 'package:fantips/ipl_screen/widget/squad_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../widget/point_table_tab.dart';
+import '../../T20Predictions/page/utills/asset.dart';
+import '../../utills/style.dart';
+import '../data/data_ipl.dart';
+import '../widget/custom_scoretile.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
 import '../controller/ipl_controller.dart';
+import '../widget/squads_details.dart';
 
 class IplScreen extends StatelessWidget {
   IplScreen({Key? key}) : super(key: key);

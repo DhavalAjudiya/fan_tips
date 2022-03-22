@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 import '../../commanWidget/commanText.dart';
+import '../../homeScreen/data/homepageController.dart';
 import '../../utills/string.dart';
 import '../T20Predictions/prediction.dart';
 import '../../T20Predictions/page/utills/asset.dart';
@@ -18,6 +19,7 @@ import '../data/controller.dart';
 class ExpertScreen extends StatelessWidget {
   static const routeName = "/ExpertScreen";
   IpController iplController = Get.put(IpController());
+  final HomeController homeController = Get.put(HomeController());
 
   ExpertScreen({Key? key}) : super(key: key);
   Future<void> _refresh() async {
@@ -37,7 +39,7 @@ class ExpertScreen extends StatelessWidget {
             title: Text(
               AppString.next,
               style: TextStyle(
-             //   fontFamily: AppString.circle,
+                //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -50,7 +52,7 @@ class ExpertScreen extends StatelessWidget {
                 child: Text(
                   AppString.wk,
                   style: TextStyle(
-               //    fontFamily: AppString.circle,
+                    //    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -63,7 +65,7 @@ class ExpertScreen extends StatelessWidget {
                 child: Text(
                   AppString.news,
                   style: TextStyle(
-              //      fontFamily: AppStringcircle,
+                    //      fontFamily: AppStringcircle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -77,347 +79,7 @@ class ExpertScreen extends StatelessWidget {
           return Future.value(false);
         }
       },
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: AppColor.backgroundColorBlack,
-          body: Padding(
-            padding: EdgeInsets.only(
-                top: 9.sp, left: 13.5.sp, right: 12.5.sp, bottom: 4.sp),
-            child: Column(
-              children: [
-                HeaderRow(
-                  title: AppString.predictionExpert,
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Search(),
-                          ),
-                        );
-                      },
-                      child: SvgPicture.asset(IconAsset.searchIcon)),
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet(
-                      backgroundColor: AppColor.containerBackgroundColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(12.sp),
-                          topRight: Radius.circular(12.sp),
-                        ),
-                      ),
-                      context: context,
-                      builder: (context) {
-                        return Container(
-                          height: 25.h,
-                          decoration: BoxDecoration(
-                            color: AppColor.containerBackgroundColor,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(12.sp),
-                              topRight: Radius.circular(12.sp),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: 10.sp, right: 10.sp, top: 10.sp),
-                            child: Obx(
-                              () => Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(
-                                        AppImage.line,
-                                        color: AppColor.whiteColor,
-                                      ),
-                                      SizedBox(
-                                        width: 2.w,
-                                      ),
-                                      CustomeText(
-                                        title: AppString.sortBy,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      )
-                                    ],
-                                  ),
-                                  Divider(),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (iplController.isBottomSelect = true) {
-                                        iplController.index.value = 0;
-                                      } else {
-                                        iplController.isBottomSelect = false;
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        CustomeText(
-                                          title: AppString.prediction,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13.sp,
-                                        ),
-                                        const Spacer(),
-                                        iplController.index.value == 0
-                                            ? const CircleAvatar (
-                                                radius: 8,
-                                                backgroundColor: AppColor.white,
-                                                child:
-                                                    Icon(Icons.done, size: 12),
-                                              )
-                                            : const CustomeText (
-                                                title: "",
-                                              )
-                                      ],
-                                    ),
-                                  ),
-                                  Divider(),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (iplController.isBottomSelect = true) {
-                                        iplController.index.value = 1;
-                                      } else {
-                                        iplController.isBottomSelect = false;
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        CustomeText(
-                                          title: AppString.average_score,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13.sp,
-                                        ),
-                                        const Spacer(),
-                                        iplController.index.value == 1
-                                            ? const CircleAvatar(
-                                                radius: 8,
-                                                backgroundColor: AppColor.white,
-                                                child:
-                                                    Icon(Icons.done, size: 12),
-                                              )
-                                            : const CustomeText(
-                                                title: "",
-                                              )
-                                      ],
-                                    ),
-                                  ),
-                                  Divider(),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (iplController.isBottomSelect = true) {
-                                        iplController.index.value = 2;
-                                      } else {
-                                        iplController.isBottomSelect = false;
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        CustomeText(
-                                          title: AppString.wins,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13.sp,
-                                        ),
-                                        const Spacer(),
-                                        iplController.index.value == 2
-                                            ? const CircleAvatar(
-                                                radius: 8,
-                                                backgroundColor: AppColor.white,
-                                                child:
-                                                    Icon(Icons.done, size: 12),
-                                              )
-                                            : const CustomeText(
-                                                title: "",
-                                              )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                  child: Container(
-                    height: 5.8.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: AppColor.containerBackgroundColor,
-                      borderRadius: BorderRadius.circular(8.sp),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 58.sp),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 0.2.h,
-                                width: 6.w,
-                                decoration: BoxDecoration(
-                                  color: AppColor.green,
-                                  borderRadius: BorderRadius.circular(15.sp),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 0.3.h,
-                              ),
-                              Container(
-                                height: 0.2.h,
-                                width: 4.5.w,
-                                decoration: BoxDecoration(
-                                  color: AppColor.green,
-                                  borderRadius: BorderRadius.circular(15.sp),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 0.3.h,
-                              ),
-                              Container(
-                                height: 0.2.h,
-                                width: 2.5.w,
-                                decoration: BoxDecoration(
-                                  color: AppColor.green,
-                                  borderRadius: BorderRadius.circular(15.sp),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: 2.w,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              AppString.sortByAvgScore,
-                              style: TextStyle(
-                                fontSize: 13.sp,
-                                fontFamily: 'circular',
-                                color: AppColor.green,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Obx(
-                              () => CustomeText(
-                                title: iplController.index.value == 0
-                                    ? AppString.prediction
-                                    : iplController.index.value == 1
-                                        ? AppString.average_score
-                                        : iplController.index.value == 2
-                                            ? AppString.wins
-                                            : "",
-                                color: AppColor.greenColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 13.sp,
-                              ),
-                            )
-                          ],
-                        ),
-                        const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: AppColor.green,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 1.h,
-                ),
-                Obx(
-                  () => Flexible(
-                    child: SizedBox(
-                      height: 79.h,
-                      child: SmartRefresher(
-                        onRefresh: _refresh,
-                        controller: iplController.refreshController,
-                        child: ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          itemCount:
-                              iplController.expert.value.tipsters?.length ?? 0,
-                          itemBuilder: (context, index) {
-                            var postData =
-                                iplController.expert.value.tipsters![index];
-                            return Obx(
-                              () => InkWell(
-                                onTap: () {
-                                  Get.toNamed(
-                                    T20Prediction.routeName,
-                                    arguments: {
-                                      "img": postData.profileUrl ??
-                                          "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
-                                      "text":
-                                          "${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...",
-                                      "prediction":
-                                          "${postData.totalPredictions}",
-                                      "avgScore": "${postData.avgScore}",
-                                      "win": "${postData.top3}",
-                                      "subscribers":
-                                          "${postData.subscriberCount?.substring(0, 4)}",
-                                    },
-                                  );
-                                },
-                                child: PredictionContainer(
-                                  predictionCount:
-                                      "${postData.totalPredictions}",
-                                  onPressed: () {
-                                    if (postData.wishlist.value == false) {
-                                      postData.wishlist.value = true;
-                                    } else {
-                                      postData.wishlist.value = false;
-                                    }
-                                  },
-                                  icon: postData.wishlist.value == false
-                                      ? const Icon(
-                                          Icons.favorite_border,
-                                          color: AppColor.green,
-                                        )
-                                      : const Icon(
-                                          Icons.favorite,
-                                          color: AppColor.green,
-                                        ),
-                                  winsCount: "${postData.top3}",
-                                  youtubeText: "${postData.subscriberCount}",
-                                  averageCount: "${postData.avgScore}",
-                                  headerText:
-                                      '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                  backgroundImage: NetworkImage(
-                                    postData.profileUrl ??
-                                        "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      child:,
     );
   }
 }

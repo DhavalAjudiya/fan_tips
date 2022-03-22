@@ -27,13 +27,13 @@ class MatchesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-         final value = await showDialog<bool>(
+        final value = await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
             title: Text(
               AppString.next,
               style: TextStyle(
-             //   fontFamily: AppString.circle,
+                //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -46,7 +46,7 @@ class MatchesScreen extends StatelessWidget {
                 child: Text(
                   AppString.wk,
                   style: TextStyle(
-            //        fontFamily: AppString.circle,
+                    //        fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -59,7 +59,7 @@ class MatchesScreen extends StatelessWidget {
                 child: Text(
                   AppString.news,
                   style: TextStyle(
-          //         fontFamily: AppString.circle,
+                    //         fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
