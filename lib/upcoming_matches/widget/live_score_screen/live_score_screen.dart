@@ -1,4 +1,3 @@
-import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -62,7 +61,6 @@ class LiveScoreScreen extends StatelessWidget {
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
               unselectedLabelStyle:
                   const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
-              isScrollable: true,
             ),
           ),
         ),
@@ -75,7 +73,7 @@ class LiveScoreScreen extends StatelessWidget {
           // commentry
           Commentary(),
           // scorecard
-          ScoreCardScreen(),
+          // ScoreCardScreen(),
           // quiz
           Padding(
             padding: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 10.sp),

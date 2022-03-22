@@ -23,8 +23,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
   PageScroll foodie = PageScroll();
   final _pageController = PageController(viewportFraction: 3);
   final _currentPageNotifier = ValueNotifier(0);
-  int pageSelector = 0;
-  int matchSelect = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -139,33 +137,19 @@ class _PageViewScreenState extends State<PageViewScreen> {
   }
 
   Widget _buildStepIndicator() {
-    return Row(
-      children: List.generate(
-        3,
-        (index) => Container(
-          height: 10,
-          width: 0 == index ? 25 : 10,
-          margin: EdgeInsets.only(right: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: index == 0 ? AppColor.greenColor : AppColor.blackColor,
-          ),
-          // child: CirclePageIndicator(
-          //   itemCount: 3,
-          //   dotSpacing: 3.w,
-          //   selectedSize: 2.h,
-          //   selectedDotColor: AppColor.green,
-          //   dotColor: AppColor.grey,
-          //   currentPageNotifier: _currentPageNotifier,
-          //   size: 2.9.w,
-          //   onPageSelected: (index) {
-          //     if (_currentPageNotifier.value > index) {
-          //       _pageController.initialPage;
-          //     }
-          //   },
-          // ),
-        ),
-      ),
+    return CirclePageIndicator(
+      itemCount: 3,
+      dotSpacing: 3.w,
+      selectedSize: 2.h,
+      selectedDotColor: AppColor.green,
+      dotColor: AppColor.grey,
+      currentPageNotifier: _currentPageNotifier,
+      size: 2.9.w,
+      onPageSelected: (index) {
+        if (_currentPageNotifier.value > index) {
+          _pageController.initialPage;
+        }
+      },
     );
   }
 }

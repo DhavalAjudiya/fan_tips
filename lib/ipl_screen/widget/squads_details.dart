@@ -1,6 +1,7 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/more_screen/more_details_screen/custom_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../T20Predictions/page/utills/color.dart';
