@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:fantips/screen/ipl_screen/page/utils/icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

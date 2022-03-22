@@ -35,7 +35,7 @@ class LiveScoreScreen extends StatelessWidget {
               tabs: iplController.upcoming,
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
-
+              isScrollable: true,
               labelColor: AppColor.greenColor,
               labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
               unselectedLabelStyle: const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),

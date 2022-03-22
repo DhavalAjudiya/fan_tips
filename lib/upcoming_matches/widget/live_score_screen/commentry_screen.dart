@@ -12,7 +12,6 @@ class Commentary extends StatelessWidget {
   Commentary({Key? key}) : super(key: key);
 
   final MatchsScreenControoler matchScreenController = Get.find();
-
   final _random = Random();
 
   @override
