@@ -4,7 +4,6 @@ import '../../screen/ipl_screen/fantasyTab /fantasy_model.dart';
 import '../../screen/ipl_screen/fantasyTab /fantasy_service.dart';
 import '../../utills/string.dart';
 
-// ignore: deprecated_member_use
 class IplController extends GetxController with SingleGetTickerProviderMixin {
   /// fantasy tab
   TextEditingController controller = TextEditingController();

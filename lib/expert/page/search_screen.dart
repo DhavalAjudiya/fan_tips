@@ -6,19 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../ipl_screen/controller/ipl_controller.dart';
 
 class Search extends StatefulWidget {
+  static const routeName = '/search_page';
   Search({Key? key}) : super(key: key);
 
   @override
   State<Search> createState() => _SearchState();
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
 }
 
 class _SearchState extends State<Search> {

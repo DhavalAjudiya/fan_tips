@@ -11,7 +11,8 @@ import '../../../matches/controler/matchs_controller.dart';
 class Commentary extends StatelessWidget {
   Commentary({Key? key}) : super(key: key);
 
-  final MatchsScreenControoler matchScreenController = Get.find();
+  final MatchsScreenControoler matchScreenController =
+      Get.put(MatchsScreenControoler());
 
   final _random = Random();
 
@@ -53,10 +54,14 @@ class Commentary extends StatelessWidget {
                                 ),
                                 CircleAvatar(
                                   minRadius: 1.7.h,
-                                  backgroundColor: Colors.primaries[_random.nextInt(Colors.primaries.length)][_random.nextInt(9) * 100],
+                                  backgroundColor: Colors.primaries[_random
+                                          .nextInt(Colors.primaries.length)]
+                                      [_random.nextInt(9) * 100],
                                   child: Text(
                                     '1',
-                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14.sp),
                                   ),
                                 )
                               ],
