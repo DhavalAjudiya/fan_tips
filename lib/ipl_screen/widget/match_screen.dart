@@ -7,12 +7,11 @@ import '../../utills/style.dart';
 import 'custom_scoretile.dart';
 
 class MatchTab extends StatelessWidget {
-
   final IplController iplController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: EdgeInsets.only(top: 1.2.h),
       child: SingleChildScrollView(
         child: Column(
@@ -37,7 +36,9 @@ class MatchTab extends StatelessWidget {
                   iplController.isOn.value = false;
                 }
               },
-              icon: iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+              icon: iplController.isOn.value == false
+                  ? const Icon(Icons.notifications)
+                  : const Icon(Icons.notifications_none_rounded),
               width: 88.w,
               titleMatches: 'RR vc RCB IPL,2021',
               image1: IconAsset.logoCSK,
@@ -83,8 +84,9 @@ class MatchTab extends StatelessWidget {
                           iplController.isOn.value = false;
                         }
                       },
-                      icon:
-                      iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+                      icon: iplController.isOn.value == false
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_none_rounded),
                       titleMatches: 'RCB vc DC IPL,2021',
                       image1: IconAsset.logoRCB,
                       textTeam1: 'RCB',
@@ -127,8 +129,9 @@ class MatchTab extends StatelessWidget {
                           iplController.isOn.value = false;
                         }
                       },
-                      icon:
-                      iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+                      icon: iplController.isOn.value == false
+                          ? const Icon(Icons.notifications)
+                          : const Icon(Icons.notifications_none_rounded),
                       width: 88.w,
                       titleMatches: 'PNJ vc KKR IPL,2021',
                       image1: IconAsset.logoPNJ,

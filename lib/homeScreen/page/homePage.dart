@@ -7,12 +7,10 @@ import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../T20Predictions/page/utills/asset.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
+import '../../widget/app_bottom_sheet.dart';
 import '../../widget/custom_container.dart';
-import '../../widget/google_sign_in_repo.dart';
 import '../../widget/profile_screen.dart';
 import '../data/homepageController.dart';
 import '../widget/featuredexpert_container.dart';
@@ -88,107 +86,7 @@ class HomeScreen extends StatelessWidget {
                       Obx(
                         () => InkWell(
                           onTap: () {
-                            showModalBottomSheet(
-                              backgroundColor: Colors.black,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(6.w),
-                                  topLeft: Radius.circular(6.w),
-                                ),
-                              ),
-                              context: context,
-                              builder: (context) => Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {
-                                          Get.back();
-                                        },
-                                        icon: Icon(
-                                          Icons.clear,
-                                          size: 9.w,
-                                        ),
-                                        splashColor: AppColor.transparent,
-                                      ),
-                                      SizedBox(
-                                        height: 3.h,
-                                      ),
-                                    ],
-                                  ),
-                                  Image.asset(AppImage.logo, height: 40.w),
-                                  Padding(
-                                    padding: EdgeInsets.all(5.w),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          height: 0.2.h,
-                                          width: 27.w,
-                                          color: AppColor.grey,
-                                        ),
-                                        SizedBox(
-                                          width: 2.w,
-                                        ),
-                                        const CustomeText(title: AppString.letsconnect),
-                                        SizedBox(
-                                          width: 2.w,
-                                        ),
-                                        Container(
-                                          height: 0.2.h,
-                                          width: 27.w,
-                                          color: AppColor.grey,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2.h,
-                                  ),
-                                  AppContainer(
-                                    height: 6.h,
-                                    width: 60.w,
-                                    color: AppColor.containerBackground,
-                                    borderRadius: BorderRadius.circular(10),
-                                    onTap: () {
-                                      signInWithGoogle().then(
-                                        (data) {
-                                          ipController.isLoggedIn.value = true;
-                                          ipController.userObj = data;
-                                        },
-                                      ).catchError((e) {});
-                                    },
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Image.asset(AppImage.google, height: 8.w),
-                                        const CustomeText(
-                                          title: AppString.googleSign,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2.h,
-                                  ),
-                                  AppContainer(
-                                    height: 6.h,
-                                    width: 60.w,
-                                    color: AppColor.containerBackground,
-                                    borderRadius: BorderRadius.circular(10),
-                                    onTap: () {},
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Image.asset(AppImage.fb, height: 8.w),
-                                        const CustomeText(
-                                          title: AppString.fbLogin,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
+                            AppBottomSheet().bottomSheet(context);
                           },
                           child: ipController.isLoggedIn.value == false
                               ? CustomeText(
@@ -293,69 +191,100 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 4,
                     itemBuilder: (context, index) {
                       return Obx(
-                        () => Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.sp,
-                            right: 10.sp,
-                            top: 8.sp,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              AppContainer(
-                                onTap: () {
-                                  Get.toNamed(
-                                    NewsDetailedScreen.routeName,
-                                    arguments: {
-                                      "image": '${homeController.newsModel.value.news?[index].image}',
-                                      "title": '${homeController.newsModel.value.news?[index].title}',
-                                      "subtitle": '${homeController.newsModel.value.news?[index].smallDesc}',
-                                      "time": homeController.timeAgo(homeController.data(homeController.newsModel.value.news?[index].time)),
-                                    },
-                                  );
-                                },
-                                height: 20.h,
-                                borderRadius: BorderRadius.circular(10.sp),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(homeController.newsModel.value.news?[index].image ?? ""),
+                        () => homeController.isLoading.value == true
+                            ? Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 40, top: 10),
+                                child:
+                                    Center(child: CircularProgressIndicator()),
+                              )
+                            : Padding(
+                                padding: EdgeInsets.only(
+                                    left: 10.sp,
+                                    right: 10.sp,
+                                    top: 8.sp,
+                                    bottom: 10.sp),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AppContainer(
+                                      onTap: () {
+                                        Get.toNamed(
+                                            NewsDetailedScreen.routeName,
+                                            arguments: {
+                                              "image": homeController.newsModel
+                                                  .value.news?[index].image,
+                                              "title": homeController.newsModel
+                                                  .value.news?[index].title,
+                                              "subtitle": homeController
+                                                  .newsModel
+                                                  .value
+                                                  .news?[index]
+                                                  .smallDesc,
+                                              "time": homeController.timeAgo(
+                                                  homeController.data(
+                                                      homeController
+                                                          .newsModel
+                                                          .value
+                                                          .news?[index]
+                                                          .time)),
+                                            });
+                                      },
+                                      height: 20.h,
+                                      borderRadius:
+                                          BorderRadius.circular(10.sp),
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                            "${homeController.newsModel.value.news?[index].image}"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 2.h,
+                                    ),
+                                    CustomeText(
+                                      title:
+                                          "${homeController.newsModel.value.news?[index].title}",
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    SizedBox(
+                                      height: 0.5.h,
+                                    ),
+                                    CustomeText(
+                                      title:
+                                          "${homeController.newsModel.value.news?[index].smallDesc}",
+                                      fontSize: 9.sp,
+                                      color:
+                                          AppColor.whiteColor.withOpacity(0.5),
+                                    ),
+                                    SizedBox(
+                                      height: 0.5.h,
+                                    ),
+                                    CustomeText(
+                                      title:
+                                          "${homeController.newsModel.value.news?[index].newsSource}",
+                                      fontSize: 8.sp,
+                                      color:
+                                          AppColor.whiteColor.withOpacity(0.5),
+                                    ),
+                                    SizedBox(
+                                      height: 0.5.h,
+                                    ),
+                                    CustomeText(
+                                      title: homeController.timeAgo(
+                                          homeController.data(homeController
+                                              .newsModel
+                                              .value
+                                              .news?[index]
+                                              .time)),
+                                      fontSize: 8.sp,
+                                      color:
+                                          AppColor.whiteColor.withOpacity(0.5),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(
-                                height: 2.h,
-                              ),
-                              CustomeText(
-                                title: '${homeController.newsModel.value.news?[index].title}',
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              SizedBox(
-                                height: 0.5.h,
-                              ),
-                              CustomeText(
-                                title: '${homeController.newsModel.value.news?[index].smallDesc}',
-                                fontSize: 9.sp,
-                                color: AppColor.whiteColor.withOpacity(0.5),
-                              ),
-                              SizedBox(
-                                height: 0.5.h,
-                              ),
-                              CustomeText(
-                                title: '${homeController.newsModel.value.news?[index].newsSource}',
-                                fontSize: 8.sp,
-                                color: AppColor.whiteColor.withOpacity(0.5),
-                              ),
-                              SizedBox(
-                                height: 0.5.h,
-                              ),
-                              CustomeText(
-                                title: homeController.timeAgo(homeController.data(homeController.newsModel.value.news?[index].time)),
-                                fontSize: 8.sp,
-                                color: AppColor.whiteColor.withOpacity(0.5),
-                              ),
-                            ],
-                          ),
-                        ),
                       );
                     },
                   ),

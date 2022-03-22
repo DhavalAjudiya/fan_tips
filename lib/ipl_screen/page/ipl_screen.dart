@@ -4,12 +4,13 @@ import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../T20Predictions/page/utills/asset.dart';
+import '../../utills/style.dart';
 import '../data/data_ipl.dart';
 import '../widget/custom_scoretile.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
-import '../../utills/style.dart';
 import '../controller/ipl_controller.dart';
 import '../widget/squads_details.dart';
 

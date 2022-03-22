@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../T20Predictions/page/utills/color.dart';
 import '../../../../expert/page/search_screen.dart';
-import '../../../../screen/ipl_screen/page/fantasy_tabBar.dart';
 import '../../../../utills/string.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
@@ -121,7 +120,7 @@ class UpcomingMatchScreen extends StatelessWidget {
           controller: upcomingController.tabController,
           children: [
             ///fantasy tab
-            FantasyTabBar(),
+            FantasyTab(),
 
             ///bestPicks tab
             BestPicksTab(),

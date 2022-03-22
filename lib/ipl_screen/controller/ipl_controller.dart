@@ -20,6 +20,8 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   fetchProducts({String? value}) async {
     try {
       service.value = (await ApiFantasyService.fantasy(value!))!;
+    } catch (e, st) {
+      service.value = (await ApiFantasyService.fantasy(value!))!;
     } catch (e,st) {
       print(e);
     }

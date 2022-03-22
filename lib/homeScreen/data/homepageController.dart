@@ -9,6 +9,7 @@ import 'newsModel.dart';
 class HomeController extends GetxController {
   RxInt matchSelect = 0.obs;
   RxInt featureSelect = 0.obs;
+  RxBool isLoading = false.obs;
 
   RxBool selected = false.obs;
   RxBool notificationsItem = false.obs;
@@ -48,10 +49,13 @@ class HomeController extends GetxController {
 
   callMethod() async {
     try {
+      isLoading.value = true;
       final result = await ApiService().newsPostData();
       newsModel.value = result!;
       return newsModel;
-    } finally {}
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   expertMethod() async {
