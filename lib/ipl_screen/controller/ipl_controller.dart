@@ -4,6 +4,7 @@ import '../../screen/ipl_screen/fantasyTab /fantasy_model.dart';
 import '../../screen/ipl_screen/fantasyTab /fantasy_service.dart';
 import '../../utills/string.dart';
 
+// ignore: deprecated_member_use
 class IplController extends GetxController with SingleGetTickerProviderMixin {
   /// fantasy tab
   TextEditingController controller = TextEditingController();
@@ -18,7 +19,7 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
 
   fetchProducts({String? value}) async {
     try {
-      service.value = (await ApiFantasyService.fantasy(value))!;
+      service.value = (await ApiFantasyService.fantasy(value!))!;
     } catch (e,st) {
       print(e);
     }

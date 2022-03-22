@@ -1,4 +1,7 @@
-import 'package:fantips/screen/ipl_screen/page/utils/icon.dart';
+import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/utils/icon.dart';
+import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/wight/icon/icon_button.dart';
+import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/wight/text/custom_text.dart';
+import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/wight/text/text_from_fild.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -7,9 +10,6 @@ import '../../../../T20Predictions/page/utills/color.dart';
 import '../../../../ipl_screen/controller/ipl_controller.dart';
 import '../../../../utills/string.dart';
 import '../../../../widget/custom_container.dart';
-import '../../page/wight/icon/icon_button.dart';
-import '../../page/wight/text/custom_text.dart';
-import '../../page/wight/text/text_from_fild.dart';
 
 class SearchScreen extends StatelessWidget {
   static const routeName = '/SearchScreen';

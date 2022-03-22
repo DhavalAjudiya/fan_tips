@@ -1,16 +1,12 @@
 import 'dart:io';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/ipl_screen/widget/match_screen.dart';
-import 'package:fantips/ipl_screen/widget/squad_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/asset.dart';
 import '../data/data_ipl.dart';
 import '../widget/custom_scoretile.dart';
-import '../widget/point_table_tab.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
 import '../../utills/style.dart';
@@ -37,6 +33,7 @@ class IplScreen extends StatelessWidget {
               ),
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -49,6 +46,7 @@ class IplScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);
@@ -281,50 +279,6 @@ class IplScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // Point Table
-              // DataTable(
-              //   columnSpacing: 1,
-              //
-              //   columns: [
-              //     DataColumn(
-              //       label: Text(
-              //         'Teams',
-              //         style: Appstyle.pointTableGrey,
-              //       ),
-              //     ),
-              //     DataColumn(
-              //       label: Text(
-              //         'M',
-              //         style: Appstyle.pointTableGrey,
-              //       ),
-              //     ),
-              //     DataColumn(
-              //       label: Text(
-              //         'W',
-              //         style: Appstyle.pointTableGrey,
-              //       ),
-              //     ),
-              //     DataColumn(
-              //       label: Text(
-              //         'L',
-              //         style: Appstyle.pointTableGrey,
-              //       ),
-              //     ),
-              //     DataColumn(
-              //       label: Text(
-              //         'Point',
-              //         style: Appstyle.pointTableGrey,
-              //       ),
-              //     ),
-              //     DataColumn(
-              //       label: Text(
-              //         'NRR',
-              //         style: Appstyle.pointTableGrey,
-              //       ),
-              //     )
-              //   ],
-              //   rows: [],
-              // ),
               Padding(
                 padding: EdgeInsets.only(top: 1.h, left: 4.w, right: 4.w),
                 child: Column(

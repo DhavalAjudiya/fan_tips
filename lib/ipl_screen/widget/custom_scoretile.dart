@@ -147,7 +147,7 @@ class IplCardMatches extends StatelessWidget {
                               fontSize: 11.sp),
                         ),
                         SizedBox(
-                          width: 2.w,
+                          width: 23.w,
                         ),
                         RichText(
                           text: TextSpan(

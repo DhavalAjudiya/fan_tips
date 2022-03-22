@@ -32,6 +32,7 @@ class SquadsDetailsScreen extends StatelessWidget {
             Container(
               height: 80.h,
               child: ListView.builder(
+                physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 itemCount: IplTems.length,
                 itemBuilder: (context, index) {

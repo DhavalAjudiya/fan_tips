@@ -19,6 +19,7 @@ import '../controler/matchs_controller.dart';
 import '../widget/completed.dart';
 import '../widget/live.dart';
 
+// ignore: must_be_immutable
 class MatchesScreen extends StatelessWidget {
   static const routeName = "/home_screen";
 
@@ -41,6 +42,7 @@ class MatchesScreen extends StatelessWidget {
               ),
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -53,6 +55,7 @@ class MatchesScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);

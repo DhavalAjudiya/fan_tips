@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +11,7 @@ import '../widget/fantasyTabBar/wight/icon/icon_button.dart';
 import '../widget/fantasyTabBar/wight/text/custom_text.dart';
 import '../widget/fantasyTabBar/wight/text/text_from_fild.dart';
 
+// ignore: must_be_immutable
 class SearchPage extends StatelessWidget {
   static const routeName = '/search_page';
   IplController iplController = Get.put(IplController());
