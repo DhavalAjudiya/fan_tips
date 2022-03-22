@@ -423,49 +423,43 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                         },
                                       );
                                     },
-                                    child: PredictionContainer(
-                                      predictionCount:
-                                          "${postData.totalPredictions}",
-                                      onPressed: () {
-                                        if (ipController.isLoggedIn == false) {
-                                          AppBottomSheet().bottomSheet(context);
-                                        } else {
-                                          postData.wishlist.value == false
-                                              ? const Icon(
-                                                  Icons.favorite_border,
-                                                  color: AppColor.green,
-                                                )
-                                              : const Icon(
-                                                  Icons.favorite,
-                                                  color: AppColor.green,
-                                                );
-                                          setState(() {});
-                                        }
-                                        if (postData.wishlist.value == false) {
-                                          postData.wishlist.value = true;
-                                        } else {
-                                          postData.wishlist.value = false;
-                                        }
-                                      },
-                                      icon: postData.wishlist.value == false
-                                          ? const Icon(
-                                              Icons.favorite_border,
-                                              color: AppColor.green,
-                                            )
-                                          : const Icon(
-                                              Icons.favorite,
-                                              color: AppColor.green,
-                                            ),
-                                      winsCount: "${postData.top3 ?? ""}",
-                                      youtubeText:
-                                          "${postData.subscriberCount ?? ""}",
-                                      averageCount:
-                                          "${postData.avgScore ?? ""}",
-                                      headerText:
-                                          '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                      backgroundImage: NetworkImage(
-                                        postData.profileUrl ??
-                                            "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                    child: Obx(
+                                      () => PredictionContainer(
+                                        predictionCount:
+                                            "${postData.totalPredictions}",
+                                        onPressed: () {
+                                          if (ipController.isLoggedIn ==
+                                              false) {
+                                            AppBottomSheet()
+                                                .bottomSheet(context);
+                                          } else {}
+                                          if (postData.wishlist.value ==
+                                              false) {
+                                            postData.wishlist.value = true;
+                                          } else {
+                                            postData.wishlist.value = false;
+                                          }
+                                        },
+                                        icon: postData.wishlist.value == false
+                                            ? const Icon(
+                                                Icons.favorite_border,
+                                                color: AppColor.green,
+                                              )
+                                            : const Icon(
+                                                Icons.favorite,
+                                                color: AppColor.green,
+                                              ),
+                                        winsCount: "${postData.top3 ?? ""}",
+                                        youtubeText:
+                                            "${postData.subscriberCount ?? ""}",
+                                        averageCount:
+                                            "${postData.avgScore ?? ""}",
+                                        headerText:
+                                            '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                        backgroundImage: NetworkImage(
+                                          postData.profileUrl ??
+                                              "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                        ),
                                       ),
                                     ),
                                   );
