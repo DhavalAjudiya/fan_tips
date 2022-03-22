@@ -17,9 +17,9 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   ApiFantasyService services = ApiFantasyService();
   Rx<FantasyModel> service = FantasyModel().obs;
 
-  fetchProducts({required String value}) async {
+  fetchProducts({String? value}) async {
     try {
-      service.value = (await ApiFantasyService.fantasy(value))!;
+      service.value = (await ApiFantasyService.fantasy(value!))!;
     } finally {}
   }
 

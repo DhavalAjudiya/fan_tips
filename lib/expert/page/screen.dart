@@ -16,6 +16,7 @@ import '../data/controller.dart';
 
 class ExpertScreen extends StatefulWidget {
   static const routeName = "/ExpertScreen";
+  IpController iplController = Get.put(IpController());
 
   ExpertScreen({Key? key}) : super(key: key);
 
@@ -43,7 +44,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
             title: Text(
               AppString.next,
               style: TextStyle(
-             //   fontFamily: AppString.circle,
+                //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -55,7 +56,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                 child: Text(
                   AppString.wk,
                   style: TextStyle(
-               //    fontFamily: AppString.circle,
+                    //    fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -67,7 +68,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                 child: Text(
                   AppString.news,
                   style: TextStyle(
-              //      fontFamily: AppStringcircle,
+                    //      fontFamily: AppStringcircle,
                     fontSize: 15.sp,
                   ),
                 ),

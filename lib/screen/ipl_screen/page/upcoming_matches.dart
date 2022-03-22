@@ -1,21 +1,21 @@
-import 'dart:developer';
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
-import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
-import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/search_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import '../../../ipl_screen/controller/ipl_controller.dart';
 import '../../../utills/string.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
+import '../widget/fantasyTabBar/fantasy_tabBar.dart';
+import '../widget/fantasyTabBar/search_screen.dart';
 
 class UpcomingIplPage extends StatelessWidget {
   static const routeName = "/UpcomingIplScreen";
   UpcomingIplPage({Key? key}) : super(key: key);
 
-  final IplController iplController = Get.put(IplController());
+  final IplController ipController = Get.put(IplController());
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +48,7 @@ class UpcomingIplPage extends StatelessWidget {
             const Spacer(),
             IconButton(
               onPressed: () {
-                log("on tap");
-                Get.toNamed(
-                  SearchScreen.routeName,
-                );
+                Get.toNamed(SearchScreen.routeName);
               },
               icon: Icon(
                 Icons.search,
@@ -65,8 +62,8 @@ class UpcomingIplPage extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: TabBar(
-              controller: iplController.tabController1,
-              tabs: iplController.upcoming,
+              controller: ipController.tabController1,
+              tabs: ipController.upcoming,
               indicatorColor: AppColor.greenColor,
               indicatorWeight: 2.5,
               labelColor: AppColor.greenColor,
@@ -80,7 +77,7 @@ class UpcomingIplPage extends StatelessWidget {
         ),
       ),
       body: TabBarView(
-        controller: iplController.tabController1,
+        controller: ipController.tabController1,
         children: [
           FantasyTabBar(),
           Container(

@@ -8,9 +8,11 @@ import '../T20Predictions/page/utills/asset.dart';
 import '../T20Predictions/page/utills/color.dart';
 import '../commanWidget/commanText.dart';
 import '../expert/data/controller.dart';
+import '../ipl_screen/controller/ipl_controller.dart';
 import 'custom_container.dart';
 
 class HeaderRow extends StatelessWidget {
+  final IplController iplController = Get.put(IplController());
   final IpController ipController = Get.find();
   final String title;
   final GestureTapCallback? onTap;
