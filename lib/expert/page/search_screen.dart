@@ -7,9 +7,15 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 
-class Search extends StatelessWidget {
-  IpController iplController = Get.find();
+class Search extends StatefulWidget {
   Search({Key? key}) : super(key: key);
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  IpController iplController = Get.find();
 
   @override
   Widget build(BuildContext context) {

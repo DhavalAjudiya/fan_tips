@@ -13,6 +13,9 @@ class Completed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 1.5.h,
+        ),
         Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
@@ -41,8 +44,7 @@ class Completed extends StatelessWidget {
                           ),
                         ),
                         CustomLCContainer(
-                          margin: EdgeInsets.symmetric(
-                              vertical: 1.h, horizontal: 2.w),
+                          margin: EdgeInsets.symmetric(vertical: 1.h),
                           headertext: current?.header ?? "",
                           ontap: () {
                             if (current?.isSelect.value == false) {

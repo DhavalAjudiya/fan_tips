@@ -10,6 +10,7 @@ import 'package:sizer/sizer.dart';
 import '../../../utills/string.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
+import '../widget/fantasyTabBar/fantasy_tabBar.dart';
 
 class UpcomingIplPage extends StatelessWidget {
   static const routeName = "/UpcomingIplScreen";
