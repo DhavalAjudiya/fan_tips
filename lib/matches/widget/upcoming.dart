@@ -18,16 +18,7 @@ class UpComing extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 2.h,
-        ),
-        CustomeText(
-          title: AppString.tomorrow,
-          color: AppColor.whiteColor,
-          fontSize: 13.sp,
-          fontWeight: FontWeight.w900,
-        ),
-        SizedBox(
-          height: 1.h,
+          height: 1.5.h,
         ),
         Expanded(
           child: ListView.builder(
@@ -39,41 +30,56 @@ class UpComing extends StatelessWidget {
                   .currentMatch.value.matches?.notstarted?[index];
               return Obx(() => InkWell(
                     onTap: () {
-                      Get.toNamed(UpcomingMatchScreen.routeName, arguments: {
-                        "t1img": current?.t1Flag ?? AppString.imageNotFound,
-                        "t2img": current?.t2Flag ?? AppString.imageNotFound,
-                        "t1name": current?.team1Name ?? "",
-                        "t2name": current?.team2Name ?? "",
-                        "time": _homecontroller
-                            .timeAgo(_homecontroller.time(current?.startTime)),
-                      });
+                      Get.toNamed(
+                        UpcomingMatchScreen.routeName,
+                        arguments: {
+                          "t1img": current?.t1Flag ?? AppString.imageNotFound,
+                          "t2img": current?.t2Flag ?? AppString.imageNotFound,
+                          "t1name": current?.team1Name ?? "",
+                          "t2name": current?.team2Name ?? "",
+                          "time": _homecontroller.timeAgo(
+                              _homecontroller.time(current?.startTime)),
+                        },
+                      );
                     },
-                    child: CustomContainer(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.w),
-                      headertext: current?.matchName ?? "",
-                      ontap: () {
-                        if (current?.selected.value == false) {
-                          current?.selected.value = true;
-                        } else {
-                          current?.selected.value = false;
-                        }
-                      },
-                      icon: current?.selected.value == false
-                          ? const Icon(Icons.notifications)
-                          : const Icon(Icons.notifications_none),
-                      backgroundImage: NetworkImage(
-                        current?.t1Flag ?? AppString.imageNotFound,
-                      ),
-                      text: current?.team1Name ?? "",
-                      secondbackgroundImage: NetworkImage(
-                        current?.t2Flag ?? AppString.imageNotFound,
-                      ),
-                      subText: current?.team2Name ?? "",
-                      predictionText: "${current?.totalprediction ?? ""}",
-                      prediction: "Prediction",
-                      lastText: _homecontroller
-                          .timeAgo(_homecontroller.time(current?.startTime)),
+                    child: Column(
+                      children: [
+                        Text(
+                          _homecontroller.timeAgo(
+                              _homecontroller.time(current?.startTime ?? 0)),
+                          style: const TextStyle(
+                            color: Colors.white54,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        CustomContainer(
+                          margin: EdgeInsets.symmetric(vertical: 1.h),
+                          headertext: current?.matchName ?? "",
+                          ontap: () {
+                            if (current?.selected.value == false) {
+                              current?.selected.value = true;
+                            } else {
+                              current?.selected.value = false;
+                            }
+                          },
+                          icon: current?.selected.value == false
+                              ? const Icon(Icons.notifications)
+                              : const Icon(Icons.notifications_none),
+                          backgroundImage: NetworkImage(
+                            current?.t1Flag ?? AppString.imageNotFound,
+                          ),
+                          text: current?.team1Name ?? "",
+                          secondbackgroundImage: NetworkImage(
+                            current?.t2Flag ?? AppString.imageNotFound,
+                          ),
+                          subText: current?.team2Name ?? "",
+                          predictionText: "${current?.totalprediction ?? ""}",
+                          prediction: "Prediction",
+                          lastText: _homecontroller.timeAgo(
+                              _homecontroller.time(current?.startTime)),
+                        ),
+                      ],
                     ),
                   ));
             },

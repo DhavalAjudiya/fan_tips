@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 
 class Search extends StatefulWidget {
+  static const routeName = '/search_page';
   Search({Key? key}) : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  IpController iplController = Get.find();
+  IpController ipController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -100,9 +101,8 @@ class _SearchState extends State<Search> {
                               ],
                             ),
                           )
-                        : iplController
-                                    .searchController.value.text.isNotEmpty &&
-                                iplController.searchItem.value.isEmpty
+                        : ipController.searchController.value.text.isNotEmpty &&
+                                ipController.searchItem.value.isEmpty
                             ? Column(
                                 children: [
                                   Icon(

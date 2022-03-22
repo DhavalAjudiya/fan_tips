@@ -26,5 +26,6 @@ class ApiFantasyService {
     } catch (e) {
       print("--------$e");
     }
+    return null;
   }
 }

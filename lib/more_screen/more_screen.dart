@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/widget/custom_card.dart';
 import 'package:flutter/material.dart';
@@ -6,13 +7,13 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../T20Predictions/page/utills/color.dart';
 import '../../utills/string.dart';
 import 'more_details_screen/apply_export_screen.dart';
 import 'more_details_screen/contect_screen.dart';
 import 'more_details_screen/favourite_experts.dart';
 import 'more_details_screen/feedback_screen.dart';
-
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({Key? key}) : super(key: key);
@@ -117,16 +118,12 @@ class MoreScreen extends StatelessWidget {
                                     height: 2.h,
                                   ),
                                   Center(
-                                    child: Container(
-                                      height: 5.5.h,
-                                      width: 12.w,
-                                      decoration: BoxDecoration(color: Colors.indigo.shade900, borderRadius: BorderRadius.circular(13)),
-                                      child: Center(
-                                        child: Text(
-                                          'FT',
-                                          style: TextStyle(
-                                              fontFamily: 'WorkSan', fontSize: 16.sp, color: AppColor.greenColor, fontWeight: FontWeight.bold),
-                                        ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        'assets/image/logo.png',
+                                        width: 18.w,
+                                        height: 10.h,
                                       ),
                                     ),
                                   ),
@@ -135,7 +132,12 @@ class MoreScreen extends StatelessWidget {
                                   ),
                                   Text(
                                     'Enjoying FanTips',
-                                    style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600, fontFamily: 'WorkSon'),
+                                    style: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w800,
+                                      fontFamily: 'WorkSon',
+                                      color: AppColor.backGround,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 1.h,
@@ -148,7 +150,13 @@ class MoreScreen extends StatelessWidget {
                                         const TextSpan(
                                           text: 'Tap a star to rate it on the App Store\n',
                                         ),
-                                        TextSpan(text: '                    App Store', style: TextStyle(fontSize: 10.sp)),
+                                        TextSpan(
+                                          text: '                    App Store',
+                                          style: TextStyle(
+                                            fontSize: 10.sp,
+                                            fontWeight: FontWeight.w500
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -261,40 +269,40 @@ class MoreScreen extends StatelessWidget {
                   },
                   text: AppString.contactFor,
                 ),
-                CustomCard(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                        transitionsBuilder: (
-                          context,
-                          animation,
-                          secondaryAnimation,
-                          child,
-                        ) {
-                          return ScaleTransition(
-                            scale: Tween<double>(begin: 0.1, end: 1).animate(
-                              CurvedAnimation(
-                                parent: animation,
-                                curve: Curves.ease,
-                              ),
-                            ),
-                            child: child,
-                          );
-                        },
-                        transitionDuration: Duration(seconds: 1),
-                        pageBuilder: (
-                          BuildContext context,
-                          Animation<double> aninamtion,
-                          Animation<double> secondaryAnimation,
-                        ) {
-                          return ContactScreen();
-                        },
-                      ),
-                    );
-                  },
-                  text: AppString.contactFor,
-                ),
+                // CustomCard(
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       PageRouteBuilder(
+                //         transitionsBuilder: (
+                //           context,
+                //           animation,
+                //           secondaryAnimation,
+                //           child,
+                //         ) {
+                //           return ScaleTransition(
+                //             scale: Tween<double>(begin: 0.1, end: 1).animate(
+                //               CurvedAnimation(
+                //                 parent: animation,
+                //                 curve: Curves.ease,
+                //               ),
+                //             ),
+                //             child: child,
+                //           );
+                //         },
+                //         transitionDuration: Duration(seconds: 1),
+                //         pageBuilder: (
+                //           BuildContext context,
+                //           Animation<double> aninamtion,
+                //           Animation<double> secondaryAnimation,
+                //         ) {
+                //           return ContactScreen();
+                //         },
+                //       ),
+                //     );
+                //   },
+                //   text: AppString.contactFor,
+                // ),
               ],
             ),
           ),

@@ -13,7 +13,7 @@ import '../../page/wight/text/text_from_fild.dart';
 
 class SearchScreen extends StatelessWidget {
   static const routeName = '/SearchScreen';
-  final IplController ipController = Get.find();
+  final IplController iplController = Get.find();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,11 +38,11 @@ class SearchScreen extends StatelessWidget {
       child: AppTextFormField(
         contentPadding:
             const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        controller: ipController.controller,
-        onChanged: (value) => ipController.fetchProducts(value: value),
+        controller: iplController.controller,
+        onChanged: (value) => iplController.fetchProducts(value: value),
         suffixIcon: AppIconCustom(
           onPressed: () {
-            ipController.controller.clear();
+            iplController.controller.clear();
           },
           icon: AppIcon.clos,
           color: AppColor.white,
@@ -101,19 +101,19 @@ class SearchScreen extends StatelessWidget {
     return Expanded(
       child: Obx(
         () {
-          print("data=>>${ipController.service.value.tipsters!.length}");
-          if (ipController.controller.text.isEmpty) {
+          // print("data=>>${iplController.service.value.tipsters!.length}");
+          if (iplController.controller.text.isEmpty) {
             return Center(
               child: _vector(),
             );
-          } else if (ipController.controller.value.text.isNotEmpty) {
+          } else if (iplController.service.value.tipsters!.isNotEmpty) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView.builder(
-                itemCount: ipController.service.value.tipsters!.length,
+                itemCount: iplController.service.value.tipsters!.length,
                 itemBuilder: (context, index) {
                   //log("data=>>${iplController.service.value.tipsters!.length}");
-                  var item = ipController.service.value.tipsters![index];
+                  var item = iplController.service.value.tipsters![index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -179,12 +179,12 @@ class SearchScreen extends StatelessWidget {
                                 Spacer(),
                                 AppIconCustom(
                                   onPressed: () {
-                                    ipController.service.value.tipsters![index]
+                                    iplController.service.value.tipsters![index]
                                             .selected.value =
-                                        !ipController.service.value
+                                        !iplController.service.value
                                             .tipsters![index].selected.value;
                                   },
-                                  color: ipController.service.value
+                                  color: iplController.service.value
                                           .tipsters![index].selected.value
                                       ? AppColor.grey
                                       : AppColor.green,
