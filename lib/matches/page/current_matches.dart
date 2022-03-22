@@ -36,7 +36,7 @@ class MatchesScreen extends StatelessWidget {
             title: Text(
               "Are you sure want to exit?",
               style: TextStyle(
-             //   fontFamily: AppString.circle,
+                //   fontFamily: AppString.circle,
                 fontSize: 15.sp,
               ),
             ),
@@ -48,7 +48,7 @@ class MatchesScreen extends StatelessWidget {
                 child: Text(
                   "No",
                   style: TextStyle(
-            //        fontFamily: AppString.circle,
+                    //        fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -60,7 +60,7 @@ class MatchesScreen extends StatelessWidget {
                 child: Text(
                   "Yes",
                   style: TextStyle(
-          //         fontFamily: AppString.circle,
+                    //         fontFamily: AppString.circle,
                     fontSize: 15.sp,
                   ),
                 ),

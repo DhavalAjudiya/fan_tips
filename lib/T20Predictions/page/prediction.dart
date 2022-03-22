@@ -103,9 +103,6 @@ class T20Prediction extends StatelessWidget {
         children: [
           InfoPage(),
           MatchesPage(),
-
-
-
         ],
       ),
     );
