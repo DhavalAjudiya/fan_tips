@@ -1,4 +1,3 @@
-import 'package:fantips/upcoming_matches/widget/live_score_screen/live_score_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';

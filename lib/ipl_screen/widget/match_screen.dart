@@ -37,7 +37,7 @@ class MatchTab extends StatelessWidget {
                   iplController.isOn.value = false;
                 }
               },
-              icon: iplController.isOn.value == false ? const Icon(Icons.notifications) : const Icon(Icons.notifications_none_rounded),
+              icon:
               width: 88.w,
               titleMatches: 'RR vc RCB IPL,2021',
               image1: IconAsset.logoCSK,
