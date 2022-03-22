@@ -1,16 +1,12 @@
-import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/T20Predictions/widget/info.dart';
 import 'package:fantips/expert/T20Predictions/prediction_controller.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../utills/string.dart';
-import '../../widget/current_match_container.dart';
-import '../../widget/custom_container.dart';
 import '../widget/matches.dart';
 
 class T20Prediction extends StatelessWidget {
@@ -88,7 +84,7 @@ class T20Prediction extends StatelessWidget {
           color: AppColor.white,
         ),
         CustomeText(
-          title: prediction["subtext"],
+          title: "${prediction["subtext"]}",
           fontSize: 3.h,
         ),
       ],

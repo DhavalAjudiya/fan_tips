@@ -6,16 +6,18 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../commanWidget/commanText.dart';
-import '../../../screen/ipl_screen/page/wight/container/container_custom.dart';
-import '../../../screen/ipl_screen/widget/fantasyTabBar/fantasy_tabBar.dart';
+import '../../../expert/page/search_screen.dart';
+import '../../../screen/ipl_screen/page/fantasy_tabBar.dart';
+import '../../../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
 import '../../../utills/string.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../ipl_screen/controller/ipl_controller.dart';
 import 'commentry_screen.dart';
 
 class LiveScoreScreen extends StatelessWidget {
+  static const routeName = '/LiveScoreScreen';
   LiveScoreScreen({Key? key}) : super(key: key);
-  final IplController iplController = Get.find();
+  final IplController iplController = Get.put(IplController());
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +28,25 @@ class LiveScoreScreen extends StatelessWidget {
         leading: InkWell(
           onTap: () {
             Get.back();
+            print("objeasdadasdct");
           },
           child: const Icon(
             Icons.arrow_back,
           ),
         ),
         title: Text('CSK batting'),
+        actions: [
+          InkWell(
+            onTap: () {
+              print("objeasdadasdct");
+              Get.toNamed(Search.routeName);
+            },
+            child: Icon(
+              Icons.search,
+              size: 2.7.h,
+            ),
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(35),
           child: Align(
@@ -52,7 +67,7 @@ class LiveScoreScreen extends StatelessWidget {
         ),
       ),
       body: TabBarView(
-        controller: iplController.tabController,
+        controller: iplController.tabController1,
         children: [
           // fantasy
           FantasyTabBar(),
