@@ -40,11 +40,11 @@ class InfoPage extends StatelessWidget {
         ),
         CircleAvatar(
           radius: 9.h,
-          backgroundImage: NetworkImage(prediction["img"]),
+          backgroundImage: NetworkImage("${prediction["img"]}"),
         ),
         SizedBox(height: 3.h),
         CustomeText(
-          title: prediction["text"],
+          title: "${prediction["subtext"]}",
           fontSize: 3.h,
           fontWeight: FontWeight.w100,
         ),
@@ -75,6 +75,7 @@ class InfoPage extends StatelessWidget {
         InkWell(
           onTap: () {
             launch("https://www.youtube.com/c/${prediction["text"]}");
+            print("rthj9poiya${prediction['text']}");
           },
           child: AppContainer(
             height: 3.1.h,
@@ -101,7 +102,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 5.h,
-                          title: prediction["prediction"],
+                          title: "${prediction["prediction"]}",
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -116,7 +117,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 4.h,
-                          title: prediction["avgScore"],
+                          title: "${prediction["avgScore"]}",
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -145,7 +146,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 4.h,
-                          title: prediction["win"],
+                          title: "${prediction["win"]}",
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(
@@ -160,7 +161,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         CustomeText(
                           fontSize: 3.5.h,
-                          title: prediction["subscribers"],
+                          title: "${prediction["subscribers"]}",
                           fontWeight: FontWeight.w500,
                         ),
                         CustomeText(

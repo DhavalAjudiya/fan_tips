@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../utills/style.dart';
+import '../../more_screen/more_details_screen/custom_appbar.dart';
 import '../../utills/string.dart';
 import '../data/data_ipl.dart';
 

@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:fantips/screen/ipl_screen/widget/fantasyTabBar/search_screen.dart';
+import 'package:flutter/foundation.dart';
+import 'package:fantips/screen/ipl_screen/page/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

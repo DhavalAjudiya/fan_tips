@@ -2,17 +2,21 @@ import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/expert/page/search_screen.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
+import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../T20Predictions/page/utills/color.dart';
+import '../../../../T20Predictions/page/utills/string.dart';
 import '../../../../expert/page/search_screen.dart';
-import '../../../../screen/ipl_screen/widget/fantasyTabBar/fantasy_tabBar.dart';
+import '../../../../screen/ipl_screen/page/fantasy_tabBar.dart';
 import '../../../../utills/string.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../widget/bestpicks_tab.dart';
+
+import '../widget/fantasy_tab.dart';
 
 class UpcomingMatchScreen extends StatelessWidget {
   static const routeName = "/UpcomingMatchScreen";

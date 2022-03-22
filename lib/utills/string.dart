@@ -28,7 +28,7 @@ class AppString {
   static const String matchImage =
       "https://i0.wp.com/villagecricket.co/wp-content/uploads/2020/06/cultures.png?fit=512%2C512&ssl=1";
   static const String iplImage =
-      "https://i0.wp.com/villagecricket.co/wp-content/uploads/2020/06/cultures.png?fit=512%2C512&ssl=1";
+      "https://images.vexels.com/media/users/3/240082/isolated/preview/e0ee48f50db6955ac53ec126be31ee06-cricket-player-playing-with-bat-cut-out.png";
 
   // home screen text
   static const fanTips = "FanTips";
