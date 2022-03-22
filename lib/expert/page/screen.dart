@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:fantips/expert/page/search_screen.dart';
+import 'package:fantips/widget/app_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -163,8 +164,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             )
                                           ],
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -207,8 +209,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             ],
                                           ),
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -247,8 +250,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                             ],
                                           ),
                                         ),
+                                        Divider(),
                                         SizedBox(
-                                          height: 3.h,
+                                          height: 1.h,
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -388,22 +392,23 @@ class _ExpertScreenState extends State<ExpertScreen> {
                       height: 1.h,
                     ),
                     Obx(
-                      () => Flexible(
-                        child: SizedBox(
-                          height: 79.h,
-                          child: SmartRefresher(
-                            onRefresh: _refresh,
-                            controller: ipController.refreshController,
-                            child: ListView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              itemCount:
-                                  ipController.expert.value.tipsters?.length ??
-                                      0,
-                              itemBuilder: (context, index) {
-                                var postData =
-                                    ipController.expert.value.tipsters![index];
-                                return Obx(
-                                  () => InkWell(
+                      () {
+                        print(ipController.isLoggedIn.value);
+                        return Flexible(
+                          child: SizedBox(
+                            height: 79.h,
+                            child: SmartRefresher(
+                              onRefresh: _refresh,
+                              controller: ipController.refreshController,
+                              child: ListView.builder(
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: ipController
+                                        .expert.value.tipsters?.length ??
+                                    0,
+                                itemBuilder: (context, index) {
+                                  var postData = ipController
+                                      .expert.value.tipsters![index];
+                                  return InkWell(
                                     onTap: () {
                                       Get.toNamed(
                                         T20Prediction.routeName,
@@ -422,45 +427,62 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                         },
                                       );
                                     },
-                                    child: PredictionContainer(
-                                      predictionCount:
-                                          "${postData.totalPredictions}",
-                                      onPressed: () {
-                                        if (postData.wishlist.value == false) {
-                                          postData.wishlist.value = true;
-                                        } else {
-                                          postData.wishlist.value = false;
-                                        }
-                                      },
-                                      icon: postData.wishlist.value == false
-                                          ? const Icon(
-                                              Icons.favorite_border,
-                                              color: AppColor.green,
-                                            )
-                                          : ipController.isLoggedIn == true
-                                              ? const Icon(
-                                                  Icons.favorite,
-                                                  color: AppColor.green,
-                                                )
-                                              : Text("hello"),
-                                      winsCount: "${postData.top3}",
-                                      youtubeText:
-                                          "${postData.subscriberCount}",
-                                      averageCount: "${postData.avgScore}",
-                                      headerText:
-                                          '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                      backgroundImage: NetworkImage(
-                                        postData.profileUrl ??
-                                            "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                    child: Obx(
+                                      () => PredictionContainer(
+                                        predictionCount:
+                                            "${postData.totalPredictions}",
+                                        onPressed: () {
+                                          if (ipController.isLoggedIn ==
+                                              false) {
+                                            AppBottomSheet()
+                                                .bottomSheet(context);
+                                          } else {
+                                            postData.wishlist.value == false
+                                                ? const Icon(
+                                                    Icons.favorite_border,
+                                                    color: AppColor.green,
+                                                  )
+                                                : const Icon(
+                                                    Icons.favorite,
+                                                    color: AppColor.green,
+                                                  );
+                                          }
+                                          if (postData.wishlist.value ==
+                                              false) {
+                                            postData.wishlist.value = true;
+                                          } else {
+                                            postData.wishlist.value = false;
+                                          }
+                                        },
+                                        icon: postData.wishlist.value == false
+                                            ? const Icon(
+                                                Icons.favorite_border,
+                                                color: AppColor.green,
+                                              )
+                                            : const Icon(
+                                                Icons.favorite,
+                                                color: AppColor.green,
+                                              ),
+                                        winsCount: "${postData.top3 ?? ""}",
+                                        youtubeText:
+                                            "${postData.subscriberCount ?? ""}",
+                                        averageCount:
+                                            "${postData.avgScore ?? ""}",
+                                        headerText:
+                                            '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                        backgroundImage: NetworkImage(
+                                          postData.profileUrl ??
+                                              "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
+                                  );
+                                },
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ],
                 );
