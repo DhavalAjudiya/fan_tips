@@ -13,7 +13,6 @@ class Commentary extends StatelessWidget {
 
   final MatchsScreenControoler matchScreenController =
       Get.put(MatchsScreenControoler());
-
   final _random = Random();
 
   @override
