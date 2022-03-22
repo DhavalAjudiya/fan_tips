@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/commanWidget/commanText.dart';
@@ -11,12 +10,12 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
-import '../../../../T20Predictions/page/prediction.dart';
-import '../../../../utills/string.dart';
-import '../../../../widget/custom_container.dart';
-import '../../page/utils/icon.dart';
-import '../../page/wight/icon/icon_button.dart';
-import '../../page/wight/text/custom_text.dart';
+import '../../../T20Predictions/page/prediction.dart';
+import '../../../utills/string.dart';
+import '../../../widget/custom_container.dart';
+import '../widget/fantasyTabBar/utils/icon.dart';
+import '../widget/fantasyTabBar/wight/icon/icon_button.dart';
+import '../widget/fantasyTabBar/wight/text/custom_text.dart';
 
 class FantasyTabBar extends StatelessWidget {
   final IplController iplController = Get.put(IplController());
@@ -110,10 +109,12 @@ class FantasyTabBar extends StatelessWidget {
                                 arguments: {
                                   "img": "${item.profileUrl ?? "not found"}",
                                   "text": "${item.name ?? ""}",
+                                  "subtext": "${item.name ?? ""}",
                                   "prediction": "${item.totalPredictions ?? 0}",
                                   "avgScore": "${item.avgScore ?? 0}",
                                   "win": "${item.top3 ?? 0}",
-                                  "subscribers": "",
+                                  "subscribers":
+                                      "${item.subscriberCount?.substring(0, 4) ?? 0}",
                                 },
                               );
                             },

@@ -6,11 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
-import '../../utills/string.dart';
 
-class Search extends StatelessWidget {
-  IpController iplController = Get.find();
+class Search extends StatefulWidget {
+  static const routeName = '/search_page';
   Search({Key? key}) : super(key: key);
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  IpController ipController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +25,13 @@ class Search extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Obx(
           () {
-            log("length=====>>>${iplController.searchItem.length}");
+            print(iplController.expert.value.tipsters?.length);
             return Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    height: 5.5.h,
+                    height: 5.h,
                     decoration: BoxDecoration(
                       color: AppColor.grey.shade600,
                       borderRadius: BorderRadius.circular(30),
@@ -34,8 +40,7 @@ class Search extends StatelessWidget {
                       controller: iplController.searchController,
                       cursorColor: Colors.white,
                       onChanged: (value) {
-                        iplController.searchItem.value.clear();
-
+                        iplController.searchItem.clear();
                         for (var i = 0;
                             i <
                                 (iplController.expert.value.tipsters?.length ??
@@ -47,24 +52,19 @@ class Search extends StatelessWidget {
                             iplController.searchItem
                                 .add(iplController.expert.value.tipsters![i]);
                           }
+                          setState(() {});
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(5.sp),
-                        hintText: AppString.search,
                         suffixIcon: IconButton(
-                            hoverColor: AppColor.transparent,
-                            onPressed: () {
-                              iplController.searchController.clear();
-                              iplController.searchItem.clear();
-                            },
-                            icon: iplController.searchController.text.isEmpty
-                                ? SizedBox()
-                                : Icon(
-                                    Icons.close,
-                                    color: AppColor.whiteColor,
-                                    size: 15.sp,
-                                  )),
+                          icon: Icon(Icons.close, color: AppColor.white),
+                          onPressed: () {
+                            iplController.searchController.clear();
+                            iplController.searchItem.clear();
+                          },
+                        ),
+                        contentPadding: const EdgeInsets.all(7),
+                        hintText: "Search",
                         prefixIcon: IconButton(
                           onPressed: () {
                             Navigator.pop(context);
@@ -82,63 +82,79 @@ class Search extends StatelessWidget {
                     ),
                   ),
                 ),
-                iplController.searchController.value.text.isEmpty
-                    ? Column(
-                        children: [
-                          Icon(
-                            Icons.search_off,
-                            size: 50.sp,
-                          ),
-                          const CustomeText(title: "No Experts Found"),
-                        ],
-                      )
-                    : iplController.searchController.value.text.isNotEmpty &&
-                            iplController.searchItem.value.isEmpty
-                        ? Column(children: [
-                            Icon(
-                              Icons.search_off,
-                              size: 50.sp,
-                            ),
-                            const CustomeText(title: "No Experts Found"),
-                          ])
-                        : Expanded(
-                            child: SizedBox(
-                              child: ListView.builder(
-                                itemCount: iplController.searchItem.length,
-                                itemBuilder: (context, index) {
-                                  var postData =
-                                      iplController.searchItem.value[index];
-                                  return Obx(
-                                    () => PredictionContainer(
-                                      predictionCount:
-                                          "${postData.totalPredictions}",
-                                      onPressed: () {
-                                        if (postData.wishlist.value == false) {
-                                          postData.wishlist.value = true;
-                                        } else {
-                                          postData.wishlist.value = false;
-                                        }
-                                      },
-                                      icon: postData.wishlist.value == false
-                                          ? const Icon(Icons.favorite_border,
-                                              color: AppColor.green)
-                                          : const Icon(Icons.favorite,
-                                              color: AppColor.green),
-                                      winsCount: "${postData.top3}",
-                                      youtubeText:
-                                          "${postData.subscriberCount}",
-                                      averageCount: "${postData.avgScore}",
-                                      headerText:
-                                          '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                      backgroundImage: NetworkImage(postData
-                                              .profileUrl ??
-                                          "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
-                                    ),
-                                  );
-                                },
-                              ),
+                Obx(
+                  () {
+                    log("length=====>>>${iplController.searchItem.length}");
+                    return iplController.searchController.value.text.isEmpty
+                        ? Padding(
+                            padding: const EdgeInsets.only(top: 250),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.search_off,
+                                  size: 50.sp,
+                                ),
+                                const CustomeText(
+                                  title: "No Experts Found",
+                                  fontSize: 25,
+                                ),
+                              ],
                             ),
                           )
+                        : ipController.searchController.value.text.isNotEmpty &&
+                                ipController.searchItem.value.isEmpty
+                            ? Column(
+                                children: [
+                                  Icon(
+                                    Icons.search_off,
+                                    size: 50.sp,
+                                  ),
+                                  const CustomeText(title: "No Experts Found"),
+                                ],
+                              )
+                            : Expanded(
+                                child: SizedBox(
+                                  child: ListView.builder(
+                                    itemCount: iplController.searchItem.length,
+                                    itemBuilder: (context, index) {
+                                      log("length=====>>>${iplController.searchItem.length}");
+                                      var postData =
+                                          iplController.searchItem.value[index];
+                                      return Obx(
+                                        () => PredictionContainer(
+                                          predictionCount:
+                                              "${postData.totalPredictions}",
+                                          onPressed: () {
+                                            if (postData.wishlist.value ==
+                                                false) {
+                                              postData.wishlist.value = true;
+                                            } else {
+                                              postData.wishlist.value = false;
+                                            }
+                                          },
+                                          icon: postData.wishlist.value == false
+                                              ? const Icon(
+                                                  Icons.favorite_border,
+                                                  color: AppColor.green)
+                                              : const Icon(Icons.favorite,
+                                                  color: AppColor.green),
+                                          winsCount: "${postData.top3}",
+                                          youtubeText:
+                                              "${postData.subscriberCount}",
+                                          averageCount: "${postData.avgScore}",
+                                          headerText:
+                                              '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                          backgroundImage: NetworkImage(postData
+                                                  .profileUrl ??
+                                              "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png"),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                  },
+                ),
               ],
             );
           },

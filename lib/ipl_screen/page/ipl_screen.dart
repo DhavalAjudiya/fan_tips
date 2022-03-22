@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:fantips/T20Predictions/page/utills/color.dart';
+
 import 'package:fantips/ipl_screen/controller/ipl_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

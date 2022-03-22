@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import '../T20Predictions/page/utills/color.dart';
 import '../expert/data/controller.dart';
+import '../ipl_screen/controller/ipl_controller.dart';
+import 'google_sign_in_repo.dart';
 
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({Key? key}) : super(key: key);
@@ -15,6 +17,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final IplController iplController = Get.put(IplController());
   IpController ipController = Get.find();
   XFile? pickedImageFile;
   var selectedImagePath = ''.obs;
@@ -53,7 +56,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       const Spacer(),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          signOut();
+                          ipController.isLoggedIn.value = false;
+                          Get.back();
+                        },
                         child: Text(
                           AppString.logout,
                           style: TextStyle(
