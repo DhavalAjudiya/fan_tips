@@ -3,17 +3,21 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
+import '../../expert/data/controller.dart';
 import '../../matches/controler/matchs_controller.dart';
 import '../../matches/controler/utils_time.dart';
 import '../../upcoming_matches/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
+import '../../widget/app_bottom_sheet.dart';
 import '../../widget/custom_container.dart';
 import '../data/homepageController.dart';
 
 class MatchForYouContainer extends StatelessWidget {
   MatchForYouContainer({Key? key}) : super(key: key);
   final HomeController homeController = Get.put(HomeController());
-  final _homecontroller = Get.put(MatchsScreenControoler());
+  final MatchsScreenControoler _homecontroller =
+      Get.put(MatchsScreenControoler());
+  final IpController ipController = Get.put(IpController());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 17.3.h,
+            height: 17.8.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -40,7 +44,11 @@ class MatchForYouContainer extends StatelessWidget {
                       )
                     : AppContainer(
                         onTap: () {
-                          Get.toNamed(LiveScoreScreen.routeName);
+                          if (ipController.isLoggedIn.value == false) {
+                            AppBottomSheet().bottomSheet(context);
+                          } else {
+                            Get.toNamed(LiveScoreScreen.routeName);
+                          }
                         },
                         margin: EdgeInsets.symmetric(horizontal: 10.sp),
                         borderRadius: BorderRadius.circular(10.sp),
@@ -66,6 +74,10 @@ class MatchForYouContainer extends StatelessWidget {
                                   Obx(
                                     () => InkWell(
                                         onTap: () {
+                                          if (ipController.isLoggedIn ==
+                                              false) {
+                                            return null;
+                                          }
                                           if (_homecontroller
                                                   .currentMatch
                                                   .value
@@ -104,22 +116,28 @@ class MatchForYouContainer extends StatelessWidget {
                                                 .value = false;
                                           }
                                         },
-                                        child: _homecontroller
-                                                    .currentMatch
-                                                    .value
-                                                    .matches
-                                                    ?.notstarted?[index]
-                                                    .selected
-                                                    .value ==
+                                        child: ipController.isLoggedIn.value ==
                                                 false
                                             ? Icon(
                                                 Icons.notifications_none,
                                                 size: 13.sp,
                                               )
-                                            : Icon(
-                                                Icons.notifications,
-                                                size: 13.sp,
-                                              )),
+                                            : _homecontroller
+                                                        .currentMatch
+                                                        .value
+                                                        .matches
+                                                        ?.notstarted?[index]
+                                                        .selected
+                                                        .value ==
+                                                    false
+                                                ? Icon(
+                                                    Icons.notifications_none,
+                                                    size: 13.sp,
+                                                  )
+                                                : Icon(
+                                                    Icons.notifications,
+                                                    size: 13.sp,
+                                                  )),
                                   )
                                 ],
                               ),
