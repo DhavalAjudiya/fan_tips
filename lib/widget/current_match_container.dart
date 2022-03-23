@@ -318,9 +318,12 @@ class CustomLCContainer extends StatelessWidget {
                           t1wk,
                           style: AppStyle.cuntryname,
                         ),
+                        SizedBox(
+                          width: 1.w,
+                        ),
                         Text(
-                          " & $t1over/",
-                          style: AppStyle.cuntryname,
+                          "$t1over",
+                          style: AppStyle.over,
                         ),
                         Text(
                           "$t1owk",
@@ -341,9 +344,12 @@ class CustomLCContainer extends StatelessWidget {
                           t2wk,
                           style: AppStyle.cuntryname,
                         ),
+                        SizedBox(
+                          width: 1.w,
+                        ),
                         Text(
-                          " & $t2over/",
-                          style: AppStyle.cuntryname,
+                          "$t2over",
+                          style: AppStyle.over,
                         ),
                         Text(
                           "$t2owk",
