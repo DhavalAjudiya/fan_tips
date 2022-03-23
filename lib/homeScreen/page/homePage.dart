@@ -88,7 +88,9 @@ class HomeScreen extends StatelessWidget {
                       Obx(
                         () => InkWell(
                           onTap: () {
-                            AppBottomSheet().bottomSheet(context);
+                            ipController.isLoggedIn.value == false
+                                ? AppBottomSheet().bottomSheet(context)
+                                : () {};
                           },
                           child: ipController.isLoggedIn.value == false
                               ? CustomeText(
