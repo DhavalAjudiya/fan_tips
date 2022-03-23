@@ -6,7 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
 import '../../matches/controler/matchs_controller.dart';
-import '../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
+import '../../upcoming_matches/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../data/homepageController.dart';
@@ -242,8 +242,7 @@ class MatchForYouContainer extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              (_homecontroller.currentMatch.value.matches?.notstarted?.length ??
-                  0),
+              4,
               (index) => AppContainer(
                 height: 0.6.h,
                 width: homeController.matchSelect.value == index ? 4.w : 3.w,

@@ -57,7 +57,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const Spacer(),
                       TextButton(
                         onPressed: () {
-                          signOut();
                           ipController.isLoggedIn.value = false;
                           Get.back();
                         },

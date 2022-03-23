@@ -10,12 +10,12 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
-import '../../../T20Predictions/page/prediction.dart';
-import '../../../utills/string.dart';
-import '../../../widget/custom_container.dart';
-import '../widget/fantasyTabBar/utils/icon.dart';
-import '../widget/fantasyTabBar/wight/icon/icon_button.dart';
-import '../widget/fantasyTabBar/wight/text/custom_text.dart';
+import '../../../../T20Predictions/page/prediction.dart';
+import '../../../../utills/string.dart';
+import '../../../../widget/custom_container.dart';
+import '../widget/utils/icon.dart';
+import '../widget/wight/icon/icon_button.dart';
+import '../widget/wight/text/custom_text.dart';
 
 class FantasyTabBar extends StatelessWidget {
   final IplController iplController = Get.put(IplController());

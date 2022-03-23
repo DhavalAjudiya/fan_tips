@@ -44,13 +44,8 @@ dependencies:
   like_button: ^2.0.4
 
 
-
+  smooth_page_indicator: ^1.0.0+2
   page_indicator: ^0.4.1
-
-  dependencies:
-  google_sign_in: ^4.5.9
-  flutter_facebook_auth: ^4.1.2
-
 
 
 dev_dependencies:
