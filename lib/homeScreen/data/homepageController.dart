@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:sizer/sizer.dart';
+import '../../T20Predictions/page/utills/color.dart';
 import '../../expert/data/model.dart';
 import '../../utills/string.dart';
 import 'apiService.dart';
@@ -63,7 +66,7 @@ class HomeController extends GetxController {
       final result = await ApiService().expertData();
       predictionsData.value = result!;
       return predictionsData;
-    } catch (e , st) {
+    } catch (e, st) {
       print('-->>${e} -->>${st}');
     }
   }

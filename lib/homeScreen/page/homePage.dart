@@ -73,7 +73,8 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
+                  padding:
+                      EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -104,7 +105,8 @@ class HomeScreen extends StatelessWidget {
                                       child: CircleAvatar(
                                         backgroundColor: AppColor.transparent,
                                         radius: 12,
-                                        backgroundImage: NetworkImage("${ipController.userObj?.user?.photoURL}"),
+                                        backgroundImage: NetworkImage(
+                                            "${ipController.userObj?.user?.photoURL}"),
                                       ),
                                     ),
                                     SizedBox(

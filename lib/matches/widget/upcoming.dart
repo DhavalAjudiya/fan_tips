@@ -85,7 +85,7 @@ class UpComing extends StatelessWidget {
                                   "${current?.totalprediction ?? ""}",
                               prediction: "Prediction",
                               lastText:
-                                  "Match Start in ${Utils.hourAndMin(current?.startTime ?? 0)}",
+                                  "Match Start in ${Utils.timeAgoSinceDate(current?.startTime ?? 0)}",
                             ),
                           ],
                         ),
