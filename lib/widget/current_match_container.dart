@@ -386,6 +386,7 @@ class CustomLCContainer extends StatelessWidget {
                   person,
                   size: size,
                 ),
+                SizedBox(width: 1.5.w),
                 Text(
                   team,
                   style: AppStyle.title,

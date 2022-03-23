@@ -183,30 +183,29 @@ class FantasyTabBar extends StatelessWidget {
                                       Spacer(),
                                       Obx(
                                         () => AppIconCustom(
-                                          onPressed: () {
-                                            iplController
+                                            onPressed: () {
+                                              iplController
+                                                      .service
+                                                      .value
+                                                      .tipsters![index]
+                                                      .selected
+                                                      .value =
+                                                  !iplController
+                                                      .service
+                                                      .value
+                                                      .tipsters![index]
+                                                      .selected
+                                                      .value;
+                                            },
+                                            color: AppColor.green,
+                                            icon: iplController
                                                     .service
                                                     .value
                                                     .tipsters![index]
                                                     .selected
-                                                    .value =
-                                                !iplController
-                                                    .service
                                                     .value
-                                                    .tipsters![index]
-                                                    .selected
-                                                    .value;
-                                          },
-                                          color: iplController
-                                                  .service
-                                                  .value
-                                                  .tipsters![index]
-                                                  .selected
-                                                  .value
-                                              ? AppColor.grey
-                                              : AppColor.green,
-                                          icon: AppIcon.favorite,
-                                        ),
+                                                ? AppIcon.favorites
+                                                : AppIcon.favorite),
                                       ),
                                     ],
                                   ),
@@ -220,12 +219,12 @@ class FantasyTabBar extends StatelessWidget {
                                             data:
                                                 "${item.totalPredictions ?? 0}",
                                             color: AppColor.greya,
-                                            fontSize: 3.h,
+                                            fontSize: 2.2.h,
                                           ),
                                           AppCustomText(
                                             data: AppString.prediction,
                                             color: AppColor.greya,
-                                            fontSize: 1.5.h,
+                                            fontSize: 1.2.h,
                                           ),
                                         ],
                                       ),
@@ -239,12 +238,12 @@ class FantasyTabBar extends StatelessWidget {
                                           AppCustomText(
                                             data: "${item.avgScore ?? 0}",
                                             color: AppColor.greya,
-                                            fontSize: 3.h,
+                                            fontSize: 2.2.h,
                                           ),
                                           AppCustomText(
                                             data: AppString.avregescor,
                                             color: AppColor.greya,
-                                            fontSize: 1.5.h,
+                                            fontSize: 1.2.h,
                                           ),
                                         ],
                                       ),
@@ -258,12 +257,12 @@ class FantasyTabBar extends StatelessWidget {
                                           AppCustomText(
                                             data: "${item.top3 ?? 0}",
                                             color: AppColor.greya,
-                                            fontSize: 3.h,
+                                            fontSize: 2.2.h,
                                           ),
                                           AppCustomText(
                                             data: AppString.wins,
                                             color: AppColor.greya,
-                                            fontSize: 1.5.h,
+                                            fontSize: 1.2.h,
                                           ),
                                         ],
                                       ),

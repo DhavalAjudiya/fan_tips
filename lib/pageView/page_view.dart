@@ -51,8 +51,8 @@ class PageViewScreen extends StatelessWidget {
             ],
           ),
           Positioned(
-            bottom: 120,
-            left: 160,
+            bottom: 10.h,
+            right: 40.w,
             child: _buildStepIndicator(),
           ),
         ],
@@ -90,7 +90,7 @@ class PageViewScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 23.h,
+                      height: 20.h,
                     ),
                     CustomeText(
                       title: "${page[AppString.name]}",
