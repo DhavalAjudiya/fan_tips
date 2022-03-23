@@ -145,17 +145,14 @@ class MoreScreen extends StatelessWidget {
                                   RichText(
                                     text: TextSpan(
                                       spellOut: false,
-                                      style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 9.sp),
+                                      style: TextStyle(color: Colors.black.withOpacity(0.7), fontSize: 9.sp,fontWeight: FontWeight.w500),
                                       children: [
                                         const TextSpan(
                                           text: 'Tap a star to rate it on the App Store\n',
                                         ),
                                         TextSpan(
-                                          text: '                    App Store',
-                                          style: TextStyle(
-                                            fontSize: 10.sp,
-                                            fontWeight: FontWeight.w500
-                                          ),
+                                          text: '                       App Store',
+                                          style: TextStyle(fontSize: 9.sp, fontWeight: FontWeight.w500),
                                         ),
                                       ],
                                     ),
@@ -163,17 +160,33 @@ class MoreScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  RatingBarIndicator(
-                                    itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-                                    rating: 5,
-                                    itemBuilder: (context, index) => const Icon(
+                                  RatingBar.builder(
+                                    initialRating: 3,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    itemCount: 5,
+                                    itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                    itemBuilder: (context, _) => Icon(
                                       Icons.star,
+                                      size: 7.h,
                                       color: Colors.amber,
                                     ),
-                                    itemCount: 5,
-                                    itemSize: 25,
-                                    direction: Axis.horizontal,
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
                                   ),
+                                  // RatingBarIndicator(
+                                  //   itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+                                  //   rating: 5,
+                                  //   itemBuilder: (context, index) => const Icon(
+                                  //     Icons.star,
+                                  //     color: Colors.amber,
+                                  //   ),
+                                  //   itemCount: 5,
+                                  //   itemSize: 25,
+                                  //   direction: Axis.horizontal,
+                                  //   unratedColor: Colors.white,
+                                  // ),
                                   SizedBox(
                                     height: 1.h,
                                   ),

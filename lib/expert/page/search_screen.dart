@@ -102,6 +102,7 @@ class _SearchState extends State<Search> {
                             ),
                           )
                         : ipController.searchController.value.text.isNotEmpty &&
+                                // ignore: invalid_use_of_protected_member
                                 ipController.searchItem.value.isEmpty
                             ? Column(
                                 children: [
@@ -119,6 +120,7 @@ class _SearchState extends State<Search> {
                                     itemBuilder: (context, index) {
                                       log("length=====>>>${ipController.searchItem.length}");
                                       var postData =
+                                          // ignore: invalid_use_of_protected_member
                                           ipController.searchItem.value[index];
                                       return Obx(
                                         () => PredictionContainer(

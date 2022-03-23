@@ -31,6 +31,7 @@ class MoreScreen extends StatelessWidget {
               ),
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -43,6 +44,7 @@ class MoreScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);

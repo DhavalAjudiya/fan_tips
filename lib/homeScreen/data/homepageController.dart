@@ -63,7 +63,9 @@ class HomeController extends GetxController {
       final result = await ApiService().expertData();
       predictionsData.value = result!;
       return predictionsData;
-    } finally {}
+    } catch (e , st) {
+      print('-->>${e} -->>${st}');
+    }
   }
 
   void addProduct(Tipster data) {

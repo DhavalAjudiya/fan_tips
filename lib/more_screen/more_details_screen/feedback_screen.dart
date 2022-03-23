@@ -90,7 +90,9 @@ class FeedBackScreen extends StatelessWidget {
                 ),
                 MoreButtonScreen(
                   onTap: () {
-                    if (formKey.currentState!.validate()) {}
+                    if (formKey.currentState!.validate()) {
+                      Get.back();
+                    }
                   },
                   text: AppString.sendFeedback,
                 ),

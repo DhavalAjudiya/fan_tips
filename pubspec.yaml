@@ -28,7 +28,6 @@ dependencies:
   flutter_svg: ^1.0.3
   syncfusion_flutter_core: ^19.4.55
   syncfusion_flutter_datagrid: ^19.4.55
-  smooth_star_rating: ^1.1.1
   flutter_rating_bar: ^4.0.0
   share_plus: ^3.1.0
   reviews_slider: ^2.0.0
@@ -40,6 +39,8 @@ dependencies:
   firebase_auth: ^3.3.10
   firebase_core: ^1.13.1
   image_picker: ^0.8.4+11
+  flutter_facebook_auth: ^4.1.2
+  flutter_login_facebook: ^1.4.1
   like_button: ^2.0.4
   google_sign_in: ^4.5.9
   page_indicator: ^0.4.1

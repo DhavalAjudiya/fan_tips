@@ -1,7 +1,7 @@
+import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../commanWidget/commanText.dart';
@@ -73,7 +73,7 @@ class LiveScoreScreen extends StatelessWidget {
           // commentry
           Commentary(),
           // scorecard
-          // ScoreCardScreen(),
+          ScoreCardScreen(),
           // quiz
           Padding(
             padding: EdgeInsets.only(left: 8.sp, right: 8.sp, top: 10.sp),
