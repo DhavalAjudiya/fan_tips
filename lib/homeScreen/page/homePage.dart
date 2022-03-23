@@ -67,32 +67,36 @@ class HomeScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
+        backgroundColor: Colors.black,
         body: SingleChildScrollView(
           child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
+                  padding:
+                      EdgeInsets.only(left: 15.sp, right: 10.sp, top: 8.sp),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomeText(
                         title: AppString.fanTips,
                         color: AppColor.whiteColor,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13.sp,
                       ),
                       Obx(
                         () => InkWell(
                           onTap: () {
-                            AppBottomSheet().bottomSheet(context);
+                            ipController.isLoggedIn.value == false
+                                ? AppBottomSheet().bottomSheet(context)
+                                : () {};
                           },
                           child: ipController.isLoggedIn.value == false
                               ? CustomeText(
                                   title: AppString.login,
                                   color: AppColor.green,
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w500,
                                   fontSize: 13.sp,
                                 )
                               : Row(
@@ -104,7 +108,8 @@ class HomeScreen extends StatelessWidget {
                                       child: CircleAvatar(
                                         backgroundColor: AppColor.transparent,
                                         radius: 12,
-                                        backgroundImage: NetworkImage("${ipController.userObj?.user?.photoURL}"),
+                                        backgroundImage: NetworkImage(
+                                            "${ipController.userObj?.user?.photoURL}"),
                                       ),
                                     ),
                                     SizedBox(
@@ -126,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                   child: CustomeText(
                     title: AppString.matchesForYou,
                     color: AppColor.whiteColor,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w500,
                     fontSize: 10.sp,
                   ),
                 ),
@@ -142,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                   child: CustomeText(
                     title: AppString.featuredExperts,
                     color: AppColor.whiteColor,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w500,
                     fontSize: 10.sp,
                   ),
                 ),
@@ -151,7 +156,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 FeaturedExpertContainer(),
                 SizedBox(
-                  height: 1.h,
+                  height: 3.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.sp),
@@ -159,8 +164,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       CustomeText(
                         title: AppString.topStories,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 11.sp,
                       ),
                       const Spacer(),
                       InkWell(
@@ -172,11 +177,11 @@ class HomeScreen extends StatelessWidget {
                             CustomeText(
                               title: AppString.viewAll,
                               fontWeight: FontWeight.w500,
-                              fontSize: 10.sp,
+                              fontSize: 8.sp,
                             ),
                             Icon(
                               Icons.arrow_forward_ios,
-                              size: 10.sp,
+                              size: 8.sp,
                             )
                           ],
                         ),
@@ -245,7 +250,7 @@ class HomeScreen extends StatelessWidget {
                                     CustomeText(
                                       title:
                                           "${homeController.newsModel.value.news?[index].title}",
-                                      fontSize: 12.sp,
+                                      fontSize: 11.sp,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     SizedBox(
@@ -254,7 +259,7 @@ class HomeScreen extends StatelessWidget {
                                     CustomeText(
                                       title:
                                           "${homeController.newsModel.value.news?[index].smallDesc}",
-                                      fontSize: 9.sp,
+                                      fontSize: 8.sp,
                                       color:
                                           AppColor.whiteColor.withOpacity(0.5),
                                     ),

@@ -38,12 +38,14 @@ class PageViewScreen extends StatelessWidget {
                   width: double.infinity,
                   color: AppColor.green,
                   child: Center(
-                    child: CustomeText(
-                      title: _pageViewController.pageSelect == 2
-                          ? "Get Started"
-                          : "Next",
-                      color: AppColor.white,
-                      fontSize: 2.h,
+                    child: Obx(
+                      () => CustomeText(
+                        title: _pageViewController.pageSelect.value == 2
+                            ? "GET STARTED"
+                            : "NEXT",
+                        color: AppColor.white,
+                        fontSize: 2.h,
+                      ),
                     ),
                   ),
                 ),
@@ -52,7 +54,7 @@ class PageViewScreen extends StatelessWidget {
           ),
           Positioned(
             bottom: 10.h,
-            right: 40.w,
+            left: 40.w,
             child: _buildStepIndicator(),
           ),
         ],
@@ -65,7 +67,7 @@ class PageViewScreen extends StatelessWidget {
       child: PageView.builder(
         controller: _pageViewController.pageController,
         onPageChanged: (value) {
-          _pageViewController.pageSelect = value;
+          _pageViewController.pageSelect.value = value;
         },
         itemCount: _pageViewController.pageView.categori.length,
         itemBuilder: (BuildContext context, index) {
@@ -127,19 +129,21 @@ class PageViewScreen extends StatelessWidget {
   }
 
   Widget _buildStepIndicator() {
-    return SmoothPageIndicator(
-      controller: _pageViewController.pageController,
-      count: 3,
-      axisDirection: Axis.horizontal,
-      effect: SlideEffect(
-        spacing: 2.w,
-        radius: 1.h,
-        dotWidth: _pageViewController.pageSelect == 3 ? 1.h : 4.5.w,
-        dotHeight: 1.h,
-        paintStyle: PaintingStyle.fill,
-        strokeWidth: 0.5.w,
-        dotColor: Colors.grey,
-        activeDotColor: Colors.green,
+    return Obx(
+      () => SmoothPageIndicator(
+        controller: _pageViewController.pageController,
+        count: 3,
+        axisDirection: Axis.horizontal,
+        effect: SlideEffect(
+          spacing: 2.w,
+          radius: 1.h,
+          dotWidth: _pageViewController.pageSelect.value == 3 ? 2.w : 4.5.w,
+          dotHeight: 1.h,
+          paintStyle: PaintingStyle.fill,
+          strokeWidth: 0.5.w,
+          dotColor: Colors.grey,
+          activeDotColor: Colors.green,
+        ),
       ),
     );
   }
