@@ -13,7 +13,7 @@ class Utils {
     DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
     final dt =
         DateTime(date.year, date.month, date.day, date.hour, date.minute);
-    final format = DateFormat.jms(); //"6:00 AM"
+    final format = DateFormat.Hm(); //"6:00 AM"
     return format.format(dt);
   }
 

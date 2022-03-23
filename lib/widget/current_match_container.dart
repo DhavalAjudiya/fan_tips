@@ -15,6 +15,7 @@ class CustomContainer extends StatelessWidget {
   final String t2run;
   final String t2wk;
   final String t2over;
+  final TextStyle? style;
   final ImageProvider? backgroundImage;
   final ImageProvider? secondbackgroundImage;
   final EdgeInsetsGeometry? margin;
@@ -22,7 +23,7 @@ class CustomContainer extends StatelessWidget {
   final Widget icon;
   final VoidCallback? onTap;
 
-  const CustomContainer(
+  CustomContainer(
       {this.headertext = "",
       this.text = "",
       this.backgroundImage,
@@ -40,8 +41,9 @@ class CustomContainer extends StatelessWidget {
       this.t2over = "",
       this.ontap,
       required this.icon,
-      this.onTap});
-
+      this.onTap,
+      this.style});
+  bool matches = false;
   @override
   Widget build(BuildContext context) {
     return Container(
