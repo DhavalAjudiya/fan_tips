@@ -6,6 +6,7 @@ import '../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
 import '../controler/matchs_controller.dart';
+import '../controler/utils_time.dart';
 
 class Live extends StatelessWidget {
   final _homecontroller = Get.put(MatchsScreenControoler());
@@ -19,6 +20,15 @@ class Live extends StatelessWidget {
         SizedBox(
           height: 1.5.h,
         ),
+        _homecontroller.liveMatches.value.matches?.started?.length == 0
+            ? Padding(
+                padding: const EdgeInsets.only(top: 250),
+                child: Text(
+                  "No matches available",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              )
+            : SizedBox(),
         Expanded(
           child: Obx(
             () => ListView.builder(
@@ -39,8 +49,7 @@ class Live extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          _homecontroller.timeAgo(
-                              _homecontroller.time(current?.startTime ?? 0)),
+                          Utils.hourAndMin(current?.startTime ?? 0),
                           style: const TextStyle(
                             color: Colors.white54,
                             fontSize: 16,
@@ -57,7 +66,7 @@ class Live extends StatelessWidget {
                               current?.isSelected.value = false;
                             }
                           },
-                          icon: current?.isSelected.value == false
+                          icon: current?.isSelected.value == true
                               ? const Icon(Icons.notifications)
                               : const Icon(Icons.notifications_none),
                           backgroundImage: NetworkImage(
@@ -88,6 +97,11 @@ class Live extends StatelessWidget {
             ),
           ),
         ),
+        _homecontroller.loading.value == true
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : SizedBox(),
       ],
     );
   }

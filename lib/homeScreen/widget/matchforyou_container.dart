@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
 import '../../matches/controler/matchs_controller.dart';
+import '../../matches/controler/utils_time.dart';
 import '../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
@@ -223,8 +224,8 @@ class MatchForYouContainer extends StatelessWidget {
                                 height: 1.5.h,
                               ),
                               CustomeText(
-                                title: _homecontroller.timeAgo(
-                                    _homecontroller.time(matchData?.startTime)),
+                                title:
+                                    "Match Start in ${Utils.hourAndMin(matchData?.startTime ?? 0)}",
                                 fontSize: 10.sp,
                               )
                             ],

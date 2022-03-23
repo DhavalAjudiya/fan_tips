@@ -42,13 +42,8 @@ dependencies:
   flutter_facebook_auth: ^4.1.2
   flutter_login_facebook: ^1.4.1
   like_button: ^2.0.4
-  google_sign_in: ^4.5.9
+  google_sign_in: ^5.2.4
   page_indicator: ^0.4.1
-
-  dependencies:
-
-
-
 
 
 dev_dependencies:
