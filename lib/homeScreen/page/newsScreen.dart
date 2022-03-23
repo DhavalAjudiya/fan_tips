@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
@@ -14,12 +16,12 @@ import 'newsDetailedPage.dart';
 class NewsScreen extends StatelessWidget {
   static const routeName = "/NewsScreen";
   NewsScreen({Key? key}) : super(key: key);
-  final HomeController homeController = Get.find();
+  final HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.blackColor,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const CustomeText(
           title: AppString.news,
@@ -59,7 +61,7 @@ class NewsScreen extends StatelessWidget {
                 ),
                 CustomeText(
                   title: "${homeController.newsModel.value.news?[0].title}",
-                  fontSize: 13.sp,
+                  fontSize: 11.sp,
                   fontWeight: FontWeight.w500,
                 ),
                 SizedBox(
@@ -67,7 +69,7 @@ class NewsScreen extends StatelessWidget {
                 ),
                 CustomeText(
                   title: "${homeController.newsModel.value.news?[0].smallDesc}",
-                  fontSize: 10.sp,
+                  fontSize: 8.sp,
                   color: AppColor.whiteColor.withOpacity(0.5),
                 ),
                 SizedBox(
@@ -90,105 +92,120 @@ class NewsScreen extends StatelessWidget {
                 ),
                 const Divider(),
                 SizedBox(
-                  child: ListView.builder(
-                    itemCount: homeController.newsModel.value.news?.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Get.toNamed(NewsDetailedScreen.routeName,
-                                  arguments: {
-                                    "image": homeController
-                                        .newsModel.value.news?[index].image,
-                                    "title": homeController
-                                        .newsModel.value.news?[index].title,
-                                    "subtitle": homeController
-                                        .newsModel.value.news?[index].smallDesc,
-                                    "time": homeController.timeAgo(
-                                        homeController.data(homeController
-                                            .newsModel
-                                            .value
-                                            .news?[index]
-                                            .time)),
-                                  });
-                            },
-                            child: Row(
-                              children: [
-                                AppContainer(
-                                  height: 15.h,
-                                  width: 30.w,
-                                  borderRadius: BorderRadius.circular(10.sp),
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                        "${homeController.newsModel.value.news?[index].image}"),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 2.w,
-                                ),
-                                Expanded(
-                                  child: SizedBox(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                  child: Obx(() {
+                    log("${homeController.newsPagination.length}");
+                    return ListView.builder(
+                      controller: homeController.scrollController,
+                      itemCount: homeController.isLoading.value
+                          ? homeController.newsPagination.length + 1
+                          : homeController.newsPagination.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return (homeController.newsPagination.length - 1 ==
+                                index)
+                            ? Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 40, top: 10),
+                                child:
+                                    Center(child: CircularProgressIndicator()),
+                              )
+                            : Column(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Get.toNamed(NewsDetailedScreen.routeName,
+                                          arguments: {
+                                            "image": homeController
+                                                .newsPagination[index].image,
+                                            "title": homeController
+                                                .newsPagination[index].title,
+                                            "subtitle": homeController
+                                                .newsPagination[index]
+                                                .smallDesc,
+                                            "time": homeController.timeAgo(
+                                                homeController.data(
+                                                    homeController
+                                                        .newsPagination[index]
+                                                        .time)),
+                                          });
+                                    },
+                                    child: Row(
                                       children: [
-                                        CustomeText(
-                                          title:
-                                              "${homeController.newsModel.value.news?[index].title}",
-                                          fontSize: 11.sp,
-                                          fontWeight: FontWeight.w500,
+                                        AppContainer(
+                                          height: 15.h,
+                                          width: 30.w,
+                                          borderRadius:
+                                              BorderRadius.circular(10.sp),
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                "${homeController.newsPagination[index].image}"),
+                                          ),
                                         ),
                                         SizedBox(
-                                          height: 0.5.h,
+                                          width: 2.w,
                                         ),
-                                        CustomeText(
-                                          title:
-                                              "${homeController.newsModel.value.news?[index].smallDesc}",
-                                          fontSize: 7.sp,
-                                          color: AppColor.whiteColor
-                                              .withOpacity(0.5),
-                                        ),
-                                        SizedBox(
-                                          height: 0.5.h,
-                                        ),
-                                        CustomeText(
-                                          title:
-                                              "${homeController.newsModel.value.news?[index].newsSource}",
-                                          fontSize: 7.sp,
-                                          color: AppColor.whiteColor
-                                              .withOpacity(0.5),
-                                        ),
-                                        SizedBox(
-                                          height: 0.5.h,
-                                        ),
-                                        CustomeText(
-                                          title: homeController.timeAgo(
-                                              homeController.data(homeController
-                                                  .newsModel
-                                                  .value
-                                                  .news?[index]
-                                                  .time)),
-                                          fontSize: 7.sp,
-                                          color: AppColor.whiteColor
-                                              .withOpacity(0.5),
-                                        ),
+                                        Expanded(
+                                          child: SizedBox(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CustomeText(
+                                                  title:
+                                                      "${homeController.newsPagination[index].title}",
+                                                  fontSize: 10.sp,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                                SizedBox(
+                                                  height: 0.5.h,
+                                                ),
+                                                CustomeText(
+                                                  title:
+                                                      "${homeController.newsPagination[index].smallDesc}",
+                                                  fontSize: 7.sp,
+                                                  color: AppColor.whiteColor
+                                                      .withOpacity(0.5),
+                                                ),
+                                                SizedBox(
+                                                  height: 0.5.h,
+                                                ),
+                                                CustomeText(
+                                                  title:
+                                                      "${homeController.newsPagination[index].newsSource}",
+                                                  fontSize: 7.sp,
+                                                  color: AppColor.whiteColor
+                                                      .withOpacity(0.5),
+                                                ),
+                                                SizedBox(
+                                                  height: 0.5.h,
+                                                ),
+                                                CustomeText(
+                                                  title: homeController.timeAgo(
+                                                      homeController.data(
+                                                          homeController
+                                                              .newsPagination[
+                                                                  index]
+                                                              .time)),
+                                                  fontSize: 7.sp,
+                                                  color: AppColor.whiteColor
+                                                      .withOpacity(0.5),
+                                                ),
+                                              ],
+                                            ),
+                                            height: 15.h,
+                                          ),
+                                        )
                                       ],
                                     ),
-                                    height: 15.h,
                                   ),
-                                )
-                              ],
-                            ),
-                          ),
-                          const Divider(),
-                        ],
-                      );
-                    },
-                  ),
+                                  const Divider(),
+                                ],
+                              );
+                      },
+                    );
+                  }),
                 )
               ],
             ),

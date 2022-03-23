@@ -15,6 +15,7 @@ class MatchsScreenControoler extends GetxController
   Rx<CurrentMatch> currentMatch = CurrentMatch().obs;
   Rx<CompletedMatches> completedMatches = CompletedMatches().obs;
   Rx<LiveMatches> liveMatches = LiveMatches().obs;
+  RxList<Notstarted> notificationItem = <Notstarted>[].obs;
 
   @override
   void onInit() {
@@ -25,7 +26,18 @@ class MatchsScreenControoler extends GetxController
     completedMatchesData();
   }
 
-  getData() async {
+  void addNotificationItem(Notstarted data) {
+    print("================1==${data}");
+    notificationItem.add(data);
+    print("================2==${notificationItem.length}");
+  }
+
+  void removeNotificationItem(Notstarted data) {
+    currentMatch.value.matches?.notstarted?.first.selected.value = false;
+    notificationItem.remove(data);
+  }
+
+  void getData() async {
     try {
       loading.value = true;
       Future.delayed(Duration(seconds: 2));

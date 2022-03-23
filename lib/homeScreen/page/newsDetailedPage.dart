@@ -15,6 +15,7 @@ class NewsDetailedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = Get.arguments;
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Stack(
           children: [
@@ -38,7 +39,7 @@ class NewsDetailedScreen extends StatelessWidget {
                     children: [
                       CustomeText(
                         title: data[AppString.text],
-                        fontSize: 13.sp,
+                        fontSize: 11.sp,
                         fontWeight: FontWeight.w500,
                       ),
                       SizedBox(
@@ -46,7 +47,7 @@ class NewsDetailedScreen extends StatelessWidget {
                       ),
                       CustomeText(
                         title: data[AppString.subtitle],
-                        fontSize: 10.sp,
+                        fontSize: 8.sp,
                         color: AppColor.whiteColor.withOpacity(0.5),
                       ),
                       SizedBox(
@@ -54,6 +55,7 @@ class NewsDetailedScreen extends StatelessWidget {
                       ),
                       CustomeText(
                         title: data[AppString.timeText],
+                        fontSize: 8.sp,
                         color: AppColor.whiteColor.withOpacity(0.5),
                       ),
                     ],
