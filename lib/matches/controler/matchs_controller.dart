@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import '../data/datasources/api_service.dart';
 import '../data/datasources/completed_match_data.dart';
 import '../data/datasources/live_matches.dart';
@@ -38,69 +39,36 @@ class MatchsScreenControoler extends GetxController
 
   void getData() async {
     try {
-      loading(true);
-      var data = await ApiService.fetchCurrentMatchesData();
-
-      if (data != null) {
-        currentMatch.value = data;
-      }
-      loading = false.obs;
+      loading.value = true;
+      Future.delayed(Duration(seconds: 2));
+      final data = await ApiService.fetchCurrentMatchesData();
+      currentMatch.value = data!;
+      return currentMatch;
     } finally {
-      loading(false);
+      loading.value = false;
     }
   }
 
-  void completedMatchesData() async {
+  completedMatchesData() async {
     try {
-      loading(true);
-      var completedData = await CompletedMatchApi.fetchCompletedMatchesData();
-
-      if (completedData != null) {
-        completedMatches.value = completedData;
-      }
+      loading.value = true;
+      final completedData = await CompletedMatchApi.fetchCompletedMatchesData();
+      completedMatches.value = completedData!;
+      return completedMatches;
     } finally {
-      loading(false);
+      loading.value = false;
     }
   }
 
-  void liveMatchesData() async {
+  liveMatchesData() async {
     try {
-      var liveData = await LiveMatchesApi.fetchLiveMatchesData();
+      loading.value = true;
 
-      if (liveData != null) {
-        liveMatches.value = liveData;
-      }
-    } catch (e) {
-      print("get======== $e");
+      final liveData = await LiveMatchesApi.fetchLiveMatchesData();
+      liveMatches.value = liveData!;
+      return liveMatches;
+    } finally {
+      loading.value = false;
     }
-  }
-
-  String timeAgo(DateTime date) {
-    // DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
-    final diff = DateTime.now().difference(date);
-
-    if (diff.inDays > 365) {
-      return "${(diff.inDays / 365).floor()} ${(diff.inDays / 365).floor() == 1 ? "year" : "years"} ago";
-    }
-    if (diff.inDays > 30) {
-      return "${(diff.inDays / 30).floor()} ${(diff.inDays / 30).floor() == 1 ? "month" : "months"} ago";
-    }
-    if (diff.inDays > 7) {
-      return "${(diff.inDays / 7).floor()} ${(diff.inDays / 7).floor() == 1 ? "week" : "weeks"} ago";
-    }
-    if (diff.inDays > 0) {
-      return "${diff.inDays} ${diff.inDays == 1 ? "day" : "days"} ago";
-    }
-    if (diff.inHours > 0) {
-      return "${diff.inHours} ${diff.inHours == 1 ? "hour" : "hours"} ago";
-    }
-    if (diff.inMinutes > 0) {
-      return "${diff.inMinutes} ${diff.inMinutes == 1 ? "minute" : "minutes"} ago";
-    }
-    return "just now";
-  }
-
-  DateTime time(value) {
-    return DateTime.fromMillisecondsSinceEpoch(value);
   }
 }

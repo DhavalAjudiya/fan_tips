@@ -1,13 +1,10 @@
-import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
 import '../../matches/controler/matchs_controller.dart';
-import '../../upcoming_matches/widget/live_score_screen/live_score_screen.dart';
+import '../../upcoming_matches/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
 import '../data/homepageController.dart';
@@ -257,9 +254,9 @@ class MatchForYouContainer extends StatelessWidget {
                                 height: 1.5.h,
                               ),
                               CustomeText(
-                                title: _homecontroller.timeAgo(
-                                    _homecontroller.time(matchData?.startTime)),
-                                fontSize: 8.sp,
+                                title:
+                                    "Match Start in ${Utils.hourAndMin(matchData?.startTime ?? 0)}",
+                                fontSize: 10.sp,
                               )
                             ],
                           ),
@@ -276,8 +273,7 @@ class MatchForYouContainer extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              (_homecontroller.currentMatch.value.matches?.notstarted?.length ??
-                  0),
+              4,
               (index) => AppContainer(
                 height: 0.6.h,
                 width: homeController.matchSelect.value == index ? 4.w : 3.w,

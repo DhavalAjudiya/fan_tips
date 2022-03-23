@@ -1,4 +1,4 @@
-import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
+import 'package:fantips/upcoming_matches/live_score_screen/score_card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -6,8 +6,8 @@ import 'package:sizer/sizer.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../commanWidget/commanText.dart';
 import '../../../expert/page/search_screen.dart';
-import '../../../screen/ipl_screen/page/fantasy_tabBar.dart';
-import '../../../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
+import '../../../screen/ipl_screen/fantasyTabBar/Page/fantasy_tabBar.dart';
+import '../../../screen/ipl_screen/fantasyTabBar/widget/wight/container/container_custom.dart';
 import '../../../utills/string.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../ipl_screen/controller/ipl_controller.dart';
@@ -33,7 +33,7 @@ class LiveScoreScreen extends StatelessWidget {
             Icons.arrow_back,
           ),
         ),
-        title: Text('CSK batting'),
+        title: Text('CSK batting', style: TextStyle(fontSize: 1.7.h)),
         actions: [
           InkWell(
             onTap: () {
@@ -54,13 +54,18 @@ class LiveScoreScreen extends StatelessWidget {
               controller: iplController.tabController1,
               tabs: iplController.upcoming,
               indicatorColor: AppColor.greenColor,
+              unselectedLabelColor: Colors.white,
               indicatorWeight: 2.5,
               isScrollable: true,
-              labelColor: AppColor.greenColor,
-              labelStyle:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 17.5),
-              unselectedLabelStyle:
-                  const TextStyle(fontStyle: FontStyle.normal, fontSize: 16),
+              labelColor: AppColor.green,
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 13.sp,
+              ),
+              unselectedLabelStyle: TextStyle(
+                fontStyle: FontStyle.normal,
+                fontSize: 13.sp,
+              ),
             ),
           ),
         ),

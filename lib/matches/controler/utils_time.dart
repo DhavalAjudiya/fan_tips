@@ -1,5 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 class Utils {
-  static String timeDurationAgo(int milliSecond) {
+  static String formatTimeOfDay(int milliSecond) {
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
+    final dt =
+        DateTime(date.year, date.month, date.day, date.hour, date.minute);
+    final format = DateFormat.MMMMEEEEd(); //"6:00 AM"
+    return format.format(dt);
+  }
+
+  static String hourAndMin(int milliSecond) {
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
+    final dt =
+        DateTime(date.year, date.month, date.day, date.hour, date.minute);
+    final format = DateFormat.Hm(); //"6:00 AM"
+    return format.format(dt);
+  }
+
+  static String timeAgoSinceDate(int milliSecond) {
+    //week 1646110200000 Tue Mar 01 2022 04:50:00
+    //days 1646455800000 Sat Mar 05 2022 04:50:00
+    //year 1614919800000 Fri Mar 05 2021 04:50:00
+    //month 1644382200000  9-2-2022
     DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
     final date2 = DateTime.now();
     final difference = date2.difference(date);

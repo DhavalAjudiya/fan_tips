@@ -5,7 +5,7 @@ import '../T20Predictions/page/utills/asset.dart';
 import '../T20Predictions/page/utills/color.dart';
 import '../commanWidget/commanText.dart';
 import '../expert/data/controller.dart';
-import '../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
+import '../screen/ipl_screen/fantasyTabBar/widget/wight/container/container_custom.dart';
 import '../utills/string.dart';
 import 'google_sign_in_repo.dart';
 
@@ -76,14 +76,14 @@ class AppBottomSheet {
             color: AppColor.containerBackground,
             borderRadius: BorderRadius.circular(10),
             onTap: () {
-              signInWithGoogle().then(
-                (data) {
-                  ipController.isLoggedIn.value = true;
-                  ipController.userObj = data;
-                },
-              ).catchError(
-                (e) {},
-              );
+              // signInWithGoogle().then(
+              //   (data) {
+              //     ipController.isLoggedIn.value = true;
+              //     ipController.userObj = data;
+              //   },
+              // ).catchError(
+              //   (e) {},
+              // );
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

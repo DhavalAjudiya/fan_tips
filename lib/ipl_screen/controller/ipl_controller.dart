@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../screen/ipl_screen/fantasyTab /fantasy_model.dart';
-import '../../screen/ipl_screen/fantasyTab /fantasy_service.dart';
+import '../../screen/ipl_screen/fantasyTabBar/modelService/fantasy_model.dart';
+import '../../screen/ipl_screen/fantasyTabBar/modelService/fantasy_service.dart';
 import '../../utills/string.dart';
 
 // ignore: deprecated_member_use
@@ -22,7 +22,7 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
       service.value = (await ApiFantasyService.fantasy(value!))!;
     } catch (e, st) {
       service.value = (await ApiFantasyService.fantasy(value!))!;
-    } catch (e,st) {
+    } catch (e, st) {
       print(e);
     }
   }
