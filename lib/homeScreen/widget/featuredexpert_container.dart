@@ -18,13 +18,13 @@ class FeaturedExpertContainer extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 18.h,
+          height: 17.h,
           child: PageView.builder(
             controller: homeController.pageController,
             onPageChanged: (value) {
               homeController.featureSelect.value = value;
             },
-            itemCount: homeController.predictionsData.value.tipsters?.length,
+            itemCount: 4,
             itemBuilder: (BuildContext context, int index) {
               return Obx(
                 () => AppContainer(
@@ -54,8 +54,8 @@ class FeaturedExpertContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.sp),
                   color: AppColor.blackColor,
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        left: 10.sp, right: 10.sp, top: 12.sp, bottom: 8.sp),
+                    padding:
+                        EdgeInsets.only(left: 10.sp, right: 10.sp, top: 12.sp),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,8 +81,8 @@ class FeaturedExpertContainer extends StatelessWidget {
                                         CustomeText(
                                             title:
                                                 "${homeController.predictionsData.value.tipsters?[index].name}",
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 12.sp),
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 11.sp),
                                         Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -162,14 +162,17 @@ class FeaturedExpertContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   CustomeText(
-                                      title:
-                                          "${homeController.predictionsData.value.tipsters?[index].totalPredictions}",
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 13.sp),
+                                    title:
+                                        "${homeController.predictionsData.value.tipsters?[index].totalPredictions}",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 13.sp,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
+                                  ),
                                   CustomeText(
                                     title: AppString.predictions,
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w500,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
                                   ),
                                 ],
                               ),
@@ -181,14 +184,17 @@ class FeaturedExpertContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   CustomeText(
-                                      title:
-                                          "${homeController.predictionsData.value.tipsters?[index].avgScore}",
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 13.sp),
+                                    title:
+                                        "${homeController.predictionsData.value.tipsters?[index].avgScore}",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 13.sp,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
+                                  ),
                                   CustomeText(
                                     title: AppString.averageScore,
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w500,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
                                   ),
                                 ],
                               ),
@@ -200,14 +206,17 @@ class FeaturedExpertContainer extends StatelessWidget {
                               Column(
                                 children: [
                                   CustomeText(
-                                      title:
-                                          "${homeController.predictionsData.value.tipsters?[index].top3}",
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 13.sp),
+                                    title:
+                                        "${homeController.predictionsData.value.tipsters?[index].top3}",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 13.sp,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
+                                  ),
                                   CustomeText(
                                     title: AppString.wins,
                                     fontSize: 10.sp,
                                     fontWeight: FontWeight.w500,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
                                   ),
                                 ],
                               ),
@@ -237,7 +246,7 @@ class FeaturedExpertContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.sp),
                 color: homeController.featureSelect.value == index
                     ? AppColor.greenColor
-                    : AppColor.blackColor,
+                    : AppColor.grey.withOpacity(0.5),
               ),
             ),
           ),

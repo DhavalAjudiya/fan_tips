@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../T20Predictions/page/utills/color.dart';
 import '../../commanWidget/commanText.dart';
 import '../../matches/controler/matchs_controller.dart';
@@ -22,7 +23,7 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 18.h,
+            height: 17.3.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -59,35 +60,68 @@ class MatchForYouContainer extends StatelessWidget {
                                 children: [
                                   CustomeText(
                                     title: matchData?.matchName ?? "",
-                                    color: AppColor.whiteColor,
+                                    color: AppColor.whiteColor.withOpacity(0.5),
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10.sp,
                                   ),
                                   const Spacer(),
                                   Obx(
                                     () => InkWell(
-                                      onTap: () {
-                                        if (homeController
-                                                .notificationsItem.value ==
-                                            false) {
-                                          homeController
-                                              .notificationsItem.value = true;
-                                        } else {
-                                          homeController
-                                              .notificationsItem.value = false;
-                                        }
-                                      },
-                                      child: homeController
-                                                  .notificationsItem.value ==
-                                              false
-                                          ? SvgPicture.asset(
-                                              AppImage.notification,
-                                              color: AppColor.whiteColor,
-                                            )
-                                          : SvgPicture.asset(
-                                              AppImage.notification,
-                                              color: AppColor.greenColor),
-                                    ),
+                                        onTap: () {
+                                          if (_homecontroller
+                                                  .currentMatch
+                                                  .value
+                                                  .matches
+                                                  ?.notstarted?[index]
+                                                  .selected ==
+                                              false) {
+                                            _homecontroller
+                                                .currentMatch
+                                                .value
+                                                .matches
+                                                ?.notstarted?[index]
+                                                .selected
+                                                .value = true;
+
+                                            _homecontroller.addNotificationItem(
+                                                _homecontroller
+                                                    .currentMatch
+                                                    .value
+                                                    .matches!
+                                                    .notstarted![index]);
+                                          } else {
+                                            _homecontroller
+                                                .removeNotificationItem(
+                                                    _homecontroller
+                                                        .currentMatch
+                                                        .value
+                                                        .matches!
+                                                        .notstarted![index]);
+                                            _homecontroller
+                                                .currentMatch
+                                                .value
+                                                .matches
+                                                ?.notstarted?[index]
+                                                .selected
+                                                .value = false;
+                                          }
+                                        },
+                                        child: _homecontroller
+                                                    .currentMatch
+                                                    .value
+                                                    .matches
+                                                    ?.notstarted?[index]
+                                                    .selected
+                                                    .value ==
+                                                false
+                                            ? Icon(
+                                                Icons.notifications_none,
+                                                size: 13.sp,
+                                              )
+                                            : Icon(
+                                                Icons.notifications,
+                                                size: 13.sp,
+                                              )),
                                   )
                                 ],
                               ),
@@ -115,7 +149,7 @@ class MatchForYouContainer extends StatelessWidget {
                                               CustomeText(
                                                 title:
                                                     matchData?.team1Name ?? "",
-                                                fontWeight: FontWeight.w700,
+                                                fontWeight: FontWeight.w500,
                                                 fontSize: 10.sp,
                                               ),
                                               const Spacer(),
@@ -158,7 +192,7 @@ class MatchForYouContainer extends StatelessWidget {
                                               CustomeText(
                                                 title:
                                                     matchData?.team2Name ?? "",
-                                                fontWeight: FontWeight.w700,
+                                                fontWeight: FontWeight.w500,
                                                 fontSize: 10.sp,
                                               ),
                                               const Spacer(),
@@ -225,7 +259,7 @@ class MatchForYouContainer extends StatelessWidget {
                               CustomeText(
                                 title: _homecontroller.timeAgo(
                                     _homecontroller.time(matchData?.startTime)),
-                                fontSize: 10.sp,
+                                fontSize: 8.sp,
                               )
                             ],
                           ),
@@ -251,7 +285,7 @@ class MatchForYouContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.sp),
                 color: homeController.matchSelect.value == index
                     ? AppColor.greenColor
-                    : AppColor.blackColor,
+                    : AppColor.grey.withOpacity(0.5),
               ),
             ),
           ),

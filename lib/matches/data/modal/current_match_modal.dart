@@ -82,8 +82,10 @@ class Notstarted {
     this.header,
     this.status,
     required this.selected,
+    this.notificationList,
   });
   RxBool selected = false.obs;
+  RxBool? notificationList = false.obs;
 
   bool? quizavailable;
   int? team2Id;
@@ -142,7 +144,6 @@ class Notstarted {
         header: json["header"],
         status: json["status"],
         selected: false.obs,
-
       );
 
   Map<String, dynamic> toJson() => {

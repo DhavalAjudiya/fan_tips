@@ -55,15 +55,22 @@ class UpComing extends StatelessWidget {
                           margin: EdgeInsets.symmetric(vertical: 1.h),
                           headertext: current?.matchName ?? "",
                           ontap: () {
-                            if (current?.selected.value == false) {
+                            if (current?.selected == false) {
                               current?.selected.value = true;
+
+                              _homecontroller.addNotificationItem(current!);
                             } else {
-                              current?.selected.value = false;
+                              _homecontroller.removeNotificationItem(current!);
+                              current.selected.value = false;
                             }
                           },
                           icon: current?.selected.value == false
-                              ? const Icon(Icons.notifications)
-                              : const Icon(Icons.notifications_none),
+                              ? Icon(
+                                  Icons.notifications_none,
+                                )
+                              : Icon(
+                                  Icons.notifications,
+                                ),
                           backgroundImage: NetworkImage(
                             current?.t1Flag ??
                                 "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
