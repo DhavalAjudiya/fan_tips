@@ -69,6 +69,11 @@ class MyApp extends StatelessWidget {
               transition: Transition.rightToLeft,
             ),
             GetPage(
+              name: NewsScreen.routeName,
+              page: () => NewsScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
               name: IplScreen.routeName,
               page: () => IplScreen(),
               transition: Transition.rightToLeft,
@@ -76,11 +81,6 @@ class MyApp extends StatelessWidget {
             GetPage(
               name: NewsDetailedScreen.routeName,
               page: () => NewsDetailedScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: NewsScreen.routeName,
-              page: () => NewsScreen(),
               transition: Transition.rightToLeft,
             ),
             GetPage(

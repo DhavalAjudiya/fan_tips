@@ -22,9 +22,10 @@ class ApiService {
     return newsDataModel;
   }
 
-  Future<Expert?> expertData() async {
+  Future<Expert?> expertData(int count) async {
     http.Response response = await http.post(
-        Uri.parse(AppString.matchApiService),
+        Uri.parse(
+            "https://api.freefantasy.in/tips/tipsters?offset=$count&limit=20"),
         headers: {"Content-Type": "text/plain"});
 
     log("expert========>${jsonDecode(response.body)}");
