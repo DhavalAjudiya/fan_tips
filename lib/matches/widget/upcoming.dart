@@ -19,6 +19,15 @@ class UpComing extends StatelessWidget {
         SizedBox(
           height: 1.5.h,
         ),
+        _homecontroller.currentMatch.value.matches?.notstarted?.length == 0
+            ? Padding(
+                padding: const EdgeInsets.only(top: 250),
+                child: Text(
+                  "No matches available",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              )
+            : SizedBox(),
         Expanded(
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
@@ -81,9 +90,37 @@ class UpComing extends StatelessWidget {
                                     "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
                               ),
                               subText: current?.team2Name ?? "",
-                              predictionText:
-                                  "${current?.totalprediction ?? ""}",
-                              prediction: "Prediction",
+                              // predictionText:
+                              //     "${current?.totalprediction ?? ""}",
+                              // prediction: "Prediction",
+                              predictionText: current?.totalprediction != 0
+                                  ? "${current?.totalprediction ?? ""}"
+                                  : "Start At",
+                              style: current?.totalprediction != 0
+                                  ? TextStyle(
+                                      color: Colors.green,
+                                      fontFamily: "circular",
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.bold)
+                                  : TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "circular",
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w400),
+                              prediction: current?.totalprediction != 0
+                                  ? "${"Prediction"}"
+                                  : "${Utils.hourAndMin(current?.startTime ?? 0)}",
+                              pstyle: current?.totalprediction != 0
+                                  ? TextStyle(
+                                      color: Colors.green,
+                                      fontFamily: "circular",
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.bold)
+                                  : TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "circular",
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold),
                               lastText:
                                   "Match Start in ${Utils.hourAndMin(current?.startTime ?? 0)}",
                             ),

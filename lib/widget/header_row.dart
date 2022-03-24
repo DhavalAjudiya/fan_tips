@@ -1,16 +1,13 @@
 import 'package:fantips/utills/string.dart';
 import 'package:fantips/widget/app_bottom_sheet.dart';
-import 'package:fantips/widget/google_sign_in_repo.dart';
 import 'package:fantips/widget/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../T20Predictions/page/utills/asset.dart';
 import '../T20Predictions/page/utills/color.dart';
 import '../commanWidget/commanText.dart';
 import '../expert/data/controller.dart';
 import '../ipl_screen/controller/ipl_controller.dart';
-import 'custom_container.dart';
 
 class HeaderRow extends StatelessWidget {
   final IplController iplController = Get.put(IplController());

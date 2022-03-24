@@ -31,71 +31,76 @@ class Commentary extends StatelessWidget {
           SizedBox(
             height: 3.h,
           ),
-          Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 3.w),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(vertical: 1.h),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 90.w,
-                        height: 8.h,
-                        child: Row(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('20.0'),
-                                SizedBox(
-                                  height: 1.h,
-                                ),
-                                CircleAvatar(
-                                  minRadius: 1.7.h,
-                                  backgroundColor: Colors.primaries[_random
-                                          .nextInt(Colors.primaries.length)]
-                                      [_random.nextInt(9) * 100],
-                                  child: Text(
-                                    '1',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14.sp),
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Pollard to Deepak Cahhar',
-                                  style: Appstyle.subIplStyle,
-                                ),
-                                SizedBox(
-                                  height: 1.5.h,
-                                ),
-                                Text(
-                                  '1 run',
-                                  style: Appstyle.subIplStyle,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
+          // comment score
+          _commentScore()
         ],
       ),
     );
+  }
+
+  Widget _commentScore() {
+    return Expanded(
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(vertical: 1.h),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 90.w,
+                      height: 8.h,
+                      child: Row(
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('20.0'),
+                              SizedBox(
+                                height: 1.h,
+                              ),
+                              CircleAvatar(
+                                minRadius: 1.7.h,
+                                backgroundColor: Colors.primaries[_random
+                                        .nextInt(Colors.primaries.length)]
+                                    [_random.nextInt(9) * 100],
+                                child: Text(
+                                  '1',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14.sp),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Pollard to Deepak Cahhar',
+                                style: Appstyle.subIplStyle,
+                              ),
+                              SizedBox(
+                                height: 1.5.h,
+                              ),
+                              Text(
+                                '1 run',
+                                style: Appstyle.subIplStyle,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
   }
 }

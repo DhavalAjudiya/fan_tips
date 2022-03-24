@@ -37,8 +37,8 @@ class MatchTab extends StatelessWidget {
                 }
               },
               icon: iplController.isOn.value == false
-                  ? const Icon(Icons.notifications)
-                  : const Icon(Icons.notifications_none_rounded),
+                  ? const Icon(Icons.notifications_none_rounded)
+                  : const Icon(Icons.notifications),
               width: 88.w,
               titleMatches: 'RR vc RCB IPL,2021',
               image1: IconAsset.logoCSK,
@@ -85,8 +85,8 @@ class MatchTab extends StatelessWidget {
                         }
                       },
                       icon: iplController.isOn.value == false
-                          ? const Icon(Icons.notifications)
-                          : const Icon(Icons.notifications_none_rounded),
+                          ? const Icon(Icons.notifications_none_rounded)
+                          : const Icon(Icons.notifications),
                       titleMatches: 'RCB vc DC IPL,2021',
                       image1: IconAsset.logoRCB,
                       textTeam1: 'RCB',
@@ -99,9 +99,6 @@ class MatchTab extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
-              height: 1.3.h,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -110,7 +107,7 @@ class MatchTab extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 1.3.h,
+              height: 1.5.h,
             ),
             SizedBox(
               height: 38.h,
@@ -130,8 +127,8 @@ class MatchTab extends StatelessWidget {
                         }
                       },
                       icon: iplController.isOn.value == false
-                          ? const Icon(Icons.notifications)
-                          : const Icon(Icons.notifications_none_rounded),
+                          ? const Icon(Icons.notifications_none_rounded)
+                          : const Icon(Icons.notifications),
                       width: 88.w,
                       titleMatches: 'PNJ vc KKR IPL,2021',
                       image1: IconAsset.logoPNJ,

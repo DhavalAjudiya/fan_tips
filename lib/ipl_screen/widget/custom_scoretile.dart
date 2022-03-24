@@ -46,7 +46,7 @@ class IplCardMatches extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 19.h,
+      height: 17.5.h,
       width: width,
       decoration: BoxDecoration(
           color: AppColor.greyBackGround,
@@ -70,7 +70,7 @@ class IplCardMatches extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 1.h,
+              height: 0.5.h,
             ),
             Row(
               children: [
@@ -122,7 +122,7 @@ class IplCardMatches extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 2.h,
+                      height: 1.h,
                     ),
                     Row(
                       children: [
@@ -190,7 +190,7 @@ class IplCardMatches extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 1.5.h,
+              height: 0.5.h,
             ),
             Text(
               time!,
@@ -234,13 +234,13 @@ class UpcomingIpl extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
+      height: 17.5.h,
       width: width,
       decoration: BoxDecoration(
           color: AppColor.greyBackGround,
           borderRadius: BorderRadius.circular(10)),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.2.h),
+        padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -258,7 +258,7 @@ class UpcomingIpl extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 1.h,
+              height: 0.5.h,
             ),
             Row(
               children: [
@@ -290,7 +290,7 @@ class UpcomingIpl extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 2.h,
+                      height: 1.5.h,
                     ),
                     Row(
                       children: [
@@ -344,7 +344,7 @@ class UpcomingIpl extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 1.5.h,
+              height: 1.h,
             ),
             Text(
               dayAgo!,
