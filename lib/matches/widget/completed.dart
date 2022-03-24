@@ -66,16 +66,60 @@ class Completed extends StatelessWidget {
                               ),
                               subText: current?.team2Name ?? "",
                               t1run: "${current?.i2Details?.run ?? ""}",
-                              t1wk: current?.i2Details?.wk == 10
+                              t1wk: current?.i2Details?.wk == 10 ||
+                                      current?.i2Details?.wk == 0
                                   ? ""
                                   : "/${current?.i2Details?.wk ?? ""}",
-                              t1over: "(${current?.i2Details?.over ?? ""})",
-                              // t1owk: "${current?.i4Details?.wk ?? ""}",
+                              t1over: current?.type == 1
+                                  ? current?.i4Details?.run == 0
+                                      ? ""
+                                      : "& ${current?.i4Details?.run ?? ""}"
+                                  : "(${current?.i2Details?.over ?? ""})",
+                              overstyle: current?.type == 1
+                                  ? TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "circular",
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600)
+                                  : TextStyle(
+                                      color: Colors.white30,
+                                      fontFamily: "circular",
+                                      fontSize: 9.sp,
+                                    ),
+                              t1owk: current?.type == 1
+                                  ? current?.i4Details?.wk == 10 ||
+                                          current?.i4Details?.wk == 0
+                                      ? ""
+                                      : "/${current?.i4Details?.wk ?? ""}"
+                                  : "",
                               t2run: "${current?.i1Details?.run ?? ""}",
-                              t2wk: current?.i1Details?.wk == 10
+                              t2wk: current?.i1Details?.wk == 10 ||
+                                      current?.i1Details?.wk == 0
                                   ? ""
                                   : "/${current?.i1Details?.wk ?? ""}",
-                              t2over: "(${current?.i1Details?.over ?? ""})",
+                              t2over: current?.type == 1
+                                  ? current?.i4Details?.run == 0
+                                      ? ""
+                                      : "& ${current?.i3Details?.run ?? ""}"
+                                  : "(${current?.i1Details?.over ?? ""})",
+                              over2style: current?.type == 1
+                                  ? TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "circular",
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600)
+                                  : TextStyle(
+                                      color: Colors.white30,
+                                      fontFamily: "circular",
+                                      fontSize: 9.sp,
+                                    ),
+                              t2owk: current?.type == 1
+                                  ? current?.i3Details?.wk == 10 ||
+                                          current?.i3Details?.wk == 0
+                                      ? ""
+                                      : "/${current?.i3Details?.wk ?? ""}"
+                                  : "",
+                              // t2over: "(${current?.i1Details?.over ?? ""})",
                               // t2owk: "${current?.i3Details?.wk ?? ""}",
                               predictionText: current?.totalprediction != 0
                                   ? "${current?.totalprediction ?? ""}"

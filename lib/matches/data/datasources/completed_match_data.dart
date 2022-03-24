@@ -9,10 +9,11 @@ class CompletedMatchApi {
     "Content-Type": 'text/plain',
   };
 
-  static Future<CompletedMatches?> fetchCompletedMatchesData() async {
+  static Future<CompletedMatches?> fetchCompletedMatchesData(int select) async {
     try {
       var request = http.MultipartRequest('POST', Uri.parse(url));
-      request.fields.addAll({'matchStatus': '4', 'offset': '0', 'limit': '20'});
+      request.fields
+          .addAll({'matchStatus': '4', 'offset': select, 'limit': '20'});
 
       http.StreamedResponse response = await request.send();
       final data = await response.stream.bytesToString();

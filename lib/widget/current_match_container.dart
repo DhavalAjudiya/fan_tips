@@ -221,6 +221,8 @@ class CustomLCContainer extends StatelessWidget {
   final String team;
   final TextStyle? style;
   final TextStyle? pstyle;
+  final TextStyle? overstyle;
+  final TextStyle? over2style;
 
   CustomLCContainer({
     this.headertext = "",
@@ -247,6 +249,8 @@ class CustomLCContainer extends StatelessWidget {
     this.team = "",
     this.style,
     this.pstyle,
+    this.overstyle,
+    this.over2style,
   });
   @override
   Widget build(BuildContext context) {
@@ -331,7 +335,8 @@ class CustomLCContainer extends StatelessWidget {
                         ),
                         Text(
                           "$t1over",
-                          style: AppStyle.over,
+                          style: overstyle,
+                          // style: AppStyle.over,
                         ),
                         Text(
                           "$t1owk",
@@ -357,7 +362,8 @@ class CustomLCContainer extends StatelessWidget {
                         ),
                         Text(
                           "$t2over",
-                          style: AppStyle.over,
+                          style: over2style,
+                          // style: AppStyle.over,
                         ),
                         Text(
                           "$t2owk",
