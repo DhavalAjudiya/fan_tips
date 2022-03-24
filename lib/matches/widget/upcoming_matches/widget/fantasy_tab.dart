@@ -17,7 +17,8 @@ import '../../../../utills/string.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);
-  final upcomingController = Get.put(UpcomingMatchController());
+  final UpcomingMatchController upcomingController =
+      Get.put(UpcomingMatchController());
   final HomeController homeController = Get.put(HomeController());
 
   @override
@@ -147,9 +148,9 @@ class FantasyTab extends StatelessWidget {
                                                   true) {
                                                 upcomingController.index.value =
                                                     0;
-                                                homeController.predictionsData
-                                                    .value.tipsters
-                                                    ?.sort((a, b) => a
+                                                homeController
+                                                    .expertPaginationData
+                                                    .sort((a, b) => a
                                                         .totalPredictions!
                                                         .compareTo(b
                                                             .totalPredictions!));
@@ -193,9 +194,9 @@ class FantasyTab extends StatelessWidget {
                                                   true) {
                                                 upcomingController.index.value =
                                                     1;
-                                                homeController.predictionsData
-                                                    .value.tipsters
-                                                    ?.sort((a, b) => a.avgScore!
+                                                homeController
+                                                    .expertPaginationData
+                                                    .sort((a, b) => a.avgScore!
                                                         .compareTo(
                                                             b.avgScore!));
                                               } else {
@@ -239,9 +240,9 @@ class FantasyTab extends StatelessWidget {
                                                   true) {
                                                 upcomingController.index.value =
                                                     2;
-                                                homeController.predictionsData
-                                                    .value.tipsters
-                                                    ?.sort((a, b) => a.top3!
+                                                homeController
+                                                    .expertPaginationData
+                                                    .sort((a, b) => a.top3!
                                                         .compareTo(b.top3!));
                                               } else {
                                                 upcomingController.isSelect =
@@ -373,10 +374,19 @@ class FantasyTab extends StatelessWidget {
                         ? Expanded(
                             child: SizedBox(
                               child: ListView.builder(
-                                itemCount: homeController
-                                    .predictionsData.value.tipsters?.length,
+                                controller:
+                                    homeController.expertScrollController,
+                                itemCount: homeController.isLoading.value
+                                    ? homeController
+                                            .expertPaginationData.length +
+                                        1
+                                    : homeController
+                                        .expertPaginationData.length,
                                 physics: const BouncingScrollPhysics(),
                                 itemBuilder: (context, index) {
+                                  final expertData = homeController
+                                      .expertPaginationData[index];
+                                  log("======expertPaginationData====>${homeController.expertPaginationData.length}");
                                   return AppContainer(
                                     height: 17.h,
                                     margin:
@@ -400,7 +410,7 @@ class FantasyTab extends StatelessWidget {
                                               CircleAvatar(
                                                 radius: 18.sp,
                                                 backgroundImage: NetworkImage(
-                                                    "${homeController.predictionsData.value.tipsters?[index].profileUrl}"),
+                                                    "${expertData.profileUrl}"),
                                               ),
                                               SizedBox(
                                                 width: 2.w,
@@ -419,7 +429,7 @@ class FantasyTab extends StatelessWidget {
                                                         children: [
                                                           CustomeText(
                                                               title:
-                                                                  '${(homeController.predictionsData.value.tipsters?[index].name?.length ?? 0) >= 20 ? (homeController.predictionsData.value.tipsters?[index].name?.substring(0, 12) ?? 0) : (homeController.predictionsData.value.tipsters?[index].name ?? 0)}...',
+                                                                  '${(expertData.name?.length ?? 0) >= 20 ? (expertData.name?.substring(0, 12) ?? 0) : (expertData.name ?? 0)}...',
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -445,7 +455,7 @@ class FantasyTab extends StatelessWidget {
                                                               ),
                                                               CustomeText(
                                                                 title:
-                                                                    "${homeController.predictionsData.value.tipsters?[index].subscriberCount}",
+                                                                    "${expertData.subscriberCount}",
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -484,60 +494,57 @@ class FantasyTab extends StatelessWidget {
                                                   ),
                                                 ],
                                               ),
-                                              const Spacer(),
-                                              Obx(
-                                                () => InkWell(
-                                                  onTap: () {
-                                                    if (homeController
+                                              Spacer(),
+                                              InkWell(
+                                                onTap: () {
+                                                  if (homeController
+                                                          .predictionsData
+                                                          .value
+                                                          .tipsters?[index]
+                                                          .wishlist ==
+                                                      false) {
+                                                    homeController
+                                                        .predictionsData
+                                                        .value
+                                                        .tipsters?[index]
+                                                        .wishlist
+                                                        .value = true;
+                                                    homeController.addProduct(
+                                                        homeController
+                                                            .predictionsData
+                                                            .value
+                                                            .tipsters![index]);
+                                                  } else {
+                                                    homeController.removeProduct(
+                                                        homeController
+                                                            .predictionsData
+                                                            .value
+                                                            .tipsters![index]);
+
+                                                    homeController
+                                                        .predictionsData
+                                                        .value
+                                                        .tipsters?[index]
+                                                        .wishlist
+                                                        .value = false;
+                                                  }
+                                                },
+                                                child: homeController
                                                             .predictionsData
                                                             .value
                                                             .tipsters?[index]
                                                             .wishlist ==
-                                                        false) {
-                                                      homeController
-                                                          .predictionsData
-                                                          .value
-                                                          .tipsters?[index]
-                                                          .wishlist
-                                                          .value = true;
-                                                      homeController.addProduct(
-                                                          homeController
-                                                              .predictionsData
-                                                              .value
-                                                              .tipsters![index]);
-                                                    } else {
-                                                      homeController.removeProduct(
-                                                          homeController
-                                                              .predictionsData
-                                                              .value
-                                                              .tipsters![index]);
-
-                                                      homeController
-                                                          .predictionsData
-                                                          .value
-                                                          .tipsters?[index]
-                                                          .wishlist
-                                                          .value = false;
-                                                    }
-                                                  },
-                                                  child: homeController
-                                                              .predictionsData
-                                                              .value
-                                                              .tipsters?[index]
-                                                              .wishlist ==
-                                                          false
-                                                      ? const Icon(
-                                                          Icons
-                                                              .favorite_outline,
-                                                          color: AppColor
-                                                              .textColor,
-                                                        )
-                                                      : const Icon(
-                                                          Icons.favorite,
-                                                          color: AppColor
-                                                              .greenColor,
-                                                        ),
-                                                ),
+                                                        false
+                                                    ? const Icon(
+                                                        Icons.favorite_outline,
+                                                        color:
+                                                            AppColor.textColor,
+                                                      )
+                                                    : const Icon(
+                                                        Icons.favorite,
+                                                        color:
+                                                            AppColor.greenColor,
+                                                      ),
                                               ),
                                             ],
                                           ),
@@ -556,7 +563,7 @@ class FantasyTab extends StatelessWidget {
                                                   children: [
                                                     CustomeText(
                                                         title:
-                                                            "${homeController.predictionsData.value.tipsters?[index].totalPredictions}",
+                                                            "${expertData.totalPredictions}",
                                                         color:
                                                             AppColor.textColor,
                                                         fontWeight:
@@ -582,7 +589,7 @@ class FantasyTab extends StatelessWidget {
                                                   children: [
                                                     CustomeText(
                                                         title:
-                                                            "${homeController.predictionsData.value.tipsters?[index].avgScore}",
+                                                            "${expertData.avgScore}",
                                                         color:
                                                             AppColor.textColor,
                                                         fontWeight:
@@ -608,7 +615,7 @@ class FantasyTab extends StatelessWidget {
                                                   children: [
                                                     CustomeText(
                                                         title:
-                                                            "${homeController.predictionsData.value.tipsters?[index].top3}",
+                                                            "${expertData.top3}",
                                                         color:
                                                             AppColor.textColor,
                                                         fontWeight:
@@ -756,20 +763,17 @@ class FantasyTab extends StatelessWidget {
                                                     ],
                                                   ),
                                                   const Spacer(),
-                                                  Obx(
-                                                    () => InkWell(
-                                                      onTap: () {
-                                                        homeController
-                                                            .removeProduct(
-                                                                homeController
-                                                                        .wishListItems[
-                                                                    index]);
-                                                      },
-                                                      child: const Icon(
-                                                        Icons.favorite,
-                                                        color:
-                                                            AppColor.greenColor,
-                                                      ),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      homeController.removeProduct(
+                                                          homeController
+                                                                  .wishListItems[
+                                                              index]);
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.favorite,
+                                                      color:
+                                                          AppColor.greenColor,
                                                     ),
                                                   ),
                                                 ],

@@ -20,17 +20,21 @@ class HomeController extends GetxController {
   Rx<NewsDataModel> newsModel = NewsDataModel().obs;
   RxList newsPagination = [].obs;
   int pageLimit = 20;
-  int count = 0;
+  int newsCount = 0;
   bool pageAvailable = true;
   ScrollController scrollController = ScrollController();
+  ScrollController expertScrollController = ScrollController();
 
   Rx<Expert> predictionsData = Expert().obs;
   RxList<Tipster> wishListItems = <Tipster>[].obs;
+  RxList expertPaginationData = [].obs;
+  int expertCount = 0;
+  int expertPageLimit = 20;
 
   @override
   void onInit() {
     callMethod(0);
-
+    expertMethod(0);
     scrollController.addListener(() {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
@@ -39,7 +43,14 @@ class HomeController extends GetxController {
       }
     });
 
-    expertMethod();
+    expertScrollController.addListener(() {
+      if (expertScrollController.position.pixels ==
+          expertScrollController.position.maxScrollExtent) {
+        log("${expertScrollController.position.pixels}");
+        expertMoreData();
+      }
+    });
+
     super.onInit();
   }
 
@@ -90,15 +101,15 @@ class HomeController extends GetxController {
     }
     try {
       isLoading.value = true;
-      if (newsModel.value.news!.length > pageLimit) {
+      if ((newsModel.value.news?.length ?? 0) > pageLimit) {
         pageAvailable = false;
       } else {
-        count++;
+        newsCount++;
 
-        log("===========>${count.obs}");
+        log("===========>${newsCount.obs}");
       }
 
-      var result = await ApiService().newsPostData(count);
+      var result = await ApiService().newsPostData(newsCount);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -109,13 +120,47 @@ class HomeController extends GetxController {
     }
   }
 
-  expertMethod() async {
+  expertMethod(int expertCount) async {
     try {
-      final result = await ApiService().expertData();
+      isLoading.value = true;
+      final result = await ApiService().expertData(0);
       predictionsData.value = result!;
-      return predictionsData;
+      log("pridication data===1111${predictionsData.value.tipsters?.length}");
+      if (predictionsData.value.tipsters!.isNotEmpty) {
+        expertPaginationData.addAll(predictionsData.value.tipsters!);
+      }
     } catch (e, st) {
       print('-->>${e} -->>${st}');
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  expertMoreData() async {
+    if (!pageAvailable) {
+      print('No More Products');
+      return;
+    }
+    try {
+      isLoading.value = true;
+      if (predictionsData.value.tipsters!.length > expertPageLimit) {
+        pageAvailable = false;
+      } else {
+        expertCount++;
+
+        log("===========>${expertCount.obs}");
+      }
+
+      final result = await ApiService().expertData(expertCount);
+      predictionsData.value = result!;
+      log("pridication data===222${predictionsData.value.tipsters?.length}");
+      if (predictionsData.value.tipsters!.isNotEmpty) {
+        expertPaginationData.addAll(predictionsData.value.tipsters!);
+        log("++++++++${expertPaginationData.length}");
+        return expertPaginationData;
+      }
+    } finally {
+      isLoading.value = false;
     }
   }
 

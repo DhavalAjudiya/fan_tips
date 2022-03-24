@@ -25,7 +25,7 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 15.h,
+            height: 16.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -33,7 +33,7 @@ class MatchForYouContainer extends StatelessWidget {
               },
               itemCount: _homecontroller
                       .currentMatch.value.matches?.notstarted?.length ??
-                  4,
+                  0,
               itemBuilder: (BuildContext context, int index) {
                 final matchData = _homecontroller
                     .currentMatch.value.matches?.notstarted?[index];
@@ -285,7 +285,8 @@ class MatchForYouContainer extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              4,
+              (_homecontroller.currentMatch.value.matches?.notstarted?.length ??
+                  0),
               (index) => AppContainer(
                 height: 0.6.h,
                 width: homeController.matchSelect.value == index ? 4.w : 3.w,

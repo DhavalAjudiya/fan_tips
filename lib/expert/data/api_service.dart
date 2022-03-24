@@ -3,9 +3,10 @@ import '../../utills/string.dart';
 import 'model.dart';
 
 class MatchApiService {
-  Future<Expert?> data() async {
+  Future<Expert?> data(int count) async {
     final data = await http.post(
-      Uri.parse(AppString.matchApiService),
+      Uri.parse(
+          "https://api.freefantasy.in/tips/tipsters?offset=$count&limit=20"),
       headers: {"Content-Type": "text/plain"},
     );
     return expertFromJson(data.body);
