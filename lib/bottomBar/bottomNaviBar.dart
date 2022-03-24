@@ -64,7 +64,7 @@ class BottomNavigatorController extends StatelessWidget {
               icon: Image.asset(
                 'assets/icons/tata_ipl.png',
                 height: 5.h,
-                width: 6.w,
+                width: 10.w,
                 color: _neviController.currentIndex.value == 2
                     ? AppColor.whiteColor
                     : AppColor.whiteColor.withOpacity(0.5),

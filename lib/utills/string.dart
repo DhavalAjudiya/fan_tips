@@ -18,7 +18,7 @@ class AppString {
   // bottom nevigation bar
   static const String home = "Home";
   static const String match = "Matches";
-  static const String ipl = "IPL";
+  static const String ipl = "";
   static const String expert = "Expert";
   static const String mores = "More";
   static const String commentary = "Commentary";

@@ -22,51 +22,53 @@ class SquadsDetailsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppString.batsman,
-              style: Appstyle.moreStyle,
-            ),
-            Container(
-              height: 80.h,
-              child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                itemCount: IplTems.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(vertical: 1.h),
-                    child: ListTile(
-                      leading: Container(
-                        height: 5.h,
-                        width: 8.w,
-                        decoration: BoxDecoration(
-                          color: AppColor.white,
-                          shape: BoxShape.circle,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: Image.asset(
-                            'assets/image/msdhoni.webp',
-                            fit: BoxFit.cover,
-                            alignment: Alignment.center,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppString.batsman,
+                style: Appstyle.moreStyle,
+              ),
+              Container(
+                height: 80.h,
+                child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: IplTems.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(vertical: 1.h),
+                      child: ListTile(
+                        leading: Container(
+                          height: 5.h,
+                          width: 8.w,
+                          decoration: BoxDecoration(
+                            color: AppColor.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            child: Image.asset(
+                              'assets/image/msdhoni.webp',
+                              fit: BoxFit.cover,
+                              alignment: Alignment.center,
+                            ),
                           ),
                         ),
+                        title: Text('M.S Dhoni'),
+                        trailing: SvgPicture.asset(
+                          'assets/image/captain.svg',
+                          height: 3.h,
+                          width: 4.w,
+                        ),
                       ),
-                      title: Text('M.S Dhoni'),
-                      trailing: SvgPicture.asset(
-                        'assets/image/captain.svg',
-                        height: 3.h,
-                        width: 4.w,
-                      ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -3,7 +3,6 @@ import 'package:fantips/utills/style.dart';
 import 'package:fantips/widget/more_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../utills/string.dart';
@@ -29,9 +28,6 @@ class ContactScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 3.h,
-                ),
                 MoreTextField(
                   textInputType: TextInputType.name,
                   labelText: 'Name',
