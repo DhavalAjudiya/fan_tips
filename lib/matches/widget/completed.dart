@@ -66,16 +66,45 @@ class Completed extends StatelessWidget {
                               ),
                               subText: current?.team2Name ?? "",
                               t1run: "${current?.i2Details?.run ?? ""}",
-                              t1wk: "${current?.i2Details?.wk ?? ""}",
+                              t1wk: current?.i2Details?.wk == 10
+                                  ? ""
+                                  : "/${current?.i2Details?.wk ?? ""}",
                               t1over: "(${current?.i2Details?.over ?? ""})",
                               // t1owk: "${current?.i4Details?.wk ?? ""}",
                               t2run: "${current?.i1Details?.run ?? ""}",
-                              t2wk: "${current?.i1Details?.wk ?? ""}",
+                              t2wk: current?.i1Details?.wk == 10
+                                  ? ""
+                                  : "/${current?.i1Details?.wk ?? ""}",
                               t2over: "(${current?.i1Details?.over ?? ""})",
                               // t2owk: "${current?.i3Details?.wk ?? ""}",
-                              predictionText:
-                                  "${current?.totalprediction ?? ""}",
-                              prediction: "Prediction",
+                              predictionText: current?.totalprediction != 0
+                                  ? "${current?.totalprediction ?? ""}"
+                                  : "Start At",
+                              style: current?.totalprediction != 0
+                                  ? TextStyle(
+                                      color: Colors.green,
+                                      fontFamily: "circular",
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.bold)
+                                  : TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "circular",
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w400),
+                              prediction: current?.totalprediction != 0
+                                  ? "${"Prediction"}"
+                                  : "${Utils.hourAndMin(current?.startTime ?? 0)}",
+                              pstyle: current?.totalprediction != 0
+                                  ? TextStyle(
+                                      color: Colors.green,
+                                      fontFamily: "circular",
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.bold)
+                                  : TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "circular",
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold),
                               lastText: current?.infoMsg ?? "",
                             ),
                           ],

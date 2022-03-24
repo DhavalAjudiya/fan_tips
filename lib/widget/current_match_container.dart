@@ -16,6 +16,7 @@ class CustomContainer extends StatelessWidget {
   final String t2wk;
   final String t2over;
   final TextStyle? style;
+  final TextStyle? pstyle;
   final ImageProvider? backgroundImage;
   final ImageProvider? secondbackgroundImage;
   final EdgeInsetsGeometry? margin;
@@ -42,7 +43,8 @@ class CustomContainer extends StatelessWidget {
       this.ontap,
       required this.icon,
       this.onTap,
-      this.style});
+      this.style,
+      this.pstyle});
   bool matches = false;
   @override
   Widget build(BuildContext context) {
@@ -164,11 +166,13 @@ class CustomContainer extends StatelessWidget {
                   children: [
                     Text(
                       predictionText,
-                      style: AppStyle.preadiction,
+                      style: style,
+                      // style: AppStyle.preadiction,
                     ),
                     Text(
                       prediction,
-                      style: AppStyle.predication,
+                      style: pstyle,
+                      // style: AppStyle.predication,
                     )
                   ],
                 ),
@@ -215,6 +219,8 @@ class CustomLCContainer extends StatelessWidget {
   final IconData? person;
   final double? size;
   final String team;
+  final TextStyle? style;
+  final TextStyle? pstyle;
 
   CustomLCContainer({
     this.headertext = "",
@@ -239,6 +245,8 @@ class CustomLCContainer extends StatelessWidget {
     this.person,
     this.size,
     this.team = "",
+    this.style,
+    this.pstyle,
   });
   @override
   Widget build(BuildContext context) {
@@ -311,7 +319,7 @@ class CustomLCContainer extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "$t1run/",
+                          "$t1run",
                           style: AppStyle.cuntryname,
                         ),
                         Text(
@@ -337,7 +345,7 @@ class CustomLCContainer extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "$t2run/",
+                          "$t2run",
                           style: AppStyle.cuntryname,
                         ),
                         Text(
@@ -370,12 +378,14 @@ class CustomLCContainer extends StatelessWidget {
                   children: [
                     Text(
                       predictionText,
-                      style: AppStyle.preadiction,
+                      // style: AppStyle.preadiction,
+                      style: style,
                     ),
                     Text(
                       prediction,
-                      style: AppStyle.predication,
-                    )
+                      // style: AppStyle.predication,
+                      style: pstyle,
+                    ),
                   ],
                 ),
               ],
