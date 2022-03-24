@@ -19,6 +19,9 @@ class SquadTab extends StatelessWidget {
               Get.to(
                     () => const SquadsDetailsScreen(),
               );
+
+
+
             },
             child: ListTile(
               leading: Container(

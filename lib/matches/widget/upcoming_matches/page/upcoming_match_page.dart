@@ -12,6 +12,7 @@ import '../../../../utills/string.dart';
 import '../../../../widget/custom_container.dart';
 import '../controller/upcoming_controller.dart';
 import '../widget/bestpicks_tab.dart';
+import '../widget/fantasy_tab.dart';
 
 class UpcomingMatchScreen extends StatelessWidget {
   static const routeName = "/UpcomingMatchScreen";

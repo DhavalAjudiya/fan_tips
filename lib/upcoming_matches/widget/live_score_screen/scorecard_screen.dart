@@ -30,151 +30,163 @@ class ScoreCardScreen extends StatelessWidget {
             ),
 
             // 1
-            ExpansionTile(
-              collapsedBackgroundColor: AppColor.greyBackGround,
-              backgroundColor: AppColor.backGround,
-              title: Text('Chennai Super king', style: Appstyle.scoreTitle),
-              trailing: Text('159-9(20.0)', style: Appstyle.scoreTitle),
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TableBatsMan(),
-                    _divider(),
-                    SizedBox(
-                      width: 100.w,
-                      height: 4.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('EXTRAS'),
-                          RichText(
-                            text: TextSpan(children: [
-                              TextSpan(text: '4'),
-                              TextSpan(
-                                  text: '(b,0,lb,0,w,6,nb,2)',
-                                  style: Appstyle.pointSub)
-                            ]),
-                          )
-                        ],
-                      ),
-                    ),
-                    _divider(),
-                    SizedBox(
-                      width: 100.w,
-                      height: 5.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Total',
-                              style: TextStyle(
-                                  color: AppColor.white, fontSize: 14.sp)),
-                          RichText(
-                            text: TextSpan(
-                              style: TextStyle(
-                                  color: AppColor.white, fontSize: 14.sp),
-                              children: [
-                                TextSpan(text: '110/3'),
-                                TextSpan(
-                                    text: '(20)', style: Appstyle.pointSub),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    _divider(),
-                    _yetToBat(),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    BowlerTable(),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    FallWicket(),
-                  ],
-                )
-              ],
-            ),
+            _firstBating(),
             SizedBox(
               height: 2.h,
             ),
             // 2
-            ExpansionTile(
-              collapsedBackgroundColor: AppColor.greyBackGround,
-              backgroundColor: AppColor.backGround,
-              title: Text('Mumbai Indians', style: Appstyle.scoreTitle),
-              trailing: Text('159-9(20.0)', style: Appstyle.scoreTitle),
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TableBatsMan(),
-                    _divider(),
-                    SizedBox(
-                      width: 100.w,
-                      height: 4.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('EXTRAS'),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text: '4'),
-                                TextSpan(
-                                  text: '(b,0,lb,0,w,6,nb,2)',
-                                  style: Appstyle.pointSub,
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    _divider(),
-                    SizedBox(
-                      width: 100.w,
-                      height: 5.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Total',
-                              style: TextStyle(
-                                  color: AppColor.white, fontSize: 14.sp)),
-                          RichText(
-                            text: TextSpan(
-                              style: TextStyle(
-                                  color: AppColor.white, fontSize: 14.sp),
-                              children: [
-                                TextSpan(text: '110/3'),
-                                TextSpan(
-                                    text: '(20)', style: Appstyle.pointSub),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    _divider(),
-                    _yetToBat(),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    BowlerTable(),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    FallWicket(),
-                  ],
-                )
-              ],
-            )
+            _secondBatting()
           ],
         ),
       ),
     );
+  }
+
+
+
+
+
+  Widget _secondBatting() {
+    return ExpansionTile(
+            collapsedBackgroundColor: AppColor.greyBackGround,
+            backgroundColor: AppColor.backGround,
+            title: Text('Mumbai Indians', style: Appstyle.scoreTitle),
+            trailing: Text('159-9(20.0)', style: Appstyle.scoreTitle),
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TableBatsMan(),
+                  _divider(),
+                  SizedBox(
+                    width: 100.w,
+                    height: 4.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('EXTRAS'),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(text: '4'),
+                              TextSpan(
+                                text: '(b,0,lb,0,w,6,nb,2)',
+                                style: Appstyle.pointSub,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  _divider(),
+                  SizedBox(
+                    width: 100.w,
+                    height: 5.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Total',
+                            style: TextStyle(
+                                color: AppColor.white, fontSize: 14.sp)),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                                color: AppColor.white, fontSize: 14.sp),
+                            children: [
+                              TextSpan(text: '110/3'),
+                              TextSpan(
+                                  text: '(20)', style: Appstyle.pointSub),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  _divider(),
+                  _yetToBat(),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  BowlerTable(),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  FallWicket(),
+                ],
+              )
+            ],
+          );
+  }
+
+  Widget _firstBating() {
+    return ExpansionTile(
+            collapsedBackgroundColor: AppColor.greyBackGround,
+            backgroundColor: AppColor.backGround,
+            title: Text('Chennai Super king', style: Appstyle.scoreTitle),
+            trailing: Text('159-9(20.0)', style: Appstyle.scoreTitle),
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TableBatsMan(),
+                  _divider(),
+                  SizedBox(
+                    width: 100.w,
+                    height: 4.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('EXTRAS'),
+                        RichText(
+                          text: TextSpan(children: [
+                            TextSpan(text: '4'),
+                            TextSpan(
+                                text: '(b,0,lb,0,w,6,nb,2)',
+                                style: Appstyle.pointSub)
+                          ]),
+                        )
+                      ],
+                    ),
+                  ),
+                  _divider(),
+                  SizedBox(
+                    width: 100.w,
+                    height: 5.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Total',
+                            style: TextStyle(
+                                color: AppColor.white, fontSize: 14.sp)),
+                        RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                                color: AppColor.white, fontSize: 14.sp),
+                            children: [
+                              TextSpan(text: '110/3'),
+                              TextSpan(
+                                  text: '(20)', style: Appstyle.pointSub),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  _divider(),
+                  _yetToBat(),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  BowlerTable(),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  FallWicket(),
+                ],
+              )
+            ],
+          );
   }
 
   Widget _divider() {

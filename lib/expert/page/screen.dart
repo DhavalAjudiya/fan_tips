@@ -49,6 +49,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
               ),
             ),
             actions: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -61,6 +62,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                   ),
                 ),
               ),
+              // ignore: deprecated_member_use
               FlatButton(
                 onPressed: () {
                   exit(0);

@@ -4,7 +4,6 @@ import 'package:fantips/T20Predictions/page/utills/asset.dart';
 import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:fantips/widget/custom_container.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
