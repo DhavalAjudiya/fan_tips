@@ -15,6 +15,7 @@ class CustomContainer extends StatelessWidget {
   final String t2run;
   final String t2wk;
   final String t2over;
+  final TextStyle? style;
   final ImageProvider? backgroundImage;
   final ImageProvider? secondbackgroundImage;
   final EdgeInsetsGeometry? margin;
@@ -22,7 +23,7 @@ class CustomContainer extends StatelessWidget {
   final Widget icon;
   final VoidCallback? onTap;
 
-  const CustomContainer(
+  CustomContainer(
       {this.headertext = "",
       this.text = "",
       this.backgroundImage,
@@ -40,8 +41,9 @@ class CustomContainer extends StatelessWidget {
       this.t2over = "",
       this.ontap,
       required this.icon,
-      this.onTap});
-
+      this.onTap,
+      this.style});
+  bool matches = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -316,9 +318,12 @@ class CustomLCContainer extends StatelessWidget {
                           t1wk,
                           style: AppStyle.cuntryname,
                         ),
+                        SizedBox(
+                          width: 1.w,
+                        ),
                         Text(
-                          " & $t1over/",
-                          style: AppStyle.cuntryname,
+                          "$t1over",
+                          style: AppStyle.over,
                         ),
                         Text(
                           "$t1owk",
@@ -339,9 +344,12 @@ class CustomLCContainer extends StatelessWidget {
                           t2wk,
                           style: AppStyle.cuntryname,
                         ),
+                        SizedBox(
+                          width: 1.w,
+                        ),
                         Text(
-                          " & $t2over/",
-                          style: AppStyle.cuntryname,
+                          "$t2over",
+                          style: AppStyle.over,
                         ),
                         Text(
                           "$t2owk",
@@ -386,6 +394,7 @@ class CustomLCContainer extends StatelessWidget {
                   person,
                   size: size,
                 ),
+                SizedBox(width: 1.5.w),
                 Text(
                   team,
                   style: AppStyle.title,

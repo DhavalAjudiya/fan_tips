@@ -39,20 +39,21 @@ class _InfoPageState extends State<InfoPage> {
                 },
                 child: SvgPicture.asset(
                   IconAsset.share,
-                  height: 3.5.h,
+                  height: 2.5.h,
                 ),
               ),
             ],
           ),
         ),
+        SizedBox(height: 2.h),
         CircleAvatar(
-          radius: 9.h,
+          radius: 7.h,
           backgroundImage: NetworkImage("${prediction["img"]}"),
         ),
         SizedBox(height: 3.h),
         CustomeText(
           title: "${prediction["subtext"]}",
-          fontSize: 3.h,
+          fontSize: 2.5.h,
           fontWeight: FontWeight.w100,
         ),
         SizedBox(
@@ -65,14 +66,14 @@ class _InfoPageState extends State<InfoPage> {
           children: [
             SvgPicture.asset(
               AppImage.youTub,
-              height: 2.1.h,
+              height: 1.8.h,
             ),
             SizedBox(
               width: 1.w,
             ),
             CustomeText(
               title: AppString.youTub,
-              fontSize: 2.2.h,
+              fontSize: 1.8.h,
             ),
           ],
         ),
@@ -85,108 +86,114 @@ class _InfoPageState extends State<InfoPage> {
             print("rthj9poiya${prediction['text']}");
           },
           child: AppContainer(
-            height: 3.1.h,
+            height: 3.h,
             width: 25.w,
             color: AppColor.blackColor,
             borderRadius: BorderRadius.circular(2),
             child: Center(
               child: CustomeText(
-                fontSize: 1.7.h,
+                fontSize: 1.5.h,
                 title: AppString.viewChannel,
               ),
             ),
           ),
         ),
-        SizedBox(height: 5.h),
+        SizedBox(height: 10.h),
         Stack(
           children: [
             Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        CustomeText(
-                          fontSize: 5.h,
-                          title: "${prediction["prediction"]}",
-                          fontWeight: FontWeight.w500,
-                        ),
-                        CustomeText(
-                          fontSize: 2.h,
-                          title: AppString.prediction,
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.grey,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CustomeText(
-                          fontSize: 4.h,
-                          title: "${prediction["avgScore"]}",
-                          fontWeight: FontWeight.w500,
-                        ),
-                        CustomeText(
-                          fontSize: 2.h,
-                          title: AppString.avgScore1,
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.grey,
-                        ),
-                      ],
-                    ),
-                  ],
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        children: [
+                          CustomeText(
+                            fontSize: 3.5.h,
+                            title: "${prediction["prediction"]}",
+                            fontWeight: FontWeight.w500,
+                          ),
+                          CustomeText(
+                            fontSize: 1.5.h,
+                            title: AppString.prediction,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.grey,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          CustomeText(
+                            fontSize: 3.5.h,
+                            title: "${prediction["avgScore"]}",
+                            fontWeight: FontWeight.w500,
+                          ),
+                          CustomeText(
+                            fontSize: 1.5.h,
+                            title: AppString.avgScore1,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.grey,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 2.h),
                 Padding(
-                  padding: const EdgeInsets.only(right: 42, left: 42),
+                  padding: EdgeInsets.only(right: 22.w, left: 22.w),
                   child: Divider(
                     color: AppColor.verticalDividerColor,
                     thickness: 0.1.h,
                   ),
                 ),
                 SizedBox(height: 2.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        CustomeText(
-                          fontSize: 4.h,
-                          title: "${prediction["win"]}",
-                          fontWeight: FontWeight.w500,
-                        ),
-                        CustomeText(
-                          fontSize: 2.h,
-                          title: AppString.wins,
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.grey,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CustomeText(
-                          fontSize: 3.5.h,
-                          title: prediction["subscribers"],
-                          fontWeight: FontWeight.w500,
-                        ),
-                        CustomeText(
-                          fontSize: 2.h,
-                          title: AppString.subscribers,
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.grey,
-                        ),
-                      ],
-                    ),
-                  ],
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        children: [
+                          CustomeText(
+                            fontSize: 3.5.h,
+                            title: "${prediction["win"]}",
+                            fontWeight: FontWeight.w500,
+                          ),
+                          CustomeText(
+                            fontSize: 1.5.h,
+                            title: AppString.wins,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.grey,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          CustomeText(
+                            fontSize: 3.5.h,
+                            title: prediction["subscribers"],
+                            fontWeight: FontWeight.w500,
+                          ),
+                          CustomeText(
+                            fontSize: 1.5.h,
+                            title: AppString.subscribers,
+                            fontWeight: FontWeight.w500,
+                            color: AppColor.grey,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
             Positioned(
-              left: 180,
+              left: 50.w,
               child: AppContainer(
-                height: 25.h,
+                height: 26.h,
                 color: AppColor.verticalDividerColor,
                 width: 0.1.w,
               ),

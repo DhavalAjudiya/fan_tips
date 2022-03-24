@@ -5,7 +5,7 @@ import 'list.dart';
 
 class PageViewController extends GetxController {
   PageScroll pageView = PageScroll();
-  int pageSelect = 0;
+  RxInt pageSelect = 0.obs;
   final pageController = PageController(initialPage: 0);
   //final currentPageNotifier = ValueNotifier(2);
 }

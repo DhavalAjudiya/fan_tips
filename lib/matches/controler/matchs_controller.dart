@@ -37,7 +37,7 @@ class MatchsScreenControoler extends GetxController
     notificationItem.remove(data);
   }
 
-  Future<Rx<CurrentMatch>> getData() async {
+  getData() async {
     try {
       loading.value = true;
       Future.delayed(Duration(seconds: 2));

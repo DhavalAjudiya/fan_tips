@@ -11,14 +11,15 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../T20Predictions/page/prediction.dart';
+import '../../../../homeScreen/data/homepageController.dart';
 import '../../../../utills/string.dart';
+import '../../../../widget/app_bottom_sheet.dart';
 import '../../../../widget/custom_container.dart';
-import '../widget/utils/icon.dart';
-import '../widget/wight/icon/icon_button.dart';
 import '../widget/wight/text/custom_text.dart';
 
 class FantasyTabBar extends StatelessWidget {
   final IplController iplController = Get.put(IplController());
+  final HomeController homeController = Get.put(HomeController());
   FantasyTabBar({Key? key}) : super(key: key);
 
   @override
@@ -182,30 +183,64 @@ class FantasyTabBar extends StatelessWidget {
                                       ),
                                       Spacer(),
                                       Obx(
-                                        () => AppIconCustom(
-                                          onPressed: () {
-                                            iplController
-                                                    .service
+                                        () => InkWell(
+                                          onTap: () {
+                                            if (iplController
+                                                    .isLoggedIn.value ==
+                                                false) {
+                                              AppBottomSheet()
+                                                  .bottomSheet(context);
+                                            }
+                                            if (homeController
+                                                    .predictionsData
                                                     .value
-                                                    .tipsters![index]
-                                                    .selected
-                                                    .value =
-                                                !iplController
-                                                    .service
-                                                    .value
-                                                    .tipsters![index]
-                                                    .selected
-                                                    .value;
+                                                    .tipsters?[index]
+                                                    .wishlist ==
+                                                false) {
+                                              homeController
+                                                  .predictionsData
+                                                  .value
+                                                  .tipsters?[index]
+                                                  .wishlist
+                                                  .value = true;
+                                              homeController.addProduct(
+                                                  homeController.predictionsData
+                                                      .value.tipsters![index]);
+                                            } else {
+                                              homeController.removeProduct(
+                                                  homeController.predictionsData
+                                                      .value.tipsters![index]);
+                                              homeController
+                                                  .predictionsData
+                                                  .value
+                                                  .tipsters?[index]
+                                                  .wishlist
+                                                  .value = false;
+                                            }
                                           },
-                                          color: iplController
-                                                  .service
-                                                  .value
-                                                  .tipsters![index]
-                                                  .selected
-                                                  .value
-                                              ? AppColor.grey
-                                              : AppColor.green,
-                                          icon: AppIcon.favorite,
+                                          child: iplController
+                                                      .isLoggedIn.value ==
+                                                  false
+                                              ? const Icon(
+                                                  Icons.favorite_outline,
+                                                  color: AppColor.greenColor,
+                                                )
+                                              : homeController
+                                                          .predictionsData
+                                                          .value
+                                                          .tipsters?[index]
+                                                          .wishlist ==
+                                                      false
+                                                  ? const Icon(
+                                                      Icons.favorite_outline,
+                                                      color:
+                                                          AppColor.greenColor,
+                                                    )
+                                                  : const Icon(
+                                                      Icons.favorite,
+                                                      color:
+                                                          AppColor.greenColor,
+                                                    ),
                                         ),
                                       ),
                                     ],
@@ -220,12 +255,12 @@ class FantasyTabBar extends StatelessWidget {
                                             data:
                                                 "${item.totalPredictions ?? 0}",
                                             color: AppColor.greya,
-                                            fontSize: 3.h,
+                                            fontSize: 2.2.h,
                                           ),
                                           AppCustomText(
                                             data: AppString.prediction,
                                             color: AppColor.greya,
-                                            fontSize: 1.5.h,
+                                            fontSize: 1.2.h,
                                           ),
                                         ],
                                       ),
@@ -239,12 +274,12 @@ class FantasyTabBar extends StatelessWidget {
                                           AppCustomText(
                                             data: "${item.avgScore ?? 0}",
                                             color: AppColor.greya,
-                                            fontSize: 3.h,
+                                            fontSize: 2.2.h,
                                           ),
                                           AppCustomText(
                                             data: AppString.avregescor,
                                             color: AppColor.greya,
-                                            fontSize: 1.5.h,
+                                            fontSize: 1.2.h,
                                           ),
                                         ],
                                       ),
@@ -258,12 +293,12 @@ class FantasyTabBar extends StatelessWidget {
                                           AppCustomText(
                                             data: "${item.top3 ?? 0}",
                                             color: AppColor.greya,
-                                            fontSize: 3.h,
+                                            fontSize: 2.2.h,
                                           ),
                                           AppCustomText(
                                             data: AppString.wins,
                                             color: AppColor.greya,
-                                            fontSize: 1.5.h,
+                                            fontSize: 1.2.h,
                                           ),
                                         ],
                                       ),
