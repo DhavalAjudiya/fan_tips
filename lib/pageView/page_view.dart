@@ -2,28 +2,17 @@ import 'package:fantips/T20Predictions/page/utills/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:page_view_indicators/circle_page_indicator.dart';
 import 'package:sizer/sizer.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../bottomBar/bottomNaviBar.dart';
 import '../commanWidget/commanText.dart';
 import '../utills/string.dart';
 import '../widget/custom_container.dart';
-import 'list.dart';
+import 'page_view_controller.dart';
 
-class PageViewScreen extends StatefulWidget {
+class PageViewScreen extends StatelessWidget {
   static const routeName = "/PageViewScreen";
-
-  const PageViewScreen({Key? key}) : super(key: key);
-
-  @override
-  State<PageViewScreen> createState() => _PageViewScreenState();
-}
-
-class _PageViewScreenState extends State<PageViewScreen> {
-  PageScroll foodie = PageScroll();
-  final _pageController = PageController(viewportFraction: 3);
-  final _currentPageNotifier = ValueNotifier(0);
-
+  final _pageViewController = Get.put(PageViewController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,11 +21,40 @@ class _PageViewScreenState extends State<PageViewScreen> {
           Column(
             children: [
               _buildPageView(),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: AppContainer(
+                  /// navigator page
+                  onTap: () {
+                    _pageViewController.pageController.nextPage(
+                        duration: const Duration(milliseconds: 600),
+                        curve: Curves.easeIn);
+
+                    if (_pageViewController.pageSelect == 2) {
+                      Get.toNamed(BottomNavigatorController.routeName);
+                    }
+                  },
+                  height: 6.h,
+                  width: double.infinity,
+                  color: AppColor.green,
+                  child: Center(
+                    child: Obx(
+                      () => CustomeText(
+                        title: _pageViewController.pageSelect.value == 2
+                            ? "GET STARTED"
+                            : "NEXT",
+                        color: AppColor.white,
+                        fontSize: 2.h,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
           Positioned(
-            bottom: 120,
-            left: 160,
+            bottom: 10.h,
+            left: 40.w,
             child: _buildStepIndicator(),
           ),
         ],
@@ -47,16 +65,17 @@ class _PageViewScreenState extends State<PageViewScreen> {
   Widget _buildPageView() {
     return Expanded(
       child: PageView.builder(
-        itemCount: foodie.categori.length,
-        controller: _pageController,
+        controller: _pageViewController.pageController,
         onPageChanged: (value) {
-          _currentPageNotifier.value = value;
+          _pageViewController.pageSelect.value = value;
         },
-        itemBuilder: (BuildContext context, int index) {
+        itemCount: _pageViewController.pageView.categori.length,
+        itemBuilder: (BuildContext context, index) {
+          final page = _pageViewController.pageView.categori[index];
           return Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20, top: 120),
+                padding: const EdgeInsets.only(right: 20, left: 20, top: 200),
                 child: Column(
                   children: [
                     AppContainer(
@@ -69,15 +88,14 @@ class _PageViewScreenState extends State<PageViewScreen> {
                       borderRadius: BorderRadius.circular(80),
                       child: Padding(
                         padding: const EdgeInsets.all(20),
-                        child: SvgPicture.asset(
-                            "${foodie.categori[index][AppString.image]}"),
+                        child: SvgPicture.asset("${page[AppString.image]}"),
                       ),
                     ),
                     SizedBox(
-                      height: 15.h,
+                      height: 20.h,
                     ),
                     CustomeText(
-                      title: "${foodie.categori[index][AppString.name]}",
+                      title: "${page[AppString.name]}",
                       fontSize: 2.5.h,
                       fontWeight: FontWeight.bold,
                     ),
@@ -88,45 +106,19 @@ class _PageViewScreenState extends State<PageViewScreen> {
                       children: [
                         CustomeText(
                           title: AppString.reading,
-                          fontSize: 1.5.h,
+                          fontSize: 1.8.h,
                           color: AppColor.grey,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                         CustomeText(
                           title: AppString.fantasy,
-                          fontSize: 1.5.h,
+                          fontSize: 1.8.h,
                           color: AppColor.grey,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                       ],
                     ),
                   ],
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: AppContainer(
-                  /// navigator page
-                  onTap: () {
-                    _pageController.nextPage(
-                        duration: const Duration(milliseconds: 600),
-                        curve: Curves.easeIn);
-
-                    if (_currentPageNotifier.value == 2) {
-                      Get.toNamed(BottomNavigatorController.routeName);
-                    }
-                  },
-                  height: 6.h,
-                  width: double.infinity,
-                  color: AppColor.green,
-                  child: Center(
-                    child: CustomeText(
-                      title: "${foodie.categori[index]["next"]}",
-                      color: AppColor.white,
-                      fontSize: 1.8.h,
-                    ),
-                  ),
                 ),
               ),
             ],
@@ -137,19 +129,22 @@ class _PageViewScreenState extends State<PageViewScreen> {
   }
 
   Widget _buildStepIndicator() {
-    return CirclePageIndicator(
-      itemCount: 3,
-      dotSpacing: 3.w,
-      selectedSize: 2.h,
-      selectedDotColor: AppColor.green,
-      dotColor: AppColor.grey,
-      currentPageNotifier: _currentPageNotifier,
-      size: 2.9.w,
-      onPageSelected: (index) {
-        if (_currentPageNotifier.value > index) {
-          _pageController.initialPage;
-        }
-      },
+    return Obx(
+      () => SmoothPageIndicator(
+        controller: _pageViewController.pageController,
+        count: 3,
+        axisDirection: Axis.horizontal,
+        effect: SlideEffect(
+          spacing: 2.w,
+          radius: 1.h,
+          dotWidth: _pageViewController.pageSelect.value == 3 ? 2.w : 4.5.w,
+          dotHeight: 1.h,
+          paintStyle: PaintingStyle.fill,
+          strokeWidth: 0.5.w,
+          dotColor: Colors.grey,
+          activeDotColor: Colors.green,
+        ),
+      ),
     );
   }
 }

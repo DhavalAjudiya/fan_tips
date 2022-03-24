@@ -6,9 +6,10 @@ import '../../utills/string.dart';
 import 'newsModel.dart';
 
 class ApiService {
-  Future<NewsDataModel?> newsPostData() async {
+  Future<NewsDataModel?> newsPostData(int count) async {
     http.Response response = await http.post(
-      Uri.parse(AppString.newsDataModel),
+      Uri.parse(
+          "https://api.freefantasy.in/tips/getNewsList?offset=$count&limit=20"),
     );
     log("NewsDataModel========>${jsonDecode(response.body)}");
     NewsDataModel? newsDataModel;

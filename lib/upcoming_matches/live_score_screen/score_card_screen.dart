@@ -1,12 +1,12 @@
 import 'package:fantips/T20Predictions/page/utills/color.dart';
-import 'package:fantips/upcoming_matches/widget/live_score_screen/widget/bowler_table.dart';
-import 'package:fantips/upcoming_matches/widget/live_score_screen/widget/custom_score_card.dart';
-import 'package:fantips/upcoming_matches/widget/live_score_screen/widget/falls_wickets.dart';
-import 'package:fantips/upcoming_matches/widget/live_score_screen/widget/table_batsman.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../T20Predictions/page/utills/asset.dart';
+import '../../../matches/widget/upcoming_matches/widget/custom_score_card.dart';
 import '../../../utills/style.dart';
+import 'widget/bowler_table.dart';
+import 'widget/falls_wickets.dart';
+import 'widget/table_batsman.dart';
 
 class ScoreCardScreen extends StatelessWidget {
   const ScoreCardScreen({Key? key}) : super(key: key);

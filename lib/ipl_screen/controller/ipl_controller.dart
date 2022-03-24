@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../screen/ipl_screen/fantasyTab /fantasy_model.dart';
-import '../../screen/ipl_screen/fantasyTab /fantasy_service.dart';
+import '../../screen/ipl_screen/fantasyTabBar/modelService/fantasy_model.dart';
+import '../../screen/ipl_screen/fantasyTabBar/modelService/fantasy_service.dart';
 import '../../utills/string.dart';
 
 // ignore: deprecated_member_use
@@ -10,9 +10,11 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   TextEditingController controller = TextEditingController();
   RxInt select = 0.obs;
   bool isSelect = false;
+  RxBool isLoggedIn = false.obs;
   RxList<String> titleScore =
       <String>["Prediction", "Average Score", "Wins"].obs;
   RxInt index = 0.obs;
+  // RxBool isLoggedIn = false.obs;
   RxString selectedBottomSheetText = "".obs;
   ApiFantasyService services = ApiFantasyService();
   Rx<FantasyModel> service = FantasyModel().obs;

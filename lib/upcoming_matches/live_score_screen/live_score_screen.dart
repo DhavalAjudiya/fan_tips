@@ -1,10 +1,11 @@
-import 'package:fantips/upcoming_matches/widget/live_score_screen/quiz_tab.dart';
 import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../expert/page/search_screen.dart';
 import '../../../screen/ipl_screen/page/fantasy_tabBar.dart';
+import '../../../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
+import '../../../utills/string.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../ipl_screen/controller/ipl_controller.dart';
 import 'commentry_screen.dart';
@@ -29,7 +30,7 @@ class LiveScoreScreen extends StatelessWidget {
             Icons.arrow_back,
           ),
         ),
-        title: Text('CSK batting'),
+        title: Text('CSK batting', style: TextStyle(fontSize: 1.7.h)),
         actions: [
           InkWell(
             onTap: () {
@@ -50,6 +51,7 @@ class LiveScoreScreen extends StatelessWidget {
               controller: iplController.tabController1,
               tabs: iplController.upcoming,
               indicatorColor: AppColor.greenColor,
+              unselectedLabelColor: Colors.white,
               indicatorWeight: 2.5,
               isScrollable: true,
               labelColor: AppColor.greenColor,

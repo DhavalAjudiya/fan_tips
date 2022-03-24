@@ -156,6 +156,7 @@ class FantasyTab extends StatelessWidget {
                                                 upcomingController.isSelect =
                                                     false;
                                               }
+                                              Get.back();
                                             },
                                             child: Row(
                                               children: [
@@ -200,6 +201,7 @@ class FantasyTab extends StatelessWidget {
                                                 upcomingController.isSelect =
                                                     false;
                                               }
+                                              Get.back();
                                             },
                                             child: Row(
                                               children: [
@@ -244,6 +246,7 @@ class FantasyTab extends StatelessWidget {
                                                 upcomingController.isSelect =
                                                     false;
                                               }
+                                              Get.back();
                                             },
                                             child: Row(
                                               children: [

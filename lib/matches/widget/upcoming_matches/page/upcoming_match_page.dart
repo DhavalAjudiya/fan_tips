@@ -355,9 +355,10 @@ class UpcomingMatchScreen extends StatelessWidget {
                                   width: 10.w,
                                   boxShadow: const [
                                     BoxShadow(
-                                        color: AppColor.blackColor,
-                                        offset: Offset(0, 1),
-                                        blurRadius: 6)
+                                      color: AppColor.blackColor,
+                                      offset: Offset(0, 1),
+                                      blurRadius: 6,
+                                    )
                                   ],
                                 ),
                                 CustomeText(
@@ -381,41 +382,42 @@ class UpcomingMatchScreen extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                                child: SizedBox(
-                              height: 7.5.h,
-                              child: ListView.builder(
-                                itemCount: 5,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 12.sp),
-                                    child: Column(
-                                      children: [
-                                        Image.asset(
-                                          AppImage.playerImage,
-                                          height: 4.5.h,
-                                        ),
-                                        AppContainer(
-                                          height: 0.5.h,
-                                          width: 10.w,
-                                          boxShadow: const [
-                                            BoxShadow(
-                                                color: AppColor.blackColor,
-                                                offset: Offset(0, 1),
-                                                blurRadius: 6)
-                                          ],
-                                        ),
-                                        CustomeText(
-                                          title: "V kohli",
-                                          fontSize: 10.sp,
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
+                              child: SizedBox(
+                                height: 7.5.h,
+                                child: ListView.builder(
+                                  itemCount: 5,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Container(
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 12.sp),
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            AppImage.playerImage,
+                                            height: 4.5.h,
+                                          ),
+                                          AppContainer(
+                                            height: 0.5.h,
+                                            width: 10.w,
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                  color: AppColor.blackColor,
+                                                  offset: Offset(0, 1),
+                                                  blurRadius: 6)
+                                            ],
+                                          ),
+                                          CustomeText(
+                                            title: "V kohli",
+                                            fontSize: 10.sp,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
-                            ))
+                            )
                           ],
                         ),
                       ],

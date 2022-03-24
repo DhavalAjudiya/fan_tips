@@ -49,7 +49,7 @@ class T20Prediction extends StatelessWidget {
                                 ? AppColor.green
                                 : AppColor.white,
                             title: AppString.info,
-                            fontSize: 2.5.h,
+                            fontSize: 13.sp,
                             fontWeight: FontWeight.w100,
                           ),
                         ),
@@ -59,7 +59,7 @@ class T20Prediction extends StatelessWidget {
                                 ? AppColor.green
                                 : AppColor.white,
                             title: AppString.matches,
-                            fontSize: 2.5.h,
+                            fontSize: 13.sp,
                             fontWeight: FontWeight.w100,
                           ),
                         ),
