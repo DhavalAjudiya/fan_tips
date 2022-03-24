@@ -28,17 +28,18 @@ class HomeController extends GetxController {
   Rx<Expert> predictionsData = Expert().obs;
   RxList<Tipster> wishListItems = <Tipster>[].obs;
   RxList expertPaginationData = [].obs;
-  int expertCount = 0;
+  int expertCount = 20;
   int expertPageLimit = 20;
 
   @override
   void onInit() {
-    callMethod(0);
+    callMethod(20);
     expertMethod(0);
     scrollController.addListener(() {
+      log("message");
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
-        log("${scrollController.position.pixels}");
+        log("--------->${scrollController.position.pixels}");
         loadMoreData();
       }
     });
@@ -84,7 +85,7 @@ class HomeController extends GetxController {
   callMethod(int count) async {
     try {
       isLoading.value = true;
-      final result = await ApiService().newsPostData(0);
+      final result = await ApiService().newsPostData(20);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -101,15 +102,15 @@ class HomeController extends GetxController {
     }
     try {
       isLoading.value = true;
-      if ((newsModel.value.news?.length ?? 0) > pageLimit) {
+      if (newsModel.value.news!.length > pageLimit) {
         pageAvailable = false;
       } else {
-        newsCount++;
+        newsCount + 20;
 
         log("===========>${newsCount.obs}");
       }
 
-      var result = await ApiService().newsPostData(newsCount);
+      final result = await ApiService().newsPostData(newsCount);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -129,8 +130,6 @@ class HomeController extends GetxController {
       if (predictionsData.value.tipsters!.isNotEmpty) {
         expertPaginationData.addAll(predictionsData.value.tipsters!);
       }
-    } catch (e, st) {
-      print('-->>${e} -->>${st}');
     } finally {
       isLoading.value = false;
     }
@@ -171,7 +170,7 @@ class HomeController extends GetxController {
   }
 
   void removeProduct(Tipster data) {
-    predictionsData.value.tipsters?.first.wishlist.value = false;
+    expertPaginationData.first.wishlist.value = false;
 
     wishListItems.remove(data);
   }

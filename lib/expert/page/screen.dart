@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:fantips/expert/page/search_screen.dart';
 import 'package:fantips/widget/app_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -412,8 +413,10 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                           padding: const EdgeInsets.only(
                                               bottom: 30, top: 10),
                                           child: Center(
-                                              child:
-                                                  CircularProgressIndicator()),
+                                              child: SpinKitCircle(
+                                            color: AppColor.white,
+                                            size: 3.h,
+                                          )),
                                         )
                                       : InkWell(
                                           onTap: () {
