@@ -102,7 +102,7 @@ class _SearchState extends State<Search> {
                             ),
                           )
                         : ipController.searchController.value.text.isNotEmpty &&
-                                // ignore: invalid_use_of_protected_member
+                        // ignore: invalid_use_of_protected_member
                                 ipController.searchItem.value.isEmpty
                             ? Column(
                                 children: [
