@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:fantips/expert/page/search_screen.dart';
 import 'package:fantips/widget/app_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -141,8 +142,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                     left: 10.sp, right: 10.sp, top: 10.sp),
                                 child: Obx(
                                   () {
-                                    print(ipController
-                                        .expert.value.tipsters?.length);
+                                    print(ipController.expertData.length);
                                     return Column(
                                       children: [
                                         Row(
@@ -174,8 +174,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                                 true) {
                                               ipController.index.value = 0;
                                               print("prediction==>>>");
-                                              ipController.expert.value.tipsters
-                                                  ?.sort(
+                                              ipController.expertData.sort(
                                                 (a, b) => a.totalPredictions!
                                                     .compareTo(
                                                   b.totalPredictions!,
@@ -218,8 +217,8 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                                 true) {
                                               ipController.index.value = 1;
                                               print("avgScore==>>>");
-                                              ipController.expert.value.tipsters
-                                                  ?.sort((a, b) => a.avgScore!
+                                              ipController.expertData.sort(
+                                                  (a, b) => a.avgScore!
                                                       .compareTo(b.avgScore!));
                                               setState(() {});
                                             } else {
@@ -260,9 +259,9 @@ class _ExpertScreenState extends State<ExpertScreen> {
                                                 true) {
                                               ipController.index.value = 2;
                                               print("wins==>>>");
-                                              ipController.expert.value.tipsters
-                                                  ?.sort((a, b) => a.top3!
-                                                      .compareTo(b.top3!));
+                                              ipController.expertData.sort((a,
+                                                      b) =>
+                                                  a.top3!.compareTo(b.top3!));
                                               setState(() {});
                                             } else {
                                               ipController.isBottomSelect =
@@ -401,78 +400,94 @@ class _ExpertScreenState extends State<ExpertScreen> {
                               onRefresh: _refresh,
                               controller: ipController.refreshController,
                               child: ListView.builder(
+                                controller: ipController.scrollController,
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: ipController
-                                        .expert.value.tipsters?.length ??
-                                    0,
+                                itemCount: ipController.isLoading.value
+                                    ? ipController.expertData.length + 1
+                                    : ipController.expertData.length,
                                 itemBuilder: (context, index) {
-                                  var postData = ipController
-                                      .expert.value.tipsters![index];
-                                  return InkWell(
-                                    onTap: () {
-                                      Get.toNamed(
-                                        T20Prediction.routeName,
-                                        arguments: {
-                                          "img": postData.profileUrl ??
-                                              "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
-                                          "text": "${postData.name}",
-                                          "subtext":
-                                              "${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...",
-                                          "prediction":
-                                              "${postData.totalPredictions}",
-                                          "avgScore": "${postData.avgScore}",
-                                          "win": "${postData.top3}",
-                                          "subscribers":
-                                              "${postData.subscriberCount?.substring(0, 4)}",
-                                        },
-                                      );
-                                    },
-                                    child: PredictionContainer(
-                                      predictionCount:
-                                          "${postData.totalPredictions}",
-                                      onPressed: () {
-                                        if (ipController.isLoggedIn == false) {
-                                          AppBottomSheet().bottomSheet(context);
-                                        } else {
-                                          postData.wishlist.value == false
-                                              ? const Icon(
-                                                  Icons.favorite_border,
-                                                  color: AppColor.green,
-                                                )
-                                              : const Icon(
-                                                  Icons.favorite,
-                                                  color: AppColor.green,
-                                                );
-                                          setState(() {});
-                                        }
-                                        if (postData.wishlist.value == false) {
-                                          postData.wishlist.value = true;
-                                        } else {
-                                          postData.wishlist.value = false;
-                                        }
-                                      },
-                                      icon: postData.wishlist.value == false
-                                          ? const Icon(
-                                              Icons.favorite_border,
-                                              color: AppColor.green,
-                                            )
-                                          : const Icon(
-                                              Icons.favorite,
-                                              color: AppColor.green,
+                                  var postData = ipController.expertData[index];
+                                  return (ipController.expertData.length - 1 ==
+                                          index)
+                                      ? Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 30, top: 10),
+                                          child: Center(
+                                              child: SpinKitCircle(
+                                            color: AppColor.white,
+                                            size: 3.h,
+                                          )),
+                                        )
+                                      : InkWell(
+                                          onTap: () {
+                                            Get.toNamed(
+                                              T20Prediction.routeName,
+                                              arguments: {
+                                                "img": postData.profileUrl ??
+                                                    "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
+                                                "text": "${postData.name}",
+                                                "subtext":
+                                                    "${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...",
+                                                "prediction":
+                                                    "${postData.totalPredictions}",
+                                                "avgScore":
+                                                    "${postData.avgScore}",
+                                                "win": "${postData.top3}",
+                                                "subscribers":
+                                                    "${postData.subscriberCount?.substring(0, 4)}",
+                                              },
+                                            );
+                                          },
+                                          child: PredictionContainer(
+                                            predictionCount:
+                                                "${postData.totalPredictions}",
+                                            onPressed: () {
+                                              if (ipController.isLoggedIn ==
+                                                  false) {
+                                                AppBottomSheet()
+                                                    .bottomSheet(context);
+                                              } else {
+                                                postData.wishlist.value == false
+                                                    ? const Icon(
+                                                        Icons.favorite_border,
+                                                        color: AppColor.green,
+                                                      )
+                                                    : const Icon(
+                                                        Icons.favorite,
+                                                        color: AppColor.green,
+                                                      );
+                                                setState(() {});
+                                              }
+                                              if (postData.wishlist.value ==
+                                                  false) {
+                                                postData.wishlist.value = true;
+                                              } else {
+                                                postData.wishlist.value = false;
+                                              }
+                                            },
+                                            icon:
+                                                postData.wishlist.value == false
+                                                    ? const Icon(
+                                                        Icons.favorite_border,
+                                                        color: AppColor.green,
+                                                      )
+                                                    : const Icon(
+                                                        Icons.favorite,
+                                                        color: AppColor.green,
+                                                      ),
+                                            winsCount: "${postData.top3 ?? ""}",
+                                            youtubeText:
+                                                "${postData.subscriberCount ?? ""}",
+                                            averageCount:
+                                                "${postData.avgScore ?? ""}",
+                                            headerText:
+                                                '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
+                                            backgroundImage: NetworkImage(
+                                              postData.profileUrl ??
+                                                  "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
                                             ),
-                                      winsCount: "${postData.top3 ?? ""}",
-                                      youtubeText:
-                                          "${postData.subscriberCount ?? ""}",
-                                      averageCount:
-                                          "${postData.avgScore ?? ""}",
-                                      headerText:
-                                          '${postData.name!.length >= 25 ? postData.name?.substring(0, 12) : postData.name}...',
-                                      backgroundImage: NetworkImage(
-                                        postData.profileUrl ??
-                                            "https://png.pngtree.com/png-clipart/20211116/original/pngtree-round-country-flag-south-korea-png-image_6934026.png",
-                                      ),
-                                    ),
-                                  );
+                                          ),
+                                        );
                                 },
                               ),
                             ),

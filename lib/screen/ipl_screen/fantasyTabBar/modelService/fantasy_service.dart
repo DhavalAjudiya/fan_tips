@@ -4,15 +4,15 @@ import 'package:http/http.dart' as http;
 import 'fantasy_model.dart';
 
 class ApiFantasyService {
-  static Future<FantasyModel?> fantasy(String value) async {
+  static Future<FantasyModel?> fantasy(int count) async {
     try {
-      final url =
-          Uri.parse("https://api.freefantasy.in/tips/tipsters?name?=$value");
+      final url = Uri.parse(
+          "https://api.freefantasy.in/tips/tipsters?offset=$count&pagelimit=25");
       var response = await http.post(
         url,
-        body: jsonEncode({
-          "name": value,
-        }),
+        // body: jsonEncode({
+        //   "name": value,
+        // }),
       );
       if (response.statusCode == 200) {
         log(response.statusCode.toString());

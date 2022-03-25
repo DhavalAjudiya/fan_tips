@@ -33,7 +33,7 @@ class MatchForYouContainer extends StatelessWidget {
               },
               itemCount: _homecontroller
                       .currentMatch.value.matches?.notstarted?.length ??
-                  4,
+                  0,
               itemBuilder: (BuildContext context, int index) {
                 final matchData = _homecontroller
                     .currentMatch.value.matches?.notstarted?[index];
@@ -166,6 +166,28 @@ class MatchForYouContainer extends StatelessWidget {
                                               fontWeight: FontWeight.w500,
                                               fontSize: 10.sp,
                                             ),
+
+                                            // CustomeText(
+                                            //   title: AppString.scoWik,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // ),
+                                            // SizedBox(
+                                            //   width: 1.w,
+                                            // ),
+                                            // CustomeText(
+                                            //   title: AppString.andSing,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // ),
+                                            // SizedBox(
+                                            //   width: 1.w,
+                                            // ),
+                                            // CustomeText(
+                                            //   title: AppString.scoWik,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // )
                                           ],
                                         ),
                                         SizedBox(height: 1.h),
@@ -186,6 +208,28 @@ class MatchForYouContainer extends StatelessWidget {
                                               fontWeight: FontWeight.w500,
                                               fontSize: 10.sp,
                                             ),
+
+                                            // CustomeText(
+                                            //   title: AppString.scoWik,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // ),
+                                            // SizedBox(
+                                            //   width: 1.w,
+                                            // ),
+                                            // CustomeText(
+                                            //   title: AppString.andSing,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // ),
+                                            // SizedBox(
+                                            //   width: 1.w,
+                                            // ),
+                                            // CustomeText(
+                                            //   title: AppString.scoWik,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // )
                                           ],
                                         ),
                                       ],
@@ -244,7 +288,8 @@ class MatchForYouContainer extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              4,
+              (_homecontroller.currentMatch.value.matches?.notstarted?.length ??
+                  0),
               (index) => AppContainer(
                 height: 0.6.h,
                 width: homeController.matchSelect.value == index ? 4.w : 3.w,

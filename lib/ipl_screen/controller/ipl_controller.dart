@@ -4,7 +4,6 @@ import '../../screen/ipl_screen/fantasyTabBar/modelService/fantasy_model.dart';
 import '../../screen/ipl_screen/fantasyTabBar/modelService/fantasy_service.dart';
 import '../../utills/string.dart';
 
-// ignore: deprecated_member_use
 class IplController extends GetxController with SingleGetTickerProviderMixin {
   /// fantasy tab
   TextEditingController controller = TextEditingController();
@@ -14,16 +13,40 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   RxList<String> titleScore =
       <String>["Prediction", "Average Score", "Wins"].obs;
   RxInt index = 0.obs;
+
   // RxBool isLoggedIn = false.obs;
   RxString selectedBottomSheetText = "".obs;
   ApiFantasyService services = ApiFantasyService();
   Rx<FantasyModel> service = FantasyModel().obs;
+  int count = 0;
+  RxList data = [].obs;
+  RxBool isLoading = true.obs;
+  ScrollController scrollController = ScrollController();
 
-  fetchProducts({String? value}) async {
+  fetchData(int count) async {
     try {
-      service.value = (await ApiFantasyService.fantasy(value!))!;
-    } catch (e) {
-      service.value = (await ApiFantasyService.fantasy(value!))!;
+      isLoading.value = true;
+      final result = await ApiFantasyService.fantasy(0);
+      service.value = result!;
+      if (service.value.tipsters!.isNotEmpty) {
+        data.addAll(service.value.tipsters!);
+      }
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  nextData() async {
+    try {
+      isLoading.value = true;
+      count++;
+      final result = await ApiFantasyService.fantasy(count);
+      service.value = result!;
+      if (service.value.tipsters!.isNotEmpty) {
+        data.addAll(service.value.tipsters!);
+      }
+    } finally {
+      isLoading.value = false;
     }
   }
 
@@ -62,7 +85,13 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
 
   @override
   void onInit() {
-    fetchProducts(value: controller.text);
+    fetchData(0);
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        nextData();
+      }
+    });
     super.onInit();
     tabController = TabController(length: myTabs.length, vsync: this);
     tabController1 = TabController(length: upcoming.length, vsync: this);

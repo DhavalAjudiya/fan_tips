@@ -23,7 +23,6 @@ class LiveScoreScreen extends StatelessWidget {
         leading: InkWell(
           onTap: () {
             Get.back();
-            print("objeasdadasdct");
           },
           child: const Icon(
             Icons.arrow_back,

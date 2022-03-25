@@ -8,8 +8,6 @@ import '../../../utills/string.dart';
 import '../../screen/ipl_screen/fantasyTabBar/widget/wight/container/container_custom.dart';
 
 class QuizScreen extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -92,8 +90,7 @@ class QuizScreen extends StatelessWidget {
             color: AppColor.blackColor,
             borderRadius: BorderRadius.circular(8.sp),
             child: Padding(
-              padding:
-              EdgeInsets.only(left: 12.sp, right: 12.sp, top: 10.sp),
+              padding: EdgeInsets.only(left: 12.sp, right: 12.sp, top: 10.sp),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -133,7 +130,7 @@ class QuizScreen extends StatelessWidget {
                   ),
                   CustomeText(
                     title:
-                    "Who will be the Man of the Match for today’s match?",
+                        "Who will be the Man of the Match for today’s match?",
                     fontSize: 10.sp,
                   ),
                   SizedBox(

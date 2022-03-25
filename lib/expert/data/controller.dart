@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
@@ -14,22 +16,63 @@ class IpController extends GetxController {
   bool isBottomSelect = false;
 
   TextEditingController searchController = TextEditingController();
+  ScrollController scrollController = ScrollController();
   RxBool isLoggedIn = false.obs;
   UserCredential? userObj;
   RxList searchItem = [].obs;
+  RxBool isLoading = true.obs;
+  RxList expertData = [].obs;
+  int count = 0;
+  bool pageAvailable = true;
 
   dataPost() async {
-    var result = await MatchApiService().data();
-    if (result != null) {
-      expert.value = result;
+    try {
+      isLoading.value = true;
+      final result = await MatchApiService().data(0);
+      expert.value = result!;
+      if (expert.value.tipsters!.isNotEmpty) {
+        expertData.addAll(expert.value.tipsters!);
+        log("=======-=-==-=-=-=-=>fnjsddkvsdb${expertData.length}");
+      }
+    } finally {
+      isLoading.value = false;
+    }
+  }
 
-      return result;
+  paginationData() async {
+    if (!pageAvailable) {
+      print('No More Products');
+      return;
+    }
+    try {
+      isLoading.value = true;
+      if (expert.value.tipsters!.length > 20) {
+        pageAvailable = false;
+      } else {
+        count++;
+        log("==========>>>${count}");
+      }
+      final result = await MatchApiService().data(count);
+      expert.value = result!;
+      if (expert.value.tipsters!.isNotEmpty) {
+        expertData.addAll(expert.value.tipsters!);
+        log("=======-=-==-=-=-=-=>${expertData.length}");
+      }
+    } finally {
+      isLoading.value = false;
     }
   }
 
   @override
   void onInit() {
     dataPost();
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        log("${scrollController.position.pixels}");
+        paginationData();
+      }
+    });
     super.onInit();
   }
 }

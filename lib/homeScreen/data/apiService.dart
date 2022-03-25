@@ -9,7 +9,7 @@ class ApiService {
   Future<NewsDataModel?> newsPostData(int count) async {
     http.Response response = await http.post(
       Uri.parse(
-          "https://api.freefantasy.in/tips/getNewsList?offset=$count&limit=20"),
+          "https://api.freefantasy.in/tips/getNewsList?offset=0&limit=$count"),
     );
     log("NewsDataModel========>${jsonDecode(response.body)}");
     NewsDataModel? newsDataModel;
@@ -22,9 +22,10 @@ class ApiService {
     return newsDataModel;
   }
 
-  Future<Expert?> expertData() async {
+  Future<Expert?> expertData(int count) async {
     http.Response response = await http.post(
-        Uri.parse(AppString.matchApiService),
+        Uri.parse(
+            "https://api.freefantasy.in/tips/tipsters?offset=$count&limit=20"),
         headers: {"Content-Type": "text/plain"});
 
     log("expert========>${jsonDecode(response.body)}");
