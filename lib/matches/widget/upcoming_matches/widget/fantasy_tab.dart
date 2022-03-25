@@ -424,8 +424,13 @@ class FantasyTab extends StatelessWidget {
                                                     children: [
                                                       CircleAvatar(
                                                         radius: 18.sp,
-                                                        backgroundImage:
-                                                            NetworkImage(
+                                                        backgroundImage: expertData
+                                                                    .profileUrl ==
+                                                                null
+                                                            ? NetworkImage(
+                                                                AppString
+                                                                    .imageNotFound)
+                                                            : NetworkImage(
                                                                 "${expertData.profileUrl}"),
                                                       ),
                                                       SizedBox(

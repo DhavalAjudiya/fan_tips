@@ -6,10 +6,10 @@ import '../../utills/string.dart';
 import 'newsModel.dart';
 
 class ApiService {
-  Future<NewsDataModel?> newsPostData(int count) async {
+  Future<NewsDataModel?> newsPostData(int startIndex, int endIndex) async {
     http.Response response = await http.post(
       Uri.parse(
-          "https://api.freefantasy.in/tips/getNewsList?offset=0&limit=$count"),
+          "https://api.freefantasy.in/tips/getNewsList?offset=$startIndex&limit=$endIndex"),
     );
     log("NewsDataModel========>${jsonDecode(response.body)}");
     NewsDataModel? newsDataModel;
@@ -22,10 +22,10 @@ class ApiService {
     return newsDataModel;
   }
 
-  Future<Expert?> expertData(int count) async {
+  Future<Expert?> expertData(int startIndex, int endIndex) async {
     http.Response response = await http.post(
         Uri.parse(
-            "https://api.freefantasy.in/tips/tipsters?offset=$count&limit=20"),
+            "https://api.freefantasy.in/tips/tipsters?offset=$startIndex&limit=$endIndex"),
         headers: {"Content-Type": "text/plain"});
 
     log("expert========>${jsonDecode(response.body)}");

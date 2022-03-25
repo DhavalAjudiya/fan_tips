@@ -28,13 +28,6 @@ class ExpertScreen extends StatefulWidget {
 class _ExpertScreenState extends State<ExpertScreen> {
   IpController ipController = Get.put(IpController());
 
-  Future<void> _refresh() async {
-    await Future.delayed(
-      const Duration(milliseconds: 1000),
-    );
-    ipController.refreshController.refreshCompleted();
-  }
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -397,7 +390,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                           child: SizedBox(
                             height: 79.h,
                             child: SmartRefresher(
-                              onRefresh: _refresh,
+                              onRefresh: ipController.refresh,
                               controller: ipController.refreshController,
                               child: ListView.builder(
                                 controller: ipController.scrollController,

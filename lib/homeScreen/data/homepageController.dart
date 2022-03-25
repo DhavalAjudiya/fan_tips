@@ -21,6 +21,8 @@ class HomeController extends GetxController {
   RxList newsPagination = [].obs;
   int pageLimit = 20;
   int newsCount = 0;
+  int startIndex = 0;
+  int endIndex = 20;
   bool pageAvailable = true;
   ScrollController scrollController = ScrollController();
   ScrollController expertScrollController = ScrollController();
@@ -28,13 +30,13 @@ class HomeController extends GetxController {
   Rx<Expert> predictionsData = Expert().obs;
   RxList<Tipster> wishListItems = <Tipster>[].obs;
   RxList expertPaginationData = [].obs;
-  int expertCount = 20;
+  int expertCount = 0;
   int expertPageLimit = 20;
 
   @override
   void onInit() {
-    callMethod(20);
-    expertMethod(0);
+    callMethod(0, 20);
+    expertMethod(0, 20);
     scrollController.addListener(() {
       log("message");
       if (scrollController.position.pixels ==
@@ -82,10 +84,10 @@ class HomeController extends GetxController {
     return DateTime.fromMillisecondsSinceEpoch(val);
   }
 
-  callMethod(int count) async {
+  callMethod(int startIndex, int endIndex) async {
     try {
       isLoading.value = true;
-      final result = await ApiService().newsPostData(20);
+      final result = await ApiService().newsPostData(0, 20);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -105,12 +107,16 @@ class HomeController extends GetxController {
       if (newsModel.value.news!.length > pageLimit) {
         pageAvailable = false;
       } else {
-        newsCount + 20;
+        newsCount++;
+        startIndex = newsPagination.length + 1;
+        endIndex = startIndex + pageLimit;
 
         log("===========>${newsCount.obs}");
+        log("===========>111${startIndex.obs}");
+        log("===========>${endIndex.obs}");
       }
 
-      final result = await ApiService().newsPostData(newsCount);
+      final result = await ApiService().newsPostData(startIndex, endIndex);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -121,10 +127,10 @@ class HomeController extends GetxController {
     }
   }
 
-  expertMethod(int expertCount) async {
+  expertMethod(int startIndex, int endIndex) async {
     try {
       isLoading.value = true;
-      final result = await ApiService().expertData(0);
+      final result = await ApiService().expertData(0, 20);
       predictionsData.value = result!;
       log("pridication data===1111${predictionsData.value.tipsters?.length}");
       if (predictionsData.value.tipsters!.isNotEmpty) {
@@ -142,21 +148,21 @@ class HomeController extends GetxController {
     }
     try {
       isLoading.value = true;
-      if (predictionsData.value.tipsters!.length > expertPageLimit) {
+      if (predictionsData.value.tipsters!.length < expertPageLimit) {
         pageAvailable = false;
       } else {
-        expertCount++;
-
-        log("===========>${expertCount.obs}");
+        log("++++++++${expertPaginationData.length}");
+        startIndex = expertPaginationData.length + 1;
+        endIndex = startIndex + pageLimit;
+        log("===========>${startIndex.obs}");
+        log("===========>${endIndex.obs}");
       }
 
-      final result = await ApiService().expertData(expertCount);
+      final result = await ApiService().expertData(startIndex, endIndex);
       predictionsData.value = result!;
       log("pridication data===222${predictionsData.value.tipsters?.length}");
       if (predictionsData.value.tipsters!.isNotEmpty) {
         expertPaginationData.addAll(predictionsData.value.tipsters!);
-        log("++++++++${expertPaginationData.length}");
-        return expertPaginationData;
       }
     } finally {
       isLoading.value = false;
