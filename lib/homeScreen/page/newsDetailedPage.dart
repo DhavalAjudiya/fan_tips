@@ -3,6 +3,7 @@ import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../commanWidget/commanText.dart';
 import '../../utills/string.dart';
 import '../../widget/custom_container.dart';
@@ -65,13 +66,14 @@ class NewsDetailedScreen extends StatelessWidget {
             ),
             Positioned(
               child: IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: AppColor.whiteColor,
-                  )),
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: AppColor.whiteColor,
+                ),
+              ),
             )
           ],
         ),

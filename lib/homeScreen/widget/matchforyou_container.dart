@@ -25,7 +25,7 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 15.h,
+            height: 18.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -166,28 +166,6 @@ class MatchForYouContainer extends StatelessWidget {
                                               fontWeight: FontWeight.w500,
                                               fontSize: 10.sp,
                                             ),
-
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
                                           ],
                                         ),
                                         SizedBox(height: 1.h),
@@ -208,28 +186,6 @@ class MatchForYouContainer extends StatelessWidget {
                                               fontWeight: FontWeight.w500,
                                               fontSize: 10.sp,
                                             ),
-
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
                                           ],
                                         ),
                                       ],
@@ -239,7 +195,7 @@ class MatchForYouContainer extends StatelessWidget {
                                     width: 3.w,
                                   ),
                                   AppContainer(
-                                    height: 8.h,
+                                    height: 9.h,
                                     width: 0.1.w,
                                     color: AppColor.verticalDivider,
                                   ),
@@ -264,6 +220,9 @@ class MatchForYouContainer extends StatelessWidget {
                                     ],
                                   )
                                 ],
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
                               ),
                               CustomeText(
                                 title:
