@@ -8,15 +8,14 @@ import '../../matches/controler/matchs_controller.dart';
 import '../../matches/controler/utils_time.dart';
 import '../../upcoming_matches/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
-import '../../widget/app_bottom_sheet.dart';
 import '../../widget/custom_container.dart';
 import '../data/homepageController.dart';
 
 class MatchForYouContainer extends StatelessWidget {
   MatchForYouContainer({Key? key}) : super(key: key);
   final HomeController homeController = Get.put(HomeController());
-  final MatchsScreenControoler _homecontroller =
-      Get.put(MatchsScreenControoler());
+  final MatchesScreenController _homeController =
+      Get.put(MatchesScreenController());
   final IpController ipController = Get.put(IpController());
 
   @override
@@ -25,17 +24,17 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 16.h,
+            height: 17.5.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
                 homeController.matchSelect.value = value;
               },
-              itemCount: _homecontroller
+              itemCount: _homeController
                       .currentMatch.value.matches?.notstarted?.length ??
                   0,
               itemBuilder: (BuildContext context, int index) {
-                final matchData = _homecontroller
+                final matchData = _homeController
                     .currentMatch.value.matches?.notstarted?[index];
                 return homeController.isLoading.value == true
                     ? Padding(
@@ -44,11 +43,7 @@ class MatchForYouContainer extends StatelessWidget {
                       )
                     : AppContainer(
                         onTap: () {
-                          if (ipController.isLoggedIn.value == false) {
-                            AppBottomSheet().bottomSheet(context);
-                          } else {
-                            Get.toNamed(LiveScoreScreen.routeName);
-                          }
+                          Get.toNamed(LiveScoreScreen.routeName);
                         },
                         margin: EdgeInsets.symmetric(horizontal: 10.sp),
                         borderRadius: BorderRadius.circular(10.sp),
@@ -65,7 +60,7 @@ class MatchForYouContainer extends StatelessWidget {
                               Row(
                                 children: [
                                   CustomeText(
-                                    title: matchData?.matchName ?? "",
+                                    title: matchData?.header ?? "",
                                     color: AppColor.whiteColor.withOpacity(0.5),
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10.sp,
@@ -73,171 +68,145 @@ class MatchForYouContainer extends StatelessWidget {
                                   const Spacer(),
                                   Obx(
                                     () => InkWell(
-                                        onTap: () {
-                                          if (ipController.isLoggedIn ==
-                                              false) {
-                                            return null;
-                                          }
-                                          if (_homecontroller
+                                      onTap: () {
+                                        if (ipController.isLoggedIn == false) {
+                                          return null;
+                                        }
+                                        if (_homeController
+                                                .currentMatch
+                                                .value
+                                                .matches
+                                                ?.notstarted?[index]
+                                                .selected ==
+                                            false) {
+                                          _homeController
+                                              .currentMatch
+                                              .value
+                                              .matches
+                                              ?.notstarted?[index]
+                                              .selected
+                                              .value = true;
+
+                                          _homeController.addNotificationItem(
+                                              _homeController.currentMatch.value
+                                                  .matches!.notstarted![index]);
+                                        } else {
+                                          _homeController
+                                              .removeNotificationItem(
+                                                  _homeController
+                                                      .currentMatch
+                                                      .value
+                                                      .matches!
+                                                      .notstarted![index]);
+                                          _homeController
+                                              .currentMatch
+                                              .value
+                                              .matches
+                                              ?.notstarted?[index]
+                                              .selected
+                                              .value = false;
+                                        }
+                                      },
+                                      child: _homeController
                                                   .currentMatch
                                                   .value
                                                   .matches
                                                   ?.notstarted?[index]
-                                                  .selected ==
-                                              false) {
-                                            _homecontroller
-                                                .currentMatch
-                                                .value
-                                                .matches
-                                                ?.notstarted?[index]
-                                                .selected
-                                                .value = true;
-
-                                            _homecontroller.addNotificationItem(
-                                                _homecontroller
-                                                    .currentMatch
-                                                    .value
-                                                    .matches!
-                                                    .notstarted![index]);
-                                          } else {
-                                            _homecontroller
-                                                .removeNotificationItem(
-                                                    _homecontroller
-                                                        .currentMatch
-                                                        .value
-                                                        .matches!
-                                                        .notstarted![index]);
-                                            _homecontroller
-                                                .currentMatch
-                                                .value
-                                                .matches
-                                                ?.notstarted?[index]
-                                                .selected
-                                                .value = false;
-                                          }
-                                        },
-                                        child: ipController.isLoggedIn.value ==
-                                                false
-                                            ? Icon(
-                                                Icons.notifications_none,
-                                                size: 13.sp,
-                                              )
-                                            : _homecontroller
-                                                        .currentMatch
-                                                        .value
-                                                        .matches
-                                                        ?.notstarted?[index]
-                                                        .selected
-                                                        .value ==
-                                                    false
-                                                ? Icon(
-                                                    Icons.notifications_none,
-                                                    size: 13.sp,
-                                                  )
-                                                : Icon(
-                                                    Icons.notifications,
-                                                    size: 13.sp,
-                                                  )),
+                                                  .selected
+                                                  .value ==
+                                              false
+                                          ? Icon(
+                                              Icons.notifications_none,
+                                              size: 15.sp,
+                                            )
+                                          : Icon(
+                                              Icons.notifications,
+                                              size: 15.sp,
+                                            ),
+                                    ),
                                   )
                                 ],
                               ),
                               SizedBox(height: 1.h),
                               Row(
                                 children: [
-                                  AppContainer(
-                                    height: 8.h,
-                                    width: 60.w,
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 9.sp,
-                                              backgroundImage: NetworkImage(
-                                                matchData?.t1Flag ??
-                                                    AppString.imageNotFound,
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 5.w,
+                                                backgroundImage: NetworkImage(
+                                                  matchData?.t1Flag ??
+                                                      AppString.imageNotFound,
+                                                ),
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 2.w,
-                                            ),
-                                            CustomeText(
-                                              title: matchData?.team1Name ?? "",
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 10.sp,
-                                            ),
-
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
-                                          ],
-                                        ),
-                                        SizedBox(height: 1.h),
-                                        Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 9.sp,
-                                              backgroundImage: NetworkImage(
-                                                matchData?.t2Flag ??
-                                                    AppString.imageNotFound,
+                                              SizedBox(
+                                                width: 2.w,
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 2.w,
-                                            ),
-                                            CustomeText(
-                                              title: matchData?.team2Name ?? "",
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 10.sp,
-                                            ),
+                                              CustomeText(
+                                                title:
+                                                    matchData?.team1Name ?? "",
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10.sp,
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 1.h),
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 5.w,
+                                                backgroundImage: NetworkImage(
+                                                  matchData?.t2Flag ??
+                                                      AppString.imageNotFound,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              CustomeText(
+                                                title:
+                                                    matchData?.team2Name ?? "",
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10.sp,
+                                              ),
 
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                              // CustomeText(
+                                              //   title: AppString.scoWik,
+                                              //   fontWeight: FontWeight.w700,
+                                              //   fontSize: 10.sp,
+                                              // ),
+                                              // SizedBox(
+                                              //   width: 1.w,
+                                              // ),
+                                              // CustomeText(
+                                              //   title: AppString.andSing,
+                                              //   fontWeight: FontWeight.w700,
+                                              //   fontSize: 10.sp,
+                                              // ),
+                                              // SizedBox(
+                                              //   width: 1.w,
+                                              // ),
+                                              // CustomeText(
+                                              //   title: AppString.scoWik,
+                                              //   fontWeight: FontWeight.w700,
+                                              //   fontSize: 10.sp,
+                                              // )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(
-                                    width: 3.w,
-                                  ),
+                                  Spacer(),
+                                  // SizedBox(
+                                  //   width: 3.w,
+                                  // ),
                                   AppContainer(
                                     height: 8.h,
                                     width: 0.1.w,
@@ -265,6 +234,9 @@ class MatchForYouContainer extends StatelessWidget {
                                   )
                                 ],
                               ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
                               CustomeText(
                                 title:
                                     "Match Start in ${Utils.hourAndMin(matchData?.startTime ?? 0)}",
@@ -285,7 +257,7 @@ class MatchForYouContainer extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              (_homecontroller.currentMatch.value.matches?.notstarted?.length ??
+              (_homeController.currentMatch.value.matches?.notstarted?.length ??
                   0),
               (index) => AppContainer(
                 height: 0.6.h,

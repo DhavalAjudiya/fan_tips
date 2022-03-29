@@ -123,3 +123,4 @@ class AppBiding implements Bindings {
     );
   }
 }
+// ga0RGNYHvNM5d0SLGQfpQWAPGJ8=

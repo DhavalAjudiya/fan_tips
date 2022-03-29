@@ -8,7 +8,7 @@ import '../controler/matchs_controller.dart';
 import '../controler/utils_time.dart';
 
 class Live extends StatelessWidget {
-  final _homecontroller = Get.put(MatchsScreenControoler());
+  final _homeController = Get.put(MatchesScreenController());
 
   Live({Key? key}) : super(key: key);
 
@@ -19,7 +19,7 @@ class Live extends StatelessWidget {
         SizedBox(
           height: 1.5.h,
         ),
-        _homecontroller.liveMatches.value.matches?.started?.length == 0
+        _homeController.liveMatches.value.matches?.started?.length == 0
             ? Padding(
                 padding: const EdgeInsets.only(top: 250),
                 child: Text(
@@ -33,10 +33,10 @@ class Live extends StatelessWidget {
             () => ListView.builder(
               physics: const BouncingScrollPhysics(),
               itemCount:
-                  _homecontroller.liveMatches.value.matches?.started?.length,
+                  _homeController.liveMatches.value.matches?.started?.length,
               itemBuilder: (context, index) {
                 final current =
-                    _homecontroller.liveMatches.value.matches?.started?[index];
+                    _homeController.liveMatches.value.matches?.started?[index];
 
                 return Obx(
                   () => GestureDetector(
@@ -76,16 +76,64 @@ class Live extends StatelessWidget {
                             current?.t2Flag ?? AppString.imageNotFound,
                           ),
                           subText: current?.team2Name ?? "",
-                          t1run: "${current?.i1Details?.run ?? ""}",
-                          t1wk: "${current?.i1Details?.wk ?? ""}",
-                          t1over: "(${current?.i1Details?.over ?? ""})",
+                          t1run: "${current?.i2Details?.run ?? ""}",
+                          t1wk: current?.i2Details?.wk == 10
+                              ? ""
+                              : "/${current?.i2Details?.wk ?? ""}",
+                          t1over: current?.i2Details?.wk == 10 ||
+                                  current?.i2Details?.wk == 0
+                              ? ""
+                              : "(${current?.i2Details?.over ?? ""})",
+                          overstyle: TextStyle(
+                            color: Colors.white30,
+                            fontFamily: "circular",
+                            fontSize: 9.sp,
+                          ),
                           // t1owk: "${current?.i4Details?.wk ?? ""}",
-                          t2run: "${current?.i2Details?.run ?? ""}",
-                          t2wk: "${current?.i2Details?.wk ?? ""}",
-                          t2over: "(${current?.i3Details?.run ?? ""})",
+                          t2run: "${current?.i1Details?.run ?? ""}",
+                          t2wk: current?.i1Details?.wk == 10 ||
+                                  current?.i1Details?.wk == 0
+                              ? ""
+                              : "/${current?.i1Details?.wk ?? ""}",
+                          over2style: TextStyle(
+                            color: Colors.white30,
+                            fontFamily: "circular",
+                            fontSize: 9.sp,
+                          ),
+                          t2over: current?.i1Details?.wk == 10
+                              ? ""
+                              : "(${current?.i1Details?.over ?? ""})",
                           // t2owk: "${current?.i3Details?.wk ?? ""}",
-                          predictionText: "${current?.totalprediction ?? ""}",
-                          prediction: "Prediction",
+                          // predictionText: "${current?.totalprediction ?? ""}",
+                          // prediction: "Prediction",
+                          predictionText: current?.totalprediction != 0
+                              ? "${current?.totalprediction ?? ""}"
+                              : "Start At",
+                          style: current?.totalprediction != 0
+                              ? TextStyle(
+                                  color: Colors.green,
+                                  fontFamily: "circular",
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold)
+                              : TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: "circular",
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w400),
+                          prediction: current?.totalprediction != 0
+                              ? "${"Prediction"}"
+                              : "${Utils.hourAndMin(current?.startTime ?? 0)}",
+                          pstyle: current?.totalprediction != 0
+                              ? TextStyle(
+                                  color: Colors.green,
+                                  fontFamily: "circular",
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold)
+                              : TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: "circular",
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.bold),
                           lastText: AppString.live,
                         ),
                       ],
@@ -96,7 +144,7 @@ class Live extends StatelessWidget {
             ),
           ),
         ),
-        _homecontroller.loading.value == true
+        _homeController.loading.value == true
             ? Center(
                 child: CircularProgressIndicator(),
               )

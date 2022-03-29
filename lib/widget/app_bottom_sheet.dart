@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../T20Predictions/page/utills/asset.dart';
@@ -106,7 +107,9 @@ class AppBottomSheet {
               width: 60.w,
               color: AppColor.containerBackground,
               borderRadius: BorderRadius.circular(10),
-              onTap: () {},
+              onTap: () {
+                FacebookAuth.instance.login();
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

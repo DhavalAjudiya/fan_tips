@@ -83,7 +83,7 @@ class CustomContainer extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 4.w,
+                          radius: 5.w,
                           backgroundImage: backgroundImage,
                         ),
                         SizedBox(
@@ -101,7 +101,7 @@ class CustomContainer extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 4.w,
+                          radius: 5.w,
                           backgroundImage: secondbackgroundImage,
                         ),
                         SizedBox(
@@ -285,7 +285,7 @@ class CustomLCContainer extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 4.w,
+                          radius: 5.w,
                           backgroundImage: backgroundImage,
                         ),
                         SizedBox(
@@ -303,7 +303,7 @@ class CustomLCContainer extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 4.w,
+                          radius: 5.w,
                           backgroundImage: secondbackgroundImage,
                         ),
                         SizedBox(

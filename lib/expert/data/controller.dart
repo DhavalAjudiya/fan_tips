@@ -19,6 +19,8 @@ class IpController extends GetxController {
   ScrollController scrollController = ScrollController();
   RxBool isLoggedIn = false.obs;
   UserCredential? userObj;
+  RxMap fbData = {}.obs;
+
   RxList searchItem = [].obs;
   RxBool isLoading = true.obs;
   RxList expertData = [].obs;

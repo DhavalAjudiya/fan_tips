@@ -102,9 +102,11 @@ class _FantasyTabBarState extends State<FantasyTabBar> {
                   child: Obx(
                     () => ListView.builder(
                       controller: iplController.scrollController,
+                      // ignore: invalid_use_of_protected_member
                       itemCount: iplController.data.value.length,
                       itemBuilder: (context, index) {
                         log("data=>>${iplController.service.value.tipsters!.length}");
+                        // ignore: invalid_use_of_protected_member
                         var item = iplController.data.value[index];
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10),
@@ -323,6 +325,7 @@ class _FantasyTabBarState extends State<FantasyTabBar> {
                                   ),
                                 ),
                               ),
+                              // ignore: invalid_use_of_protected_member
                               iplController.data.value.length - 1 == index
                                   ? Center(
                                       child: CircularProgressIndicator(),

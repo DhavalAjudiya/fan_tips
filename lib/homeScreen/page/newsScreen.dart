@@ -96,6 +96,7 @@ class NewsScreen extends StatelessWidget {
                   const Divider(),
                   SizedBox(
                     child: Obx(() {
+                      // ignore: invalid_use_of_protected_member
                       log("${homeController.newsPagination.value.length}");
                       return ListView.builder(
                         controller: homeController.scrollController,

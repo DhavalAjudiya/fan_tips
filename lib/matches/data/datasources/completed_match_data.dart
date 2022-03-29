@@ -13,7 +13,7 @@ class CompletedMatchApi {
     try {
       var request = http.MultipartRequest('POST', Uri.parse(url));
       request.fields
-          .addAll({'matchStatus': '4', 'offset': select, 'limit': '20'});
+          .addAll({'matchStatus': '4', 'offset': "$select", 'limit': '20'});
 
       http.StreamedResponse response = await request.send();
       final data = await response.stream.bytesToString();
