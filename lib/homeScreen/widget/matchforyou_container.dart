@@ -24,7 +24,7 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 17.5.h,
+            height: 19.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -52,8 +52,8 @@ class MatchForYouContainer extends StatelessWidget {
                           padding: EdgeInsets.only(
                               left: 10.sp,
                               right: 10.sp,
-                              top: 8.sp,
-                              bottom: 5.sp),
+                              top: 4.sp,
+                              bottom: 2.sp),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -68,62 +68,61 @@ class MatchForYouContainer extends StatelessWidget {
                                   const Spacer(),
                                   Obx(
                                     () => InkWell(
-                                      onTap: () {
-                                        if (ipController.isLoggedIn == false) {
-                                          return null;
-                                        }
-                                        if (_homeController
-                                                .currentMatch
-                                                .value
-                                                .matches
-                                                ?.notstarted?[index]
-                                                .selected ==
-                                            false) {
-                                          _homeController
-                                              .currentMatch
-                                              .value
-                                              .matches
-                                              ?.notstarted?[index]
-                                              .selected
-                                              .value = true;
-
-                                          _homeController.addNotificationItem(
-                                              _homeController.currentMatch.value
-                                                  .matches!.notstarted![index]);
-                                        } else {
-                                          _homeController
-                                              .removeNotificationItem(
-                                                  _homeController
-                                                      .currentMatch
-                                                      .value
-                                                      .matches!
-                                                      .notstarted![index]);
-                                          _homeController
-                                              .currentMatch
-                                              .value
-                                              .matches
-                                              ?.notstarted?[index]
-                                              .selected
-                                              .value = false;
-                                        }
-                                      },
-                                      child: _homeController
+                                        onTap: () {
+                                          if (_homecontroller
                                                   .currentMatch
                                                   .value
                                                   .matches
                                                   ?.notstarted?[index]
-                                                  .selected
-                                                  .value ==
-                                              false
-                                          ? Icon(
-                                              Icons.notifications_none,
-                                              size: 15.sp,
-                                            )
-                                          : Icon(
-                                              Icons.notifications,
-                                              size: 15.sp,
-                                            ),
-                                    ),
+                                                  .selected ==
+                                              false) {
+                                            _homecontroller
+                                                .currentMatch
+                                                .value
+                                                .matches
+                                                ?.notstarted?[index]
+                                                .selected
+                                                .value = true;
+
+                                            _homecontroller.addNotificationItem(
+                                                _homecontroller
+                                                    .currentMatch
+                                                    .value
+                                                    .matches!
+                                                    .notstarted![index]);
+                                          } else {
+                                            _homecontroller
+                                                .removeNotificationItem(
+                                                    _homecontroller
+                                                        .currentMatch
+                                                        .value
+                                                        .matches!
+                                                        .notstarted![index]);
+                                            _homecontroller
+                                                .currentMatch
+                                                .value
+                                                .matches
+                                                ?.notstarted?[index]
+                                                .selected
+                                                .value = false;
+                                          }
+                                        },
+                                        child: _homecontroller
+                                                    .currentMatch
+                                                    .value
+                                                    .matches
+                                                    ?.notstarted?[index]
+                                                    .selected
+                                                    .value ==
+                                                false
+                                            ? Icon(
+                                                Icons.notifications_none,
+                                                size: 13.sp,
+                                              )
+                                            : Icon(
+                                                Icons.notifications,
+                                                size: 13.sp,
+                                              )),
                                   )
                                 ],
                               ),
@@ -201,14 +200,36 @@ class MatchForYouContainer extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                    ],
+
+                                            // CustomeText(
+                                            //   title: AppString.scoWik,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // ),
+                                            // SizedBox(
+                                            //   width: 1.w,
+                                            // ),
+                                            // CustomeText(
+                                            //   title: AppString.andSing,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // ),
+                                            // SizedBox(
+                                            //   width: 1.w,
+                                            // ),
+                                            // CustomeText(
+                                            //   title: AppString.scoWik,
+                                            //   fontWeight: FontWeight.w700,
+                                            //   fontSize: 10.sp,
+                                            // )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Spacer(),
-                                  // SizedBox(
-                                  //   width: 3.w,
-                                  // ),
                                   AppContainer(
-                                    height: 8.h,
+                                    height: 9.h,
                                     width: 0.1.w,
                                     color: AppColor.verticalDivider,
                                   ),

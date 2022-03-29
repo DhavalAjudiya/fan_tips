@@ -24,13 +24,25 @@ class IpController extends GetxController {
   RxList searchItem = [].obs;
   RxBool isLoading = true.obs;
   RxList expertData = [].obs;
+  int startIndex = 0;
+  int endIndex = 20;
   int count = 0;
   bool pageAvailable = true;
 
-  dataPost() async {
+  Future<void> refresh() async {
+    await Future.delayed(
+      const Duration(
+        milliseconds: 1000,
+      ),
+      () => dataPost(0, 20),
+    );
+    refreshController.refreshCompleted();
+  }
+
+  dataPost(int startIndex, int endIndex) async {
     try {
       isLoading.value = true;
-      final result = await MatchApiService().data(0);
+      final result = await MatchApiService().data(0, 20);
       expert.value = result!;
       if (expert.value.tipsters!.isNotEmpty) {
         expertData.addAll(expert.value.tipsters!);
@@ -53,8 +65,13 @@ class IpController extends GetxController {
       } else {
         count++;
         log("==========>>>${count}");
+        startIndex = expertData.length + 1;
+        endIndex = startIndex + 20;
+        log("===========>${startIndex.obs}");
+        log("===========>${endIndex.obs}");
       }
-      final result = await MatchApiService().data(count);
+
+      final result = await MatchApiService().data(startIndex, endIndex);
       expert.value = result!;
       if (expert.value.tipsters!.isNotEmpty) {
         expertData.addAll(expert.value.tipsters!);
@@ -67,7 +84,7 @@ class IpController extends GetxController {
 
   @override
   void onInit() {
-    dataPost();
+    dataPost(0, 20);
     scrollController.addListener(() {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {

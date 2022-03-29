@@ -227,8 +227,8 @@ class UpcomingMatchScreen extends StatelessWidget {
                           ],
                         ),
                         CustomeText(
-                          title: "V kohli",
-                          fontSize: 10.sp,
+                          title: "D warner",
+                          fontSize: 8.sp,
                         ),
                         SizedBox(
                           height: 1.5.h,
@@ -269,8 +269,8 @@ class UpcomingMatchScreen extends StatelessWidget {
                                             ],
                                           ),
                                           CustomeText(
-                                            title: "V kohli",
-                                            fontSize: 10.sp,
+                                            title: "D warner",
+                                            fontSize: 8.sp,
                                           ),
                                         ],
                                       ),
@@ -311,8 +311,8 @@ class UpcomingMatchScreen extends StatelessWidget {
                                   ],
                                 ),
                                 CustomeText(
-                                  title: "V kohli",
-                                  fontSize: 10.sp,
+                                  title: "D warner",
+                                  fontSize: 8.sp,
                                 ),
                               ],
                             ),
@@ -336,8 +336,8 @@ class UpcomingMatchScreen extends StatelessWidget {
                                   ],
                                 ),
                                 CustomeText(
-                                  title: "V kohli",
-                                  fontSize: 10.sp,
+                                  title: "D warner",
+                                  fontSize: 8.sp,
                                 ),
                               ],
                             ),
@@ -362,8 +362,8 @@ class UpcomingMatchScreen extends StatelessWidget {
                                   ],
                                 ),
                                 CustomeText(
-                                  title: "V kohli",
-                                  fontSize: 10.sp,
+                                  title: "D warner",
+                                  fontSize: 8.sp,
                                 ),
                               ],
                             ),
@@ -408,8 +408,8 @@ class UpcomingMatchScreen extends StatelessWidget {
                                             ],
                                           ),
                                           CustomeText(
-                                            title: "V kohli",
-                                            fontSize: 10.sp,
+                                            title: "D warner",
+                                            fontSize: 8.sp,
                                           ),
                                         ],
                                       ),

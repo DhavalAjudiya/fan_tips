@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../matches/widget/style.dart';
 
+// ignore: must_be_immutable
 class CustomContainer extends StatelessWidget {
   final String headertext;
   final String text;
