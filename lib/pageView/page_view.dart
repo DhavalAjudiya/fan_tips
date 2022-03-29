@@ -92,7 +92,7 @@ class PageViewScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 18.h,
                     ),
                     CustomeText(
                       title: "${page[AppString.name]}",

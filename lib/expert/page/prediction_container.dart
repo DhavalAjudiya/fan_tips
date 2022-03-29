@@ -34,7 +34,7 @@ class PredictionContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Container(
-        height: 17.h,
+        height: 19.2.h,
         decoration: BoxDecoration(
           color: const Color(0XFF1B1B1B),
           borderRadius: BorderRadius.circular(8),

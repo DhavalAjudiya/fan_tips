@@ -25,7 +25,7 @@ class MatchForYouContainer extends StatelessWidget {
       children: [
         Obx(
           () => SizedBox(
-            height: 18.h,
+            height: 19.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -44,11 +44,7 @@ class MatchForYouContainer extends StatelessWidget {
                       )
                     : AppContainer(
                         onTap: () {
-                          if (ipController.isLoggedIn.value == false) {
-                            AppBottomSheet().bottomSheet(context);
-                          } else {
-                            Get.toNamed(LiveScoreScreen.routeName);
-                          }
+                          Get.toNamed(LiveScoreScreen.routeName);
                         },
                         margin: EdgeInsets.symmetric(horizontal: 10.sp),
                         borderRadius: BorderRadius.circular(10.sp),
@@ -57,15 +53,15 @@ class MatchForYouContainer extends StatelessWidget {
                           padding: EdgeInsets.only(
                               left: 10.sp,
                               right: 10.sp,
-                              top: 8.sp,
-                              bottom: 5.sp),
+                              top: 4.sp,
+                              bottom: 2.sp),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
                                   CustomeText(
-                                    title: matchData?.matchName ?? "",
+                                    title: matchData?.header ?? "",
                                     color: AppColor.whiteColor.withOpacity(0.5),
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10.sp,
@@ -74,10 +70,6 @@ class MatchForYouContainer extends StatelessWidget {
                                   Obx(
                                     () => InkWell(
                                         onTap: () {
-                                          if (ipController.isLoggedIn ==
-                                              false) {
-                                            return null;
-                                          }
                                           if (_homecontroller
                                                   .currentMatch
                                                   .value
@@ -116,128 +108,124 @@ class MatchForYouContainer extends StatelessWidget {
                                                 .value = false;
                                           }
                                         },
-                                        child: ipController.isLoggedIn.value ==
+                                        child: _homecontroller
+                                                    .currentMatch
+                                                    .value
+                                                    .matches
+                                                    ?.notstarted?[index]
+                                                    .selected
+                                                    .value ==
                                                 false
                                             ? Icon(
                                                 Icons.notifications_none,
                                                 size: 13.sp,
                                               )
-                                            : _homecontroller
-                                                        .currentMatch
-                                                        .value
-                                                        .matches
-                                                        ?.notstarted?[index]
-                                                        .selected
-                                                        .value ==
-                                                    false
-                                                ? Icon(
-                                                    Icons.notifications_none,
-                                                    size: 13.sp,
-                                                  )
-                                                : Icon(
-                                                    Icons.notifications,
-                                                    size: 13.sp,
-                                                  )),
+                                            : Icon(
+                                                Icons.notifications,
+                                                size: 13.sp,
+                                              )),
                                   )
                                 ],
                               ),
                               SizedBox(height: 1.h),
                               Row(
                                 children: [
-                                  AppContainer(
-                                    height: 8.h,
-                                    width: 60.w,
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 9.sp,
-                                              backgroundImage: NetworkImage(
-                                                matchData?.t1Flag ??
-                                                    AppString.imageNotFound,
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 5.w,
+                                                backgroundImage: NetworkImage(
+                                                  matchData?.t1Flag ??
+                                                      AppString.imageNotFound,
+                                                ),
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 2.w,
-                                            ),
-                                            CustomeText(
-                                              title: matchData?.team1Name ?? "",
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 10.sp,
-                                            ),
-
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
-                                          ],
-                                        ),
-                                        SizedBox(height: 1.h),
-                                        Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 9.sp,
-                                              backgroundImage: NetworkImage(
-                                                matchData?.t2Flag ??
-                                                    AppString.imageNotFound,
+                                              SizedBox(
+                                                width: 2.w,
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 2.w,
-                                            ),
-                                            CustomeText(
-                                              title: matchData?.team2Name ?? "",
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 10.sp,
-                                            ),
+                                              CustomeText(
+                                                title:
+                                                    matchData?.team1Name ?? "",
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10.sp,
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 1.h),
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 5.w,
+                                                backgroundImage: NetworkImage(
+                                                  matchData?.t2Flag ??
+                                                      AppString.imageNotFound,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 2.w,
+                                              ),
+                                              CustomeText(
+                                                title:
+                                                    matchData?.team2Name ?? "",
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10.sp,
+                                              ),
 
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                              // CustomeText(
+                                              //   title: AppString.scoWik,
+                                              //   fontWeight: FontWeight.w700,
+                                              //   fontSize: 10.sp,
+                                              // ),
+                                              // SizedBox(
+                                              //   width: 1.w,
+                                              // ),
+                                              // CustomeText(
+                                              //   title: AppString.andSing,
+                                              //   fontWeight: FontWeight.w700,
+                                              //   fontSize: 10.sp,
+                                              // ),
+                                              // SizedBox(
+                                              //   width: 1.w,
+                                              // ),
+                                              // CustomeText(
+                                              //   title: AppString.scoWik,
+                                              //   fontWeight: FontWeight.w700,
+                                              //   fontSize: 10.sp,
+                                              // )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.andSing,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    width: 3.w,
-                                  ),
+                                  Spacer(),
                                   AppContainer(
                                     height: 9.h,
                                     width: 0.1.w,
