@@ -23,6 +23,21 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
   RxBool isLoading = true.obs;
   ScrollController scrollController = ScrollController();
 
+  @override
+  void onInit() {
+    fetchData(0);
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        nextData();
+      }
+    });
+    super.onInit();
+    tabController = TabController(length: myTabs.length, vsync: this);
+    tabController1 = TabController(length: upcoming.length, vsync: this);
+    isOn();
+  }
+
   fetchData(int count) async {
     try {
       isLoading.value = true;
@@ -82,19 +97,4 @@ class IplController extends GetxController with SingleGetTickerProviderMixin {
 
   TabController? tabController;
   TabController? tabController1;
-
-  @override
-  void onInit() {
-    fetchData(0);
-    scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        nextData();
-      }
-    });
-    super.onInit();
-    tabController = TabController(length: myTabs.length, vsync: this);
-    tabController1 = TabController(length: upcoming.length, vsync: this);
-    isOn();
-  }
 }

@@ -3,7 +3,7 @@ import '../../utills/string.dart';
 import 'model.dart';
 
 class MatchApiService {
-  Future<Expert?> data() async {
+  static Future<Expert?> data() async {
     final data = await http.post(
       Uri.parse(AppString.matchApiService),
       headers: {"Content-Type": "text/plain"},

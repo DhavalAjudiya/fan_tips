@@ -1,11 +1,7 @@
-import 'package:fantips/upcoming_matches/widget/live_score_screen/scorecard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../expert/page/search_screen.dart';
-import '../../../screen/ipl_screen/page/fantasy_tabBar.dart';
-import '../../../screen/ipl_screen/widget/fantasyTabBar/wight/container/container_custom.dart';
-import '../../../utills/string.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../ipl_screen/controller/ipl_controller.dart';
 import 'commentry_screen.dart';
@@ -55,7 +51,7 @@ class LiveScoreScreen extends StatelessWidget {
               indicatorWeight: 2.5,
               isScrollable: true,
               labelColor: AppColor.greenColor,
-              unselectedLabelColor: AppColor.white,
+              //unselectedLabelColor: AppColor.white,
               labelStyle:
                   TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
               unselectedLabelStyle:
@@ -67,14 +63,14 @@ class LiveScoreScreen extends StatelessWidget {
       body: TabBarView(
         controller: iplController.tabController1,
         children: [
-          // fantasy
-          FantasyTabBar(),
-          // commentry
-          Commentary(),
-          // scorecard
-          ScoreCardScreen(),
-          // quiz
-          QuizScreen()
+          // // fantasy
+          // FantasyTabBar(),
+          // // commentry
+          // Commentary(),
+          // // scorecard
+          // ScoreCardScreen(),
+          // // quiz
+          // QuizScreen()
         ],
       ),
     );

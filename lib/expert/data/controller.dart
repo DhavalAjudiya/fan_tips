@@ -19,7 +19,7 @@ class IpController extends GetxController {
   RxList searchItem = [].obs;
 
   dataPost() async {
-    var result = await MatchApiService().data();
+    var result = await MatchApiService.data();
     if (result != null) {
       expert.value = result;
 

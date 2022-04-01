@@ -1,13 +1,17 @@
+import 'package:fantips/expert/expertBlockPage/blockCubit/cubit.dart';
+import 'package:fantips/expert/expertBlockPage/repositoryBlock/expert_repository.dart';
 import 'package:fantips/homeScreen/page/newsScreen.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
 import 'package:fantips/widget/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'T20Predictions/page/prediction.dart';
 import 'bottomBar/bottomNaviBar.dart';
+import 'expert/expertBlockPage/pageBlock/expert_block_screen.dart';
 import 'expert/page/search_screen.dart';
 import 'homeScreen/page/newsDetailedPage.dart';
 import 'expert/page/screen.dart';
@@ -26,90 +30,97 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
       builder: (BuildContext context, Orientation orientation,
           DeviceType deviceType) {
-        return GetMaterialApp(
-          theme: ThemeData(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            hoverColor: Colors.transparent,
+        return BlocProvider<ExpertCubit>(
+          create: (context) => ExpertCubit(),
+          child: MaterialApp(
+            home: ExpertBlockScreen(),
           ),
-          themeMode: ThemeMode.dark,
-          darkTheme: ThemeData.dark(),
-          debugShowCheckedModeBanner: false,
-          initialBinding: AppBiding(),
-          initialRoute: SplashScreen.routeName,
-          getPages: [
-            GetPage(
-              name: SplashScreen.routeName,
-              page: () => SplashScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: PageViewScreen.routeName,
-              page: () => PageViewScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: MatchesScreen.routeName,
-              page: () => MatchesScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: BottomNavigatorController.routeName,
-              page: () => BottomNavigatorController(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: HomeScreen.routeName,
-              page: () => HomeScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: IplScreen.routeName,
-              page: () => IplScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: NewsDetailedScreen.routeName,
-              page: () => NewsDetailedScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: NewsScreen.routeName,
-              page: () => NewsScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: UpcomingMatchScreen.routeName,
-              page: () => UpcomingMatchScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: LiveScoreScreen.routeName,
-              page: () => LiveScoreScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: Search.routeName,
-              page: () => Search(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: ExpertScreen.routeName,
-              page: () => ExpertScreen(),
-              transition: Transition.rightToLeft,
-            ),
-            GetPage(
-              name: T20Prediction.routeName,
-              page: () => T20Prediction(),
-              transition: Transition.rightToLeft,
-            ),
-          ],
         );
+        // return GetMaterialApp(
+        //   theme: ThemeData(
+        //     splashColor: Colors.transparent,
+        //     highlightColor: Colors.transparent,
+        //     hoverColor: Colors.transparent,
+        //   ),
+        //   themeMode: ThemeMode.dark,
+        //   darkTheme: ThemeData.dark(),
+        //   debugShowCheckedModeBanner: false,
+        //   initialBinding: AppBiding(),
+        //   initialRoute: SplashScreen.routeName,
+        //   getPages: [
+        //     GetPage(
+        //       name: SplashScreen.routeName,
+        //       page: () => SplashScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: PageViewScreen.routeName,
+        //       page: () => PageViewScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: MatchesScreen.routeName,
+        //       page: () => MatchesScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: BottomNavigatorController.routeName,
+        //       page: () => BottomNavigatorController(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: HomeScreen.routeName,
+        //       page: () => HomeScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: IplScreen.routeName,
+        //       page: () => IplScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: NewsDetailedScreen.routeName,
+        //       page: () => NewsDetailedScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: NewsScreen.routeName,
+        //       page: () => NewsScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: UpcomingMatchScreen.routeName,
+        //       page: () => UpcomingMatchScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: LiveScoreScreen.routeName,
+        //       page: () => LiveScoreScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: Search.routeName,
+        //       page: () => Search(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: ExpertScreen.routeName,
+        //       page: () => ExpertScreen(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //     GetPage(
+        //       name: T20Prediction.routeName,
+        //       page: () => T20Prediction(),
+        //       transition: Transition.rightToLeft,
+        //     ),
+        //   ],
+        // );
       },
     );
   }
