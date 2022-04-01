@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import '../data/datasources/api_service.dart';
 import '../data/datasources/completed_match_data.dart';
 import '../data/datasources/live_matches.dart';

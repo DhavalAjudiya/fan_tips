@@ -13,7 +13,7 @@ class AppString {
 
   /// expert screen API Link
   static const String matchApiService =
-      "https://api.freefantasy.in/tips/tipsters";
+      "https://api.freefantasy.in/tips/tipsters?offset=0&limit=20";
 
   /// bottom nevigation bar
   static const String home = "Home";

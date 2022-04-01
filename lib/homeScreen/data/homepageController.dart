@@ -20,26 +20,40 @@ class HomeController extends GetxController {
   Rx<NewsDataModel> newsModel = NewsDataModel().obs;
   RxList newsPagination = [].obs;
   int pageLimit = 20;
-  int count = 0;
+  int newsCount = 0;
+  int startIndex = 0;
+  int endIndex = 20;
   bool pageAvailable = true;
   ScrollController scrollController = ScrollController();
+  ScrollController expertScrollController = ScrollController();
 
   Rx<Expert> predictionsData = Expert().obs;
   RxList<Tipster> wishListItems = <Tipster>[].obs;
+  RxList expertPaginationData = [].obs;
+  int expertCount = 0;
+  int expertPageLimit = 20;
 
   @override
   void onInit() {
-    callMethod(0);
-
+    callMethod(0, 20);
+    expertMethod(0, 20);
     scrollController.addListener(() {
+      log("message");
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
-        log("${scrollController.position.pixels}");
+        log("--------->${scrollController.position.pixels}");
         loadMoreData();
       }
     });
 
-    expertMethod();
+    expertScrollController.addListener(() {
+      if (expertScrollController.position.pixels ==
+          expertScrollController.position.maxScrollExtent) {
+        log("${expertScrollController.position.pixels}");
+        expertMoreData();
+      }
+    });
+
     super.onInit();
   }
 
@@ -70,10 +84,10 @@ class HomeController extends GetxController {
     return DateTime.fromMillisecondsSinceEpoch(val);
   }
 
-  callMethod(int count) async {
+  callMethod(int startIndex, int endIndex) async {
     try {
       isLoading.value = true;
-      final result = await ApiService().newsPostData(0);
+      final result = await ApiService().newsPostData(0, 20);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -93,12 +107,16 @@ class HomeController extends GetxController {
       if (newsModel.value.news!.length > pageLimit) {
         pageAvailable = false;
       } else {
-        count++;
+        newsCount++;
+        startIndex = newsPagination.length + 1;
+        endIndex = startIndex + pageLimit;
 
-        log("===========>${count.obs}");
+        log("===========>${newsCount.obs}");
+        log("===========>111${startIndex.obs}");
+        log("===========>${endIndex.obs}");
       }
 
-      var result = await ApiService().newsPostData(count);
+      final result = await ApiService().newsPostData(startIndex, endIndex);
       newsModel.value = result!;
       if (newsModel.value.news!.isNotEmpty) {
         newsPagination.addAll(newsModel.value.news!);
@@ -109,13 +127,45 @@ class HomeController extends GetxController {
     }
   }
 
-  expertMethod() async {
+  expertMethod(int startIndex, int endIndex) async {
     try {
-      final result = await ApiService().expertData();
+      isLoading.value = true;
+      final result = await ApiService().expertData(0, 20);
       predictionsData.value = result!;
-      return predictionsData;
-    } catch (e, st) {
-      print('-->>${e} -->>${st}');
+      log("pridication data===1111${predictionsData.value.tipsters?.length}");
+      if (predictionsData.value.tipsters!.isNotEmpty) {
+        expertPaginationData.addAll(predictionsData.value.tipsters!);
+      }
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  expertMoreData() async {
+    if (!pageAvailable) {
+      print('No More Products');
+      return;
+    }
+    try {
+      isLoading.value = true;
+      if (predictionsData.value.tipsters!.length < expertPageLimit) {
+        pageAvailable = false;
+      } else {
+        log("++++++++${expertPaginationData.length}");
+        startIndex = expertPaginationData.length + 1;
+        endIndex = startIndex + pageLimit;
+        log("===========>${startIndex.obs}");
+        log("===========>${endIndex.obs}");
+      }
+
+      final result = await ApiService().expertData(startIndex, endIndex);
+      predictionsData.value = result!;
+      log("pridication data===222${predictionsData.value.tipsters?.length}");
+      if (predictionsData.value.tipsters!.isNotEmpty) {
+        expertPaginationData.addAll(predictionsData.value.tipsters!);
+      }
+    } finally {
+      isLoading.value = false;
     }
   }
 
@@ -126,7 +176,7 @@ class HomeController extends GetxController {
   }
 
   void removeProduct(Tipster data) {
-    predictionsData.value.tipsters?.first.wishlist.value = false;
+    expertPaginationData.first.wishlist.value = false;
 
     wishListItems.remove(data);
   }

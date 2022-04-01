@@ -1,9 +1,12 @@
+import 'package:fantips/upcoming_matches/live_score_screen/quiz_tab.dart';
+import 'package:fantips/upcoming_matches/live_score_screen/score_card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../../expert/page/search_screen.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../ipl_screen/controller/ipl_controller.dart';
+import '../../screen/ipl_screen/fantasyTabBar/Page/fantasy_tabBar.dart';
 import 'commentry_screen.dart';
 
 class LiveScoreScreen extends StatelessWidget {
@@ -20,7 +23,6 @@ class LiveScoreScreen extends StatelessWidget {
         leading: InkWell(
           onTap: () {
             Get.back();
-            print("objeasdadasdct");
           },
           child: const Icon(
             Icons.arrow_back,
@@ -63,14 +65,14 @@ class LiveScoreScreen extends StatelessWidget {
       body: TabBarView(
         controller: iplController.tabController1,
         children: [
-          // // fantasy
-          // FantasyTabBar(),
-          // // commentry
-          // Commentary(),
-          // // scorecard
-          // ScoreCardScreen(),
-          // // quiz
-          // QuizScreen()
+          // fantasy
+          FantasyTabBar(),
+          // commentry
+          Commentary(),
+          // scorecard
+          ScoreCardScreen(),
+          // quiz
+          QuizScreen()
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:fantips/commanWidget/commanText.dart';
 import 'package:fantips/homeScreen/data/homepageController.dart';
 import 'package:fantips/widget/custom_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -16,7 +17,8 @@ import '../../../../utills/string.dart';
 
 class FantasyTab extends StatelessWidget {
   FantasyTab({Key? key}) : super(key: key);
-  final upcomingController = Get.put(UpcomingMatchController());
+  final UpcomingMatchController upcomingController =
+      Get.put(UpcomingMatchController());
   final HomeController homeController = Get.put(HomeController());
 
   @override
@@ -146,9 +148,9 @@ class FantasyTab extends StatelessWidget {
                                                   true) {
                                                 upcomingController.index.value =
                                                     0;
-                                                homeController.predictionsData
-                                                    .value.tipsters
-                                                    ?.sort((a, b) => a
+                                                homeController
+                                                    .expertPaginationData
+                                                    .sort((a, b) => a
                                                         .totalPredictions!
                                                         .compareTo(b
                                                             .totalPredictions!));
@@ -192,9 +194,9 @@ class FantasyTab extends StatelessWidget {
                                                   true) {
                                                 upcomingController.index.value =
                                                     1;
-                                                homeController.predictionsData
-                                                    .value.tipsters
-                                                    ?.sort((a, b) => a.avgScore!
+                                                homeController
+                                                    .expertPaginationData
+                                                    .sort((a, b) => a.avgScore!
                                                         .compareTo(
                                                             b.avgScore!));
                                               } else {
@@ -238,9 +240,9 @@ class FantasyTab extends StatelessWidget {
                                                   true) {
                                                 upcomingController.index.value =
                                                     2;
-                                                homeController.predictionsData
-                                                    .value.tipsters
-                                                    ?.sort((a, b) => a.top3!
+                                                homeController
+                                                    .expertPaginationData
+                                                    .sort((a, b) => a.top3!
                                                         .compareTo(b.top3!));
                                               } else {
                                                 upcomingController.isSelect =
@@ -372,263 +374,310 @@ class FantasyTab extends StatelessWidget {
                         ? Expanded(
                             child: SizedBox(
                               child: ListView.builder(
-                                itemCount: homeController
-                                    .predictionsData.value.tipsters?.length,
+                                controller:
+                                    homeController.expertScrollController,
+                                itemCount: homeController.isLoading.value
+                                    ? homeController
+                                            .expertPaginationData.length +
+                                        1
+                                    : homeController
+                                        .expertPaginationData.length,
                                 physics: const BouncingScrollPhysics(),
                                 itemBuilder: (context, index) {
-                                  return AppContainer(
-                                    height: 17.h,
-                                    margin:
-                                        EdgeInsets.symmetric(vertical: 2.sp),
-                                    borderRadius: BorderRadius.circular(10.sp),
-                                    color: AppColor.blackColor,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 10.sp,
-                                          right: 10.sp,
-                                          top: 8.sp,
-                                          bottom: 5.sp),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              CircleAvatar(
-                                                radius: 18.sp,
-                                                backgroundImage: NetworkImage(
-                                                    "${homeController.predictionsData.value.tipsters?[index].profileUrl}"),
-                                              ),
-                                              SizedBox(
-                                                width: 2.w,
-                                              ),
-                                              Column(
+                                  final expertData = homeController
+                                      .expertPaginationData[index];
+                                  log("======expertPaginationData====>${homeController.expertPaginationData.length}");
+                                  return homeController
+                                                  .expertPaginationData.length -
+                                              1 ==
+                                          index
+                                      ? Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 0, top: 10),
+                                          child: Center(
+                                              child: SpinKitCircle(
+                                            color: AppColor.greenColor,
+                                            size: 3.h,
+                                          )),
+                                        )
+                                      : Obx(
+                                          () => AppContainer(
+                                            height: 17.h,
+                                            margin: EdgeInsets.symmetric(
+                                                vertical: 2.sp),
+                                            borderRadius:
+                                                BorderRadius.circular(10.sp),
+                                            color: AppColor.blackColor,
+                                            child: Padding(
+                                              padding: EdgeInsets.only(
+                                                  left: 10.sp,
+                                                  right: 10.sp,
+                                                  top: 8.sp,
+                                                  bottom: 5.sp),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
                                                     children: [
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          CustomeText(
-                                                              title:
-                                                                  '${(homeController.predictionsData.value.tipsters?[index].name?.length ?? 0) >= 20 ? (homeController.predictionsData.value.tipsters?[index].name?.substring(0, 12) ?? 0) : (homeController.predictionsData.value.tipsters?[index].name ?? 0)}...',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              color: AppColor
-                                                                  .textColor,
-                                                              fontSize: 12.sp),
-                                                          Row(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Image.asset(
-                                                                AppImage
-                                                                    .youtube,
-                                                                height: 2.h,
-                                                                width: 3.w,
-                                                              ),
-                                                              SizedBox(
-                                                                width: 1.w,
-                                                              ),
-                                                              CustomeText(
-                                                                title:
-                                                                    "${homeController.predictionsData.value.tipsters?[index].subscriberCount}",
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                color: AppColor
-                                                                    .textColor,
-                                                                fontSize: 8.sp,
-                                                              )
-                                                            ],
-                                                          ),
-                                                        ],
+                                                      CircleAvatar(
+                                                        radius: 18.sp,
+                                                        backgroundImage: expertData
+                                                                    .profileUrl ==
+                                                                null
+                                                            ? NetworkImage(
+                                                                AppString
+                                                                    .imageNotFound)
+                                                            : NetworkImage(
+                                                                "${expertData.profileUrl}"),
                                                       ),
                                                       SizedBox(
                                                         width: 2.w,
                                                       ),
-                                                      AppContainer(
-                                                        height: 2.h,
-                                                        width: 13.w,
-                                                        color:
-                                                            AppColor.offBlack,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(2.sp),
-                                                        child: Center(
-                                                          child: CustomeText(
-                                                            title:
-                                                                AppString.teams,
-                                                            fontSize: 8.sp,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            color: AppColor
-                                                                .greenColor,
+                                                      Column(
+                                                        children: [
+                                                          Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  CustomeText(
+                                                                      title:
+                                                                          '${(expertData.name?.length ?? 0) >= 20 ? (expertData.name?.substring(0, 12) ?? 0) : (expertData.name ?? 0)}...',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: AppColor
+                                                                          .textColor,
+                                                                      fontSize:
+                                                                          12.sp),
+                                                                  Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Image
+                                                                          .asset(
+                                                                        AppImage
+                                                                            .youtube,
+                                                                        height:
+                                                                            2.h,
+                                                                        width:
+                                                                            3.w,
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            1.w,
+                                                                      ),
+                                                                      CustomeText(
+                                                                        title:
+                                                                            "${expertData.subscriberCount}",
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        color: AppColor
+                                                                            .textColor,
+                                                                        fontSize:
+                                                                            8.sp,
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              SizedBox(
+                                                                width: 2.w,
+                                                              ),
+                                                              AppContainer(
+                                                                height: 2.h,
+                                                                width: 13.w,
+                                                                color: AppColor
+                                                                    .offBlack,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            2.sp),
+                                                                child: Center(
+                                                                  child:
+                                                                      CustomeText(
+                                                                    title: AppString
+                                                                        .teams,
+                                                                    fontSize:
+                                                                        8.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: AppColor
+                                                                        .greenColor,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ),
+                                                        ],
+                                                      ),
+                                                      Spacer(),
+                                                      InkWell(
+                                                        onTap: () {
+                                                          if (homeController
+                                                                  .expertPaginationData[
+                                                                      index]
+                                                                  .wishlist ==
+                                                              false) {
+                                                            homeController
+                                                                .expertPaginationData[
+                                                                    index]
+                                                                .wishlist
+                                                                .value = true;
+                                                            homeController.addProduct(
+                                                                homeController
+                                                                        .expertPaginationData[
+                                                                    index]);
+                                                          } else {
+                                                            homeController
+                                                                .removeProduct(
+                                                                    homeController
+                                                                            .expertPaginationData[
+                                                                        index]);
+
+                                                            homeController
+                                                                .expertPaginationData[
+                                                                    index]
+                                                                .wishlist
+                                                                .value = false;
+                                                          }
+                                                        },
+                                                        child: homeController
+                                                                    .expertPaginationData[
+                                                                        index]
+                                                                    .wishlist ==
+                                                                false
+                                                            ? const Icon(
+                                                                Icons
+                                                                    .favorite_outline,
+                                                                color: AppColor
+                                                                    .textColor,
+                                                              )
+                                                            : const Icon(
+                                                                Icons.favorite,
+                                                                color: AppColor
+                                                                    .greenColor,
+                                                              ),
                                                       ),
                                                     ],
                                                   ),
+                                                  SizedBox(
+                                                    height: 1.h,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 10.sp),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Column(
+                                                          children: [
+                                                            CustomeText(
+                                                                title:
+                                                                    "${expertData.totalPredictions}",
+                                                                color: AppColor
+                                                                    .textColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize:
+                                                                    13.sp),
+                                                            CustomeText(
+                                                              title: AppString
+                                                                  .predictions,
+                                                              fontSize: 10.sp,
+                                                              color: AppColor
+                                                                  .textColor,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Container(
+                                                          height: 6.h,
+                                                          width: 0.2.w,
+                                                          color: AppColor
+                                                              .verticalDivider,
+                                                        ),
+                                                        Column(
+                                                          children: [
+                                                            CustomeText(
+                                                                title:
+                                                                    "${expertData.avgScore}",
+                                                                color: AppColor
+                                                                    .textColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize:
+                                                                    13.sp),
+                                                            CustomeText(
+                                                              title: AppString
+                                                                  .averageScore,
+                                                              fontSize: 10.sp,
+                                                              color: AppColor
+                                                                  .textColor,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Container(
+                                                          height: 6.h,
+                                                          width: 0.2.w,
+                                                          color: AppColor
+                                                              .verticalDivider,
+                                                        ),
+                                                        Column(
+                                                          children: [
+                                                            CustomeText(
+                                                                title:
+                                                                    "${expertData.top3}",
+                                                                color: AppColor
+                                                                    .textColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize:
+                                                                    13.sp),
+                                                            CustomeText(
+                                                              title: AppString
+                                                                  .wins,
+                                                              fontSize: 10.sp,
+                                                              color: AppColor
+                                                                  .textColor,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
-                                              const Spacer(),
-                                              Obx(
-                                                () => InkWell(
-                                                  onTap: () {
-                                                    if (homeController
-                                                            .predictionsData
-                                                            .value
-                                                            .tipsters?[index]
-                                                            .wishlist ==
-                                                        false) {
-                                                      homeController
-                                                          .predictionsData
-                                                          .value
-                                                          .tipsters?[index]
-                                                          .wishlist
-                                                          .value = true;
-                                                      homeController.addProduct(
-                                                          homeController
-                                                              .predictionsData
-                                                              .value
-                                                              .tipsters![index]);
-                                                    } else {
-                                                      homeController.removeProduct(
-                                                          homeController
-                                                              .predictionsData
-                                                              .value
-                                                              .tipsters![index]);
-
-                                                      homeController
-                                                          .predictionsData
-                                                          .value
-                                                          .tipsters?[index]
-                                                          .wishlist
-                                                          .value = false;
-                                                    }
-                                                  },
-                                                  child: homeController
-                                                              .predictionsData
-                                                              .value
-                                                              .tipsters?[index]
-                                                              .wishlist ==
-                                                          false
-                                                      ? const Icon(
-                                                          Icons
-                                                              .favorite_outline,
-                                                          color: AppColor
-                                                              .textColor,
-                                                        )
-                                                      : const Icon(
-                                                          Icons.favorite,
-                                                          color: AppColor
-                                                              .greenColor,
-                                                        ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 1.h,
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 10.sp),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Column(
-                                                  children: [
-                                                    CustomeText(
-                                                        title:
-                                                            "${homeController.predictionsData.value.tipsters?[index].totalPredictions}",
-                                                        color:
-                                                            AppColor.textColor,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 13.sp),
-                                                    CustomeText(
-                                                      title:
-                                                          AppString.predictions,
-                                                      fontSize: 10.sp,
-                                                      color: AppColor.textColor,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                                  ],
-                                                ),
-                                                Container(
-                                                  height: 6.h,
-                                                  width: 0.2.w,
-                                                  color:
-                                                      AppColor.verticalDivider,
-                                                ),
-                                                Column(
-                                                  children: [
-                                                    CustomeText(
-                                                        title:
-                                                            "${homeController.predictionsData.value.tipsters?[index].avgScore}",
-                                                        color:
-                                                            AppColor.textColor,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 13.sp),
-                                                    CustomeText(
-                                                      title: AppString
-                                                          .averageScore,
-                                                      fontSize: 10.sp,
-                                                      color: AppColor.textColor,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                                  ],
-                                                ),
-                                                Container(
-                                                  height: 6.h,
-                                                  width: 0.2.w,
-                                                  color:
-                                                      AppColor.verticalDivider,
-                                                ),
-                                                Column(
-                                                  children: [
-                                                    CustomeText(
-                                                        title:
-                                                            "${homeController.predictionsData.value.tipsters?[index].top3}",
-                                                        color:
-                                                            AppColor.textColor,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 13.sp),
-                                                    CustomeText(
-                                                      title: AppString.wins,
-                                                      fontSize: 10.sp,
-                                                      color: AppColor.textColor,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
+                                        );
                                 },
                               ),
                             ),
@@ -755,20 +804,17 @@ class FantasyTab extends StatelessWidget {
                                                     ],
                                                   ),
                                                   const Spacer(),
-                                                  Obx(
-                                                    () => InkWell(
-                                                      onTap: () {
-                                                        homeController
-                                                            .removeProduct(
-                                                                homeController
-                                                                        .wishListItems[
-                                                                    index]);
-                                                      },
-                                                      child: const Icon(
-                                                        Icons.favorite,
-                                                        color:
-                                                            AppColor.greenColor,
-                                                      ),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      homeController.removeProduct(
+                                                          homeController
+                                                                  .wishListItems[
+                                                              index]);
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.favorite,
+                                                      color:
+                                                          AppColor.greenColor,
                                                     ),
                                                   ),
                                                 ],

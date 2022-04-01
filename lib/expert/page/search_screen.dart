@@ -22,6 +22,7 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: Obx(
           () {
@@ -31,7 +32,7 @@ class _SearchState extends State<Search> {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    height: 5.h,
+                    height: 6.h,
                     decoration: BoxDecoration(
                       color: AppColor.grey.shade600,
                       borderRadius: BorderRadius.circular(30),
@@ -57,7 +58,10 @@ class _SearchState extends State<Search> {
                       },
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
-                          icon: Icon(Icons.close, color: AppColor.white),
+                          icon: ipController
+                                  .searchController.value.text.isNotEmpty
+                              ? Icon(Icons.close, color: AppColor.white)
+                              : SizedBox(),
                           onPressed: () {
                             ipController.searchController.clear();
                             ipController.searchItem.clear();

@@ -1,5 +1,7 @@
 import 'package:fantips/expert/expertBlockPage/blockCubit/cubit.dart';
 import 'package:fantips/expert/expertBlockPage/repositoryBlock/expert_repository.dart';
+import 'dart:io';
+
 import 'package:fantips/homeScreen/page/newsScreen.dart';
 import 'package:fantips/pageView/page_view.dart';
 import 'package:fantips/widget/splash_controller.dart';
@@ -25,7 +27,18 @@ import 'upcoming_matches/live_score_screen/live_score_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  HttpOverrides.global = MyHttpOverrides();
+
   runApp(const MyApp());
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -41,6 +54,78 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             home: ExpertBlockScreen(),
           ),
+          themeMode: ThemeMode.dark,
+          darkTheme: ThemeData.dark(),
+          debugShowCheckedModeBanner: false,
+          initialBinding: AppBiding(),
+          initialRoute: SplashScreen.routeName,
+          getPages: [
+            GetPage(
+              name: SplashScreen.routeName,
+              page: () => SplashScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: PageViewScreen.routeName,
+              page: () => PageViewScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: MatchesScreen.routeName,
+              page: () => MatchesScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: BottomNavigatorController.routeName,
+              page: () => BottomNavigatorController(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: HomeScreen.routeName,
+              page: () => HomeScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsScreen.routeName,
+              page: () => NewsScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: IplScreen.routeName,
+              page: () => IplScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: NewsDetailedScreen.routeName,
+              page: () => NewsDetailedScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: UpcomingMatchScreen.routeName,
+              page: () => UpcomingMatchScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: LiveScoreScreen.routeName,
+              page: () => LiveScoreScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: Search.routeName,
+              page: () => Search(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: ExpertScreen.routeName,
+              page: () => ExpertScreen(),
+              transition: Transition.rightToLeft,
+            ),
+            GetPage(
+              name: T20Prediction.routeName,
+              page: () => T20Prediction(),
+              transition: Transition.rightToLeft,
+            ),
+          ],
         );
         // return GetMaterialApp(
         //   theme: ThemeData(
