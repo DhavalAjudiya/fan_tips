@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:fantips/expert/data/model.dart';
 import 'package:http/http.dart' as http;
-import '../../utills/string.dart';
 import 'newsModel.dart';
 
 class ApiService {

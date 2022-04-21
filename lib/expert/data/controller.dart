@@ -37,63 +37,65 @@ class IpController extends GetxController {
     refreshController.refreshCompleted();
   }
 
-  dataPost() async {
-    var result = await MatchApiService.data();
+  dataPost(int startIndex, int endIndex) async {
+    var result = await MatchApiService.data(startIndex, endIndex);
     if (result != null) {
       expert.value = result;
-  dataPost(int startIndex, int endIndex) async {
-    try {
-      isLoading.value = true;
-      final result = await MatchApiService().data(0, 20);
-      expert.value = result!;
-      if (expert.value.tipsters!.isNotEmpty) {
-        expertData.addAll(expert.value.tipsters!);
-        log("=======-=-==-=-=-=-=>fnjsddkvsdb${expertData.length}");
-      }
-    } finally {
-      isLoading.value = false;
-    }
-  }
-
-  paginationData() async {
-    if (!pageAvailable) {
-      print('No More Products');
-      return;
-    }
-    try {
-      isLoading.value = true;
-      if (expert.value.tipsters!.length > 20) {
-        pageAvailable = false;
-      } else {
-        count++;
-        log("==========>>>${count}");
-        startIndex = expertData.length + 1;
-        endIndex = startIndex + 20;
-        log("===========>${startIndex.obs}");
-        log("===========>${endIndex.obs}");
+      dataPost(int startIndex, int endIndex) async {
+        try {
+          isLoading.value = true;
+          final result = await MatchApiService.data(0, 20);
+          expert.value = result!;
+          if (expert.value.tipsters!.isNotEmpty) {
+            expertData.addAll(expert.value.tipsters!);
+            log("=======-=-==-=-=-=-=>fnjsddkvsdb${expertData.length}");
+          }
+        } finally {
+          isLoading.value = false;
+        }
       }
 
-      final result = await MatchApiService().data(startIndex, endIndex);
-      expert.value = result!;
-      if (expert.value.tipsters!.isNotEmpty) {
-        expertData.addAll(expert.value.tipsters!);
-        log("=======-=-==-=-=-=-=>${expertData.length}");
-      }
-    } finally {
-      isLoading.value = false;
-    }
-  }
+      paginationData() async {
+        if (!pageAvailable) {
+          print('No More Products');
+          return;
+        }
+        try {
+          isLoading.value = true;
+          if (expert.value.tipsters!.length > 20) {
+            pageAvailable = false;
+          } else {
+            count++;
+            log("==========>>>${count}");
+            startIndex = expertData.length + 1;
+            endIndex = startIndex + 20;
+            log("===========>${startIndex.obs}");
+            log("===========>${endIndex.obs}");
+          }
 
-  @override
-  void onInit() {
-    dataPost(0, 20);
-    scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        log("${scrollController.position.pixels}");
-        paginationData();
+          final result = await MatchApiService.data(startIndex, endIndex);
+          expert.value = result!;
+          if (expert.value.tipsters!.isNotEmpty) {
+            expertData.addAll(expert.value.tipsters!);
+            log("=======-=-==-=-=-=-=>${expertData.length}");
+          }
+        } finally {
+          isLoading.value = false;
+        }
       }
-    });
-    super.onInit();
+
+      @override
+      void onInit() {
+        dataPost(0, 20);
+        scrollController.addListener(() {
+          if (scrollController.position.pixels ==
+              scrollController.position.maxScrollExtent) {
+            log("${scrollController.position.pixels}");
+            paginationData();
+          }
+        });
+        super.onInit();
+      }
+    }
   }
 }

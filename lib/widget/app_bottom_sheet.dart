@@ -78,16 +78,16 @@ class AppBottomSheet {
               width: 60.w,
               color: AppColor.containerBackground,
               borderRadius: BorderRadius.circular(10),
-              onTap: () {
-                signInWithGoogle().then(
-                  (data) {
-                    ipController.isLoggedIn.value = true;
-                    ipController.userObj = data;
-                  },
-                ).catchError(
-                  (e) {},
-                );
-              },
+              // onTap: () {
+              //   signInWithGoogle().then(
+              //     (data) {
+              //       ipController.isLoggedIn.value = true;
+              //       ipController.userObj = data;
+              //     },
+              //   ).catchError(
+              //     (e) {},
+              //   );
+              // },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
