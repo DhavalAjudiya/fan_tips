@@ -123,13 +123,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                           builder: (context) {
                             return Container(
                               height: 25.h,
-                              decoration: BoxDecoration(
-                                color: AppColor.containerBackgroundColor,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(12.sp),
-                                  topRight: Radius.circular(12.sp),
-                                ),
-                              ),
+                              color: AppColor.containerBackgroundColor,
                               child: Padding(
                                 padding: EdgeInsets.only(
                                     left: 10.sp, right: 10.sp, top: 10.sp),

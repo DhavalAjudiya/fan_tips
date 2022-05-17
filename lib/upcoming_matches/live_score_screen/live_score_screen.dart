@@ -53,6 +53,7 @@ class LiveScoreScreen extends StatelessWidget {
               indicatorWeight: 2.5,
               isScrollable: true,
               labelColor: AppColor.greenColor,
+              //unselectedLabelColor: AppColor.white,
               labelStyle:
                   TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
               unselectedLabelStyle:

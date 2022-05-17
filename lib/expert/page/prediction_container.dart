@@ -32,9 +32,9 @@ class PredictionContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
-        height: 19.2.h,
+        height: 17.h,
         decoration: BoxDecoration(
           color: const Color(0XFF1B1B1B),
           borderRadius: BorderRadius.circular(8),
@@ -55,7 +55,7 @@ class PredictionContainer extends StatelessWidget {
                   CircleAvatar(
                     backgroundImage: backgroundImage,
                     backgroundColor: AppColor.whiteColor,
-                    radius: 25,
+                    radius: 2.7.h,
                   ),
                   SizedBox(
                     width: 2.w,
@@ -116,11 +116,12 @@ class PredictionContainer extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 1.h,
+                height: 2.h,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(width: 2.5.w),
                   Column(
                     children: [
                       Text(
@@ -142,11 +143,13 @@ class PredictionContainer extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(width: 2.w),
                   Container(
                     height: 40,
                     width: 0.2.w,
                     color: AppColor.verticalDividerColor,
                   ),
+                  SizedBox(width: 2.w),
                   Column(
                     children: [
                       Text(
@@ -168,6 +171,7 @@ class PredictionContainer extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(width: 2.w),
                   Container(
                     height: 40,
                     width: 0.2.w,
