@@ -48,7 +48,14 @@ class Completed extends StatelessWidget {
                                 color: Colors.white54,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                         isSelect.value = true;
+                              ),
+                            ),
+                      CustomLCContainer(
+                        margin: EdgeInsets.symmetric(vertical: 1.h),
+                        headertext: current?.header ?? "",
+                        ontap: () {
+                          if (current?.isSelect.value == false) {
+                            current?.isSelect.value = true;
                           } else {
                             current?.isSelect.value = false;
                           }
