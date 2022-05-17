@@ -46,6 +46,8 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   infinite_scroll_pagination: ^3.1.0
   flutter_bloc: ^8.0.1
+  flutter_facebook_auth: ^4.1.2
+  grouped_list: ^4.2.0
 
 
 

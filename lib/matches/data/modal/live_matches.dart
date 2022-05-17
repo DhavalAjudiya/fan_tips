@@ -83,6 +83,7 @@ class Started {
     this.status,
     required this.isSelected,
   });
+
   RxBool isSelected = false.obs;
   bool? quizavailable;
   int? team2Id;

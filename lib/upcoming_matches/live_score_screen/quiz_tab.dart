@@ -5,7 +5,6 @@ import '../../../T20Predictions/page/utills/asset.dart';
 import '../../../T20Predictions/page/utills/color.dart';
 import '../../../commanWidget/commanText.dart';
 import '../../../utills/string.dart';
-import '../../widget/custom_container.dart';
 import '../../screen/ipl_screen/fantasyTabBar/widget/wight/container/container_custom.dart';
 
 class QuizScreen extends StatelessWidget {

@@ -21,7 +21,7 @@ class FeaturedExpertContainer extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 17.h,
+          height: 16.h,
           child: PageView.builder(
             controller: homeController.pageController,
             onPageChanged: (value) {

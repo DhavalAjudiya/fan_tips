@@ -61,6 +61,7 @@ class MatchesScreenController extends GetxController
       loading.value = true;
       final completedData =
           await CompletedMatchApi.fetchCompletedMatchesData(0);
+
       completedMatches.value = completedData!;
       if (completedMatches.value.matches!.completed!.isNotEmpty) {
         data.addAll(completedMatches.value.matches!.completed!);
@@ -78,6 +79,7 @@ class MatchesScreenController extends GetxController
       final completedData =
           await CompletedMatchApi.fetchCompletedMatchesData(select);
       completedMatches.value = completedData!;
+
       if (completedMatches.value.matches!.completed!.isNotEmpty) {
         data.addAll(completedMatches.value.matches!.completed!);
         print("dataadd${data}");

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../upcoming_matches/live_score_screen/live_score_screen.dart';
 import '../../utills/string.dart';
 import '../../widget/current_match_container.dart';
@@ -9,7 +10,7 @@ import '../controler/utils_time.dart';
 
 class Completed extends StatelessWidget {
   final _homeController = Get.put(MatchesScreenController());
-
+  String matchTime = "";
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +25,9 @@ class Completed extends StatelessWidget {
             itemCount: _homeController.data.length,
             itemBuilder: (context, index) {
               final current = _homeController.data[index];
+              final backTime = index == 0
+                  ? _homeController.data[index]
+                  : _homeController.data[(index - 1)];
               return Obx(
                 () => GestureDetector(
                   onTap: () {
@@ -31,20 +35,20 @@ class Completed extends StatelessWidget {
                   },
                   child: Column(
                     children: [
-                      Text(
-                        Utils.formatTimeOfDay(current?.startTime ?? 0),
-                        style: const TextStyle(
-                          color: Colors.white54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      CustomLCContainer(
-                        margin: EdgeInsets.symmetric(vertical: 1.h),
-                        headertext: current?.header ?? "",
-                        ontap: () {
-                          if (current?.isSelect.value == false) {
-                            current?.isSelect.value = true;
+                      Utils.formatTimeOfDay(current?.startTime ?? 0) ==
+                                  Utils.formatTimeOfDay(
+                                      backTime?.startTime ?? 0) ||
+                              index == 0
+                          ? SizedBox(
+                              height: 1.7.h,
+                            )
+                          : Text(
+                              Utils.formatTimeOfDay(current?.startTime ?? 0),
+                              style: const TextStyle(
+                                color: Colors.white54,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                         isSelect.value = true;
                           } else {
                             current?.isSelect.value = false;
                           }

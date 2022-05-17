@@ -36,6 +36,10 @@ class UpComing extends StatelessWidget {
             itemBuilder: (context, index) {
               final current = _homeController
                   .currentMatch.value.matches?.notstarted?[index];
+              final backTime = index == 0
+                  ? current
+                  : _homeController
+                      .currentMatch.value.matches?.notstarted?[(index - 1)];
               return Obx(
                 () => InkWell(
                   onTap: () {
@@ -52,14 +56,19 @@ class UpComing extends StatelessWidget {
                   },
                   child: Column(
                     children: [
-                      Text(
-                        Utils.formatTimeOfDay(current?.startTime ?? 0),
-                        style: const TextStyle(
-                          color: Colors.white54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      Utils.formatTimeOfDay(current?.startTime ?? 0) ==
+                              Utils.formatTimeOfDay(backTime?.startTime ?? 0)
+                          ? SizedBox(
+                              height: 1.8.h,
+                            )
+                          : Text(
+                              Utils.formatTimeOfDay(current?.startTime ?? 0),
+                              style: const TextStyle(
+                                color: Colors.white54,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                       CustomContainer(
                         margin: EdgeInsets.symmetric(vertical: 1.h),
                         headertext: current?.header ?? "",

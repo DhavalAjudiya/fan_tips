@@ -59,6 +59,7 @@ class AppString {
   static const String profile = "Profile";
   static const String logout = "Logout";
   static const String submit = "Submit";
+
   // static const String sortByAvgScore = "Sort by : Avg Score";
 
   static const String fantasyTab = "Fantasy";
@@ -88,6 +89,7 @@ class AppString {
   static const String nextQuestion = "Next question";
   static const String question = "Question 4";
   static const String totalQuestion = "/10";
+
   //static const String submit = "Submit";
   static const String wicketKeeper1 = "WICKET - KEEPER";
   static const String allRounders = "ALL-ROUNDERS";
@@ -119,6 +121,7 @@ class AppString {
   static const String predictionExperts = "Prediction Experts";
   static const String sortBy = "Sort By";
   static const String average_score = "Average-Score";
+
   //static const String circular = "circular";
   static const String circular = "circular";
 

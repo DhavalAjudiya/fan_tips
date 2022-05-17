@@ -17,14 +17,13 @@ class MatchForYouContainer extends StatelessWidget {
   final MatchesScreenController _homeController =
       Get.put(MatchesScreenController());
   final IpController ipController = Get.put(IpController());
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Obx(
           () => SizedBox(
-            height: 19.h,
+            height: 17.h,
             child: PageView.builder(
               controller: homeController.pageController,
               onPageChanged: (value) {
@@ -68,61 +67,58 @@ class MatchForYouContainer extends StatelessWidget {
                                   const Spacer(),
                                   Obx(
                                     () => InkWell(
-                                        onTap: () {
-                                          if (_homecontroller
+                                      onTap: () {
+                                        if (_homeController
+                                                .currentMatch
+                                                .value
+                                                .matches
+                                                ?.notstarted?[index]
+                                                .selected ==
+                                            false) {
+                                          _homeController
+                                              .currentMatch
+                                              .value
+                                              .matches
+                                              ?.notstarted?[index]
+                                              .selected
+                                              .value = true;
+                                          _homeController.addNotificationItem(
+                                              _homeController.currentMatch.value
+                                                  .matches!.notstarted![index]);
+                                        } else {
+                                          _homeController
+                                              .removeNotificationItem(
+                                                  _homeController
+                                                      .currentMatch
+                                                      .value
+                                                      .matches!
+                                                      .notstarted![index]);
+                                          _homeController
+                                              .currentMatch
+                                              .value
+                                              .matches
+                                              ?.notstarted?[index]
+                                              .selected
+                                              .value = false;
+                                        }
+                                      },
+                                      child: _homeController
                                                   .currentMatch
                                                   .value
                                                   .matches
                                                   ?.notstarted?[index]
-                                                  .selected ==
-                                              false) {
-                                            _homecontroller
-                                                .currentMatch
-                                                .value
-                                                .matches
-                                                ?.notstarted?[index]
-                                                .selected
-                                                .value = true;
-
-                                            _homecontroller.addNotificationItem(
-                                                _homecontroller
-                                                    .currentMatch
-                                                    .value
-                                                    .matches!
-                                                    .notstarted![index]);
-                                          } else {
-                                            _homecontroller
-                                                .removeNotificationItem(
-                                                    _homecontroller
-                                                        .currentMatch
-                                                        .value
-                                                        .matches!
-                                                        .notstarted![index]);
-                                            _homecontroller
-                                                .currentMatch
-                                                .value
-                                                .matches
-                                                ?.notstarted?[index]
-                                                .selected
-                                                .value = false;
-                                          }
-                                        },
-                                        child: _homecontroller
-                                                    .currentMatch
-                                                    .value
-                                                    .matches
-                                                    ?.notstarted?[index]
-                                                    .selected
-                                                    .value ==
-                                                false
-                                            ? Icon(
-                                                Icons.notifications_none,
-                                                size: 13.sp,
-                                              )
-                                            : Icon(
-                                                Icons.notifications,
-                                                size: 13.sp,
-                                              )),
+                                                  .selected
+                                                  .value ==
+                                              false
+                                          ? Icon(
+                                              Icons.notifications_none,
+                                              size: 13.sp,
+                                            )
+                                          : Icon(
+                                              Icons.notifications,
+                                              size: 13.sp,
+                                            ),
+                                    ),
                                   )
                                 ],
                               ),
@@ -174,7 +170,6 @@ class MatchForYouContainer extends StatelessWidget {
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 10.sp,
                                               ),
-
                                               // CustomeText(
                                               //   title: AppString.scoWik,
                                               //   fontWeight: FontWeight.w700,
@@ -200,32 +195,28 @@ class MatchForYouContainer extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.andSing,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // ),
-                                            // SizedBox(
-                                            //   width: 1.w,
-                                            // ),
-                                            // CustomeText(
-                                            //   title: AppString.scoWik,
-                                            //   fontWeight: FontWeight.w700,
-                                            //   fontSize: 10.sp,
-                                            // )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.andSing,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // ),
+                                      // SizedBox(
+                                      //   width: 1.w,
+                                      // ),
+                                      // CustomeText(
+                                      //   title: AppString.scoWik,
+                                      //   fontWeight: FontWeight.w700,
+                                      //   fontSize: 10.sp,
+                                      // )
+                                    ],
                                   ),
                                   Spacer(),
                                   AppContainer(
